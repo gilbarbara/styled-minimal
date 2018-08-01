@@ -1,0 +1,35 @@
+{
+  "name": "styled-minimal",
+  "version": "0.1.0",
+  "description": "Minimal UI theme with styled-components",
+  "author": "Gil Barbara <gilbarbara@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gilbarbara/styled-minimal.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gilbarbara/styled-minimal/issues"
+  },
+  "homepage": "https://github.com/gilbarbara/styled-minimal#readme",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "es",
+    "lib",
+    "src"
+  ],
+  "keywords": [
+    "react",
+    "react-component",
+    "styled-components",
+    "ui"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^15.0.0 || ^16.0.0",
+    "prop-types": "^15.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
