@@ -1,0 +1,25 @@
+# Editor Ignores #
+################
+*.iml
+*.ipr
+*.iws
+.idea/
+.vscode
+out/
+local.properties
+
+# Modules and Caches
+###########################
+.tmp
+node_modules
+/index.*
+/ui/
+/utils/
+stats.html
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+thumbs.db
+Desktop.ini
