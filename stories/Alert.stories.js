@@ -4,8 +4,9 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs/react';
 
 import { Alert, Heading } from '../src';
+import { defaults } from '../src/utils/helpers';
 import { SVG, View } from './utils/components';
-import { backgroundAddon, knobs } from './utils/extras';
+import { backgroundAddon } from './utils/extras';
 
 storiesOf('Alert', module)
   .addDecorator(backgroundAddon)
@@ -15,11 +16,11 @@ storiesOf('Alert', module)
   })(() => (
     <View direction="column" hideCheckbox>
       <Alert
-        alignVertical={select('Align Vertical', knobs.alignVertical, 'middle')}
-        alignHorizontal={select('Align Horizontal', knobs.alignHorizontal, 'left')}
+        alignVertical={select('Align Vertical', defaults.alignVertical, 'middle')}
+        alignHorizontal={select('Align Horizontal', defaults.alignHorizontal, 'left')}
         outline={boolean('Outline', false)}
-        size={select('Size', knobs.sizes, 'md')}
-        variant={select('Variant', knobs.variants, 'primary')}
+        size={select('Size', defaults.sizes, 'md')}
+        variant={select('Variant', defaults.variants, 'primary')}
       >
         <Alert.Icon><SVG width="20px" height="20px" /></Alert.Icon>
         <Alert.Content>
