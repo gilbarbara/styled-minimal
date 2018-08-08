@@ -14,8 +14,10 @@
   "main": "index.js",
   "module": "index.es.js",
   "files": [
-    "ui",
-    "src"
+    "styles",
+    "utils",
+    "*.js",
+    "!/*.config.js"
   ],
   "keywords": [
     "react",
