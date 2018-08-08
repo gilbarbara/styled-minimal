@@ -92,8 +92,6 @@
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-test-renderer": "^16.4.2",
-    "rimraf": "^2.6.2",
     "rollup": "^0.63.5",
     "rollup-plugin-babel": "^4.0.0-beta.8",
     "rollup-plugin-cleanup": "^3.0.0",
@@ -111,7 +109,7 @@
   "scripts": {
     "build": "npm run clean && npm run build-packages && npm run build-bundle",
     "build-bundle": "cross-env NODE_ENV=production rollup -c",
-    "build-packages": "cross-env NODE_ENV=production babel src --out-dir . --copy-files",
+    "build-packages": "cross-env NODE_ENV=production babel --plugins '@babel/transform-modules-commonjs' src --out-dir . --copy-files",
     "build-storybook": "build-storybook -o docs",
     "watch": "cross-env NODE_ENV=production rollup -cw",
     "clean": "del '*.js' '!*.config.js' styles utils",
@@ -119,18 +117,18 @@
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "bundlesize": "bundlesize",
-    "precommit": "npm run lint && bundlesize",
+    "precommit": "npm run lint && npm run build && bundlesize",
     "prepublishOnly": "npm run build",
     "storybook": "start-storybook -p 9001"
   },
   "bundlesize": [
     {
       "path": "./index.es.js",
-      "maxSize": "10 kB"
+      "maxSize": "15 kB"
     },
     {
       "path": "./index.js",
-      "maxSize": "10 kB"
+      "maxSize": "15 kB"
     }
   ]
 }
