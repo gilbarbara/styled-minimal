@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { getProp } from '../utils/helpers';
+import { reset } from './styles/index';
+import { getProp } from './utils/helpers';
 
 const Wrapper = styled.div`
   display: flex;
@@ -10,14 +11,15 @@ const Wrapper = styled.div`
   justify-content: flex-start;
   min-height: 100vh;
   padding-top: ${getProp('gutter')};
+  ${reset}
 `;
 
-const Path = ({ children }) => (
+const Screen = ({ children }) => (
   <Wrapper>{children}</Wrapper>
 );
 
-Path.propTypes = {
+Screen.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default Path;
+export default Screen;
