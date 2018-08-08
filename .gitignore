@@ -5,16 +5,16 @@
 *.iws
 .idea/
 .vscode
-out/
 local.properties
 
 # Modules and Caches
 ###########################
 .tmp
 node_modules
-/index.*
-/ui/
-/utils/
+/*.js
+!/*.config.js
+/utils
+/styles
 stats.html
 
 # OS generated files #
