@@ -1,7 +1,8 @@
 import { css } from 'styled-components';
 
-export * from './buttons';
-export * from './functions';
+export * from './alert';
+export * from './badge';
+export * from './button';
 export * from './typography';
 
 /**
@@ -11,17 +12,6 @@ export const easing = 'cubic-bezier(0.35, 0.01, 0.77, 0.34)';
 export const gutter = '32px';
 export const gutterHeading = '16px';
 export const lineHeight = 1.4;
-
-export const alertBorderRadius = '3px';
-export const alertIconGutter = '16px';
-export const alertMaxWidth = '450px';
-export const alertPadding = {
-  xs: '10px 12px',
-  sm: '10px 14px',
-  md: '10px 16px',
-  lg: '10px 18px',
-  xl: '10px 20px',
-};
 
 /**
  * Colors
@@ -58,15 +48,14 @@ export const grays = {
 };
 
 export const palette = {
-  primary: colors.black,
+  primary: '#000',
   secondary: '#607D8B',
   success: '#5A9669',
   warning: '#D4AD32',
   danger: '#B85962',
   info: '#2F90A0',
-  light: grays.gray05,
-  dark: grays.gray80,
-  ...colors,
+  light: '#f4f4f4',
+  dark: '#545454',
 };
 
 export const containerLayout = {
@@ -76,24 +65,15 @@ export const containerLayout = {
     flex-direction: column;
     min-height: 100vh;
     justify-content: center;
-    text-align: center;
     width: 100%;
   `,
 };
-
-export const containerMaxWidths = {
-  ix: '400px',
-  sm: '540px',
-  md: '720px',
-  lg: '960px',
-  xl: '1140px',
-  xxl: '1540px',
-};
+export const containerMaxWidth = '1440px';
 
 /**
  * Grid
  */
-export const gridBreakpoints = {
+export const breakpoints = {
   xs: 0,
   ix: '400px',
   sm: '576px',
@@ -104,14 +84,10 @@ export const gridBreakpoints = {
 };
 
 export const grid = {
-  ix: `@media (min-width: ${gridBreakpoints.ix})`,
-  sm: `@media (min-width: ${gridBreakpoints.sm})`,
-  md: `@media (min-width: ${gridBreakpoints.md})`,
-  lg: `@media (min-width: ${gridBreakpoints.lg})`,
-  xl: `@media (min-width: ${gridBreakpoints.xl})`,
-  xxl: `@media (min-width: ${gridBreakpoints.xxl})`,
+  ix: `@media (min-width: ${breakpoints.ix})`,
+  sm: `@media (min-width: ${breakpoints.sm})`,
+  md: `@media (min-width: ${breakpoints.md})`,
+  lg: `@media (min-width: ${breakpoints.lg})`,
+  xl: `@media (min-width: ${breakpoints.xl})`,
+  xxl: `@media (min-width: ${breakpoints.xxl})`,
 };
-
-export const reset = css`
-  box-sizing: border-box;
-`;
