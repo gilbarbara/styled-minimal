@@ -1,47 +1,36 @@
 // @flow
 import parseToRgb from 'polished/lib/color/parseToRgb';
 import darken from 'polished/lib/color/darken';
-import * as defaultTheme from '../styles';
+import * as styles from '../styles';
 
-export const defaults = {
-  alignHorizontal: ['left', 'center', 'right'],
-  alignVertical: ['top', 'middle', 'bottom'],
-  buttonTypes: ['button', 'submit', 'reset'],
-  headingSizes: ['', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
-  headingTypes: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
-  sizes: ['xs', 'sm', 'md', 'lg', 'xl'],
-  variants: [
-    'primary',
-    'secondary',
-    'info',
-    'success',
-    'warning',
-    'danger',
-    'light',
-    'dark',
-    'white',
-    'red',
-    'pink',
-    'purple',
-    'indigo',
-    'blue',
-    'cyan',
-    'teal',
-    'green',
-    'lime',
-    'yellow',
-    'amber',
-    'orange',
-    'brown',
-    'black',
-  ],
-  weights: [
-    'light',
-    'normal',
-    'medium',
-    'bold',
-  ],
-};
+export function calcUnits(left: string, operator: string = '+', right: string | number): string {
+  if (!left || !right) {
+    return '';
+  }
+
+  const unit = /\d+(.*)/.exec(left);
+  const leftNum = parseFloat(`${left}`.replace(/px|r?em/, ''));
+  const rightNum = parseFloat(`${right}`.replace(/px|r?em/, ''));
+  let result;
+
+  switch (operator) {
+    case '-':
+      result = leftNum - rightNum;
+      break;
+    case '*':
+      result = leftNum * rightNum;
+      break;
+    case '/':
+      result = leftNum / rightNum;
+      break;
+    case '+':
+    default:
+      result = leftNum + rightNum;
+      break;
+  }
+
+  return `${result}${unit ? unit[1] : ''}`;
+}
 
 // Color contrast
 export function getYiq(color: string): number {
@@ -68,11 +57,8 @@ export function getReadableColor(color: string, threshold: number = 150): string
 /* eslint-disable react/destructuring-assignment */
 export const getProp = (path: string, options: Object = {}): any => (props) => {
   const { base, key, toggle } = options;
-  const theme = {
-    ...defaultTheme,
-    ...props.theme,
-  };
-  const selection = theme[path];
+  const { theme = {} } = props;
+  const selection = theme[path] || styles[path];
   let isActive = true;
 
   if (typeof toggle !== 'undefined') {
@@ -97,3 +83,11 @@ export const getProp = (path: string, options: Object = {}): any => (props) => {
 
   return selection;
 };
+
+export function getColor(props: Object, base: string = 'primary'): string {
+  const { variant } = props;
+  const colors = getProp('colors')(props);
+  const palette = getProp('palette')(props);
+
+  return palette[variant] || colors[variant] || palette[base];
+}
