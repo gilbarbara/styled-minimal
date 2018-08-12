@@ -108,3 +108,98 @@ export const ButtonStyles = {
     return fontSizeProp ? `font-size: ${fontSizeProp}` : '';
   },
 };
+
+export const TableStyles = {
+  backgroundColor(props) {
+    const { inverted } = props;
+    const { colors } = getProp('table')(props);
+
+    return `background-color: ${colors[inverted ? 'secondary' : 'primary']};`;
+  },
+  border(props) {
+    const { bordered, borderless, inverted } = props;
+    const { borderColors } = getProp('table')(props);
+
+    if (borderless) {
+      return '';
+    }
+
+    return bordered ? `border: 1px solid ${borderColors[inverted ? 'secondary' : 'primary']};` : '';
+  },
+  caption(props) {
+    const { captionColor, captionPadding } = getProp('table')(props);
+
+    return `
+      caption {
+        caption-side: bottom;
+        color: ${captionColor};
+        font-size: 90%;
+        padding-bottom: ${captionPadding};
+        padding-top: ${captionPadding};
+        text-align: left;
+      }
+    `;
+  },
+  cellBorder(props) {
+    const { bordered, borderless, inverted } = props;
+    const { borderColors } = getProp('table')(props);
+
+    if (borderless) {
+      return '';
+    }
+
+    return `${bordered ? 'border' : 'border-top'}: 1px solid ${borderColors[inverted ? 'secondary' : 'primary']};`;
+  },
+  color(props) {
+    const { inverted } = props;
+    const { colors } = getProp('table')(props);
+
+    return `color: ${colors[inverted ? 'primary' : 'secondary']};`;
+  },
+  headBackgroundColor(props) {
+    const { head } = props;
+    const { headColors } = getProp('table')(props);
+
+    return `background-color: ${headColors[head] || 'transparent'};`;
+  },
+  headCellBorder(props) {
+    const { bordered, borderless, inverted } = props;
+    const { borderColors } = getProp('table')(props);
+    const colorProp = borderColors[inverted ? 'secondary' : 'primary'];
+
+    if (borderless) {
+      return '';
+    }
+
+    return `
+      ${bordered ? `border: 1px solid ${colorProp}` : `border-bottom: 2px solid ${colorProp}`};
+      ${bordered && 'border-bottom-width: 2px'};
+    `;
+  },
+  headColor(props) {
+    const { head } = props;
+    const { colors } = getProp('table')(props);
+
+    if (head) {
+      return `color: ${colors[head === 'dark' ? 'primary' : 'secondary']};`;
+    }
+
+    return '';
+  },
+  padding(props) {
+    const { size } = props;
+    const { padding } = getProp('table')(props);
+
+    return `padding: ${padding[size]}`;
+  },
+  striped(props) {
+    const { inverted, striped } = props;
+    const { stripedColors } = getProp('table')(props);
+
+    if (striped) {
+      return `background-color: ${stripedColors[inverted ? 'secondary' : 'primary']}`;
+    }
+
+    return '';
+  },
+};

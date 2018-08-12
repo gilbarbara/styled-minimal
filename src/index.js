@@ -7,4 +7,5 @@ export { default as Flex } from './Flex';
 export { default as Heading } from './Heading';
 export { default as Paragraph } from './Paragraph';
 export { default as Screen } from './Screen';
+export { default as Table } from './Table';
 export { default as Text } from './Text';

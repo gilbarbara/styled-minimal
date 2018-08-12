@@ -3,6 +3,7 @@ import { css } from 'styled-components';
 export * from './alert';
 export * from './badge';
 export * from './button';
+export * from './table';
 export * from './typography';
 
 /**
