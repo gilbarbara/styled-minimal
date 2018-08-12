@@ -1,70 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import lighten from 'polished/lib/color/lighten';
-import darken from 'polished/lib/color/darken';
 
-import { defaults, getProp, getYiq } from './utils/helpers';
-import { colors, reset } from './styles/index';
+import { backgroundColor, border, color, defaults, fontFamily, fontSize, fontWeight, getColor, getProp } from './utils';
 
-const backgroundColor = props => {
-  const { disabled, outline } = props;
-  const colorProp = getProp('palette', { key: 'variant', base: 'primary' })(props);
-  const baseColor = outline ? colors.white : colorProp;
-
-  return disabled && !outline ? lighten(0.2, baseColor) : baseColor;
-};
-
-const border = props => {
-  const { disabled, outline } = props;
-  const colorProp = getProp('palette', { key: 'variant', base: 'primary' })(props);
-  const baseColor = disabled ? lighten(0.3, colorProp) : colorProp;
-
-  return (outline ? `1px solid ${baseColor}` : 0);
-};
-
-const color = props => {
-  const { disabled, outline } = props;
-  const colorProp = getProp('palette', { key: 'variant', base: 'primary' })(props);
-  let baseColor = getYiq(colorProp) > 180 ? colors.black : colors.white;
-  baseColor = outline ? colorProp : baseColor;
-
-  return disabled ? lighten(0.3, baseColor) : baseColor;
-};
-
-const backgroundColorHover = props => {
-  const { outline } = props;
-  const colorProp = backgroundColor(props);
-
-  if (outline) {
-    return colorProp;
-  }
-
-  const yiq = getYiq(colorProp);
-
-  if (yiq > 240) {
-    return darken(0.1, colorProp);
-  }
-
-  return lighten(yiq < 50 ? 0.3 : 0.1, colorProp);
-};
-
-const colorHover = props => {
-  const { outline } = props;
-  const colorProp = color(props);
-
-  if (!outline) {
-    return colorProp;
-  }
-
-  const yiq = getYiq(colorProp);
-
-  if (yiq < 40) {
-    return lighten(0.5, colorProp);
-  }
-
-  return darken(0.2, colorProp);
-};
+import { StyledBadge } from './Badge';
 
 const animation = props => {
   const { outline } = props;
@@ -72,29 +12,26 @@ const animation = props => {
 
   return animationProp && animationProp(outline ? '#ccc' : '#fff');
 };
+const borderRadius = props => `border-radius: ${getProp('btnRadius', { key: 'size', base: 'md' })(props)}`;
+const lineHeight = props => `line-height: ${getProp('btnLineHeight')(props)}`;
+const outlineColor = props => `outline-color: ${getColor(props)}`;
+const padding = props => `padding: ${getProp('btnPadding', { key: 'size', base: 'md' })(props)}`;
 
-const outlineColor = props => {
-  const { outline } = props;
-
-  return outline ? color(props) : backgroundColor(props);
-};
-
-const Wrapper = styled.button`
-  background-color: ${backgroundColor};
-  border: ${border};
-  border-radius: ${getProp('btnRadius', { key: 'size', base: 'md' })};
+export const StyledButton = styled.button`
+  ${backgroundColor};
+  ${border};
+  ${borderRadius};
   box-shadow: none;
-  color: ${color};
+  ${color};
   cursor: pointer;
   display: inline-flex;
-  font-family: ${getProp('fontFamily')};
-  font-size: ${getProp('fontSizes', { key: 'size', base: 'md' })};
-  font-weight: ${getProp('fontWeights', { key: 'weight', base: 'normal' })};
-  line-height: ${getProp('btnLineHeight')};
+  ${fontFamily};
+  ${fontSize};
+  ${fontWeight};
+  ${lineHeight};
   padding: 0;
   width: ${({ block }) => (block ? '100%' : 'auto')}
   ${animation};
-  ${reset}
   
   &:disabled {
     pointer-events: none;
@@ -106,18 +43,23 @@ const Wrapper = styled.button`
   }
   
   &:focus {  
-    outline-color: ${outlineColor};
+      ${outlineColor};
   }
   
   > * {
+    align-items: center;
     display: flex;
     justify-content: center;
-    padding: ${getProp('btnPadding', { key: 'size', base: 'md' })};
+    ${padding};
   }
   
   > a {
-    color: ${color};
+    ${color};
     text-decoration: none;
+  }
+  
+  ${StyledBadge} {
+    margin-left: 5px;
   }
 `;
 
@@ -152,12 +94,12 @@ class Button extends React.Component {
   render() {
     const { children, ...props } = this.props;
     return (
-      <Wrapper {...props}>
+      <StyledButton {...props}>
         {React.isValidElement(children)
           ? children
           : <span>{children}</span>
         }
-      </Wrapper>
+      </StyledButton>
     );
   }
 }

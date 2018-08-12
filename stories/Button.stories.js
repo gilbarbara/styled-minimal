@@ -6,9 +6,9 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs/react';
 
 import { Button } from '../src';
-import { defaults } from '../src/utils/helpers';
-import { SVG, View } from './utils/components';
-import { backgroundAddon } from './utils/extras';
+import { defaults } from '../src/utils';
+import { SVG, View } from './helpers/components';
+import { backgroundAddon } from './helpers/extras';
 
 const stories = storiesOf('Button', module);
 
@@ -23,9 +23,9 @@ stories
         animate={boolean('Animate', false)}
         block={boolean('Block', false)}
         disabled={boolean('Disabled', false)}
+        onClick={action('clicked')}
         outline={boolean('Outline', false)}
         size={select('Size', defaults.sizes, 'md')}
-        type={select('Type', defaults.buttonTypes, 'button')}
         variant={select('Variant', defaults.variants, 'primary')}
         weight={select('Weight', defaults.weights, 'normal')}
       >

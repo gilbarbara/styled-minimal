@@ -2,9 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { calcUnits, containerLayout, grid, gutter, reset } from './styles/index';
+import { textAlign } from 'styled-system';
 
-const verticalPaddingProp = ({ verticalPadding }) => {
+import { calcUnits, getProp } from './utils';
+
+const verticalPaddingStyles = (props) => {
+  const { verticalPadding } = props;
+  const gutter = getProp('gutter')(props);
+  const grid = getProp('grid')(props);
+
   if (verticalPadding) {
     return css`
       padding-bottom: ${calcUnits(gutter, '/', 2)};
@@ -20,38 +26,54 @@ const verticalPaddingProp = ({ verticalPadding }) => {
   return '';
 };
 
-const Wrapper = styled.div`
+const horizontalPadding = (props) => {
+  const gutter = getProp('gutter')(props);
+  const grid = getProp('grid')(props);
+
+  return css`
+    padding-left: ${calcUnits(gutter, '/', 2)};
+    padding-right: ${calcUnits(gutter, '/', 2)};
+    
+    ${grid.md} {
+      padding-left: ${gutter};
+      padding-right: ${gutter};
+    }
+    
+    ${grid.xl} {
+      padding-left: ${calcUnits(gutter, '*', 2)};
+      padding-right: ${calcUnits(gutter, '*', 2)};
+    }
+  `;
+};
+
+const layoutProp = props => {
+  const { layout } = props;
+  const containerLayout = getProp('containerLayout')(props);
+
+  return containerLayout[layout] || '';
+};
+
+export const StylesContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
-  max-width: 1440px;
-  padding-left: ${calcUnits(gutter, '/', 2)};
-  padding-right: ${calcUnits(gutter, '/', 2)};
+  max-width: ${getProp('containerMaxWidth')};
   position: relative;
+  ${textAlign};
   width: 100%;
-  z-index: 10;
-  ${reset}
-  ${({ layout }) => (containerLayout[layout] || '')}
-  ${verticalPaddingProp}
-
-  ${grid.md} {
-    padding-left: ${gutter};
-    padding-right: ${gutter};
-  }
-
-  ${grid.xl} {
-    padding-left: ${calcUnits(gutter, '*', 2)};
-    padding-right: ${calcUnits(gutter, '*', 2)};
-  }
+  ${horizontalPadding}
+  ${verticalPaddingStyles}
+  ${layoutProp}
 `;
 
 const Container = ({ children, ...props }) => (
-  <Wrapper {...props}>{children}</Wrapper>
+  <StylesContainer {...props}>{children}</StylesContainer>
 );
 
 Container.propTypes = {
   children: PropTypes.node.isRequired,
   /** use the whole Screen */
   layout: PropTypes.oneOf(['fullScreen']),
+  textAlign: PropTypes.oneOf(['left', 'center', 'right']),
   /** add padding top/bottom */
   verticalPadding: PropTypes.bool,
 };

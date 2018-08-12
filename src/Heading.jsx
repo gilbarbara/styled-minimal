@@ -1,19 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import { textAlign } from 'styled-system';
 
-import { reset } from './styles/index';
-import { defaults, getProp } from './utils/helpers';
+import { defaults, fontFamily, fontWeight, getProp } from './utils';
 
 const base = css`
-  font-family: ${getProp('fontFamily')};
+  ${fontFamily};
+  ${fontWeight};
   line-height: ${getProp('lineHeight')};
   margin-bottom: ${getProp('gutterHeading', { toggle: 'gutterBottom', base: 0 })};
   margin-top: 0;
-  ${reset}
+  ${textAlign};
 `;
 
-const elements = {
+export const StyledElements = {
   h1: styled.h1`
     font-size: ${getProp('headingSizes', { key: ['size', 'type'], base: 'h1' })};
     ${base}
@@ -41,7 +42,7 @@ const elements = {
 };
 
 const Heading = ({ children, type, ...props }) => {
-  const Component = elements[type] || elements.p;
+  const Component = StyledElements[type];
 
   return (<Component {...props}>{children}</Component>);
 };

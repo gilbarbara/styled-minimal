@@ -4,9 +4,9 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select } from '@storybook/addon-knobs/react';
 
 import { Heading } from '../src';
-import { defaults } from '../src/utils/helpers';
-import { View } from './utils/components';
-import { backgroundAddon } from './utils/extras';
+import { defaults } from '../src/utils';
+import { View } from './helpers/components';
+import { backgroundAddon } from './helpers/extras';
 
 storiesOf('Heading', module)
   .addDecorator(backgroundAddon)

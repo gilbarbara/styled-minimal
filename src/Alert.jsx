@@ -2,74 +2,44 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { defaults, getProp, getYiq } from './utils/helpers';
-import { colors, reset } from './styles/index';
+import { backgroundColor, border, color, defaults, fontSize, getProp } from './utils';
 
-const backgroundColor = props => {
-  const { outline } = props;
-  const color = getProp('palette', { key: 'variant', base: 'primary' })(props);
+import Enhancer from './Enhancer';
 
-  return (outline ? colors.white : color);
-};
+const borderRadius = props => `border-radius: ${getProp('alertBorderRadius')(props)}`;
 
-const border = props => {
-  const { outline } = props;
-  const colorProp = getProp('palette', { key: 'variant', base: 'primary' })(props);
-
-  return (outline ? `1px solid ${colorProp}` : 0);
-};
-
-const color = props => {
-  const { outline } = props;
-  const colorProp = getProp('palette', { key: 'variant', base: 'primary' })(props);
-  const baseColor = getYiq(colorProp) > 180 ? colors.black : colors.white;
-
-  return (outline ? colorProp : baseColor);
-};
-
-const positionVertical = {
-  top: 'flex-start',
-  middle: 'center',
-  bottom: 'flex-end',
-};
-
-const Wrapper = styled.div`
-  align-items: ${({ alignVertical }) => positionVertical[alignVertical]};
-  background-color: ${backgroundColor};
-  border: ${border};
-  border-radius: ${getProp('alertBorderRadius')};
-  color: ${color};
+const Content = styled.div`
+  align-items: ${({ alignItems }) => alignItems || 'flex-start'};
   display: flex;
+  text-align: ${({ alignHorizontal }) => alignHorizontal};
+`;
+
+export const StyledAlert = styled.div`
+  ${backgroundColor};
+  ${border};
+  ${borderRadius};
+  ${color};
   font-family: ${getProp('fontFamily')};
-  font-size: ${getProp('fontSizes', { key: 'size', base: 'md' })};
+  ${fontSize};
   line-height: ${getProp('lineHeight')};
   max-width: ${getProp('alertMaxWidth')};
   padding: ${getProp('alertPadding', { key: 'size', base: 'md' })};
   width: 100%;
-  ${reset}
+  
+  a {
+    ${color};
+  }
 `;
 
-const Icon = styled.div`
-  line-height: 1;
-  margin-right: ${getProp('alertIconGutter')};
-`;
-
-const Content = styled.div`
-  text-align: ${({ alignHorizontal }) => alignHorizontal};
-`;
-
-const Alert = ({ children, icon, onClick, ...props }) => (
-  <Wrapper {...props} role="alert">
-    {icon && <Icon>{icon}</Icon>}
-    <Content {...props}>{children}</Content>
-  </Wrapper>
+const Alert = ({ children, onClick, ...props }) => (
+  <StyledAlert {...props} role="alert">
+    <Enhancer component={Content} {...props}>{children}</Enhancer>
+  </StyledAlert>
 );
 
 Alert.propTypes = {
   alignHorizontal: PropTypes.oneOf(defaults.alignHorizontal),
-  alignVertical: PropTypes.oneOf(defaults.alignVertical),
   children: PropTypes.node.isRequired,
-  icon: PropTypes.node,
   onClick: PropTypes.func,
   outline: PropTypes.bool,
   /** button size */
@@ -80,13 +50,11 @@ Alert.propTypes = {
 
 Alert.defaultProps = {
   alignHorizontal: 'left',
-  alignVertical: 'middle',
   outline: false,
   size: 'md',
   variant: 'primary',
 };
 
 Alert.Content = Content;
-Alert.Icon = Icon;
 
 export default Alert;

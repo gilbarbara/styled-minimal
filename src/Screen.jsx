@@ -2,24 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { reset } from './styles/index';
-import { getProp } from './utils/helpers';
+import { minHeight } from 'styled-system';
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  min-height: 100vh;
-  padding-top: ${getProp('gutter')};
-  ${reset}
+export const StyledScreen = styled.div`
+  ${minHeight};
 `;
 
 const Screen = ({ children }) => (
-  <Wrapper>{children}</Wrapper>
+  <StyledScreen>{children}</StyledScreen>
 );
 
 Screen.propTypes = {
   children: PropTypes.node.isRequired,
+  minHeight: PropTypes.string,
+};
+
+Screen.defaultProps = {
+  minHeight: '100vh',
 };
 
 export default Screen;
