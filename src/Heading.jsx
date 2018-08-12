@@ -48,8 +48,8 @@ const Heading = ({ children, type, ...props }) => {
 };
 
 Heading.propTypes = {
-  /** Heading content */
   children: PropTypes.node.isRequired,
+  gutterBottom: PropTypes.bool,
   /** element size */
   size: PropTypes.oneOf(defaults.headingSizes),
   /** element type */

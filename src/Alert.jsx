@@ -2,11 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { backgroundColor, border, color, defaults, fontSize, getProp } from './utils';
+import { AlertStyles, backgroundColor, border, color, defaults, fontFamily, fontSize, lineHeight } from './utils';
 
 import Enhancer from './Enhancer';
-
-const borderRadius = props => `border-radius: ${getProp('alertBorderRadius')(props)}`;
 
 const Content = styled.div`
   align-items: ${({ alignItems }) => alignItems || 'flex-start'};
@@ -17,13 +15,13 @@ const Content = styled.div`
 export const StyledAlert = styled.div`
   ${backgroundColor};
   ${border};
-  ${borderRadius};
+  ${AlertStyles.borderRadius};
   ${color};
-  font-family: ${getProp('fontFamily')};
+  ${fontFamily};
   ${fontSize};
-  line-height: ${getProp('lineHeight')};
-  max-width: ${getProp('alertMaxWidth')};
-  padding: ${getProp('alertPadding', { key: 'size', base: 'md' })};
+  ${lineHeight};
+  ${AlertStyles.maxWidth};
+  ${AlertStyles.padding};
   width: 100%;
   
   a {

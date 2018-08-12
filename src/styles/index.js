@@ -58,6 +58,9 @@ export const palette = {
   dark: '#545454',
 };
 
+/**
+ * Container
+ */
 export const containerLayout = {
   fullScreen: css`
     align-items: stretch;

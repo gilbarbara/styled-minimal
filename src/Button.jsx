@@ -2,25 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { backgroundColor, border, color, defaults, fontFamily, fontSize, fontWeight, getColor, getProp } from './utils';
+import { backgroundColor, border, ButtonStyles, color, defaults, fontFamily, fontSize, fontWeight } from './utils';
 
 import { StyledBadge } from './Badge';
-
-const animation = props => {
-  const { outline } = props;
-  const animationProp = getProp('btnLoader', { toggle: 'animate' })(props);
-
-  return animationProp && animationProp(outline ? '#ccc' : '#fff');
-};
-const borderRadius = props => `border-radius: ${getProp('btnRadius', { key: 'size', base: 'md' })(props)}`;
-const lineHeight = props => `line-height: ${getProp('btnLineHeight')(props)}`;
-const outlineColor = props => `outline-color: ${getColor(props)}`;
-const padding = props => `padding: ${getProp('btnPadding', { key: 'size', base: 'md' })(props)}`;
 
 export const StyledButton = styled.button`
   ${backgroundColor};
   ${border};
-  ${borderRadius};
+  ${ButtonStyles.borderRadius};
   box-shadow: none;
   ${color};
   cursor: pointer;
@@ -28,10 +17,10 @@ export const StyledButton = styled.button`
   ${fontFamily};
   ${fontSize};
   ${fontWeight};
-  ${lineHeight};
+  ${ButtonStyles.lineHeight};
   padding: 0;
   width: ${({ block }) => (block ? '100%' : 'auto')}
-  ${animation};
+  ${ButtonStyles.animation};
   
   &:disabled {
     pointer-events: none;
@@ -43,14 +32,14 @@ export const StyledButton = styled.button`
   }
   
   &:focus {  
-      ${outlineColor};
+      ${ButtonStyles.outlineColor};
   }
   
   > * {
     align-items: center;
     display: flex;
     justify-content: center;
-    ${padding};
+    ${ButtonStyles.padding};
   }
   
   > a {

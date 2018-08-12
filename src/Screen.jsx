@@ -8,8 +8,8 @@ export const StyledScreen = styled.div`
   ${minHeight};
 `;
 
-const Screen = ({ children }) => (
-  <StyledScreen>{children}</StyledScreen>
+const Screen = ({ children, ...props }) => (
+  <StyledScreen {...props}>{children}</StyledScreen>
 );
 
 Screen.propTypes = {

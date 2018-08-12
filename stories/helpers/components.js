@@ -26,22 +26,30 @@ const spacer = ({ skipSpacer }) => (
     : ''
 );
 
+const centered = ({ skipCentered }) => (
+  !skipCentered
+    ? css`
+      text-align: center;
+    `
+    : ''
+);
+
 const flex = ({ direction, skipFlex }) => (
   !skipFlex
     ? css`
-    align-items: center;
-    display: flex;
-    flex-direction: ${direction};
-    flex-wrap: wrap;
-    justify-content: center;
-  `
+      align-items: center;
+      display: flex;
+      flex-direction: ${direction};
+      flex-wrap: wrap;
+      justify-content: center;
+    `
     : ''
-)
+);
 
 const StyledView = styled.div`
   margin: 0 auto;
   min-height: 30vh;
-  text-align: center;
+  ${centered};
   ${flex};
   ${checkbox}
   ${spacer};
@@ -55,6 +63,9 @@ View.propTypes = {
   children: PropTypes.node.isRequired,
   direction: PropTypes.string,
   hideCheckbox: PropTypes.bool,
+  skipCentered: PropTypes.bool,
+  skipFlex: PropTypes.bool,
+  skipSpacer: PropTypes.bool,
 };
 
 View.defaultProps = {
