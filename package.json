@@ -14,8 +14,6 @@
   "main": "index.js",
   "module": "index.es.js",
   "files": [
-    "styles",
-    "utils",
     "*.js",
     "!/*.config.js"
   ],
@@ -32,7 +30,6 @@
     "styled-components": "^3.0.0"
   },
   "dependencies": {
-    "classnames": "^2.2.6",
     "polished": "^1.9.3",
     "styled-system": "^3.0.2"
   },
@@ -112,10 +109,10 @@
   "scripts": {
     "build": "npm run clean && npm run build-packages && npm run build-bundle",
     "build-bundle": "cross-env NODE_ENV=production rollup -c",
-    "build-packages": "cross-env NODE_ENV=production babel --plugins '@babel/transform-modules-commonjs' src --out-dir . --copy-files",
+    "build-packages": "cross-env NODE_ENV=production babel --plugins '@babel/transform-modules-commonjs' 'src/*.jsx' --out-dir . --copy-files",
     "build-storybook": "build-storybook -o docs",
     "watch": "cross-env NODE_ENV=production rollup -cw",
-    "clean": "del '*.js' '!*.config.js' styles utils",
+    "clean": "del '*.js' '!*.config.js' '*.html'",
     "lint": "eslint --ext .js --ext .jsx src",
     "test": "jest --coverage",
     "test:watch": "jest --watch",

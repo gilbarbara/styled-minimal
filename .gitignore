@@ -10,6 +10,7 @@ local.properties
 # Modules and Caches
 ###########################
 .tmp
+package/
 node_modules
 /*.js
 !/*.config.js

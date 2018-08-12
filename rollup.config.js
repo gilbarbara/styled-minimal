@@ -9,39 +9,61 @@ import visualizer from 'rollup-plugin-visualizer';
 
 import packageJSON from './package.json';
 
+const external = [
+  ...Object.keys(packageJSON.peerDependencies),
+  ...Object.keys(packageJSON.dependencies),
+];
+
+const plugins = () => ([
+  replace({
+    'process.env.NODE_ENV': JSON.stringify('production'),
+  }),
+  flow(),
+  babel({
+    externalHelpers: true,
+    exclude: 'node_modules/**',
+  }),
+  resolve({
+    extensions: ['.js', '.jsx'],
+    jsnext: true,
+    main: true,
+  }),
+  commonjs({
+    namedExports: {
+      react: ['Component', 'createElement'],
+    },
+  }),
+  filesize(),
+  cleanup(),
+]);
+
 export default [
   {
     input: 'src/index.js',
-    external: [
-      ...Object.keys(packageJSON.peerDependencies),
-      ...Object.keys(packageJSON.dependencies),
-    ],
+    external,
     output: [
       { file: packageJSON.main, format: 'cjs' },
       { file: packageJSON.module, format: 'es' },
     ],
     plugins: [
-      replace({
-        'process.env.NODE_ENV': JSON.stringify('production'),
-      }),
-      flow(),
-      babel({
-        externalHelpers: true,
-        exclude: 'node_modules/**',
-      }),
-      resolve({
-        extensions: ['.js', '.jsx'],
-        jsnext: true,
-        main: true,
-      }),
-      commonjs({
-        namedExports: {
-          react: ['Component', 'createElement'],
-        },
-      }),
-      filesize(),
-      cleanup(),
+      ...plugins(),
       visualizer(),
     ],
+  },
+  {
+    input: 'src/utils/index.js',
+    external,
+    output: [
+      { file: 'utils.js', format: 'cjs' },
+    ],
+    plugins: plugins(),
+  },
+  {
+    input: 'src/styles/index.js',
+    external,
+    output: [
+      { file: 'styles.js', format: 'cjs' },
+    ],
+    plugins: plugins(),
   },
 ];
