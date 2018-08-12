@@ -1,4 +1,5 @@
 // @flow
+import deepmerge from 'deepmerge';
 import parseToRgb from 'polished/lib/color/parseToRgb';
 import darken from 'polished/lib/color/darken';
 import * as styles from '../styles';
@@ -58,7 +59,8 @@ export function getReadableColor(color: string, threshold: number = 150): string
 export const getProp = (path: string, options: Object = {}): any => (props) => {
   const { base, key, toggle } = options;
   const { theme = {} } = props;
-  const selection = theme[path] || styles[path];
+
+  const selection = deepmerge(styles, theme || {})[path];
   let isActive = true;
 
   if (typeof toggle !== 'undefined') {
