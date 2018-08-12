@@ -5,4 +5,6 @@ export { default as Button } from './Button';
 export { default as Container } from './Container';
 export { default as Flex } from './Flex';
 export { default as Heading } from './Heading';
+export { default as Paragraph } from './Paragraph';
 export { default as Screen } from './Screen';
+export { default as Text } from './Text';
