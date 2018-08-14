@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { borders, display, fontFamily, fontSize, fontWeight, space } from 'styled-system';
+import { borders, display, fontFamily as styledFontFamily, fontSize, fontWeight, space } from 'styled-system';
+import { fontFamily } from './utils';
 
 export const StyledText = styled.span`
   ${borders};
   ${display};
   ${fontFamily};
+  ${styledFontFamily};
   ${fontSize};
   ${fontWeight};
   ${space};

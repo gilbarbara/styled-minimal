@@ -3,14 +3,17 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
   alignSelf,
+  backgroundImage,
   bgColor,
   borders,
+  color,
   display,
   flex,
   flexBasis,
   fontFamily,
   fontSize,
   fontWeight,
+  height,
   order,
   space,
   textAlign,
@@ -19,14 +22,17 @@ import {
 
 export const StyledBox = styled.div`
   ${alignSelf};
+  ${backgroundImage};
   ${bgColor}
   ${borders};
+  ${color};
   ${display};
   ${flex};
   ${flexBasis};
   ${fontFamily};
   ${fontSize};
   ${fontWeight};
+  ${height};
   ${order};
   ${space};
   ${textAlign};
