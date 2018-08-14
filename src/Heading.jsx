@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { textAlign } from 'styled-system';
+import { border, space, textAlign } from 'styled-system';
 
-import { defaults, fontFamily, fontWeight, getProp } from './utils';
+import { defaults, fontFamily, fontWeight, lineHeight, getProp } from './utils';
 
 const base = css`
+  ${border};
   ${fontFamily};
   ${fontWeight};
-  line-height: ${getProp('lineHeight')};
-  margin-bottom: ${getProp('gutterHeading', { toggle: 'gutterBottom', base: 0 })};
-  margin-top: 0;
+  ${lineHeight};
+  margin: 0;
+  ${space};
   ${textAlign};
 `;
 

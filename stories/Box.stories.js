@@ -13,13 +13,16 @@ storiesOf('Box', module)
   .add('default', withInfo({
     propTablesExclude: [View],
   })(() => (
-    <View>
+    <View skipSpacer>
       <Box
-        fontSize={text('Font Size', '')}
-        p={text('Padding', '')}
+        bg={text('BG Color', '#eee')}
+        color={text('Color', '#f04')}
+        fontSize={text('Font Size', '16px')}
+        height={text('Height', '100px')}
+        p={text('Padding', '8px')}
         m={text('Margin', '')}
         textAlign={select('Text Align', ['left', 'center', 'right'], 'left')}
-        width={text('Width', '')}
+        width={text('Width', '450px')}
       >
         {text('Children', 'This is a box')}
       </Box>

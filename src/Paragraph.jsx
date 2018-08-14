@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { display, borders, space, fontFamily, fontSize, fontWeight } from 'styled-system';
+import { display, borders, space, fontFamily as styledFontFamily, fontSize, fontWeight } from 'styled-system';
+
+import { fontFamily } from './utils';
 
 export const StyledParagraph = styled.p`
   ${borders};
   ${display};
   ${fontFamily};
+  ${styledFontFamily};
   ${fontSize};
   ${fontWeight};
   ${space};
