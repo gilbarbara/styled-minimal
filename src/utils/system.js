@@ -109,6 +109,69 @@ export const ButtonStyles = {
   },
 };
 
+export const ListStyles = {
+  border(props) {
+    const { bordered } = props;
+    const { borderColor } = getProp('list')(props);
+
+    if (bordered) {
+      return `border: 1px solid ${borderColor}`;
+    }
+
+    return '';
+  },
+  borderRadius(props) {
+    const { bordered } = props;
+    const { borderRadius } = getProp('list')(props);
+
+    if (bordered) {
+      return `border-radius: ${borderRadius}`;
+    }
+
+    return '';
+  },
+  display(props) {
+    const { inline } = props;
+
+    return `
+      display: flex;
+      flex-direction: ${inline ? 'row' : 'column'};
+    `;
+  },
+  itemBorder(props) {
+    const { bordered } = props;
+    const { borderColor } = getProp('list')(props);
+
+    if (bordered) {
+      return `border-top: 1px solid ${borderColor}`;
+    }
+
+    return '';
+  },
+  itemPadding(props) {
+    const { size } = props;
+    const { padding } = getProp('list')(props);
+
+    return `padding: ${padding[size]}`;
+  },
+  padding(props) {
+    const { element, styleType } = props;
+
+    if (element === 'ul' && styleType === 'none') {
+      return 'padding: 0';
+    }
+
+    return '';
+  },
+  styleType(props) {
+    const { element, styleType } = props;
+
+    if (element === 'ol') return '';
+
+    return `list-style-type: ${styleType}`;
+  },
+};
+
 export const TableStyles = {
   backgroundColor(props) {
     const { inverted } = props;
