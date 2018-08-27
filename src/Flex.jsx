@@ -16,7 +16,7 @@ import {
   width,
 } from 'styled-system';
 
-const StyledFlex = styled.div`
+export const StyledFlex = styled.div`
   ${alignContent};
   ${alignItems};
   display: flex;

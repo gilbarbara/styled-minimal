@@ -19,10 +19,10 @@ storiesOf('Flex', module)
         alignContent={select('Align Content', ['', 'flex-start', 'center', 'flex-end', 'stretch', 'space-between', 'space-around'], 'stretch')}
         flexDirection={select('Flex Direction', ['row', 'row-reverse', 'column', 'column-reverse'], 'row')}
         flexWrap={select('Flex Warp', ['nowrap', 'wrap', 'wrap-reverse'], 'nowrap')}
+        height={text('Height', '')}
         justifyContent={select('Justify Content', ['flex-start', 'center', 'flex-end', 'space-between', 'space-around', 'space-evenly'], 'flex-start')}
         p={text('Padding', '')}
         m={text('Margin', '')}
-        height={text('Height', '')}
         minHeight={text('Min Height', '')}
         width={text('Width', '')}
       >
