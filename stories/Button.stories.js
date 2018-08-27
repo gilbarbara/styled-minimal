@@ -6,7 +6,7 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs/react';
 
 import { Button } from '../src';
-import { defaults } from '../src/utils';
+import { propsOptions } from '../src/utils/options';
 import { SVG, View } from './helpers/components';
 import { backgroundAddon } from './helpers/extras';
 
@@ -25,9 +25,9 @@ stories
         disabled={boolean('Disabled', false)}
         onClick={action('clicked')}
         outline={boolean('Outline', false)}
-        size={select('Size', defaults.sizes, 'md')}
-        variant={select('Variant', defaults.variants, 'primary')}
-        weight={select('Weight', defaults.weights, 'normal')}
+        size={select('Size', propsOptions.sizes, 'md')}
+        variant={select('Variant', propsOptions.variants, 'primary')}
+        weight={select('Weight', propsOptions.weights, 'normal')}
       >
         {text('Children', 'Click here now')}
       </Button>

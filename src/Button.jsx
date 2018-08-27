@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { backgroundColor, border, ButtonStyles, color, defaults, fontFamily, fontSize, fontWeight } from './utils';
+import { backgroundColor, border, ButtonStyles, color, fontFamily, fontSize, fontWeight } from './utils/system';
+import { propsOptions } from './utils/options';
 
 import { StyledBadge } from './Badge';
 
@@ -63,11 +64,11 @@ class Button extends React.Component {
     disabled: PropTypes.bool,
     /** callback on the click event */
     onClick: PropTypes.func,
-    size: PropTypes.oneOf(defaults.sizes),
+    size: PropTypes.oneOf(propsOptions.sizes),
     type: PropTypes.oneOf(['button', 'submit', 'reset']),
-    variant: PropTypes.oneOf(defaults.variants),
+    variant: PropTypes.oneOf(propsOptions.variants),
     /** font weight */
-    weight: PropTypes.oneOf(defaults.weights),
+    weight: PropTypes.oneOf(propsOptions.weights),
   };
 
   static defaultProps = {

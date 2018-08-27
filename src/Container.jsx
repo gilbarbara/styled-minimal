@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 
 import { textAlign } from 'styled-system';
 
-import { calcUnits, getProp } from './utils';
+import { calcUnits, getProp } from './utils/helpers';
 
 const verticalPaddingStyles = (props) => {
   const { verticalPadding } = props;

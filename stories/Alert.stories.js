@@ -5,7 +5,7 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs/react';
 
 import { Alert, Box, Heading } from '../src';
-import { defaults } from '../src/utils';
+import { propsOptions } from '../src/utils/options';
 
 import { SVG, View } from './helpers/components';
 import { backgroundAddon } from './helpers/extras';
@@ -21,10 +21,10 @@ storiesOf('Alert', module)
     >
       <View direction="column" hideCheckbox>
         <Alert
-          alignHorizontal={select('Align Horizontal', defaults.alignHorizontal, 'left')}
+          alignHorizontal={select('Align Horizontal', ['left', 'center', 'right'], 'left')}
           outline={boolean('Outline', false)}
-          size={select('Size', defaults.sizes, 'md')}
-          variant={select('Variant', defaults.variants, 'primary')}
+          size={select('Size', propsOptions.sizes, 'md')}
+          variant={select('Variant', propsOptions.variants, 'primary')}
         >
           {text('Children', 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.')}
         </Alert>
@@ -34,10 +34,10 @@ storiesOf('Alert', module)
   .add('with child components', () => (
     <View direction="column" hideCheckbox>
       <Alert
-        alignHorizontal={select('Align Horizontal', defaults.alignHorizontal, 'left')}
+        alignHorizontal={select('Align Horizontal', ['left', 'center', 'right'], 'left')}
         outline={boolean('Outline', false)}
-        size={select('Size', defaults.sizes, 'md')}
-        variant={select('Variant', defaults.variants, 'primary')}
+        size={select('Size', propsOptions.sizes, 'md')}
+        variant={select('Variant', propsOptions.variants, 'primary')}
       >
         <Alert.Content>
           <SVG style={{ marginRight: 16 }} />
