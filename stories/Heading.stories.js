@@ -4,7 +4,7 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select } from '@storybook/addon-knobs/react';
 
 import { Heading } from '../src';
-import { defaults } from '../src/utils';
+import { propsOptions } from '../src/utils/options';
 import { View } from './helpers/components';
 import { backgroundAddon } from './helpers/extras';
 
@@ -16,8 +16,8 @@ storiesOf('Heading', module)
   })(() => (
     <View direction="column" hideCheckbox>
       <Heading
-        size={select('Size', defaults.headingSizes, '')}
-        type={select('Type', defaults.headingTypes, 'h1')}
+        size={select('Size', ['', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'], '')}
+        type={select('Type', ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'], 'h1')}
       >
         {text('Children', 'My Super Awesome Title')}
       </Heading>

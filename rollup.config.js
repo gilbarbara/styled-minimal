@@ -51,14 +51,6 @@ export default [
     ],
   },
   {
-    input: 'src/utils/index.js',
-    external,
-    output: [
-      { file: 'utils.js', format: 'cjs' },
-    ],
-    plugins: plugins(),
-  },
-  {
     input: 'src/styles/index.js',
     external,
     output: [

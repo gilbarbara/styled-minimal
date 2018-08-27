@@ -4,7 +4,7 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs/react';
 
 import { Badge, Button, Heading } from '../src';
-import { defaults } from '../src/utils';
+import { propsOptions } from '../src/utils/options';
 import { SVG, View } from './helpers/components';
 import { backgroundAddon } from './helpers/extras';
 
@@ -17,8 +17,8 @@ storiesOf('Badge', module)
     <View>
       <Badge
         outline={boolean('Outline', false)}
-        size={select('Size', defaults.sizes, 'md')}
-        variant={select('Variant', defaults.variants, 'primary')}
+        size={select('Size', propsOptions.sizes, 'md')}
+        variant={select('Variant', propsOptions.variants, 'primary')}
       >
         {text('Children', 'badge')}
       </Badge>

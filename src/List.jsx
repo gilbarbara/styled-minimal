@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { fontFamily, fontSize, fontWeight, space, textAlign } from 'styled-system';
-import { ListStyles } from './utils';
+
+import { ListStyles } from './utils/system';
 
 const base = css`
   ${ListStyles.border};
@@ -47,7 +48,7 @@ List.propTypes = {
   element: PropTypes.oneOf(['ul', 'ol']),
   inline: PropTypes.bool,
   reversed: PropTypes.bool,
-  size: PropTypes.oneOfType(['sm', 'md', 'lg']),
+  size: PropTypes.oneOf(['sm', 'md', 'lg']),
   start: PropTypes.number,
   styleType: PropTypes.oneOfType([
     PropTypes.oneOf([

@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { border, space, textAlign } from 'styled-system';
 
-import { defaults, fontFamily, fontWeight, lineHeight, getProp } from './utils';
+import { fontFamily, fontWeight, lineHeight } from './utils/system';
+import { propsOptions } from './utils/options';
+import { getProp } from './utils/helpers';
 
 const base = css`
   ${border};
@@ -52,9 +54,9 @@ Heading.propTypes = {
   children: PropTypes.node.isRequired,
   gutterBottom: PropTypes.bool,
   /** element size */
-  size: PropTypes.oneOf(defaults.headingSizes),
+  size: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
   /** element type */
-  type: PropTypes.oneOf(defaults.headingTypes),
+  type: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
 };
 
 Heading.defaultProps = {

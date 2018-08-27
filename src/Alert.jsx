@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { AlertStyles, backgroundColor, border, color, defaults, fontFamily, fontSize, lineHeight } from './utils';
+import { AlertStyles, backgroundColor, border, color, fontFamily, fontSize, lineHeight } from './utils/system';
+import { propsOptions } from './utils/options';
 
 import Enhancer from './Enhancer';
 
@@ -36,14 +37,14 @@ const Alert = ({ children, onClick, ...props }) => (
 );
 
 Alert.propTypes = {
-  alignHorizontal: PropTypes.oneOf(defaults.alignHorizontal),
+  alignHorizontal: PropTypes.oneOf(['left', 'center', 'right']),
   children: PropTypes.node.isRequired,
   onClick: PropTypes.func,
   outline: PropTypes.bool,
   /** button size */
-  size: PropTypes.oneOf(defaults.sizes),
+  size: PropTypes.oneOf(propsOptions.sizes),
   /** button variant */
-  variant: PropTypes.oneOf(defaults.variants),
+  variant: PropTypes.oneOf(propsOptions.variants),
 };
 
 Alert.defaultProps = {
