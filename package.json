@@ -33,7 +33,8 @@
   "dependencies": {
     "deepmerge": "^2.1.1",
     "polished": "^2.0.3",
-    "styled-system": "^3.0.2"
+    "styled-system": "^3.0.2",
+    "system-components": "^3.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-rc.3",
@@ -116,7 +117,7 @@
     "build-storybook": "build-storybook -o docs",
     "watch": "cross-env NODE_ENV=production rollup -cw",
     "clean": "del '*.js' '!*.config.js' '*.html' utils",
-    "lint": "eslint --ext .js --ext .jsx src",
+    "lint": "eslint --ext .js --ext .jsx src stories",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "bundlesize": "bundlesize",
