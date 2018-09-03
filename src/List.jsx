@@ -1,22 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
-import { fontFamily, fontSize, fontWeight, space, textAlign } from 'styled-system';
+import styled from 'styled-components';
+import system from 'system-components';
 
 import { ListStyles } from './utils/system';
 
-const base = css`
-  ${ListStyles.border};
-  ${ListStyles.borderRadius};
-  ${ListStyles.display};
-  ${fontFamily};
-  ${fontSize};
-  ${fontWeight};
-  margin: 0;
-  ${ListStyles.padding};
-  ${space};
-  ${textAlign};
-  ${ListStyles.styleType};
+export const StyledList = styled(system())`
+  ${ListStyles.base};
   
   > li {
     ${ListStyles.itemPadding}
@@ -27,26 +17,15 @@ const base = css`
   }
 `;
 
-export const StyledElements = {
-  ul: styled.ul`
-    ${base}
-  `,
-  ol: styled.ol`
-    ${base}
-  `,
-};
-
-const List = ({ children, element, ...props }) => {
-  const Component = StyledElements[element] || StyledElements.ul;
-
-  return (<Component element={element} {...props}>{children}</Component>);
-};
+const List = ({ children, ...props }) => (
+  <StyledList {...props}>{children}</StyledList>
+);
 
 List.propTypes = {
   bordered: PropTypes.bool,
   children: PropTypes.node.isRequired,
-  element: PropTypes.oneOf(['ul', 'ol']),
   inline: PropTypes.bool,
+  is: PropTypes.oneOf(['ul', 'ol']),
   reversed: PropTypes.bool,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   start: PropTypes.number,
@@ -66,8 +45,8 @@ List.propTypes = {
 
 List.defaultProps = {
   bordered: false,
-  element: 'ul',
   inline: false,
+  is: 'ul',
   size: 'md',
   start: '',
   styleType: 'none',

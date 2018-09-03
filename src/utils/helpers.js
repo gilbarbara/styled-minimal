@@ -59,8 +59,8 @@ export function getReadableColor(color: string, threshold: number = 150): string
 export const getProp = (path: string, options: Object = {}): any => (props) => {
   const { base, key, toggle } = options;
   const { theme = {} } = props;
-
-  const selection = deepmerge(styles, theme || {})[path];
+  const mergedStyles = deepmerge(styles, theme);
+  const selection = mergedStyles[path];
   let isActive = true;
 
   if (typeof toggle !== 'undefined') {

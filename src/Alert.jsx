@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { AlertStyles, backgroundColor, border, color, fontFamily, fontSize, lineHeight } from './utils/system';
+import { AlertStyles } from './utils/system';
 import { propsOptions } from './utils/options';
 
 import Enhancer from './Enhancer';
@@ -14,20 +14,7 @@ const Content = styled.div`
 `;
 
 export const StyledAlert = styled.div`
-  ${backgroundColor};
-  ${border};
-  ${AlertStyles.borderRadius};
-  ${color};
-  ${fontFamily};
-  ${fontSize};
-  ${lineHeight};
-  ${AlertStyles.maxWidth};
-  ${AlertStyles.padding};
-  width: 100%;
-  
-  a {
-    ${color};
-  }
+  ${AlertStyles.base};
 `;
 
 const Alert = ({ children, onClick, ...props }) => (

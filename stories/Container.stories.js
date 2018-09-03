@@ -15,15 +15,15 @@ storiesOf('Container', module)
     text: 'Content wrapper with responsive padding',
   })(() => (
     <Container
-      layout={select('Layout', ['', 'fullScreen'], '')}
-      textAlign={select('Text Align', ['left', 'center', 'right'], '')}
+      layout={select('Layout', ['', 'flex', 'fullScreen'], '')}
+      textAlign={select('Text Align', ['left', 'center', 'right', 'justify'], '')}
       verticalPadding={boolean('Vertical Padding', false)}
       style={{ backgroundColor: '#000' }}
     >
       <div style={{ backgroundColor: '#f04' }}>Content</div>
     </Container>
   )))
-  .add('with layout `fullScreen`', () => (
+  .add('with layout', () => (
     <Container layout="fullScreen" style={{ backgroundColor: '#000' }}>
       <div style={{ backgroundColor: '#f04' }}>Content</div>
     </Container>

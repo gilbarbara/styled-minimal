@@ -26,12 +26,12 @@ storiesOf('Badge', module)
   )))
   .add('with Heading', () => (
     <View direction="column">
-      <Heading type="h1" gutterBottom>Example heading <Badge>New</Badge></Heading>
-      <Heading type="h2" gutterBottom>Example heading <Badge>New</Badge></Heading>
-      <Heading type="h3" gutterBottom>Example heading <Badge>New</Badge></Heading>
-      <Heading type="h4" gutterBottom>Example heading <Badge>New</Badge></Heading>
-      <Heading type="h5" gutterBottom>Example heading <Badge>New</Badge></Heading>
-      <Heading type="h6" gutterBottom>Example heading <Badge>New</Badge></Heading>
+      <Heading is="h1" gutterBottom>Example heading <Badge>New</Badge></Heading>
+      <Heading is="h2" gutterBottom>Example heading <Badge>New</Badge></Heading>
+      <Heading is="h3" gutterBottom>Example heading <Badge>New</Badge></Heading>
+      <Heading is="h4" gutterBottom>Example heading <Badge>New</Badge></Heading>
+      <Heading is="h5" gutterBottom>Example heading <Badge>New</Badge></Heading>
+      <Heading is="h6" gutterBottom>Example heading <Badge>New</Badge></Heading>
     </View>
   ))
   .add('with Button', () => (
@@ -111,6 +111,9 @@ storiesOf('Badge', module)
   ))
   .add('with icon', () => (
     <View>
-      <Badge><SVG width="10px" height="10px" />Bad</Badge>
+      <Badge>
+        <SVG width="10px" height="10px" />{' '}
+        <span>Bad</span>
+      </Badge>
     </View>
   ));

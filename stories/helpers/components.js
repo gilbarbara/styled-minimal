@@ -74,8 +74,13 @@ View.defaultProps = {
 };
 
 const StyledSVG = styled.div`
+  display: flex;
   height: ${({ height }) => height};
   width: ${({ width }) => width};
+  
+  & + * {
+    margin-left: 6px;
+  }
 `;
 
 const SVG = ({ color, height, width, ...props }) => (

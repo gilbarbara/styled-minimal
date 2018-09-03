@@ -65,13 +65,18 @@ export const palette = {
  * Container
  */
 export const containerLayout = {
+  flex: css`
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  `,
   fullScreen: css`
     align-items: stretch;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     justify-content: center;
-    width: 100%;
   `,
 };
 export const containerMaxWidth = '1440px';

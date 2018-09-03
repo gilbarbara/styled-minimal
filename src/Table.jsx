@@ -2,15 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { fontFamily, TableStyles } from './utils/system';
+import { TableStyles } from './utils/system';
 
 export const StyledTable = styled.table`
-  ${TableStyles.backgroundColor};
-  ${TableStyles.border};
-  ${TableStyles.color};
-  border-collapse: collapse;
-  ${fontFamily};
-  width: 100%;
+  ${TableStyles.base};
   
   th {
     text-align: inherit;

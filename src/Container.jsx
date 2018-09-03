@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { textAlign } from 'styled-system';
-
+import { ContainerStyles } from './utils/system';
 import { calcUnits, getProp } from './utils/helpers';
 
 const verticalPaddingStyles = (props) => {
@@ -53,27 +52,22 @@ const layoutProp = props => {
   return containerLayout[layout] || '';
 };
 
-export const StylesContainer = styled.div`
-  margin-left: auto;
-  margin-right: auto;
-  max-width: ${getProp('containerMaxWidth')};
-  position: relative;
-  ${textAlign};
-  width: 100%;
+export const StyledContainer = styled.div`
+  ${ContainerStyles.base};
   ${horizontalPadding}
   ${verticalPaddingStyles}
   ${layoutProp}
 `;
 
 const Container = ({ children, ...props }) => (
-  <StylesContainer {...props}>{children}</StylesContainer>
+  <StyledContainer {...props}>{children}</StyledContainer>
 );
 
 Container.propTypes = {
   children: PropTypes.node.isRequired,
   /** use the whole Screen */
-  layout: PropTypes.oneOf(['fullScreen']),
-  textAlign: PropTypes.oneOf(['left', 'center', 'right']),
+  layout: PropTypes.oneOf(['flex', 'fullScreen']),
+  textAlign: PropTypes.oneOf(['left', 'center', 'right', 'justify']),
   /** add padding top/bottom */
   verticalPadding: PropTypes.bool,
 };
