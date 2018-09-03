@@ -35,13 +35,18 @@ stories
   )))
   .add('with size', () => (
     <View>
-      <Button onClick={action('clicked')} size="xs">
-        <a href="https://amaro.com" target="_blank">Button XS</a>
-      </Button>
+      <Button onClick={action('clicked')} size="xs">Button XS</Button>
       <Button onClick={action('clicked')} size="sm">Button SM</Button>
       <Button onClick={action('clicked')} size="md">Button MD</Button>
       <Button onClick={action('clicked')} size="lg">Button LG</Button>
       <Button onClick={action('clicked')} size="xl">Button XL</Button>
+    </View>
+  ))
+  .add('with is', () => (
+    <View>
+      <Button is="a" onClick={action('clicked')} href="https://amaro.com" target="_blank">Anchor</Button>
+      <Button is="span" onClick={action('clicked')}>Span</Button>
+      <Button is="label" onClick={action('clicked')}>Label</Button>
     </View>
   ))
   .add('with variant (palette)', () => (

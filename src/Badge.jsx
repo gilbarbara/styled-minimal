@@ -2,22 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { BadgeStyles, backgroundColor, border, color, lineHeight } from './utils/system';
+import { BadgeStyles } from './utils/system';
 import { propsOptions } from './utils/options';
 
 export const StyledBadge = styled.span`
-  align-items: center;
-  ${backgroundColor};
-  ${border};
-  ${BadgeStyles.borderRadius};
-  ${color};
-  display: inline-flex;
-  ${BadgeStyles.fontSize};
-  ${BadgeStyles.size};
-  ${BadgeStyles.fontWeight};
-  ${lineHeight};
-  ${BadgeStyles.padding};
-  vertical-align: baseline;
+  ${BadgeStyles.base};
 `;
 
 const Badge = ({ children, ...props }) => (

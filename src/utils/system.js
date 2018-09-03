@@ -1,114 +1,162 @@
 import lighten from 'polished/lib/color/lighten';
 import darken from 'polished/lib/color/darken';
+import { css } from 'styled-components';
+import {
+  border,
+  bottom,
+  display,
+  fontFamily,
+  fontSize,
+  fontWeight,
+  left,
+  minHeight,
+  position,
+  right,
+  space,
+  textAlign,
+  top,
+  width,
+  zIndex,
+} from 'styled-system';
 
 import { getColor, getProp, getYiq } from './helpers';
 import { placeholder } from './mixins';
 import { inputTextTypes } from './options';
 
-export const backgroundColor = props => {
-  const { disabled, outline } = props;
-  const colors = getProp('colors')(props);
-  const baseColor = outline ? colors.white : getColor(props);
+export const base = {
+  color: props => {
+    const { disabled, outline } = props;
+    const colors = getProp('colors')(props);
+    const selectedColor = getColor(props);
 
-  return `background-color: ${disabled && !outline ? lighten(0.2, baseColor) : baseColor};`;
+    let baseColor = getYiq(selectedColor) > 180 ? colors.black : colors.white;
+    baseColor = outline ? selectedColor : baseColor;
+
+    return css`color: ${disabled ? lighten(0.3, baseColor) : baseColor};`;
+  },
+  variant(props) {
+    const { disabled, outline } = props;
+    const colors = getProp('colors')(props);
+    const selectedColor = getColor(props);
+    const backgroundColor = outline ? colors.white : getColor(props);
+    const borderColor = disabled ? lighten(0.3, selectedColor) : selectedColor;
+    let color = getYiq(selectedColor) > 180 ? colors.black : colors.white;
+    color = outline ? selectedColor : color;
+
+    return css`
+      background-color: ${disabled && !outline ? lighten(0.2, backgroundColor) : backgroundColor};
+      border: ${outline ? `1px solid ${borderColor}` : 0};
+      color: ${disabled ? lighten(0.3, color) : color};
+    `;
+  },
+  fontFamily: props => `font-family: ${getProp('fontFamily')(props)};`,
+  fontSize: props => `font-size: ${getProp('fontSizes', { key: 'size', base: 'md' })(props)};`,
+  fontWeight: props => `font-weight: ${getProp('fontWeights', { key: 'weight', base: 'normal' })(props)};`,
+  lineHeight: props => `line-height: ${getProp('lineHeight')(props)};`,
 };
-
-export const border = props => {
-  const { disabled, outline } = props;
-  const selectedColor = getColor(props);
-  const baseColor = disabled ? lighten(0.3, selectedColor) : selectedColor;
-
-  return `border: ${outline ? `1px solid ${baseColor}` : 0};`;
-};
-
-export const color = props => {
-  const { disabled, outline } = props;
-  const colors = getProp('colors')(props);
-  const selectedColor = getColor(props);
-
-  let baseColor = getYiq(selectedColor) > 180 ? colors.black : colors.white;
-  baseColor = outline ? selectedColor : baseColor;
-
-  return `color: ${disabled ? lighten(0.3, baseColor) : baseColor};`;
-};
-
-export const fontFamily = props => `font-family: ${getProp('fontFamily')(props)};`;
-export const fontSize = props => `font-size: ${getProp('fontSizes', { key: 'size', base: 'md' })(props)};`;
-export const fontWeight = props => `font-weight: ${getProp('fontWeights', { key: 'weight', base: 'normal' })(props)};`;
-export const lineHeight = props => `line-height: ${getProp('lineHeight')(props)};`;
 
 export const AlertStyles = {
-  borderRadius(props) {
-    const { borderRadius } = getProp('alert')(props);
-
-    return `border-radius: ${borderRadius};`;
-  },
-  maxWidth(props) {
-    const { maxWidth } = getProp('alert')(props);
-
-    return `max-width: ${maxWidth};`;
-  },
-  padding(props) {
+  base(props) {
     const { size } = props;
-    const { padding } = getProp('alert')(props);
+    const { borderRadius, maxWidth, padding } = getProp('alert')(props);
 
-    return `padding: ${padding[size]};`;
+    return css`
+      ${base.variant};
+      border-radius: ${borderRadius};
+      ${base.fontFamily};
+      ${base.fontSize};
+      ${base.lineHeight};
+      max-width: ${maxWidth};
+      padding: ${padding[size]};
+      width: 100%;
+      
+      a {
+        ${base.color};
+      }
+    `;
   },
 };
 
 export const BadgeStyles = {
-  borderRadius(props) {
-    const { borderRadius } = getProp('badge')(props);
-    return `border-radius: ${borderRadius};`;
-  },
-  fontSize(props) {
-    const { fontSize: badgeFontSize } = getProp('badge')(props);
-    return `font-size: ${badgeFontSize};`;
-  },
-  fontWeight(props) {
-    const { fontWeight: badgeFontWeight } = getProp('badge')(props);
-    return `font-weight: ${badgeFontWeight};`;
-  },
-  padding(props) {
-    const { padding } = getProp('badge')(props);
-    return `padding: ${padding};`;
-  },
-  size(props) {
+  base(props) {
+    const {
+      borderRadius,
+      fontSize: badgeFontSize,
+      fontWeight: badgeFontWeight,
+      padding,
+    } = getProp('badge')(props);
     const fontSizeProp = getProp('fontSizes', { key: 'size' })(props);
-    return fontSizeProp ? `font-size: ${fontSizeProp}` : '';
+
+    return css`
+      align-items: center;
+      ${base.variant};
+      border-radius: ${borderRadius};
+      display: inline-flex;
+      font-size: ${badgeFontSize};
+      ${fontSizeProp ? `font-size: ${fontSizeProp}` : ''};
+      font-weight: ${badgeFontWeight};
+      ${base.lineHeight};
+      padding: ${padding};
+      vertical-align: baseline;
+    `;
   },
 };
 
 export const ButtonStyles = {
-  animation(props) {
-    const { animate, outline } = props;
+  base(props) {
+    const { animate, outline, size } = props;
+    const {
+      borderRadius,
+      lineHeight: buttonLineHeight,
+      loader,
+      padding,
+    } = getProp('button')(props);
+    const fontSizeProp = getProp('fontSizes', { key: 'size' })(props);
 
-    const { loader } = getProp('button')(props);
-    const animationProp = animate && loader;
-
-    return animationProp && animationProp(outline ? '#ccc' : '#fff');
-  },
-  borderRadius(props) {
-    const { size } = props;
-    const { borderRadius } = getProp('button')(props);
-    return `border-radius: ${borderRadius[size]};`;
-  },
-  lineHeight(props) {
-    const { lineHeight: buttonLineHeight } = getProp('button')(props);
-    return `line-height: ${buttonLineHeight};`;
+    return css`
+      align-items: center;
+      ${base.variant};
+      border-radius: ${borderRadius[size]};
+      box-shadow: none;
+      cursor: pointer;
+      display: inline-flex;
+      ${base.fontFamily};
+      ${fontSizeProp ? `font-size: ${fontSizeProp}` : ''};
+      ${base.fontWeight};
+      justify-content: center;
+      line-height: ${buttonLineHeight};
+      padding: ${padding[size]};
+      text-decoration: none;
+      width: ${({ block }) => (block ? '100%' : 'auto')}
+      ${animate ? loader(outline ? '#ccc' : '#fff') : ''};
+    `;
   },
   outlineColor(props) {
-    return `outline-color: ${getColor(props)};`;
+    return css`outline-color: ${getColor(props)};`;
   },
-  padding(props) {
-    const { size } = props;
-    const { padding } = getProp('button')(props);
+};
 
-    return `padding: ${padding[size]};`;
-  },
-  size(props) {
-    const fontSizeProp = getProp('fontSizes', { key: 'size' })(props);
-    return fontSizeProp ? `font-size: ${fontSizeProp}` : '';
+export const ContainerStyles = {
+  base(props) {
+    const containerMaxWidth = getProp('containerMaxWidth')(props);
+
+    return css`
+      ${bottom};
+      ${display};
+      ${left};
+      margin-left: auto;
+      margin-right: auto;
+      max-width: ${containerMaxWidth};
+      ${minHeight};
+      position: relative;
+      ${position};
+      ${right};
+      ${textAlign};
+      ${top};
+      width: 100%;
+      ${width};
+      ${zIndex};
+    `;
   },
 };
 
@@ -122,7 +170,7 @@ export const FormStyles = {
       marginBottom,
     } = getProp('fieldset')(props);
 
-    return `
+    return css`
       background-color: ${bgColor};
       border: 1px solid ${borderColor};
       border-radius: ${borderRadius};
@@ -140,7 +188,7 @@ export const FormStyles = {
       padding,
     } = getProp('form')(props);
 
-    return `
+    return css`
       background-color: ${formBgColor};
       ${bordered ? `border: 1px solid ${borderColor};` : ''}
       ${bordered ? `border-radius: ${borderRadius};` : ''}
@@ -158,13 +206,13 @@ export const FormStyles = {
       padding,
     } = getProp('formGroup')(props);
 
-    return `
+    return css`
       background-color: ${formGroupBgColor};
       ${bordered ? `border: 1px solid ${borderColor};` : ''}
       ${bordered ? `border-radius: ${borderRadius};` : ''}
       margin-bottom: ${marginBottom};
-      ${bordered ? `padding: ${padding};` : ''}
-      text-align:left;
+      ${bordered ? `padding: ${padding};` : ''};
+      text-align: left;
     `;
   },
   input(props) {
@@ -191,13 +239,13 @@ export const FormStyles = {
       thisColor = validation.invalid;
     }
 
-    return `
+    return css`
       background-color: ${inputBgColor};
       border: ${borderWidth ? `${borderWidth} solid ${thisColor}` : ''};
       border-radius: ${borderRadius};
       color: ${inputColor};
       display: ${!['checkbox', 'radio'].includes(type) ? 'block' : 'inline-block'};
-      ${fontFamily(props)};
+      ${base.fontFamily};
       font-size: ${inputFontSize[size]};
       ${inputTextTypes.includes(type) ? `height: ${height[size]}` : ''};
       line-height: ${inputLineHeight};
@@ -210,12 +258,12 @@ export const FormStyles = {
     const { inline } = props;
     const { color: labelColor, inlineFontSize, marginBottom } = getProp('label')(props);
 
-    return `
+    return css`
       color: ${labelColor};
       display: block;
-      ${fontFamily(props)};
+      ${base.fontFamily};
       ${inline ? `font-size: ${inlineFontSize}` : ''};
-      ${lineHeight(props)};
+      ${base.lineHeight};
       ${!inline ? `margin-bottom: ${marginBottom}` : ''};
       white-space: nowrap;
     `;
@@ -223,11 +271,11 @@ export const FormStyles = {
   legend(props) {
     const { color: legendColor, marginBottom } = getProp('legend')(props);
 
-    return `
+    return css`
       color: ${legendColor};
       display: block;
-      ${fontFamily(props)};
-      ${lineHeight(props)};
+      ${base.fontFamily};
+      ${base.lineHeight};
       margin-bottom: ${marginBottom};
       white-space: nowrap;
     `;
@@ -245,14 +293,14 @@ export const FormStyles = {
       padding,
     } = getProp('select')(props);
 
-    return `
+    return css`
       background-color: ${bgColor};
       border: 1px solid ${borderColor};
       border-radius: ${borderRadius};
       color: ${selectColor};
       display: block;
       ${!multiple ? `height: ${height[sizing]}` : ''};
-      ${fontFamily(props)};
+      ${base.fontFamily};
       font-size: ${selectFontSize[sizing]};
       line-height: ${selectLineHeight};
       ${!multiple ? `padding: ${padding[sizing]};` : ''};
@@ -293,13 +341,13 @@ export const FormStyles = {
       thisColor = validation.invalid;
     }
 
-    return `
+    return css`
       background-color: ${inputBgColor};
       border: ${borderWidth ? `${borderWidth} solid ${thisColor}` : ''};
       border-radius: ${borderRadius};
       color: ${inputColor};
       display: ${!['checkbox', 'radio'].includes(type) ? 'block' : 'inline-block'};
-      ${fontFamily(props)};
+      ${base.fontFamily};
       font-size: ${inputFontSize[size]};
       line-height: ${lineHeightTextarea};
       margin: 0;
@@ -311,10 +359,10 @@ export const FormStyles = {
   helpBlock(props) {
     const { helpColor, helpMarginTop } = getProp('formGroup')(props);
 
-    return `
+    return css`
       color: ${helpColor};
       display: block;
-      ${fontFamily(props)};
+      ${base.fontFamily};
       font-size: 85%;
       line-height: 1.3;
       margin-top: ${helpMarginTop};
@@ -323,7 +371,7 @@ export const FormStyles = {
   inlineMargin(props) {
     const { inlineMargin } = getProp('formGroup')(props);
 
-    return `margin-right: ${inlineMargin};`;
+    return css`margin-right: ${inlineMargin};`;
   },
   pseudo(props) {
     const { multiple } = props;
@@ -343,7 +391,7 @@ export const FormStyles = {
     }`
       : '';
 
-    return `
+    return css`
       ${inputOnly};
       
       &:disabled {
@@ -363,33 +411,45 @@ export const FormStyles = {
   },
 };
 
+export const HeadingStyles = {
+  base(props) {
+    const { gutterBottom } = props;
+    const headingWeight = getProp('headingWeight')(props);
+    const headingGutter = getProp('headingGutter')(props);
+    const headingSize = getProp('headingSizes', { key: ['size', 'is'], base: 'h1' })(props);
+
+    return css`
+      font-size: ${headingSize};
+      ${border};
+      ${base.fontFamily};
+      font-weight: ${headingWeight};
+      ${fontWeight};
+      ${base.lineHeight};
+      margin: 0 0 ${gutterBottom ? headingGutter : 0};
+      ${space};
+      ${textAlign};
+    `;
+  },
+};
+
 export const ListStyles = {
-  border(props) {
-    const { bordered } = props;
-    const { borderColor } = getProp('list')(props);
+  base(props) {
+    const { bordered, inline, is, styleType } = props;
+    const { borderColor, borderRadius } = getProp('list')(props);
 
-    if (bordered) {
-      return `border: 1px solid ${borderColor};`;
-    }
-
-    return '';
-  },
-  borderRadius(props) {
-    const { bordered } = props;
-    const { borderRadius } = getProp('list')(props);
-
-    if (bordered) {
-      return `border-radius: ${borderRadius};`;
-    }
-
-    return '';
-  },
-  display(props) {
-    const { inline } = props;
-
-    return `
+    return css`
+      ${bordered ? `border: 1px solid ${borderColor};` : ''};
+      ${bordered ? `border-radius: ${borderRadius};` : ''};
       display: flex;
       flex-direction: ${inline ? 'row' : 'column'};
+      ${fontFamily};
+      ${fontSize};
+      ${fontWeight};
+      margin: 0;
+      ${is === 'ul' && styleType === 'none' ? 'padding: 0;' : ''};
+      ${space};
+      ${textAlign};
+      ${is === 'ul' ? `list-style-type: ${styleType};` : ''};
     `;
   },
   itemBorder(props) {
@@ -397,7 +457,7 @@ export const ListStyles = {
     const { borderColor } = getProp('list')(props);
 
     if (bordered) {
-      return `border-top: 1px solid ${borderColor};`;
+      return css`border-top: 1px solid ${borderColor};`;
     }
 
     return '';
@@ -406,47 +466,28 @@ export const ListStyles = {
     const { size } = props;
     const { padding } = getProp('list')(props);
 
-    return `padding: ${padding[size]};`;
-  },
-  padding(props) {
-    const { element, styleType } = props;
-
-    if (element === 'ul' && styleType === 'none') {
-      return 'padding: 0';
-    }
-
-    return '';
-  },
-  styleType(props) {
-    const { element, styleType } = props;
-
-    if (element === 'ol') return '';
-
-    return `list-style-type: ${styleType};`;
+    return css`padding: ${padding[size]};`;
   },
 };
 
 export const TableStyles = {
-  backgroundColor(props) {
-    const { inverted } = props;
-    const { colors } = getProp('table')(props);
-
-    return `background-color: ${colors[inverted ? 'secondary' : 'primary']};`;
-  },
-  border(props) {
+  base(props) {
     const { bordered, borderless, inverted } = props;
-    const { borderColors } = getProp('table')(props);
+    const { borderColors, colors } = getProp('table')(props);
 
-    if (borderless) {
-      return '';
-    }
-
-    return bordered ? `border: 1px solid ${borderColors[inverted ? 'secondary' : 'primary']};` : '';
+    return css`
+      background-color: ${colors[inverted ? 'secondary' : 'primary']};
+      ${bordered && !borderless ? `border: 1px solid ${borderColors[inverted ? 'secondary' : 'primary']};` : ''};
+      border-collapse: collapse;
+      color: ${colors[inverted ? 'primary' : 'secondary']};
+      ${base.fontFamily};
+      width: 100%;
+    `;
   },
   caption(props) {
     const { captionColor, captionPadding } = getProp('table')(props);
 
-    return `
+    return css`
       caption {
         caption-side: bottom;
         color: ${captionColor};
@@ -465,19 +506,19 @@ export const TableStyles = {
       return '';
     }
 
-    return `${bordered ? 'border' : 'border-top'}: 1px solid ${borderColors[inverted ? 'secondary' : 'primary']};`;
+    return css`${bordered ? 'border' : 'border-top'}: 1px solid ${borderColors[inverted ? 'secondary' : 'primary']};`;
   },
   color(props) {
     const { inverted } = props;
     const { colors } = getProp('table')(props);
 
-    return `color: ${colors[inverted ? 'primary' : 'secondary']};`;
+    return css`color: ${colors[inverted ? 'primary' : 'secondary']};`;
   },
   headBackgroundColor(props) {
     const { head } = props;
     const { headColors } = getProp('table')(props);
 
-    return `background-color: ${headColors[head] || 'transparent'};`;
+    return css`background-color: ${headColors[head] || 'transparent'};`;
   },
   headCellBorder(props) {
     const { bordered, borderless, inverted } = props;
@@ -488,7 +529,7 @@ export const TableStyles = {
       return '';
     }
 
-    return `
+    return css`
       ${bordered ? `border: 1px solid ${colorProp}` : `border-bottom: 2px solid ${colorProp}`};
       ${bordered && 'border-bottom-width: 2px'};
     `;
@@ -498,7 +539,7 @@ export const TableStyles = {
     const { colors } = getProp('table')(props);
 
     if (head) {
-      return `color: ${colors[head === 'dark' ? 'primary' : 'secondary']};`;
+      return css`color: ${colors[head === 'dark' ? 'primary' : 'secondary']};`;
     }
 
     return '';
@@ -507,14 +548,14 @@ export const TableStyles = {
     const { size } = props;
     const { padding } = getProp('table')(props);
 
-    return `padding: ${padding[size]};`;
+    return css`padding: ${padding[size]};`;
   },
   striped(props) {
     const { inverted, striped } = props;
     const { stripedColors } = getProp('table')(props);
 
     if (striped) {
-      return `background-color: ${stripedColors[inverted ? 'secondary' : 'primary']};`;
+      return css`background-color: ${stripedColors[inverted ? 'secondary' : 'primary']};`;
     }
 
     return '';

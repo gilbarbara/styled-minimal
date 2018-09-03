@@ -1,14 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, select } from '@storybook/addon-knobs/react';
 
 import { Text } from '../src';
 import { backgroundAddon } from './helpers/extras';
 
 storiesOf('Text', module)
   .addDecorator(backgroundAddon)
-  .addDecorator(withKnobs)
   .add('default', withInfo()(() => (
     <div>
       <Text>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</Text>

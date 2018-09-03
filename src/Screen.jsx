@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { minHeight } from 'styled-system';
+import { minHeight, space } from 'styled-system';
 
 export const StyledScreen = styled.div`
   ${minHeight};
+  ${space};
 `;
 
 const Screen = ({ children, ...props }) => (

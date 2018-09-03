@@ -17,8 +17,8 @@ storiesOf('List', module)
       <Box width={450}>
         <List
           bordered={boolean('Border', true)}
-          element={select('Component', ['ul', 'ol'], 'ul')}
           inline={boolean('Inline', false)}
+          is={select('Element', ['ul', 'ol'], 'ul')}
           reversed={boolean('Reversed (OL)', false)}
           start={number('Start', 1)}
           styleType={text('List Style (UL)', 'none')}
@@ -40,7 +40,7 @@ storiesOf('List', module)
   .add('with OL', () => (
     <View direction="column" skipCentered hideCheckbox>
       <Box width={450}>
-        <List element="ol" type="I">
+        <List is="ol" type="I">
           <li>Cras justo odio</li>
           <li>Dapibus ac facilisis in</li>
           <li>Morbi leo risus</li>

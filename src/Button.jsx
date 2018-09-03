@@ -1,27 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import system from 'system-components';
 
-import { backgroundColor, border, ButtonStyles, color, fontFamily, fontSize, fontWeight } from './utils/system';
+import { ButtonStyles } from './utils/system';
 import { propsOptions } from './utils/options';
 
 import { StyledBadge } from './Badge';
 
-export const StyledButton = styled.button`
-  ${backgroundColor};
-  ${border};
-  ${ButtonStyles.borderRadius};
-  box-shadow: none;
-  ${color};
-  cursor: pointer;
-  display: inline-flex;
-  ${fontFamily};
-  ${fontSize};
-  ${fontWeight};
-  ${ButtonStyles.lineHeight};
-  padding: 0;
-  width: ${({ block }) => (block ? '100%' : 'auto')}
-  ${ButtonStyles.animation};
+export const StyledButton = styled(system({ is: 'button' }))`
+  ${ButtonStyles.base};
   
   &:disabled {
     pointer-events: none;
@@ -34,18 +22,6 @@ export const StyledButton = styled.button`
   
   &:focus {  
       ${ButtonStyles.outlineColor};
-  }
-  
-  > * {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    ${ButtonStyles.padding};
-  }
-  
-  > a {
-    ${color};
-    text-decoration: none;
   }
   
   ${StyledBadge} {
@@ -85,10 +61,7 @@ class Button extends React.Component {
     const { children, ...props } = this.props;
     return (
       <StyledButton {...props}>
-        {React.isValidElement(children)
-          ? children
-          : <span>{children}</span>
-        }
+        {children}
       </StyledButton>
     );
   }

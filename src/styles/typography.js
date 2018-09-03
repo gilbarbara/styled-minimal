@@ -23,3 +23,6 @@ export const headingSizes = {
   h5: '20px',
   h6: '16px',
 };
+
+export const headingWeight = '700';
+export const headingGutter = '16px';
