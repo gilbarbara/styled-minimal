@@ -8,7 +8,7 @@ import { Alert, Box, Heading } from '../src';
 import { propsOptions } from '../src/utils/options';
 
 import { SVG, View } from './helpers/components';
-import { backgroundAddon } from './helpers/extras';
+import { backgroundAddon, capitalize } from './helpers/extras';
 
 storiesOf('Alert', module)
   .addDecorator(backgroundAddon)
@@ -56,60 +56,17 @@ storiesOf('Alert', module)
       <Alert size="xl">Alert XL</Alert>
     </View>
   ))
-  .add('with variant (palette)', () => (
+  .add('with variant', () => (
     <View direction="column">
-      <Alert variant="primary">Primary</Alert>
-      <Alert variant="secondary">Secondary</Alert>
-      <Alert variant="success">Success</Alert>
-      <Alert variant="warning">Warning</Alert>
-      <Alert variant="danger">Danger</Alert>
-      <Alert variant="info">Info</Alert>
-      <Alert variant="light">Light</Alert>
-      <Alert variant="dark">Dark</Alert>
-    </View>
-  ))
-  .add('with variant (colors)', () => (
-    <View>
-      <Alert variant="white">White</Alert>
-      <Alert variant="red">Red</Alert>
-      <Alert variant="pink">Pink</Alert>
-      <Alert variant="purple">Purple</Alert>
-      <Alert variant="indigo">Indigo</Alert>
-      <Alert variant="blue">Blue</Alert>
-      <Alert variant="cyan">Cyan</Alert>
-      <Alert variant="teal">Teal</Alert>
-      <Alert variant="green">Green</Alert>
-      <Alert variant="lime">Lime</Alert>
-      <Alert variant="yellow">Yellow</Alert>
-      <Alert variant="amber">Amber</Alert>
-      <Alert variant="orange">Orange</Alert>
-      <Alert variant="brown">Brown</Alert>
-      <Alert variant="black">Black</Alert>
+      {propsOptions.variants.map((d, i) => (
+        <Alert key={i} variant={d}>{capitalize(d)}</Alert>
+      ))}
     </View>
   ))
   .add('with outline', () => (
     <View>
-      <Alert outline variant="primary">Primary</Alert>
-      <Alert outline variant="secondary">Secondary</Alert>
-      <Alert outline variant="success">Success</Alert>
-      <Alert outline variant="warning">Warning</Alert>
-      <Alert outline variant="danger">Danger</Alert>
-      <Alert outline variant="info">Info</Alert>
-      <Alert outline variant="light">Light</Alert>
-      <Alert outline variant="dark">Dark</Alert>
-      <Alert outline variant="red">Red</Alert>
-      <Alert outline variant="pink">Pink</Alert>
-      <Alert outline variant="purple">Purple</Alert>
-      <Alert outline variant="indigo">Indigo</Alert>
-      <Alert outline variant="blue">Blue</Alert>
-      <Alert outline variant="cyan">Cyan</Alert>
-      <Alert outline variant="teal">Teal</Alert>
-      <Alert outline variant="green">Green</Alert>
-      <Alert outline variant="lime">Lime</Alert>
-      <Alert outline variant="yellow">Yellow</Alert>
-      <Alert outline variant="amber">Amber</Alert>
-      <Alert outline variant="orange">Orange</Alert>
-      <Alert outline variant="brown">Brown</Alert>
-      <Alert outline variant="black">Black</Alert>
+      {propsOptions.variants.map((d, i) => (
+        <Alert key={i} outline variant={d}>{capitalize(d)}</Alert>
+      ))}
     </View>
   ));

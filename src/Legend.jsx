@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { space, fontSize, fontWeight } from 'styled-system';
+import system from 'system-components';
 
 import { FormStyles } from './utils/system';
 
-export const StyledLegend = styled.legend`
+export const StyledLegend = styled(system({
+  is: 'legend',
+}, 'fontSize', 'fontWeight', 'space'))`
   ${FormStyles.legend};
-  ${fontSize};
-  ${fontWeight};
-  ${space};
 `;
 
 const Legend = ({ children, ...props }) => (

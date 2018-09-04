@@ -5,3 +5,5 @@ export const backgroundAddon = addonBackgrounds([
   { name: 'gray', value: '#999' },
   { name: 'dark', value: '#333' },
 ]);
+
+export const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();

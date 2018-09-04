@@ -1,19 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { borders, display, fontFamily, fontSize, fontWeight, space } from 'styled-system';
+import system from 'system-components';
 
-import { base } from './utils/system';
+import { base, systemGroups } from './utils/system';
 
-export const StyledText = styled.span`
-  ${borders};
-  ${display};
-  ${base.fontFamily};
-  ${fontFamily};
-  ${fontSize};
-  ${fontWeight};
-  ${space};
-`;
+export const StyledText = system(props => ({
+  fontFamily: base.fontFamily(props),
+  is: 'span',
+}), ...systemGroups('text'));
 
 const Text = ({ children, ...props }) => (
   <StyledText {...props}>{children}</StyledText>

@@ -3,25 +3,94 @@ import darken from 'polished/lib/color/darken';
 import { css } from 'styled-components';
 import {
   border,
-  bottom,
-  display,
   fontFamily,
   fontSize,
   fontWeight,
-  left,
-  minHeight,
-  position,
-  right,
   space,
   textAlign,
-  top,
-  width,
-  zIndex,
 } from 'styled-system';
 
 import { getColor, getProp, getYiq } from './helpers';
 import { placeholder } from './mixins';
 import { inputTextTypes } from './options';
+
+export const systemGroups = (...opts) => {
+  const groups = {
+    flex: [
+      'alignContent',
+      'alignItems',
+      'display',
+      'flex',
+      'flexDirection',
+      'flexWrap',
+      'justifyContent',
+    ],
+    layout: [
+      'alignSelf',
+      'display',
+      'flex',
+      'flexBasis',
+      'height',
+      'minHeight',
+      'minWidth',
+      'order',
+      'space',
+      'width',
+    ],
+    positioning: [
+      'bottom',
+      'left',
+      'position',
+      'right',
+      'top',
+      'zIndex',
+    ],
+    text: [
+      'borders',
+      'display',
+      'fontFamily',
+      'fontSize',
+      'fontWeight',
+      'space',
+    ],
+    ui: [
+      'backgroundImage',
+      'bgColor',
+      'borders',
+      'color',
+      'fontFamily',
+      'fontSize',
+      'fontWeight',
+      'textAlign',
+    ],
+  };
+
+  return opts
+    .filter(d => !!groups[d])
+    .map(d => groups[d])
+    .reduce((acc, data) => {
+      data.forEach(d => {
+        if (!acc.includes(d)) {
+          acc.push(d);
+        }
+      });
+
+      return acc;
+    }, [])
+    .sort((a, b) => {
+      const left = a.toUpperCase();
+      const right = b.toUpperCase();
+
+      if (left < right) {
+        return -1;
+      }
+      if (left > right) {
+        return 1;
+      }
+
+      return 0;
+    });
+};
 
 export const base = {
   color: props => {
@@ -49,10 +118,10 @@ export const base = {
       color: ${disabled ? lighten(0.3, color) : color};
     `;
   },
-  fontFamily: props => `font-family: ${getProp('fontFamily')(props)};`,
-  fontSize: props => `font-size: ${getProp('fontSizes', { key: 'size', base: 'md' })(props)};`,
-  fontWeight: props => `font-weight: ${getProp('fontWeights', { key: 'weight', base: 'normal' })(props)};`,
-  lineHeight: props => `line-height: ${getProp('lineHeight')(props)};`,
+  fontFamily: props => getProp('fontFamily')(props),
+  fontSize: props => getProp('fontSizes', { key: 'size', base: 'md' })(props),
+  fontWeight: props => getProp('fontWeights', { key: 'weight', base: 'normal' })(props),
+  lineHeight: props => getProp('lineHeight')(props),
 };
 
 export const AlertStyles = {
@@ -63,9 +132,9 @@ export const AlertStyles = {
     return css`
       ${base.variant};
       border-radius: ${borderRadius};
-      ${base.fontFamily};
-      ${base.fontSize};
-      ${base.lineHeight};
+      font-family: ${base.fontFamily};
+      font-size: ${base.fontSize};
+      line-height: ${base.lineHeight};
       max-width: ${maxWidth};
       padding: ${padding[size]};
       width: 100%;
@@ -95,7 +164,7 @@ export const BadgeStyles = {
       font-size: ${badgeFontSize};
       ${fontSizeProp ? `font-size: ${fontSizeProp}` : ''};
       font-weight: ${badgeFontWeight};
-      ${base.lineHeight};
+      line-height: ${base.lineHeight};
       padding: ${padding};
       vertical-align: baseline;
     `;
@@ -120,9 +189,9 @@ export const ButtonStyles = {
       box-shadow: none;
       cursor: pointer;
       display: inline-flex;
-      ${base.fontFamily};
+      font-family: ${base.fontFamily};
       ${fontSizeProp ? `font-size: ${fontSizeProp}` : ''};
-      ${base.fontWeight};
+      font-weight: ${base.fontWeight};
       justify-content: center;
       line-height: ${buttonLineHeight};
       padding: ${padding[size]};
@@ -141,21 +210,11 @@ export const ContainerStyles = {
     const containerMaxWidth = getProp('containerMaxWidth')(props);
 
     return css`
-      ${bottom};
-      ${display};
-      ${left};
       margin-left: auto;
       margin-right: auto;
       max-width: ${containerMaxWidth};
-      ${minHeight};
       position: relative;
-      ${position};
-      ${right};
-      ${textAlign};
-      ${top};
       width: 100%;
-      ${width};
-      ${zIndex};
     `;
   },
 };
@@ -245,7 +304,7 @@ export const FormStyles = {
       border-radius: ${borderRadius};
       color: ${inputColor};
       display: ${!['checkbox', 'radio'].includes(type) ? 'block' : 'inline-block'};
-      ${base.fontFamily};
+      font-family: ${base.fontFamily};
       font-size: ${inputFontSize[size]};
       ${inputTextTypes.includes(type) ? `height: ${height[size]}` : ''};
       line-height: ${inputLineHeight};
@@ -261,9 +320,9 @@ export const FormStyles = {
     return css`
       color: ${labelColor};
       display: block;
-      ${base.fontFamily};
+      font-family: ${base.fontFamily};
       ${inline ? `font-size: ${inlineFontSize}` : ''};
-      ${base.lineHeight};
+      line-height: ${base.lineHeight};
       ${!inline ? `margin-bottom: ${marginBottom}` : ''};
       white-space: nowrap;
     `;
@@ -274,8 +333,8 @@ export const FormStyles = {
     return css`
       color: ${legendColor};
       display: block;
-      ${base.fontFamily};
-      ${base.lineHeight};
+      font-family: ${base.fontFamily};
+      line-height: ${base.lineHeight};
       margin-bottom: ${marginBottom};
       white-space: nowrap;
     `;
@@ -300,7 +359,7 @@ export const FormStyles = {
       color: ${selectColor};
       display: block;
       ${!multiple ? `height: ${height[sizing]}` : ''};
-      ${base.fontFamily};
+      font-family: ${base.fontFamily};
       font-size: ${selectFontSize[sizing]};
       line-height: ${selectLineHeight};
       ${!multiple ? `padding: ${padding[sizing]};` : ''};
@@ -347,7 +406,7 @@ export const FormStyles = {
       border-radius: ${borderRadius};
       color: ${inputColor};
       display: ${!['checkbox', 'radio'].includes(type) ? 'block' : 'inline-block'};
-      ${base.fontFamily};
+      font-family: ${base.fontFamily};
       font-size: ${inputFontSize[size]};
       line-height: ${lineHeightTextarea};
       margin: 0;
@@ -362,7 +421,7 @@ export const FormStyles = {
     return css`
       color: ${helpColor};
       display: block;
-      ${base.fontFamily};
+      font-family: ${base.fontFamily};
       font-size: 85%;
       line-height: 1.3;
       margin-top: ${helpMarginTop};
@@ -421,10 +480,10 @@ export const HeadingStyles = {
     return css`
       font-size: ${headingSize};
       ${border};
-      ${base.fontFamily};
+      font-family: ${base.fontFamily};
       font-weight: ${headingWeight};
       ${fontWeight};
-      ${base.lineHeight};
+      line-height: ${base.lineHeight};
       margin: 0 0 ${gutterBottom ? headingGutter : 0};
       ${space};
       ${textAlign};
@@ -480,7 +539,7 @@ export const TableStyles = {
       ${bordered && !borderless ? `border: 1px solid ${borderColors[inverted ? 'secondary' : 'primary']};` : ''};
       border-collapse: collapse;
       color: ${colors[inverted ? 'primary' : 'secondary']};
-      ${base.fontFamily};
+      font-family: ${base.fontFamily};
       width: 100%;
     `;
   },
