@@ -17,11 +17,9 @@ const plugins = () => ([
   }),
   flow(),
   babel({
-    externalHelpers: true,
     exclude: 'node_modules/**',
   }),
   resolve({
-    extensions: ['.js', '.jsx'],
     jsnext: true,
     main: true,
   }),
