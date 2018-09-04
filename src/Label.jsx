@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { space, fontSize, fontWeight } from 'styled-system';
+import system from 'system-components';
 
 import { FormStyles } from './utils/system';
 
-export const StyledLabel = styled.label`
+export const StyledLabel =  styled(system({
+  is: 'label',
+}, 'fontSize', 'fontWeight', 'space'))`
   ${FormStyles.label};
-  ${fontSize};
-  ${fontWeight};
-  ${space};
 `;
 
 const Label = ({ children, ...props }) => (

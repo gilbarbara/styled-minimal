@@ -1,44 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import {
-  alignSelf,
-  backgroundImage,
-  bgColor,
-  borders,
-  color,
-  display,
-  flex,
-  flexBasis,
-  fontFamily,
-  fontSize,
-  fontWeight,
-  height,
-  order,
-  space,
-  textAlign,
-  width,
-} from 'styled-system';
+import system from 'system-components';
+import { systemGroups } from './utils/system';
 
-export const StyledBox = styled.div`
-  ${alignSelf};
-  ${backgroundImage};
-  ${bgColor}
-  ${borders};
-  ${color};
-  ${display};
-  ${flex};
-  ${flexBasis};
-  ${fontFamily};
-  ${fontSize};
-  ${fontWeight};
-  ${height};
-  ${order};
-  ${space};
-  ${textAlign};
-  width: 100%;
-  ${width}
-`;
+export const StyledBox = system({
+  width: '100%',
+}, ...systemGroups('flex', 'layout', 'positioning', 'ui'));
 
 const Box = ({ children, ...props }) => (
   <StyledBox {...props}>{children}</StyledBox>

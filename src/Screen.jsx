@@ -1,13 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import system from 'system-components';
 
-import { minHeight, space } from 'styled-system';
-
-export const StyledScreen = styled.div`
-  ${minHeight};
-  ${space};
-`;
+export const StyledScreen = system('minHeight', 'space');
 
 const Screen = ({ children, ...props }) => (
   <StyledScreen {...props}>{children}</StyledScreen>

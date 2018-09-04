@@ -1,20 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { display, borders, space, fontFamily, fontSize, fontWeight } from 'styled-system';
+import system from 'system-components';
 
-import { base } from './utils/system';
+import { base, systemGroups } from './utils/system';
 
-export const StyledParagraph = styled.p`
-  ${borders};
-  ${display};
-  ${base.fontFamily};
-  ${fontFamily};
-  ${fontSize};
-  ${fontWeight};
-  ${space};
-  margin: 0;
-  
+export const StyledParagraph = styled(system(props => ({
+  fontFamily: base.fontFamily(props),
+  is: 'p',
+  margin: 0,
+}), ...systemGroups('text')))`
   & + & {
     margin-top: 16px;
   }

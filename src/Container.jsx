@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import system from 'system-components';
 
-import { ContainerStyles } from './utils/system';
+import { ContainerStyles, systemGroups } from './utils/system';
 import { calcUnits, getProp } from './utils/helpers';
 
 const verticalPaddingStyles = (props) => {
@@ -52,11 +53,11 @@ const layoutProp = props => {
   return containerLayout[layout] || '';
 };
 
-export const StyledContainer = styled.div`
+export const StyledContainer = styled(system(...systemGroups('layout', 'flex')))`
+  ${layoutProp};
   ${ContainerStyles.base};
-  ${horizontalPadding}
-  ${verticalPaddingStyles}
-  ${layoutProp}
+  ${horizontalPadding};
+  ${verticalPaddingStyles};
 `;
 
 const Container = ({ children, ...props }) => (

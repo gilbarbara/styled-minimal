@@ -7,6 +7,7 @@ import { ListStyles } from './utils/system';
 
 export const StyledList = styled(system())`
   ${ListStyles.base};
+  background-color: #f04;
   
   > li {
     ${ListStyles.itemPadding}
@@ -48,7 +49,6 @@ List.defaultProps = {
   inline: false,
   is: 'ul',
   size: 'md',
-  start: '',
   styleType: 'none',
   type: '1',
 };
