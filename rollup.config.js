@@ -1,18 +1,15 @@
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
-import flow from 'rollup-plugin-flow';
-import filesize from 'rollup-plugin-filesize';
-import replace from 'rollup-plugin-replace';
 import cleanup from 'rollup-plugin-cleanup';
+import commonjs from 'rollup-plugin-commonjs';
+import filesize from 'rollup-plugin-filesize';
+import flow from 'rollup-plugin-flow';
+import replace from 'rollup-plugin-replace';
+import resolve from 'rollup-plugin-node-resolve';
 import visualizer from 'rollup-plugin-visualizer';
 
 import packageJSON from './package.json';
 
-const external = [
-  ...Object.keys(packageJSON.peerDependencies),
-  ...Object.keys(packageJSON.dependencies),
-];
+const external = id => !/^\.\/[A-Z]\w+$/.test(id);
 
 const plugins = () => ([
   replace({
