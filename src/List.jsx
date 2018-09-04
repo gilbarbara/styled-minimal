@@ -7,8 +7,7 @@ import { ListStyles } from './utils/system';
 
 export const StyledList = styled(system())`
   ${ListStyles.base};
-  background-color: #f04;
-  
+
   > li {
     ${ListStyles.itemPadding}
   

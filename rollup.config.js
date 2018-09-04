@@ -9,7 +9,12 @@ import visualizer from 'rollup-plugin-visualizer';
 
 import packageJSON from './package.json';
 
-const external = id => !/^\.\/[A-Z]\w+$/.test(id);
+const deps = [
+  ...Object.keys(packageJSON.peerDependencies),
+  ...Object.keys(packageJSON.dependencies),
+];
+
+const external = id => /^\.\/[A-Z]\w+$/.test(id) || deps.includes(id);
 
 const plugins = () => ([
   replace({
