@@ -21,7 +21,14 @@ storiesOf('List', module)
           is={select('Element', ['ul', 'ol'], 'ul')}
           reversed={boolean('Reversed (OL)', false)}
           start={number('Start', 1)}
-          styleType={text('List Style (UL)', 'none')}
+          styleType={select('List Style (UL)', [
+            'disc',
+            'circle',
+            'square',
+            'decimal',
+            'lower-alpha',
+            'none',
+          ], 'none')}
           size={select('Size', ['sm', 'md', 'lg'], 'md')}
           type={select('List Type (OL)', ['1', 'a', 'A', 'i', 'I'], '1')}
         >

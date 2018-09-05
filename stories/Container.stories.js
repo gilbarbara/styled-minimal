@@ -19,8 +19,6 @@ storiesOf('Container', module)
       textAlign={select('Text Align', ['', 'left', 'center', 'right', 'justify'])}
       verticalPadding={boolean('Vertical Padding', false)}
       style={{ backgroundColor: '#000' }}
-      display="flex"
-      mb="3rem"
     >
       <div style={{ backgroundColor: '#f04' }}>Content</div>
     </Container>

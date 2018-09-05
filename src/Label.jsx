@@ -7,6 +7,7 @@ import { FormStyles } from './utils/system';
 
 export const StyledLabel =  styled(system({
   is: 'label',
+  blacklist: ['inline'],
 }, 'fontSize', 'fontWeight', 'space'))`
   ${FormStyles.label};
 `;

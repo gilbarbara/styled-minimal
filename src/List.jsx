@@ -5,7 +5,9 @@ import system from 'system-components';
 
 import { ListStyles } from './utils/system';
 
-export const StyledList = styled(system())`
+export const StyledList = styled(system({
+  blacklist: ['bordered', 'inline', 'styleType'],
+}))`
   ${ListStyles.base};
 
   > li {

@@ -17,7 +17,6 @@ Form.propTypes = {
   bordered: PropTypes.bool,
   children: PropTypes.node.isRequired,
   enctype: PropTypes.string,
-  inline: PropTypes.bool,
   method: PropTypes.oneOf([
     'get',
     'post',
@@ -27,7 +26,6 @@ Form.propTypes = {
 
 Form.defaultProps = {
   bordered: false,
-  inline: false,
 };
 
 export default Form;

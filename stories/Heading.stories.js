@@ -16,7 +16,7 @@ storiesOf('Heading', module)
     <View direction="column" hideCheckbox>
       <Heading
         is={select('Type', ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'], 'h1')}
-        size={select('Size', ['', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'], '')}
+        size={select('Size', ['', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'])}
       >
         {text('Children', 'My Super Awesome Title')}
       </Heading>

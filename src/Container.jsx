@@ -53,7 +53,10 @@ const layoutProp = props => {
   return containerLayout[layout] || '';
 };
 
-export const StyledContainer = styled(system(...systemGroups('layout', 'flex')))`
+export const StyledContainer = styled(system({
+  blacklist: ['textAlign', 'verticalPadding'],
+  textAlign: 'left',
+}, ...systemGroups('layout', 'flex')))`
   ${layoutProp};
   ${ContainerStyles.base};
   ${horizontalPadding};

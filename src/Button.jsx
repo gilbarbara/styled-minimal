@@ -8,7 +8,7 @@ import { propsOptions } from './utils/options';
 
 import { StyledBadge } from './Badge';
 
-export const StyledButton = styled(system({ is: 'button' }))`
+export const StyledButton = styled(system({ is: 'button', blacklist: ['animate', 'block', 'outline'] }))`
   ${ButtonStyles.base};
   
   &:disabled {
