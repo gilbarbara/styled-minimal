@@ -2,95 +2,41 @@ import lighten from 'polished/lib/color/lighten';
 import darken from 'polished/lib/color/darken';
 import { css } from 'styled-components';
 import {
+  alignContent,
+  alignItems,
+  alignSelf,
+  backgroundImage,
   border,
+  borders,
+  bottom,
+  color,
+  display,
+  flex,
+  flexBasis,
+  flexDirection,
+  flexWrap,
   fontFamily,
   fontSize,
   fontWeight,
+  height,
+  justifyContent,
+  left,
+  lineHeight,
+  minHeight,
+  minWidth,
+  order,
+  position,
+  right,
   space,
   textAlign,
+  top,
+  width,
+  zIndex,
 } from 'styled-system';
 
 import { getColor, getProp, getYiq } from './helpers';
 import { placeholder } from './mixins';
 import { inputTextTypes } from './options';
-
-export const systemGroups = (...opts) => {
-  const groups = {
-    flex: [
-      'alignContent',
-      'alignItems',
-      'display',
-      'flex',
-      'flexDirection',
-      'flexWrap',
-      'justifyContent',
-    ],
-    layout: [
-      'alignSelf',
-      'display',
-      'flex',
-      'flexBasis',
-      'height',
-      'minHeight',
-      'minWidth',
-      'order',
-      'space',
-      'width',
-    ],
-    positioning: [
-      'bottom',
-      'left',
-      'position',
-      'right',
-      'top',
-      'zIndex',
-    ],
-    text: [
-      'borders',
-      'display',
-      'fontFamily',
-      'fontSize',
-      'fontWeight',
-      'space',
-    ],
-    ui: [
-      'backgroundImage',
-      'bgColor',
-      'borders',
-      'color',
-      'fontFamily',
-      'fontSize',
-      'fontWeight',
-      'textAlign',
-    ],
-  };
-
-  return opts
-    .filter(d => !!groups[d])
-    .map(d => groups[d])
-    .reduce((acc, data) => {
-      data.forEach(d => {
-        if (!acc.includes(d)) {
-          acc.push(d);
-        }
-      });
-
-      return acc;
-    }, [])
-    .sort((a, b) => {
-      const left = a.toUpperCase();
-      const right = b.toUpperCase();
-
-      if (left < right) {
-        return -1;
-      }
-      if (left > right) {
-        return 1;
-      }
-
-      return 0;
-    });
-};
 
 export const base = {
   color: props => {
@@ -106,16 +52,17 @@ export const base = {
   variant(props) {
     const { disabled, outline } = props;
     const colors = getProp('colors')(props);
-    const selectedColor = getColor(props);
-    const backgroundColor = outline ? colors.white : getColor(props);
-    const borderColor = disabled ? lighten(0.3, selectedColor) : selectedColor;
-    let color = getYiq(selectedColor) > 180 ? colors.black : colors.white;
-    color = outline ? selectedColor : color;
+    const themeColor = getColor(props);
+
+    const backgroundColor = outline ? colors.white : themeColor;
+    const borderColor = disabled ? lighten(0.3, themeColor) : themeColor;
+    let selectedColor = getYiq(themeColor) > 180 ? colors.black : colors.white;
+    selectedColor = outline ? themeColor : selectedColor;
 
     return css`
       background-color: ${disabled && !outline ? lighten(0.2, backgroundColor) : backgroundColor};
       border: ${outline ? `1px solid ${borderColor}` : 0};
-      color: ${disabled ? lighten(0.3, color) : color};
+      color: ${disabled ? lighten(0.3, selectedColor) : selectedColor};
     `;
   },
   fontFamily: props => getProp('fontFamily')(props),
@@ -171,6 +118,42 @@ export const BadgeStyles = {
   },
 };
 
+export const BoxStyles = {
+  base() {
+    return css`
+      width: 100%;
+      ${alignContent};
+      ${alignItems};
+      ${alignSelf};
+      ${backgroundImage};
+      ${borders};
+      ${bottom};
+      ${color};
+      ${display};
+      ${flexBasis};
+      ${flexDirection};
+      ${flexWrap};
+      ${flex};
+      ${fontFamily};
+      ${fontSize};
+      ${fontWeight};
+      ${height};
+      ${justifyContent};
+      ${left};
+      ${minHeight};
+      ${minWidth};
+      ${order};
+      ${position};
+      ${right};
+      ${space};
+      ${textAlign};
+      ${top};
+      ${width};
+      ${zIndex};
+    `;
+  },
+};
+
 export const ButtonStyles = {
   base(props) {
     const { animate, outline, size } = props;
@@ -215,6 +198,55 @@ export const ContainerStyles = {
       max-width: ${containerMaxWidth};
       position: relative;
       width: 100%;
+      ${alignContent};
+      ${alignItems};
+      ${alignSelf};
+      ${display};
+      ${display};
+      ${flexBasis};
+      ${flexDirection};
+      ${flexWrap};
+      ${flex};
+      ${flex};
+      ${height};
+      ${justifyContent};
+      ${minHeight};
+      ${minWidth};
+      ${order};
+      ${space};
+      ${width};
+    `;
+  },
+};
+
+export const FlexStyles = {
+  base() {
+    return css`
+      display: flex;
+      width: 100%;
+      ${alignContent};
+      ${alignItems};
+      ${alignSelf};
+      ${bottom};
+      ${display};
+      ${display};
+      ${flexBasis};
+      ${flexDirection};
+      ${flexWrap};
+      ${flex};
+      ${flex};
+      ${height};
+      ${justifyContent};
+      ${left};
+      ${minHeight};
+      ${minWidth};
+      ${order};
+      ${position};
+      ${right};
+      ${space};
+      ${top};
+      ${width};
+      ${zIndex};
     `;
   },
 };
@@ -283,7 +315,7 @@ export const FormStyles = {
       borderWidth,
       color: inputColor,
       fontSize: inputFontSize,
-      height,
+      height: inputHeight,
       inlineMargin,
       lineHeight: inputLineHeight,
       padding,
@@ -306,7 +338,7 @@ export const FormStyles = {
       display: ${!['checkbox', 'radio'].includes(type) ? 'block' : 'inline-block'};
       font-family: ${base.fontFamily};
       font-size: ${inputFontSize[size]};
-      ${inputTextTypes.includes(type) ? `height: ${height[size]}` : ''};
+      ${inputTextTypes.includes(type) ? `height: ${inputHeight[size]}` : ''};
       line-height: ${inputLineHeight};
       ${['checkbox', 'radio'].includes(type) ? `margin: 0 ${inlineMargin} 0 0` : ''};
       padding: ${inputTextTypes.includes(type) ? padding[size] : 0};
@@ -325,6 +357,11 @@ export const FormStyles = {
       line-height: ${base.lineHeight};
       ${!inline ? `margin-bottom: ${marginBottom}` : ''};
       white-space: nowrap;
+      ${fontFamily};
+      ${fontSize};
+      ${fontWeight};
+      ${lineHeight};
+      ${space};
     `;
   },
   legend(props) {
@@ -337,6 +374,11 @@ export const FormStyles = {
       line-height: ${base.lineHeight};
       margin-bottom: ${marginBottom};
       white-space: nowrap;
+      ${fontFamily};
+      ${fontSize};
+      ${fontWeight};
+      ${lineHeight};
+      ${space};
     `;
   },
   select(props) {
@@ -347,7 +389,7 @@ export const FormStyles = {
       borderColor,
       borderRadius,
       fontSize: selectFontSize,
-      height,
+      height: selectHeight,
       lineHeight: selectLineHeight,
       padding,
     } = getProp('select')(props);
@@ -358,7 +400,7 @@ export const FormStyles = {
       border-radius: ${borderRadius};
       color: ${selectColor};
       display: block;
-      ${!multiple ? `height: ${height[sizing]}` : ''};
+      ${!multiple ? `height: ${selectHeight[sizing]}` : ''};
       font-family: ${base.fontFamily};
       font-size: ${selectFontSize[sizing]};
       line-height: ${selectLineHeight};
@@ -475,7 +517,7 @@ export const HeadingStyles = {
     const { gutterBottom } = props;
     const headingWeight = getProp('headingWeight')(props);
     const headingGutter = getProp('headingGutter')(props);
-    const headingSize = getProp('headingSizes', { key: ['size', 'is'], base: 'h1' })(props);
+    const headingSize = getProp('headingSizes', { key: ['size', 'as'], base: 'h1' })(props);
 
     return css`
       font-size: ${headingSize};
@@ -493,7 +535,7 @@ export const HeadingStyles = {
 
 export const ListStyles = {
   base(props) {
-    const { bordered, inline, is, styleType } = props;
+    const { as, bordered, inline, styleType } = props;
     const { borderColor, borderRadius } = getProp('list')(props);
 
     return css`
@@ -501,31 +543,61 @@ export const ListStyles = {
       ${bordered ? `border-radius: ${borderRadius};` : ''};
       display: flex;
       flex-direction: ${inline ? 'row' : 'column'};
+      font-family: ${base.fontFamily};
       ${fontFamily};
       ${fontSize};
       ${fontWeight};
       margin: 0;
-      ${is === 'ul' && styleType === 'none' ? 'padding: 0;' : ''};
+      ${as === 'ul' && styleType === 'none' ? 'padding: 0;' : ''};
       ${space};
       ${textAlign};
-      ${is === 'ul' ? `list-style-type: ${styleType};` : ''};
+      ${as === 'ul' ? `list-style-type: ${styleType};` : ''};
     `;
   },
-  itemBorder(props) {
+  item(props) {
+    const { size } = props;
+    const { padding } = getProp('list')(props);
+
+    return css`
+      padding: ${padding[size]};
+    `;
+  },
+  itemSibling(props) {
     const { bordered } = props;
     const { borderColor } = getProp('list')(props);
 
     if (bordered) {
-      return css`border-top: 1px solid ${borderColor};`;
+      return css`
+        border-top: 1px solid ${borderColor};
+      `;
     }
 
     return '';
   },
-  itemPadding(props) {
-    const { size } = props;
-    const { padding } = getProp('list')(props);
+};
 
-    return css`padding: ${padding[size]};`;
+export const ParagraphStyles = {
+  base() {
+    return css`
+      font-family: ${base.fontFamily};
+      margin: 0;
+      ${borders};
+      ${display};
+      ${fontFamily};
+      ${fontSize};
+      ${fontWeight};
+      ${lineHeight};
+      ${space};
+    `;
+  },
+};
+
+export const ScreenStyles = {
+  base() {
+    return css`
+      ${minHeight};
+      ${space};
+    `;
   },
 };
 
@@ -618,5 +690,20 @@ export const TableStyles = {
     }
 
     return '';
+  },
+};
+
+export const TextStyles = {
+  base() {
+    return css`
+      font-family: ${base.fontFamily};
+      ${borders};
+      ${display};
+      ${fontFamily};
+      ${fontSize};
+      ${fontWeight};
+      ${lineHeight};
+      ${space};
+    `;
   },
 };

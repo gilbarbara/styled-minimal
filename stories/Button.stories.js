@@ -42,11 +42,11 @@ stories
       <Button onClick={action('clicked')} size="xl">Button XL</Button>
     </View>
   ))
-  .add('with is', () => (
+  .add('with as', () => (
     <View>
-      <Button is="a" onClick={action('clicked')} href="https://amaro.com" target="_blank">Anchor</Button>
-      <Button is="span" onClick={action('clicked')}>Span</Button>
-      <Button is="label" onClick={action('clicked')}>Label</Button>
+      <Button as="a" onClick={action('clicked')} href="https://amaro.com" target="_blank">Anchor</Button>
+      <Button as="span" onClick={action('clicked')}>Span</Button>
+      <Button as="label" onClick={action('clicked')}>Label</Button>
     </View>
   ))
   .add('with variant', () => (

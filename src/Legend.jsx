@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import system from 'system-components';
 
 import { FormStyles } from './utils/system';
 
-export const StyledLegend = styled(system({
-  is: 'legend',
-}, 'fontSize', 'fontWeight', 'space'))`
+export const StyledLegend = styled.legend`
   ${FormStyles.legend};
 `;
 
@@ -16,6 +13,7 @@ const Legend = ({ children, ...props }) => (
 );
 
 Legend.propTypes = {
+  as: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
 

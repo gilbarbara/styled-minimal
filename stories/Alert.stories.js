@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs/react';
 
-import { Alert, Box, Heading } from '../src';
+import { Alert, Box, Flex, Heading } from '../src';
 import { propsOptions } from '../src/utils/options';
 
 import { SVG, View } from './helpers/components';
@@ -39,10 +39,10 @@ storiesOf('Alert', module)
         size={select('Size', propsOptions.sizes, 'md')}
         variant={select('Variant', propsOptions.variants, 'primary')}
       >
-        <Alert.Content>
+        <Flex alignItems="center">
           <SVG style={{ marginRight: 16 }} />
           <Box>It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</Box>
-        </Alert.Content>
+        </Flex>
         <Box mt={1} pt={1} borderTop="1px solid #fff">Footer</Box>
       </Alert>
     </View>

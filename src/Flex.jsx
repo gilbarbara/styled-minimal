@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import system from 'system-components';
-import { systemGroups } from './utils/system';
+import styled from 'styled-components';
 
-export const StyledFlex = system({
-  display: 'flex',
-  width: '100%',
-}, ...systemGroups('flex', 'layout', 'positioning'));
+import { FlexStyles } from './utils/system';
+
+export const StyledFlex = styled.div`
+  ${FlexStyles.base};
+`;
 
 const Flex = ({ children, ...props }) => (
   <StyledFlex {...props}>{children}</StyledFlex>

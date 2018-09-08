@@ -18,7 +18,7 @@ storiesOf('List', module)
         <List
           bordered={boolean('Border', true)}
           inline={boolean('Inline', false)}
-          is={select('Element', ['ul', 'ol'], 'ul')}
+          as={select('Element', ['ul', 'ol'], 'ul')}
           reversed={boolean('Reversed (OL)', false)}
           start={number('Start', 1)}
           styleType={select('List Style (UL)', [
@@ -33,7 +33,7 @@ storiesOf('List', module)
           type={select('List Type (OL)', ['1', 'a', 'A', 'i', 'I'], '1')}
         >
           <li>
-            <Heading type="h5" mb={1}>Cras justo odio</Heading>
+            <Heading as="h5" mb={1}>Cras justo odio</Heading>
             <Paragraph>It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</Paragraph>
           </li>
           <li>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</li>
@@ -47,7 +47,7 @@ storiesOf('List', module)
   .add('with OL', () => (
     <View direction="column" skipCentered hideCheckbox>
       <Box width={450}>
-        <List is="ol" type="I">
+        <List as="ol" type="I">
           <li>Cras justo odio</li>
           <li>Dapibus ac facilisis in</li>
           <li>Morbi leo risus</li>
@@ -58,9 +58,9 @@ storiesOf('List', module)
     </View>
   ))
   .add('with size', () => (
-    <View hideCheckbox style={{ alignItems: 'flex-start' }}>
+    <View hideCheckbox skipCentered style={{ alignItems: 'flex-start' }}>
       <Box width={200}>
-        <Heading type="h5" mb={1}>SM</Heading>
+        <Heading as="h5" mb={1}>SM</Heading>
         <List bordered size="sm">
           <li>Cras justo odio</li>
           <li>Dapibus ac facilisis in</li>
@@ -70,7 +70,7 @@ storiesOf('List', module)
         </List>
       </Box>
       <Box width={200}>
-        <Heading type="h5" mb={1}>MD</Heading>
+        <Heading as="h5" mb={1}>MD</Heading>
         <List bordered size="md">
           <li>Cras justo odio</li>
           <li>Dapibus ac facilisis in</li>
@@ -80,7 +80,7 @@ storiesOf('List', module)
         </List>
       </Box>
       <Box width={200}>
-        <Heading type="h5" mb={1}>LG</Heading>
+        <Heading as="h5" mb={1}>LG</Heading>
         <List bordered size="lg">
           <li>Cras justo odio</li>
           <li>Dapibus ac facilisis in</li>

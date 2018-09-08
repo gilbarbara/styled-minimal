@@ -1,15 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import system from 'system-components';
 
-import { base, systemGroups } from './utils/system';
+import { ParagraphStyles } from './utils/system';
 
-export const StyledParagraph = styled(system(props => ({
-  fontFamily: base.fontFamily(props),
-  is: 'p',
-  margin: 0,
-}), ...systemGroups('text')))`
+export const StyledParagraph = styled.p`
+  ${ParagraphStyles.base};
+
   & + & {
     margin-top: 16px;
   }

@@ -18,7 +18,7 @@ storiesOf('Flex', module)
         alignItems={select('Align Items', ['', 'flex-start', 'center', 'flex-end', 'baseline', 'stretch'], 'stretch')}
         alignContent={select('Align Content', ['', 'flex-start', 'center', 'flex-end', 'stretch', 'space-between', 'space-around'], 'stretch')}
         flexDirection={select('Flex Direction', ['row', 'row-reverse', 'column', 'column-reverse'], 'row')}
-        flexWrap={select('Flex Warp', ['nowrap', 'wrap', 'wrap-reverse'], 'wrap')}
+        flexWrap={select('Flex Wrap', ['nowrap', 'wrap', 'wrap-reverse'], 'wrap')}
         height={text('Height')}
         justifyContent={select('Justify Content', ['flex-start', 'center', 'flex-end', 'space-between', 'space-around', 'space-evenly'], 'flex-start')}
         p={text('Padding')}

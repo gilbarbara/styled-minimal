@@ -1,14 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import system from 'system-components';
+import styled from 'styled-components';
 
-export const StyledScreen = system('minHeight', 'space');
+import { ScreenStyles } from './utils/system';
+
+export const StyledScreen = styled.div`
+  ${ScreenStyles.base};
+`;
 
 const Screen = ({ children, ...props }) => (
   <StyledScreen {...props}>{children}</StyledScreen>
 );
 
 Screen.propTypes = {
+  as: PropTypes.string,
   children: PropTypes.node.isRequired,
   minHeight: PropTypes.string,
 };

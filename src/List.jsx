@@ -1,20 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import system from 'system-components';
 
 import { ListStyles } from './utils/system';
 
-export const StyledList = styled(system({
-  blacklist: ['bordered', 'inline', 'styleType'],
-}))`
+export const StyledList = styled.ul`
   ${ListStyles.base};
 
   > li {
-    ${ListStyles.itemPadding}
+    ${ListStyles.item}
   
     + li {
-      ${ListStyles.itemBorder}
+      ${ListStyles.itemSibling}
     }
   }
 `;
@@ -24,10 +21,11 @@ const List = ({ children, ...props }) => (
 );
 
 List.propTypes = {
+  /** element type */
+  as: PropTypes.oneOf(['ul', 'ol']),
   bordered: PropTypes.bool,
   children: PropTypes.node.isRequired,
   inline: PropTypes.bool,
-  is: PropTypes.oneOf(['ul', 'ol']),
   reversed: PropTypes.bool,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   start: PropTypes.number,
@@ -46,9 +44,9 @@ List.propTypes = {
 };
 
 List.defaultProps = {
+  as: 'ul',
   bordered: false,
   inline: false,
-  is: 'ul',
   size: 'md',
   styleType: 'none',
   type: '1',

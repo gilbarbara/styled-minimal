@@ -1,14 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import system from 'system-components';
 
 import { FormStyles } from './utils/system';
 
-export const StyledLabel =  styled(system({
-  is: 'label',
-  blacklist: ['inline'],
-}, 'fontSize', 'fontWeight', 'space'))`
+export const StyledLabel =  styled.label`
   ${FormStyles.label};
 `;
 
@@ -17,6 +13,7 @@ const Label = ({ children, ...props }) => (
 );
 
 Label.propTypes = {
+  as: PropTypes.string,
   children: PropTypes.node.isRequired,
   inline: PropTypes.bool,
 };

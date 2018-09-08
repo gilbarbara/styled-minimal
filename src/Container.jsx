@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import system from 'system-components';
 
-import { ContainerStyles, systemGroups } from './utils/system';
+import { ContainerStyles } from './utils/system';
 import { calcUnits, getProp } from './utils/helpers';
 
 const verticalPaddingStyles = (props) => {
@@ -12,7 +11,7 @@ const verticalPaddingStyles = (props) => {
   const grid = getProp('grid')(props);
 
   if (verticalPadding) {
-    return css`
+    return `
       padding-bottom: ${calcUnits(gutter, '/', 2)};
       padding-top: ${calcUnits(gutter, '/', 2)};
       
@@ -30,7 +29,7 @@ const horizontalPadding = (props) => {
   const gutter = getProp('gutter')(props);
   const grid = getProp('grid')(props);
 
-  return css`
+  return `
     padding-left: ${calcUnits(gutter, '/', 2)};
     padding-right: ${calcUnits(gutter, '/', 2)};
     
@@ -53,10 +52,7 @@ const layoutProp = props => {
   return containerLayout[layout] || '';
 };
 
-export const StyledContainer = styled(system({
-  blacklist: ['textAlign', 'verticalPadding'],
-  textAlign: 'left',
-}, ...systemGroups('layout', 'flex')))`
+export const StyledContainer = styled.div`
   ${layoutProp};
   ${ContainerStyles.base};
   ${horizontalPadding};

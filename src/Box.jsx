@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import system from 'system-components';
-import { systemGroups } from './utils/system';
+import styled from 'styled-components';
 
-export const StyledBox = system({
-  width: '100%',
-}, ...systemGroups('flex', 'layout', 'positioning', 'ui'));
+import { BoxStyles } from './utils/system';
+
+export const StyledBox = styled.div`
+  ${BoxStyles.base};
+`;
 
 const Box = ({ children, ...props }) => (
   <StyledBox {...props}>{children}</StyledBox>

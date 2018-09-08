@@ -26,12 +26,12 @@ storiesOf('Badge', module)
   )))
   .add('with Heading', () => (
     <View direction="column">
-      <Heading is="h1" gutterBottom>Example heading <Badge>New</Badge></Heading>
-      <Heading is="h2" gutterBottom>Example heading <Badge>New</Badge></Heading>
-      <Heading is="h3" gutterBottom>Example heading <Badge>New</Badge></Heading>
-      <Heading is="h4" gutterBottom>Example heading <Badge>New</Badge></Heading>
-      <Heading is="h5" gutterBottom>Example heading <Badge>New</Badge></Heading>
-      <Heading is="h6" gutterBottom>Example heading <Badge>New</Badge></Heading>
+      <Heading as="h1" gutterBottom>Example heading <Badge>New</Badge></Heading>
+      <Heading as="h2" gutterBottom>Example heading <Badge>New</Badge></Heading>
+      <Heading as="h3" gutterBottom>Example heading <Badge>New</Badge></Heading>
+      <Heading as="h4" gutterBottom>Example heading <Badge>New</Badge></Heading>
+      <Heading as="h5" gutterBottom>Example heading <Badge>New</Badge></Heading>
+      <Heading as="h6" gutterBottom>Example heading <Badge>New</Badge></Heading>
     </View>
   ))
   .add('with Button', () => (

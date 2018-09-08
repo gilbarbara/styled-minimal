@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import system from 'system-components';
 
 import { HeadingStyles } from './utils/system';
 
-export const StyledHeading = styled(system())`
+export const StyledHeading = styled.h1`
   ${HeadingStyles.base};
 `;
 
@@ -14,16 +13,16 @@ const Heading = ({ children, type, ...props }) => (
 );
 
 Heading.propTypes = {
+  /** element type */
+  as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
   children: PropTypes.node.isRequired,
   gutterBottom: PropTypes.bool,
-  /** element type */
-  is: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
   /** element size */
   size: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
 };
 
 Heading.defaultProps = {
-  is: 'h1',
+  as: 'h1',
 };
 
 export default Heading;
