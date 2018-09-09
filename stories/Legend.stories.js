@@ -8,7 +8,9 @@ import { backgroundAddon } from './helpers/extras';
 
 storiesOf('Legend', module)
   .addDecorator(backgroundAddon)
-  .add('default', withInfo()(() => (
+  .add('default', withInfo({
+    propTablesExclude: [View],
+  })(() => (
     <View hideCheckbox skipCentered skipFlex skipSpacer>
       <Legend>Far far away, behind the word mountains, there live the blind texts.</Legend>
     </View>

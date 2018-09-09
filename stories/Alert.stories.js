@@ -1,5 +1,4 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs/react';
@@ -16,20 +15,16 @@ storiesOf('Alert', module)
   .add('default', withInfo({
     propTablesExclude: [View, Heading],
   })(() => (
-    <ThemeProvider
-      theme={{ breakpoints: [400, 580, 768, 1024, 1440].map(n => `${n}px`), space: [0, 4, 8, 12, 16, 20] }}
-    >
-      <View direction="column" hideCheckbox>
-        <Alert
-          alignHorizontal={select('Align Horizontal', ['left', 'center', 'right'], 'left')}
-          outline={boolean('Outline', false)}
-          size={select('Size', propsOptions.sizes, 'md')}
-          variant={select('Variant', propsOptions.variants, 'primary')}
-        >
-          {text('Children', 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.')}
-        </Alert>
-      </View>
-    </ThemeProvider>
+    <View direction="column" hideCheckbox>
+      <Alert
+        alignHorizontal={select('Align Horizontal', ['left', 'center', 'right'], 'left')}
+        outline={boolean('Outline', false)}
+        size={select('Size', propsOptions.sizes, 'md')}
+        variant={select('Variant', propsOptions.variants, 'primary')}
+      >
+        {text('Children', 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.')}
+      </Alert>
+    </View>
   )))
   .add('with child components', () => (
     <View direction="column" hideCheckbox>

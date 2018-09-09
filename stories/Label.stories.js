@@ -10,7 +10,9 @@ import { backgroundAddon } from './helpers/extras';
 storiesOf('Label', module)
   .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
-  .add('default', withInfo()(() => (
+  .add('default', withInfo({
+    propTablesExclude: [View],
+  })(() => (
     <View hideCheckbox skipCentered skipFlex skipSpacer>
       <Label
         inline={boolean('Inline', false)}

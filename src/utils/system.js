@@ -6,8 +6,8 @@ import {
   alignItems,
   alignSelf,
   backgroundImage,
-  border,
   borders,
+  borderRadius,
   bottom,
   color,
   display,
@@ -22,6 +22,8 @@ import {
   justifyContent,
   left,
   lineHeight,
+  maxHeight,
+  maxWidth,
   minHeight,
   minWidth,
   order,
@@ -72,20 +74,26 @@ export const base = {
 export const AlertStyles = {
   base(props) {
     const { size } = props;
-    const { borderRadius, maxWidth, padding } = getProp('alert')(props);
+    const {
+      borderRadius: radii,
+      maxWidth: alertMaxWidth,
+      padding,
+    } = getProp('alert')(props);
 
     return css`
       ${base.variant};
-      border-radius: ${borderRadius};
+      border-radius: ${radii};
       font-size: ${base.fontSize};
       line-height: ${base.lineHeight};
-      max-width: ${maxWidth};
+      max-width: ${alertMaxWidth};
       padding: ${padding[size]};
       width: 100%;
+      ${borderRadius};
       ${fontFamily};
       ${fontSize};
       ${fontWeight};
       ${lineHeight};
+      ${maxWidth};
       ${space};
       
       a {
@@ -98,7 +106,7 @@ export const AlertStyles = {
 export const BadgeStyles = {
   base(props) {
     const {
-      borderRadius,
+      borderRadius: radii,
       fontSize: badgeFontSize,
       fontWeight: badgeFontWeight,
       padding,
@@ -106,16 +114,17 @@ export const BadgeStyles = {
     const fontSizeProp = getProp('fontSizes', { key: 'size' })(props);
 
     return css`
-      align-items: center;
       ${base.variant};
-      border-radius: ${borderRadius};
-      display: inline-flex;
+      border-radius: ${radii};
+      display: inline-block;
       font-size: ${badgeFontSize};
       ${fontSizeProp ? `font-size: ${fontSizeProp}` : ''};
       font-weight: ${badgeFontWeight};
       line-height: ${base.lineHeight};
       padding: ${padding};
       vertical-align: baseline;
+      ${borderRadius};
+      ${fontWeight};
     `;
   },
 };
@@ -142,6 +151,8 @@ export const BoxStyles = {
       ${height};
       ${justifyContent};
       ${left};
+      ${maxHeight};
+      ${maxWidth};
       ${minHeight};
       ${minWidth};
       ${order};
@@ -160,7 +171,7 @@ export const ButtonStyles = {
   base(props) {
     const { animate, outline, size } = props;
     const {
-      borderRadius,
+      borderRadius: radii,
       lineHeight: buttonLineHeight,
       loader,
       padding,
@@ -170,7 +181,7 @@ export const ButtonStyles = {
     return css`
       align-items: center;
       ${base.variant};
-      border-radius: ${borderRadius[size]};
+      border-radius: ${radii[size]};
       box-shadow: none;
       cursor: pointer;
       display: inline-flex;
@@ -182,6 +193,8 @@ export const ButtonStyles = {
       text-decoration: none;
       width: ${({ block }) => (block ? '100%' : 'auto')}
       ${animate ? loader(outline ? '#ccc' : '#fff') : ''};
+      ${borders};
+      ${borderRadius};
       ${fontFamily};
       ${fontSize};
       ${fontWeight};
@@ -262,7 +275,7 @@ export const FormStyles = {
     const {
       backgroundColor: bgColor,
       borderColor,
-      borderRadius,
+      borderRadius: radii,
       padding,
       marginBottom,
     } = getProp('fieldset')(props);
@@ -270,7 +283,7 @@ export const FormStyles = {
     return css`
       background-color: ${bgColor};
       border: 1px solid ${borderColor};
-      border-radius: ${borderRadius};
+      border-radius: ${radii};
       margin-bottom: ${marginBottom};
       padding: ${padding};
       text-align:left;
@@ -281,14 +294,14 @@ export const FormStyles = {
     const {
       backgroundColor: formBgColor,
       borderColor,
-      borderRadius,
+      borderRadius: radii,
       padding,
     } = getProp('form')(props);
 
     return css`
       background-color: ${formBgColor};
       ${bordered ? `border: 1px solid ${borderColor};` : ''}
-      ${bordered ? `border-radius: ${borderRadius};` : ''}
+      ${bordered ? `border-radius: ${radii};` : ''}
       ${bordered ? `padding: ${padding};` : ''}
       text-align:left;
     `;
@@ -298,7 +311,7 @@ export const FormStyles = {
     const {
       backgroundColor: formGroupBgColor,
       borderColor,
-      borderRadius,
+      borderRadius: radii,
       marginBottom,
       padding,
     } = getProp('formGroup')(props);
@@ -306,7 +319,7 @@ export const FormStyles = {
     return css`
       background-color: ${formGroupBgColor};
       ${bordered ? `border: 1px solid ${borderColor};` : ''}
-      ${bordered ? `border-radius: ${borderRadius};` : ''}
+      ${bordered ? `border-radius: ${radii};` : ''}
       margin-bottom: ${marginBottom};
       ${bordered ? `padding: ${padding};` : ''};
       text-align: left;
@@ -317,7 +330,7 @@ export const FormStyles = {
     const {
       backgroundColor: inputBgColor,
       borderColor,
-      borderRadius,
+      borderRadius: radii,
       borderWidth,
       color: inputColor,
       fontSize: inputFontSize,
@@ -339,7 +352,7 @@ export const FormStyles = {
     return css`
       background-color: ${inputBgColor};
       border: ${borderWidth ? `${borderWidth} solid ${thisColor}` : ''};
-      border-radius: ${borderRadius};
+      border-radius: ${radii};
       color: ${inputColor};
       display: ${!['checkbox', 'radio'].includes(type) ? 'block' : 'inline-block'};
       font-family: inherit;
@@ -393,7 +406,7 @@ export const FormStyles = {
       backgroundColor: bgColor,
       color: selectColor,
       borderColor,
-      borderRadius,
+      borderRadius: radii,
       fontSize: selectFontSize,
       height: selectHeight,
       lineHeight: selectLineHeight,
@@ -403,7 +416,7 @@ export const FormStyles = {
     return css`
       background-color: ${bgColor};
       border: 1px solid ${borderColor};
-      border-radius: ${borderRadius};
+      border-radius: ${radii};
       color: ${selectColor};
       display: block;
       ${!multiple ? `height: ${selectHeight[sizing]}` : ''};
@@ -431,7 +444,7 @@ export const FormStyles = {
     const {
       backgroundColor: inputBgColor,
       borderColor,
-      borderRadius,
+      borderRadius: radii,
       borderWidth,
       color: inputColor,
       fontSize: inputFontSize,
@@ -451,7 +464,7 @@ export const FormStyles = {
     return css`
       background-color: ${inputBgColor};
       border: ${borderWidth ? `${borderWidth} solid ${thisColor}` : ''};
-      border-radius: ${borderRadius};
+      border-radius: ${radii};
       color: ${inputColor};
       display: ${!['checkbox', 'radio'].includes(type) ? 'block' : 'inline-block'};
       font-family: inherit;
@@ -526,12 +539,12 @@ export const HeadingStyles = {
 
     return css`
       font-size: ${headingSize};
-      ${border};
       font-family: inherit;
       font-weight: ${headingWeight};
-      ${fontWeight};
       line-height: ${base.lineHeight};
       margin: 0 0 ${gutterBottom ? headingGutter : 0};
+      ${borders};
+      ${fontWeight};
       ${space};
       ${textAlign};
     `;
@@ -541,11 +554,12 @@ export const HeadingStyles = {
 export const ListStyles = {
   base(props) {
     const { as, bordered, inline, styleType } = props;
-    const { borderColor, borderRadius } = getProp('list')(props);
+    const {
+      borderColor,
+      borderRadius: radii,
 
     return css`
       ${bordered ? `border: 1px solid ${borderColor};` : ''};
-      ${bordered ? `border-radius: ${borderRadius};` : ''};
       display: flex;
       flex-direction: ${inline ? 'row' : 'column'};
       ${fontFamily};

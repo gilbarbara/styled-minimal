@@ -10,7 +10,9 @@ import { backgroundAddon } from './helpers/extras';
 storiesOf('Select', module)
   .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
-  .add('default', withInfo()(() => (
+  .add('default', withInfo({
+    propTablesExclude: [View],
+  })(() => (
     <View hideCheckbox skipCentered>
       <Select
         disabled={boolean('Disabled', false)}

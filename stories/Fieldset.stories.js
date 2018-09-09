@@ -5,11 +5,14 @@ import { withKnobs, boolean } from '@storybook/addon-knobs/react';
 
 import { Fieldset, Input, Label, Legend } from '../src';
 import { backgroundAddon } from './helpers/extras';
+import { View } from './helpers/components';
 
 storiesOf('Fieldset', module)
   .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
-  .add('default', withInfo()(() => (
+  .add('default', withInfo({
+    propTablesExclude: [Input, Label, Legend, View],
+  })(() => (
     <Fieldset
       bordered={boolean('Bordered', false)}
       inline={boolean('Inline', false)}

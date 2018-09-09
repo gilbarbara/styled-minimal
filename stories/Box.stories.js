@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, number, select, text } from '@storybook/addon-knobs/react';
+import { withKnobs, select, text } from '@storybook/addon-knobs/react';
 
 import { Box } from '../src';
 import { View } from './helpers/components';

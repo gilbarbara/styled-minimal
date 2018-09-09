@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean, text, number, select } from '@storybook/addon-knobs/react';
+import { withKnobs, boolean, number, select } from '@storybook/addon-knobs/react';
 
 import { Box, Heading, List, Paragraph } from '../src';
 import { View } from './helpers/components';
@@ -11,14 +11,14 @@ storiesOf('List', module)
   .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
   .add('default', withInfo({
-    propTablesExclude: [View],
+    propTablesExclude: [Box, Heading, Paragraph, View],
   })(() => (
     <View direction="column" skipCentered hideCheckbox>
       <Box width={450}>
         <List
+          as={select('Element', ['ul', 'ol'], 'ul')}
           bordered={boolean('Border', true)}
           inline={boolean('Inline', false)}
-          as={select('Element', ['ul', 'ol'], 'ul')}
           reversed={boolean('Reversed (OL)', false)}
           start={number('Start', 1)}
           styleType={select('List Style (UL)', [

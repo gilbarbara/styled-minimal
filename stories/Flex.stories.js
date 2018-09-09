@@ -11,7 +11,7 @@ storiesOf('Flex', module)
   .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
   .add('default', withInfo({
-    propTablesExclude: [View],
+    propTablesExclude: [Box, View],
   })(() => (
     <View>
       <Flex
