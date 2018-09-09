@@ -61,13 +61,11 @@ export const base = {
 
     return css`
       background-color: ${disabled && !outline ? lighten(0.2, backgroundColor) : backgroundColor};
-      border: ${outline ? `1px solid ${borderColor}` : 0};
+      border: 1px solid ${outline ? borderColor : backgroundColor};
       color: ${disabled ? lighten(0.3, selectedColor) : selectedColor};
     `;
   },
-  fontFamily: props => getProp('fontFamily')(props),
   fontSize: props => getProp('fontSizes', { key: 'size', base: 'md' })(props),
-  fontWeight: props => getProp('fontWeights', { key: 'weight', base: 'normal' })(props),
   lineHeight: props => getProp('lineHeight')(props),
 };
 
@@ -79,12 +77,16 @@ export const AlertStyles = {
     return css`
       ${base.variant};
       border-radius: ${borderRadius};
-      font-family: ${base.fontFamily};
       font-size: ${base.fontSize};
       line-height: ${base.lineHeight};
       max-width: ${maxWidth};
       padding: ${padding[size]};
       width: 100%;
+      ${fontFamily};
+      ${fontSize};
+      ${fontWeight};
+      ${lineHeight};
+      ${space};
       
       a {
         ${base.color};
@@ -172,15 +174,19 @@ export const ButtonStyles = {
       box-shadow: none;
       cursor: pointer;
       display: inline-flex;
-      font-family: ${base.fontFamily};
+      font-family: inherit;
       ${fontSizeProp ? `font-size: ${fontSizeProp}` : ''};
-      font-weight: ${base.fontWeight};
       justify-content: center;
       line-height: ${buttonLineHeight};
       padding: ${padding[size]};
       text-decoration: none;
       width: ${({ block }) => (block ? '100%' : 'auto')}
       ${animate ? loader(outline ? '#ccc' : '#fff') : ''};
+      ${fontFamily};
+      ${fontSize};
+      ${fontWeight};
+      ${lineHeight};
+      ${space};
     `;
   },
   outlineColor(props) {
@@ -336,7 +342,7 @@ export const FormStyles = {
       border-radius: ${borderRadius};
       color: ${inputColor};
       display: ${!['checkbox', 'radio'].includes(type) ? 'block' : 'inline-block'};
-      font-family: ${base.fontFamily};
+      font-family: inherit;
       font-size: ${inputFontSize[size]};
       ${inputTextTypes.includes(type) ? `height: ${inputHeight[size]}` : ''};
       line-height: ${inputLineHeight};
@@ -352,7 +358,7 @@ export const FormStyles = {
     return css`
       color: ${labelColor};
       display: block;
-      font-family: ${base.fontFamily};
+      font-family: inherit;
       ${inline ? `font-size: ${inlineFontSize}` : ''};
       line-height: ${base.lineHeight};
       ${!inline ? `margin-bottom: ${marginBottom}` : ''};
@@ -370,7 +376,7 @@ export const FormStyles = {
     return css`
       color: ${legendColor};
       display: block;
-      font-family: ${base.fontFamily};
+      font-family: inherit;
       line-height: ${base.lineHeight};
       margin-bottom: ${marginBottom};
       white-space: nowrap;
@@ -401,7 +407,7 @@ export const FormStyles = {
       color: ${selectColor};
       display: block;
       ${!multiple ? `height: ${selectHeight[sizing]}` : ''};
-      font-family: ${base.fontFamily};
+      font-family: inherit;
       font-size: ${selectFontSize[sizing]};
       line-height: ${selectLineHeight};
       ${!multiple ? `padding: ${padding[sizing]};` : ''};
@@ -448,7 +454,7 @@ export const FormStyles = {
       border-radius: ${borderRadius};
       color: ${inputColor};
       display: ${!['checkbox', 'radio'].includes(type) ? 'block' : 'inline-block'};
-      font-family: ${base.fontFamily};
+      font-family: inherit;
       font-size: ${inputFontSize[size]};
       line-height: ${lineHeightTextarea};
       margin: 0;
@@ -463,7 +469,6 @@ export const FormStyles = {
     return css`
       color: ${helpColor};
       display: block;
-      font-family: ${base.fontFamily};
       font-size: 85%;
       line-height: 1.3;
       margin-top: ${helpMarginTop};
@@ -522,7 +527,7 @@ export const HeadingStyles = {
     return css`
       font-size: ${headingSize};
       ${border};
-      font-family: ${base.fontFamily};
+      font-family: inherit;
       font-weight: ${headingWeight};
       ${fontWeight};
       line-height: ${base.lineHeight};
@@ -543,7 +548,6 @@ export const ListStyles = {
       ${bordered ? `border-radius: ${borderRadius};` : ''};
       display: flex;
       flex-direction: ${inline ? 'row' : 'column'};
-      font-family: ${base.fontFamily};
       ${fontFamily};
       ${fontSize};
       ${fontWeight};
@@ -579,7 +583,6 @@ export const ListStyles = {
 export const ParagraphStyles = {
   base() {
     return css`
-      font-family: ${base.fontFamily};
       margin: 0;
       ${borders};
       ${display};
@@ -611,7 +614,6 @@ export const TableStyles = {
       ${bordered && !borderless ? `border: 1px solid ${borderColors[inverted ? 'secondary' : 'primary']};` : ''};
       border-collapse: collapse;
       color: ${colors[inverted ? 'primary' : 'secondary']};
-      font-family: ${base.fontFamily};
       width: 100%;
     `;
   },
@@ -696,7 +698,6 @@ export const TableStyles = {
 export const TextStyles = {
   base() {
     return css`
-      font-family: ${base.fontFamily};
       ${borders};
       ${display};
       ${fontFamily};

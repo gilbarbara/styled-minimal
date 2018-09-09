@@ -16,7 +16,7 @@ const Input = ({ ...props }) => (
 
 Input.propTypes = {
   accept: PropTypes.string,
-  autocomplete: PropTypes.string,
+  autoComplete: PropTypes.string,
   checked: PropTypes.bool,
   defaultChecked: PropTypes.bool,
   defaultValue: PropTypes.oneOfType([
@@ -25,8 +25,8 @@ Input.propTypes = {
   ]),
   disabled: PropTypes.bool,
   id: PropTypes.string,
-  maxlength: PropTypes.number,
-  minlength: PropTypes.number,
+  maxLength: PropTypes.number,
+  minLength: PropTypes.number,
   name: PropTypes.string,
   pattern: PropTypes.string,
   placeholder: PropTypes.string,

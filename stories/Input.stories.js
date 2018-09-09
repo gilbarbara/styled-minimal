@@ -16,10 +16,10 @@ storiesOf('Input', module)
     <View hideCheckbox>
       <Input
         accept={text('Accept')}
-        autocomplete={text('Autocomplete')}
+        autoComplete={text('Autocomplete')}
         checked={boolean('Checked', false)}
         disabled={boolean('Disabled', false)}
-        maxlength={number('Max Length')}
+        maxLength={number('Max Length')}
         name={text('Name')}
         pattern={text('Pattern')}
         placeholder={text('Placeholder', 'Data')}

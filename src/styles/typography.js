@@ -1,12 +1,3 @@
-export const fontFamily = 'Roboto, Helvetica, Arial, sans-serif';
-
-export const fontWeights = {
-  light: 300,
-  normal: 400,
-  medium: 500,
-  bold: 700,
-};
-
 export const fontSizes = {
   xs: '12px',
   sm: '14px',
