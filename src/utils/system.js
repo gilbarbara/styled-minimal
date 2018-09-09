@@ -28,6 +28,7 @@ import {
   minWidth,
   order,
   position,
+  ratio,
   right,
   space,
   textAlign,
@@ -207,6 +208,19 @@ export const ButtonStyles = {
   },
 };
 
+export const CodeStyles = {
+  base() {
+    return css`
+      font-family: "SF Mono", "Roboto Mono", Menlo, monospace;
+      ${color};
+      ${borders};
+      ${display};
+      ${fontSize};
+      ${space};
+    `;
+  },
+};
+
 export const ContainerStyles = {
   base(props) {
     const containerMaxWidth = getProp('containerMaxWidth')(props);
@@ -234,6 +248,32 @@ export const ContainerStyles = {
       ${order};
       ${space};
       ${width};
+    `;
+  },
+};
+
+export const EmbedStyles = {
+  base() {
+    return css`
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      ${borders};
+      ${borderRadius};
+      ${display};
+      ${ratio};
+      ${space};
+      ${width};
+      
+      & > iframe {
+        border: 0;
+        bottom: 0;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
     `;
   },
 };
@@ -551,15 +591,57 @@ export const HeadingStyles = {
   },
 };
 
+export const ImageStyles = {
+  base() {
+    return css`
+      height: auto;
+      max-width: 100%;
+      ${borders};
+      ${borderRadius};
+      ${display};
+      ${height};
+      ${maxHeight};
+      ${maxWidth};
+      ${minHeight};
+      ${minWidth};
+      ${space};
+      ${width};
+    `;
+  },
+};
+
+export const LinkStyles = {
+  base(props) {
+    const palette = getProp('palette')(props);
+    const grays = getProp('grays')(props);
+
+    return css`
+      color: ${palette.primary};
+      ${color};
+      ${borders};
+      ${display};
+      ${fontSize};
+      ${fontWeight};
+      ${space};
+      
+      &:visited {
+        color: ${grays.gray50};
+      }
+    `;
+  },
+};
+
 export const ListStyles = {
   base(props) {
     const { as, bordered, inline, styleType } = props;
     const {
       borderColor,
       borderRadius: radii,
+    } = getProp('list')(props);
 
     return css`
       ${bordered ? `border: 1px solid ${borderColor};` : ''};
+      ${bordered ? `border-radius: ${radii};` : ''};
       display: flex;
       flex-direction: ${inline ? 'row' : 'column'};
       ${fontFamily};
