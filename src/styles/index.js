@@ -52,14 +52,14 @@ export const grays = {
 };
 
 export const palette = {
-  primary: '#000',
-  secondary: '#607D8B',
-  success: '#5A9669',
-  warning: '#D4AD32',
-  danger: '#B85962',
-  info: '#2F90A0',
+  primary: '#2E2E2E',
+  secondary: '#4B515D',
+  success: '#00C851',
+  warning: '#fda509',
+  danger: '#ff4444',
+  info: '#33b5e5',
   light: '#f4f4f4',
-  dark: '#545454',
+  dark: '#212121',
 };
 
 /**

@@ -59,15 +59,17 @@ export const base = {
     const colors = getProp('colors')(props);
     const themeColor = getColor(props);
 
-    const backgroundColor = outline ? colors.white : themeColor;
-    const borderColor = disabled ? lighten(0.3, themeColor) : themeColor;
     let selectedColor = getYiq(themeColor) > 180 ? colors.black : colors.white;
     selectedColor = outline ? themeColor : selectedColor;
+    let backgroundColor = outline ? colors.white : themeColor;
+    backgroundColor = disabled && !outline ? lighten(0.2, backgroundColor) : backgroundColor;
+    let borderColor = disabled ? lighten(0.2, themeColor) : themeColor;
+    borderColor = disabled ? lighten(0.2, selectedColor) : selectedColor;
 
     return css`
-      background-color: ${disabled && !outline ? lighten(0.2, backgroundColor) : backgroundColor};
-      border: 1px solid ${outline ? borderColor : backgroundColor};
-      color: ${disabled ? lighten(0.3, selectedColor) : selectedColor};
+      background-color: ${backgroundColor};
+      border: 1px solid ${borderColor};
+      color: ${borderColor};
     `;
   },
   fontSize: props => getProp('fontSizes', { key: 'size', base: 'md' })(props),
@@ -206,7 +208,9 @@ export const ButtonStyles = {
     `;
   },
   outlineColor(props) {
-    return css`outline-color: ${getColor(props)};`;
+    return css`
+      outline-color: ${getColor(props)};
+    `;
   },
 };
 
