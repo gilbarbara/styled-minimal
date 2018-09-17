@@ -19,6 +19,7 @@ export { default as List } from './List';
 export { default as Paragraph } from './Paragraph';
 export { default as Screen } from './Screen';
 export { default as Select } from './Select';
+export { default as Switch } from './Switch';
 export { default as Table } from './Table';
 export { default as Text } from './Text';
 export { default as Textarea } from './Textarea';

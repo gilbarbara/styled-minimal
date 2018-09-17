@@ -37,7 +37,7 @@ import {
   zIndex,
 } from 'styled-system';
 
-import { getColor, getProp, getYiq } from './helpers';
+import { calcUnits, getColor, getProp, getYiq } from './helpers';
 import { placeholder } from './mixins';
 import { inputTextTypes } from './options';
 
@@ -50,7 +50,9 @@ export const base = {
     let baseColor = getYiq(selectedColor) > 180 ? colors.black : colors.white;
     baseColor = outline ? selectedColor : baseColor;
 
-    return css`color: ${disabled ? lighten(0.3, baseColor) : baseColor};`;
+    return css`
+      color: ${disabled ? lighten(0.3, baseColor) : baseColor};
+    `;
   },
   variant(props) {
     const { disabled, outline } = props;
@@ -801,6 +803,54 @@ export const TextStyles = {
       ${fontWeight};
       ${lineHeight};
       ${space};
+    `;
+  },
+};
+
+export const SwitchStyles = {
+  base(props) {
+    const { size, status } = props;
+    const sizes = getProp('switchSizes')(props);
+    const themeColor = getColor(props);
+
+    return css`
+      cursor: pointer;
+      height: ${sizes[size].height};
+      position: relative;
+      user-select: none;
+      vertical-align: middle;
+      width: ${sizes[size].width};
+      ${space};
+      
+      input {
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+      
+      .__track {
+        background-color: ${status ? themeColor : '#ccc'};
+        border-radius: ${sizes[size].borderRadius};
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      .__button {
+        background-color: #fff;
+        border-radius: 50%;
+        bottom: ${sizes[size].space};
+        left: ${status ? '50%' : sizes[size].space};
+        position: absolute;
+        top: ${sizes[size].space}
+        transition: left 0.1s ease;
+        width: ${calcUnits(sizes[size].height, '-', calcUnits(sizes[size].space, '*', 2))};
+      }
     `;
   },
 };

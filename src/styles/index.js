@@ -5,6 +5,7 @@ export * from './badge';
 export * from './button';
 export * from './form';
 export * from './list';
+export * from './switch';
 export * from './table';
 export * from './typography';
 
