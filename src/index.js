@@ -2,6 +2,7 @@ export { default as Alert } from './Alert';
 export { default as Badge } from './Badge';
 export { default as Box } from './Box';
 export { default as Button } from './Button';
+export { default as ButtonGroup } from './ButtonGroup';
 export { default as Code } from './Code';
 export { default as Container } from './Container';
 export { default as Embed } from './Embed';
