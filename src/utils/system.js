@@ -597,6 +597,20 @@ export const HeadingStyles = {
   },
 };
 
+export const GroupStyles = {
+  base(props) {
+    const gutter = getStyle('gutter')(props);
+
+    return css`
+      ${space};
+      
+      > * + * {
+        margin-left: ${gutter[0]};
+      }
+    `;
+  },
+};
+
 export const ImageStyles = {
   base() {
     return css`

@@ -9,6 +9,7 @@ export { default as Flex } from './Flex';
 export { default as Fieldset } from './Fieldset';
 export { default as Form } from './Form';
 export { default as FormGroup } from './FormGroup';
+export { default as Group } from './Group';
 export { default as Heading } from './Heading';
 export { default as Image } from './Image';
 export { default as Input } from './Input';
