@@ -45,21 +45,20 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   /** callback on the click event */
   onClick: PropTypes.func,
+  outline: PropTypes.bool,
   size: PropTypes.oneOf(propsOptions.sizes),
   type: PropTypes.oneOf(['button', 'submit', 'reset']),
   variant: PropTypes.oneOf(propsOptions.variants),
-  /** font weight */
-  weight: PropTypes.oneOf(propsOptions.weights),
 };
 
 Button.defaultProps = {
   animate: false,
   block: false,
   disabled: false,
+  outline: false,
   size: 'md',
   type: 'button',
   variant: 'primary',
-  weight: 'normal',
 };
 
 export default Button;

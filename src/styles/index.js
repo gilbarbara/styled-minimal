@@ -13,8 +13,7 @@ export * from './typography';
  * Base
  */
 export const easing = 'cubic-bezier(0.35, 0.01, 0.77, 0.34)';
-export const gutter = '32px';
-export const gutterHeading = '16px';
+export const gutter = ['8px', '16px', '32px'];
 export const lineHeight = 1.4;
 
 /**
@@ -69,8 +68,11 @@ export const containerLayout = {
   flex: css`
     align-items: stretch;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+
+    > * {
+      flex: 1 1 auto;
+    }
   `,
   fullScreen: css`
     align-items: stretch;

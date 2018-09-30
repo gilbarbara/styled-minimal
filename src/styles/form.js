@@ -31,12 +31,14 @@ export const fieldset = {
 
 export const label = {
   color: '#343434',
+  fontWeight: 'bold',
   inlineFontSize: '14px',
   marginBottom: '8px',
 };
 
 export const legend = {
   color: '#343434',
+  fontWeight: 'bold',
   inlineFontSize: '14px',
   marginBottom: '8px',
 };

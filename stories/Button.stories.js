@@ -27,7 +27,7 @@ stories
         outline={boolean('Outline', false)}
         size={select('Size', propsOptions.sizes, 'md')}
         variant={select('Variant', propsOptions.variants, 'primary')}
-        weight={select('Weight', propsOptions.weights, 'normal')}
+        fontWeight={select('Font Weight', ['normal', 'bold'], 'normal')}
       >
         {text('Children', 'Click here now')}
       </Button>

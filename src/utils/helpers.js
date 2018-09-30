@@ -47,6 +47,19 @@ export function getYiq(color: string): number {
 }
 
 /**
+ * Get Styles
+ * @param {Object} props
+ *
+ * @returns {Object}
+ */
+export const getStyles = (props: Object): Object => {
+  const { theme = {} } = props;
+
+  return deepmerge(styles, theme);
+};
+
+
+/**
  * Returns the value of `props[path]` or `defaultValue`
  * @example
  * const Button = styled.button`
@@ -54,10 +67,10 @@ export function getYiq(color: string): number {
  * `
  */
 /* eslint-disable react/destructuring-assignment */
-export const getProp = (path: string, options: Object = {}): any => (props) => {
+export const getStyle = (path: string, options: Object = {}): any => (props) => {
   const { base, key, toggle } = options;
-  const { theme = {} } = props;
-  const mergedStyles = deepmerge(styles, theme);
+
+  const mergedStyles = getStyles(props);
 
   const selection = mergedStyles[path];
   let isActive = true;
@@ -87,8 +100,8 @@ export const getProp = (path: string, options: Object = {}): any => (props) => {
 
 export function getColor(props: Object, base: string = 'primary'): string {
   const { variant } = props;
-  const colors = getProp('colors')(props);
-  const palette = getProp('palette')(props);
+  const colors = getStyle('colors')(props);
+  const palette = getStyle('palette')(props);
 
   return palette[variant] || colors[variant] || palette[base];
 }

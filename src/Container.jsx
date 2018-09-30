@@ -3,21 +3,20 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { ContainerStyles } from './utils/system';
-import { calcUnits, getProp } from './utils/helpers';
+import { getStyles } from './utils/helpers';
 
 const verticalPaddingStyles = (props) => {
   const { verticalPadding } = props;
-  const gutter = getProp('gutter')(props);
-  const grid = getProp('grid')(props);
+  const { grid, gutter } = getStyles(props);
 
   if (verticalPadding) {
     return `
-      padding-bottom: ${calcUnits(gutter, '/', 2)};
-      padding-top: ${calcUnits(gutter, '/', 2)};
+      padding-bottom: ${gutter[1]};
+      padding-top: ${gutter[1]};
       
       ${grid.md} {
-        padding-bottom: ${gutter};
-        padding-top: ${gutter};
+        padding-bottom: ${gutter[2]};
+        padding-top: ${gutter[2]};
       }
     `;
   }
@@ -26,28 +25,22 @@ const verticalPaddingStyles = (props) => {
 };
 
 const horizontalPadding = (props) => {
-  const gutter = getProp('gutter')(props);
-  const grid = getProp('grid')(props);
+  const { grid, gutter } = getStyles(props);
 
   return `
-    padding-left: ${calcUnits(gutter, '/', 2)};
-    padding-right: ${calcUnits(gutter, '/', 2)};
+    padding-left: ${gutter[1]};
+    padding-right: ${gutter[1]};
     
     ${grid.md} {
-      padding-left: ${gutter};
-      padding-right: ${gutter};
-    }
-    
-    ${grid.xl} {
-      padding-left: ${calcUnits(gutter, '*', 2)};
-      padding-right: ${calcUnits(gutter, '*', 2)};
+      padding-left: ${gutter[2]};
+      padding-right: ${gutter[2]};
     }
   `;
 };
 
 const layoutProp = props => {
   const { layout } = props;
-  const containerLayout = getProp('containerLayout')(props);
+  const { containerLayout } = getStyles(props);
 
   return containerLayout[layout] || '';
 };
