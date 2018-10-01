@@ -3,9 +3,11 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, select, boolean, number } from '@storybook/addon-knobs/react';
 
+import { backgroundAddon } from './helpers/extras';
+import { sizeOptions } from '../src/utils/options';
+
 import { Select } from '../src';
 import { View } from './helpers/components';
-import { backgroundAddon } from './helpers/extras';
 
 storiesOf('Select', module)
   .addDecorator(backgroundAddon)
@@ -19,7 +21,7 @@ storiesOf('Select', module)
         multiple={boolean('Multiple', false)}
         required={boolean('Required', false)}
         size={number('Size', 1)}
-        sizing={select('Sizing', ['sm', 'md', 'lg'], 'md')}
+        sizing={select('Sizing', sizeOptions, 'md')}
       >
         <option value="male">Male</option>
         <option value="female">Female</option>

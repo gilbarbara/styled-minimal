@@ -12,7 +12,6 @@ export * from './typography';
 /**
  * Base
  */
-export const easing = 'cubic-bezier(0.35, 0.01, 0.77, 0.34)';
 export const gutter = ['8px', '16px', '32px'];
 export const lineHeight = 1.4;
 
@@ -89,19 +88,25 @@ export const containerMaxWidth = '1440px';
  */
 export const breakpoints = {
   xs: 0,
-  ix: '400px',
-  sm: '576px',
-  md: '768px',
-  lg: '1024px',
-  xl: '1280px',
-  xxl: '1600px',
+  ix: 400,
+  sm: 576,
+  md: 768,
+  lg: 1024,
+  xl: 1280,
+  xxl: 1600,
 };
 
 export const grid = {
-  ix: `@media (min-width: ${breakpoints.ix})`,
-  sm: `@media (min-width: ${breakpoints.sm})`,
-  md: `@media (min-width: ${breakpoints.md})`,
-  lg: `@media (min-width: ${breakpoints.lg})`,
-  xl: `@media (min-width: ${breakpoints.xl})`,
-  xxl: `@media (min-width: ${breakpoints.xxl})`,
+  'xs-only': `@media (min-width: ${breakpoints.ix - 1}px)`,
+  ix: `@media (min-width: ${breakpoints.ix}px)`,
+  'ix-only': `@media (max-width: ${breakpoints.sm - 1}px)`,
+  sm: `@media (min-width: ${breakpoints.sm}px)`,
+  'sm-only': `@media (max-width: ${breakpoints.md - 1}px)`,
+  md: `@media (min-width: ${breakpoints.md}px)`,
+  'md-only': `@media (max-width: ${breakpoints.lg - 1}px)`,
+  lg: `@media (min-width: ${breakpoints.lg}px)`,
+  'lg-only': `@media (max-width: ${breakpoints.xl - 1}px)`,
+  xl: `@media (min-width: ${breakpoints.xl}px)`,
+  'xl-only': `@media (max-width: ${breakpoints.xxl - 1}px)`,
+  xxl: `@media (min-width: ${breakpoints.xxl}px)`,
 };

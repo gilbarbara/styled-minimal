@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { SwitchStyles } from './utils/system';
 import { propsOptions } from './utils/options';
+import { sizeFullType, variantType } from './utils/types';
 
 export const StyledSwitch = styled.div`
   ${SwitchStyles.base};
@@ -23,7 +24,7 @@ export default class Switch extends React.PureComponent {
     onChange: PropTypes.func,
     size: PropTypes.oneOf(['sm', 'md', 'lg']),
     value: PropTypes.bool,
-    variant: PropTypes.oneOf(propsOptions.variants),
+    variant: variantType,
   };
 
   static defaultProps = {

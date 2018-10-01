@@ -3,9 +3,11 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, number, select } from '@storybook/addon-knobs/react';
 
+import { backgroundAddon } from './helpers/extras';
+import { sizeOptions } from '../src/utils/options';
+
 import { Box, Heading, List, Paragraph } from '../src';
 import { View } from './helpers/components';
-import { backgroundAddon } from './helpers/extras';
 
 storiesOf('List', module)
   .addDecorator(backgroundAddon)
@@ -29,7 +31,7 @@ storiesOf('List', module)
             'lower-alpha',
             'none',
           ], 'none')}
-          size={select('Size', ['sm', 'md', 'lg'], 'md')}
+          size={select('Size', sizeOptions, 'md')}
           type={select('List Type (OL)', ['1', 'a', 'A', 'i', 'I'], '1')}
         >
           <li>

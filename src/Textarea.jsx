@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { FormStyles } from './utils/system';
+import { sizeType } from './utils/types';
 
 const StyledTextarea = styled.textarea`
   ${FormStyles.textarea};
@@ -27,7 +28,7 @@ Textarea.propTypes = {
   readOnly: PropTypes.bool,
   required: PropTypes.bool,
   rows: PropTypes.number,
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  size: sizeType,
   tabindex: PropTypes.number,
   valid: PropTypes.bool,
   value: PropTypes.string,

@@ -3,10 +3,11 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs/react';
 
-import { Badge, Button, Heading } from '../src';
-import { propsOptions } from '../src/utils/options';
-import { SVG, View } from './helpers/components';
+import { sizeOptions, variantOptions } from '../src/utils/options';
 import { backgroundAddon, capitalize } from './helpers/extras';
+
+import { Badge, Button, Heading } from '../src';
+import { SVG, View } from './helpers/components';
 
 storiesOf('Badge', module)
   .addDecorator(backgroundAddon)
@@ -17,8 +18,8 @@ storiesOf('Badge', module)
     <View>
       <Badge
         outline={boolean('Outline', false)}
-        size={select('Size', propsOptions.sizes, 'md')}
-        variant={select('Variant', propsOptions.variants, 'primary')}
+        size={select('Size', sizeOptions, 'md')}
+        variant={select('Variant', variantOptions, 'primary')}
       >
         {text('Children', 'badge')}
       </Badge>
@@ -54,14 +55,14 @@ storiesOf('Badge', module)
   ))
   .add('with variant', () => (
     <View>
-      {propsOptions.variants.map((d, i) => (
+      {variantOptions.map((d, i) => (
         <Badge key={i} variant={d}>{capitalize(d)}</Badge>
       ))}
     </View>
   ))
   .add('with outline', () => (
     <View>
-      {propsOptions.variants.map((d, i) => (
+      {variantOptions.map((d, i) => (
         <Badge key={i} outline variant={d}>{capitalize(d)}</Badge>
       ))}
     </View>

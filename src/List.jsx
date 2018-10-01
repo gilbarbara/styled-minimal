@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { ListStyles } from './utils/system';
+import { sizeType } from './utils/types';
 
 export const StyledList = styled.ul`
   ${ListStyles.base};
@@ -27,7 +28,7 @@ List.propTypes = {
   children: PropTypes.node.isRequired,
   inline: PropTypes.bool,
   reversed: PropTypes.bool,
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  size: sizeType,
   start: PropTypes.number,
   styleType: PropTypes.oneOfType([
     PropTypes.oneOf([

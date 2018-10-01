@@ -39,7 +39,7 @@ import {
 
 import { calcUnits, getColor, getStyle, getYiq } from './helpers';
 import { placeholder } from './mixins';
-import { inputTextTypes } from './options';
+import { inputTextOptions } from './options';
 
 export const base = {
   color: props => {
@@ -221,13 +221,17 @@ export const ButtonGroupStyles = {
 
       > button {
         &:first-child {
-          border-top-left-radius: 2px;
-          border-bottom-left-radius: 2px;
+          border-bottom-right-radius: 0;
+          border-top-right-radius: 0;
         }
 
         &:last-child {
-          border-top-right-radius: 2px;
-          border-bottom-right-radius: 2px;
+          border-bottom-left-radius: 0;
+          border-top-left-radius: 0;
+        }
+        
+        &:not(:first-child):not(:last-child) {
+          border-radius: 0;
         }
 
         + button {
@@ -425,10 +429,10 @@ export const FormStyles = {
       display: ${!['checkbox', 'radio'].includes(type) ? 'block' : 'inline-block'};
       font-family: inherit;
       font-size: ${inputFontSize[size]};
-      ${inputTextTypes.includes(type) ? `height: ${inputHeight[size]}` : ''};
+      ${inputTextOptions.includes(type) ? `height: ${inputHeight[size]}` : ''};
       line-height: ${inputLineHeight};
       ${['checkbox', 'radio'].includes(type) ? `margin: 0 ${inlineMargin} 0 0` : ''};
-      padding: ${inputTextTypes.includes(type) ? padding[size] : 0};
+      padding: ${inputTextOptions.includes(type) ? padding[size] : 0};
       ${!['checkbox', 'radio', 'color'].includes(type) ? 'width: 100%;' : ''};
     `;
   },

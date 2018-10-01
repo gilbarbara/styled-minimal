@@ -6,7 +6,7 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs/react';
 
 import { Button } from '../src';
-import { propsOptions } from '../src/utils/options';
+import { sizeOptions, variantOptions } from '../src/utils/options';
 import { SVG, View } from './helpers/components';
 import { backgroundAddon, capitalize } from './helpers/extras';
 
@@ -25,8 +25,8 @@ stories
         disabled={boolean('Disabled', false)}
         onClick={action('clicked')}
         outline={boolean('Outline', false)}
-        size={select('Size', propsOptions.sizes, 'md')}
-        variant={select('Variant', propsOptions.variants, 'primary')}
+        size={select('Size', sizeOptions, 'md')}
+        variant={select('Variant', variantOptions, 'primary')}
         fontWeight={select('Font Weight', ['normal', 'bold'], 'normal')}
       >
         {text('Children', 'Click here now')}
@@ -51,14 +51,14 @@ stories
   ))
   .add('with variant', () => (
     <View>
-      {propsOptions.variants.map((d, i) => (
+      {variantOptions.map((d, i) => (
         <Button key={i} variant={d}>{capitalize(d)}</Button>
       ))}
     </View>
   ))
   .add('with outline', () => (
     <View>
-      {propsOptions.variants.map((d, i) => (
+      {variantOptions.map((d, i) => (
         <Button key={i} outline variant={d}>{capitalize(d)}</Button>
       ))}
     </View>

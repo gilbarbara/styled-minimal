@@ -3,9 +3,11 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs/react';
 
+import { backgroundAddon } from './helpers/extras';
+import { sizeOptions } from '../src/utils/options';
+
 import { Table } from '../src';
 import { View } from './helpers/components';
-import { backgroundAddon } from './helpers/extras';
 
 storiesOf('Table', module)
   .addDecorator(backgroundAddon)
@@ -18,7 +20,7 @@ storiesOf('Table', module)
       <Table
         bordered={boolean('Bordered', false)}
         borderless={boolean('Borderless', false)}
-        size={select('Size', ['sm', 'md', 'lg'], 'md')}
+        size={select('Size', sizeOptions, 'md')}
         head={select('Head Color', ['', 'light', 'dark'])}
         inverted={boolean('Inverted', false)}
         striped={boolean('Striped', false)}

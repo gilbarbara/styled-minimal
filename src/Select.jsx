@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { FormStyles } from './utils/system';
+import { sizeType } from './utils/types';
 
 export const StyledSelect = styled.select`
   ${FormStyles.select};
@@ -19,7 +20,7 @@ Select.propTypes = {
   multiple: PropTypes.bool,
   required: PropTypes.bool,
   size: PropTypes.number,
-  sizing: PropTypes.oneOf(['sm', 'md', 'lg']),
+  sizing: sizeType,
 };
 
 Select.defaultProps = {

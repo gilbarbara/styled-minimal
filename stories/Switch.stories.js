@@ -7,7 +7,7 @@ import { withKnobs, boolean, select } from '@storybook/addon-knobs/react';
 import { Switch } from '../src';
 import { View } from './helpers/components';
 import { backgroundAddon } from './helpers/extras';
-import { propsOptions } from '../src/utils/options';
+import { sizeOptions, variantOptions } from '../src/utils/options';
 
 storiesOf('Switch', module)
   .addDecorator(backgroundAddon)
@@ -18,8 +18,8 @@ storiesOf('Switch', module)
     <View hideCheckbox skipCentered skipFlex skipSpacer>
       <Switch
         name="test"
-        size={select('Size', ['sm', 'md', 'lg'], 'md')}
-        variant={select('Variant', propsOptions.variants, 'primary')}
+        size={select('Size', sizeOptions, 'md')}
+        variant={select('Variant', variantOptions, 'primary')}
         value={boolean('Value', false)}
         onChange={value => {
           action('changed')(value);
@@ -36,7 +36,7 @@ storiesOf('Switch', module)
   ))
   .add('with variant', () => (
     <View hideCheckbox>
-      {propsOptions.variants.map((d, i) => (
+      {variantOptions.map((d, i) => (
         <Switch key={i} name={d} value={true} variant={d} />
       ))}
     </View>

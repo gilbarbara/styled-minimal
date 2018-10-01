@@ -1,11 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import PropTypes from 'prop-types';
 import { ButtonStyles } from './utils/system';
+import { buttonType, sizeFullType, variantType } from './utils/types';
 
 import { StyledBadge } from './Badge';
-import { propsOptions } from './utils/options';
 
 export const StyledButton = styled.button`
   ${ButtonStyles.base};
@@ -46,9 +46,9 @@ Button.propTypes = {
   /** callback on the click event */
   onClick: PropTypes.func,
   outline: PropTypes.bool,
-  size: PropTypes.oneOf(propsOptions.sizes),
-  type: PropTypes.oneOf(['button', 'submit', 'reset']),
-  variant: PropTypes.oneOf(propsOptions.variants),
+  size: sizeFullType,
+  type: buttonType,
+  variant: variantType,
 };
 
 Button.defaultProps = {

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { ContainerStyles } from './utils/system';
+import { textAlignType } from './utils/types';
 import { getStyles } from './utils/helpers';
 
 const verticalPaddingStyles = (props) => {
@@ -60,7 +61,7 @@ Container.propTypes = {
   children: PropTypes.node.isRequired,
   /** use the whole Screen */
   layout: PropTypes.oneOf(['flex', 'fullScreen']),
-  textAlign: PropTypes.oneOf(['left', 'center', 'right', 'justify']),
+  textAlign: textAlignType,
   /** add padding top/bottom */
   verticalPadding: PropTypes.bool,
 };

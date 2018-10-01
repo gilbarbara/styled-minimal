@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { ButtonGroupStyles } from './utils/system';
-import { propsOptions } from './utils/options';
+import { sizeFullType, variantType } from './utils/types';
 
 export const StyledButtonGroup = styled.div`
   ${ButtonGroupStyles.base};
@@ -29,8 +29,8 @@ const ButtonGroup = ({ children, size, variant, ...props }) => {
 
 ButtonGroup.propTypes = {
   children: PropTypes.node.isRequired,
-  size: PropTypes.oneOf(propsOptions.sizes),
-  variant: PropTypes.oneOf(propsOptions.variants),
+  size: sizeFullType,
+  variant: variantType,
 };
 
 export default ButtonGroup;

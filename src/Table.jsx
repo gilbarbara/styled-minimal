@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { TableStyles } from './utils/system';
+import { sizeType } from './utils/types';
 
 export const StyledTable = styled.table`
   ${TableStyles.base};
@@ -45,7 +46,7 @@ Table.propTypes = {
   children: PropTypes.node.isRequired,
   head: PropTypes.oneOf(['light', 'dark']),
   inverted: PropTypes.bool,
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  size: sizeType,
   striped: PropTypes.bool,
 };
 

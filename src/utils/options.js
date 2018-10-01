@@ -1,12 +1,11 @@
 // @flow
 import { colors, palette } from '../styles';
 
-export const propsOptions = {
-  sizes: ['xs', 'sm', 'md', 'lg', 'xl'],
-  variants: [...Object.keys(palette), ...Object.keys(colors)],
-};
+export const sizeOptions = ['sm', 'md', 'lg'];
+export const sizeFullOptions = ['xs', 'sm', 'md', 'lg', 'xl'];
+export const variantOptions = [...Object.keys(palette), ...Object.keys(colors)];
 
-export const inputTextTypes = [
+export const inputTextOptions = [
   'date',
   'email',
   'number',

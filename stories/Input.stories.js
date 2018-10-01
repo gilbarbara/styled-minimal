@@ -3,9 +3,11 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, number, select, text } from '@storybook/addon-knobs/react';
 
+import { backgroundAddon } from './helpers/extras';
+import { sizeOptions } from '../src/utils/options';
+
 import { Input } from '../src';
 import { View } from './helpers/components';
-import { backgroundAddon } from './helpers/extras';
 
 storiesOf('Input', module)
   .addDecorator(backgroundAddon)
@@ -25,7 +27,7 @@ storiesOf('Input', module)
         placeholder={text('Placeholder', 'Data')}
         readOnly={boolean('Readonly', false)}
         required={boolean('Required', false)}
-        size={select('Size', ['sm', 'md', 'lg'], 'md')}
+        size={select('Size', sizeOptions, 'md')}
       />
     </View>
   )))

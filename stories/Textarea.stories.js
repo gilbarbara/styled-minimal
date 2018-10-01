@@ -3,10 +3,11 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, select, boolean, number } from '@storybook/addon-knobs/react';
 
-import { Textarea } from '../src';
-
-import { View } from './helpers/components';
 import { backgroundAddon } from './helpers/extras';
+import { sizeOptions } from '../src/utils/options';
+
+import { Textarea } from '../src';
+import { View } from './helpers/components';
 
 storiesOf('Textarea', module)
   .addDecorator(backgroundAddon)
@@ -21,7 +22,7 @@ storiesOf('Textarea', module)
         readOnly={boolean('Readonly', false)}
         required={boolean('Required', false)}
         rows={number('Rows', 3)}
-        size={select('Size', ['sm', 'md', 'lg'], 'md')}
+        size={select('Size', sizeOptions, 'md')}
       />
     </View>
   )));
