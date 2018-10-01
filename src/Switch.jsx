@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { SwitchStyles } from './utils/system';
-import { propsOptions } from './utils/options';
 import { sizeFullType, variantType } from './utils/types';
 
 export const StyledSwitch = styled.div`
@@ -22,7 +21,7 @@ export default class Switch extends React.PureComponent {
   static propTypes = {
     name: PropTypes.string.isRequired,
     onChange: PropTypes.func,
-    size: PropTypes.oneOf(['sm', 'md', 'lg']),
+    size: sizeFullType,
     value: PropTypes.bool,
     variant: variantType,
   };

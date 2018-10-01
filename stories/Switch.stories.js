@@ -29,9 +29,12 @@ storiesOf('Switch', module)
   )))
   .add('with size', () => (
     <View hideCheckbox>
+      <Switch name="test" size="xs" />
       <Switch name="test" size="sm" />
       <Switch name="test" size="md" />
       <Switch name="test" size="lg" />
+      <Switch name="test" size="xl" />
+
     </View>
   ))
   .add('with variant', () => (
