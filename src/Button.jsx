@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { withTheme } from './utils/helpers';
 import { buttonType, sizeTypeFull, variantType } from './utils/propTypes';
 import { ButtonStyles } from './utils/system';
 
@@ -28,13 +29,7 @@ export const StyledButton = styled.button`
   }
 `;
 
-const Button = ({ children, ...props }) => (
-  <StyledButton {...props}>
-    {children}
-  </StyledButton>
-);
-
-Button.propTypes = {
+StyledButton.propTypes = {
   /** boolean indicating whether the button should render with an animation */
   animate: PropTypes.bool,
   as: PropTypes.string,
@@ -51,7 +46,7 @@ Button.propTypes = {
   variant: variantType,
 };
 
-Button.defaultProps = {
+StyledButton.defaultProps = {
   animate: false,
   block: false,
   disabled: false,
@@ -61,4 +56,4 @@ Button.defaultProps = {
   variant: 'primary',
 };
 
-export default Button;
+export default withTheme(StyledButton, 'Button');

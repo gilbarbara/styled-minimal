@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { withTheme } from './utils/helpers';
 import { FormStyles } from './utils/system';
 
 import Flex, { StyledFlex } from './Flex';
@@ -77,4 +78,4 @@ FormGroup.defaultProps = {
   inline: false,
 };
 
-export default FormGroup;
+export default withTheme(FormGroup, 'FormGroup');

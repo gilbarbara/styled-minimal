@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { withTheme } from './utils/helpers';
 import { headingType } from './utils/propTypes';
 import { HeadingStyles } from './utils/system';
 
@@ -9,11 +10,7 @@ export const StyledHeading = styled.h1`
   ${HeadingStyles.base};
 `;
 
-const Heading = ({ children, type, ...props }) => (
-  <StyledHeading {...props}>{children}</StyledHeading>
-);
-
-Heading.propTypes = {
+StyledHeading.propTypes = {
   /** element type */
   as: headingType,
   children: PropTypes.node.isRequired,
@@ -22,8 +19,8 @@ Heading.propTypes = {
   size: headingType,
 };
 
-Heading.defaultProps = {
+StyledHeading.defaultProps = {
   as: 'h1',
 };
 
-export default Heading;
+export default withTheme(StyledHeading, 'Heading');

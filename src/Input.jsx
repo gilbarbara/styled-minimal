@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { withTheme } from './utils/helpers';
 import { FormStyles } from './utils/system';
 
 const StyledInput = styled.input`
@@ -61,4 +62,4 @@ Input.defaultProps = {
   value: undefined,
 };
 
-export default Input;
+export default withTheme(Input, 'Input');

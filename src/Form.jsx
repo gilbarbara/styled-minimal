@@ -2,17 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { withTheme } from './utils/helpers';
 import { FormStyles } from './utils/system';
 
 export const StyledForm = styled.form`
   ${FormStyles.form};
 `;
 
-const Form = ({ children, ...props }) => (
-  <StyledForm {...props}>{children}</StyledForm>
-);
-
-Form.propTypes = {
+StyledForm.propTypes = {
   action: PropTypes.string,
   bordered: PropTypes.bool,
   children: PropTypes.node.isRequired,
@@ -24,8 +21,8 @@ Form.propTypes = {
   target: PropTypes.string,
 };
 
-Form.defaultProps = {
+StyledForm.defaultProps = {
   bordered: false,
 };
 
-export default Form;
+export default withTheme(StyledForm, 'Form');

@@ -2,20 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { withTheme } from './utils/helpers';
 import { sizeTypeFull, variantType } from './utils/propTypes';
 import { AlertStyles } from './utils/system';
 
-export const StyledAlert = styled.div`
+export const StyledAlert = styled.div.attrs({
+  role: 'alert',
+})`
   ${AlertStyles.base};
 `;
 
-const Alert = ({ children, ...props }) => (
-  <StyledAlert {...props} role="alert">
-    {children}
-  </StyledAlert>
-);
-
-Alert.propTypes = {
+StyledAlert.propTypes = {
   children: PropTypes.node.isRequired,
   outline: PropTypes.bool,
   /** button size */
@@ -24,10 +21,10 @@ Alert.propTypes = {
   variant: variantType,
 };
 
-Alert.defaultProps = {
+StyledAlert.defaultProps = {
   outline: false,
   size: 'md',
   variant: 'primary',
 };
 
-export default Alert;
+export default withTheme(StyledAlert, 'Alert');

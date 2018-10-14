@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { withTheme } from './utils/helpers';
 import { ParagraphStyles } from './utils/system';
 
 export const StyledParagraph = styled.p`
@@ -12,12 +13,8 @@ export const StyledParagraph = styled.p`
   }
 `;
 
-const Paragraph = ({ children, ...props }) => (
-  <StyledParagraph {...props}>{children}</StyledParagraph>
-);
-
-Paragraph.propTypes = {
+StyledParagraph.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default Paragraph;
+export default withTheme(StyledParagraph, 'Paragraph');

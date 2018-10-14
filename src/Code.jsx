@@ -2,18 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { withTheme } from './utils/helpers';
 import { CodeStyles } from './utils/system';
 
 export const StyledCode = styled.code`
   ${CodeStyles.base};
 `;
 
-const Code = ({ children, ...props }) => (
-  <StyledCode {...props}>{children}</StyledCode>
-);
-
-Code.propTypes = {
+StyledCode.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default Code;
+export default withTheme(StyledCode, 'Code');

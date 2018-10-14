@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { withTheme } from './utils/helpers';
 import { sizeTypeFull, variantType } from './utils/propTypes';
 import { SwitchStyles } from './utils/system';
 
@@ -9,7 +10,7 @@ export const StyledSwitch = styled.div`
   ${SwitchStyles.base};
 `;
 
-export default class Switch extends React.PureComponent {
+class Switch extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -69,3 +70,5 @@ export default class Switch extends React.PureComponent {
     );
   }
 }
+
+export default withTheme(Switch, 'Switch');

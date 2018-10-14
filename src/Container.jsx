@@ -53,11 +53,7 @@ export const StyledContainer = styled.div`
   ${verticalPaddingStyles};
 `;
 
-const Container = ({ children, ...props }) => (
-  <StyledContainer {...props}>{children}</StyledContainer>
-);
-
-Container.propTypes = {
+StyledContainer.propTypes = {
   children: PropTypes.node.isRequired,
   /** use the whole Screen */
   layout: PropTypes.oneOf(['flex', 'fullScreen']),
@@ -66,8 +62,8 @@ Container.propTypes = {
   verticalPadding: PropTypes.bool,
 };
 
-Container.defaultProps = {
+StyledContainer.defaultProps = {
   verticalPadding: false,
 };
 
-export default Container;
+export default withTheme(StyledContainer, 'Container');

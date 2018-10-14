@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { withTheme } from './utils/helpers';
 import { FormStyles } from './utils/system';
 
 import { StyledLegend } from './Legend';
@@ -14,19 +15,15 @@ export const StyledFieldset = styled.fieldset`
   }
 `;
 
-const Fieldset = ({ children, ...props }) => (
-  <StyledFieldset {...props}>{children}</StyledFieldset>
-);
-
-Fieldset.propTypes = {
+StyledFieldset.propTypes = {
   bordered: PropTypes.bool,
   children: PropTypes.node.isRequired,
   inline: PropTypes.bool,
 };
 
-Fieldset.defaultProps = {
+StyledFieldset.defaultProps = {
   bordered: false,
   inline: false,
 };
 
-export default Fieldset;
+export default withTheme(StyledFieldset, 'Fieldset');

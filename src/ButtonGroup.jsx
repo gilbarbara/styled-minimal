@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { withTheme } from './utils/helpers';
 import { sizeTypeFull, variantType } from './utils/propTypes';
 import { ButtonGroupStyles } from './utils/system';
 
@@ -33,4 +34,4 @@ ButtonGroup.propTypes = {
   variant: variantType,
 };
 
-export default ButtonGroup;
+export default withTheme(ButtonGroup, 'ButtonGroup');
