@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { sizeType } from './utils/propTypes';
 import { TableStyles } from './utils/system';
-import { sizeType } from './utils/types';
 
 export const StyledTable = styled.table`
   ${TableStyles.base};

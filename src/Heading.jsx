@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { headingType } from './utils/propTypes';
 import { HeadingStyles } from './utils/system';
-import { headingType } from './utils/types';
 
 export const StyledHeading = styled.h1`
   ${HeadingStyles.base};

@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { sizeTypeFull, variantType } from './utils/propTypes';
 import { SwitchStyles } from './utils/system';
-import { sizeFullType, variantType } from './utils/types';
 
 export const StyledSwitch = styled.div`
   ${SwitchStyles.base};
@@ -21,7 +21,7 @@ export default class Switch extends React.PureComponent {
   static propTypes = {
     name: PropTypes.string.isRequired,
     onChange: PropTypes.func,
-    size: sizeFullType,
+    size: sizeTypeFull,
     value: PropTypes.bool,
     variant: variantType,
   };

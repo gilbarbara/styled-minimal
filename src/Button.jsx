@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { buttonType, sizeTypeFull, variantType } from './utils/propTypes';
 import { ButtonStyles } from './utils/system';
-import { buttonType, sizeFullType, variantType } from './utils/types';
 
 import { StyledBadge } from './Badge';
 
@@ -46,7 +46,7 @@ Button.propTypes = {
   /** callback on the click event */
   onClick: PropTypes.func,
   outline: PropTypes.bool,
-  size: sizeFullType,
+  size: sizeTypeFull,
   type: buttonType,
   variant: variantType,
 };

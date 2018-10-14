@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { sizeTypeFull, variantType } from './utils/propTypes';
 import { ButtonGroupStyles } from './utils/system';
-import { sizeFullType, variantType } from './utils/types';
 
 export const StyledButtonGroup = styled.div`
   ${ButtonGroupStyles.base};
@@ -29,7 +29,7 @@ const ButtonGroup = ({ children, size, variant, ...props }) => {
 
 ButtonGroup.propTypes = {
   children: PropTypes.node.isRequired,
-  size: sizeFullType,
+  size: sizeTypeFull,
   variant: variantType,
 };
 

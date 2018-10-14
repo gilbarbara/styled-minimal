@@ -37,14 +37,14 @@ import {
   zIndex,
 } from 'styled-system';
 
-import { calcUnits, getColor, getStyle, getYiq } from './helpers';
+import { calcUnits, getColor, getYiq, themeGet } from './helpers';
 import { placeholder } from './mixins';
 import { inputTextOptions } from './options';
 
 export const base = {
   color: props => {
     const { disabled, outline } = props;
-    const colors = getStyle('colors')(props);
+    const colors = themeGet(props, 'colors');
     const selectedColor = getColor(props);
 
     let baseColor = getYiq(selectedColor) > 180 ? colors.black : colors.white;
@@ -56,7 +56,7 @@ export const base = {
   },
   variant(props) {
     const { disabled, outline } = props;
-    const colors = getStyle('colors')(props);
+    const colors = themeGet(props, 'colors');
     const themeColor = getColor(props);
 
     let selectedColor = getYiq(themeColor) > 180 ? colors.black : colors.white;
@@ -71,8 +71,8 @@ export const base = {
       color: ${selectedColor};
     `;
   },
-  fontSize: props => getStyle('fontSizes', { key: 'size', base: 'md' })(props),
-  lineHeight: props => getStyle('lineHeight')(props),
+  fontSize: props => themeGet(props, 'componentSizes', { key: 'size', base: 'md' }),
+  lineHeight: props => themeGet(props, 'lineHeight'),
 };
 
 export const AlertStyles = {
@@ -82,7 +82,7 @@ export const AlertStyles = {
       borderRadius: radii,
       maxWidth: alertMaxWidth,
       padding,
-    } = getStyle('alert')(props);
+    } = themeGet(props, 'alert');
 
     return css`
       ${base.variant};
@@ -114,8 +114,8 @@ export const BadgeStyles = {
       fontSize: badgeFontSize,
       fontWeight: badgeFontWeight,
       padding,
-    } = getStyle('badge')(props);
-    const fontSizeProp = getStyle('fontSizes', { key: 'size' })(props);
+    } = themeGet(props, 'badge');
+    const fontSizeProp = themeGet(props, 'componentSizes', { key: 'size' });
 
     return css`
       ${base.variant};
@@ -179,12 +179,12 @@ export const ButtonStyles = {
       lineHeight: buttonLineHeight,
       loader,
       padding,
-    } = getStyle('button')(props);
-    const fontSizeProp = getStyle('fontSizes', { key: 'size' })(props);
+    } = themeGet(props, 'button');
+    const fontSizeProp = themeGet(props, 'componentSizes', { key: 'size' });
 
     return css`
-      align-items: center;
       ${base.variant};
+      align-items: center;
       border-radius: ${radii[size]};
       box-shadow: none;
       cursor: pointer;
@@ -257,12 +257,12 @@ export const CodeStyles = {
 
 export const ContainerStyles = {
   base(props) {
-    const containerMaxWidth = getStyle('containerMaxWidth')(props);
+    const container = themeGet(props, 'container');
 
     return css`
       margin-left: auto;
       margin-right: auto;
-      max-width: ${containerMaxWidth};
+      max-width: ${container.maxWidth};
       position: relative;
       width: 100%;
       ${alignContent};
@@ -350,7 +350,7 @@ export const FormStyles = {
       borderRadius: radii,
       padding,
       marginBottom,
-    } = getStyle('fieldset')(props);
+    } = themeGet(props, 'fieldset');
 
     return css`
       background-color: ${bgColor};
@@ -368,7 +368,7 @@ export const FormStyles = {
       borderColor,
       borderRadius: radii,
       padding,
-    } = getStyle('form')(props);
+    } = themeGet(props, 'form');
 
     return css`
       background-color: ${formBgColor};
@@ -386,7 +386,7 @@ export const FormStyles = {
       borderRadius: radii,
       marginBottom,
       padding,
-    } = getStyle('formGroup')(props);
+    } = themeGet(props, 'formGroup');
 
     return css`
       background-color: ${formGroupBgColor};
@@ -411,7 +411,7 @@ export const FormStyles = {
       lineHeight: inputLineHeight,
       padding,
       validation,
-    } = getStyle('input')(props);
+    } = themeGet(props, 'input');
     let thisColor = borderColor;
 
     if (valid) {
@@ -443,7 +443,7 @@ export const FormStyles = {
       fontWeight: labelFontWeight,
       inlineFontSize,
       marginBottom,
-    } = getStyle('label')(props);
+    } = themeGet(props, 'label');
 
     return css`
       color: ${labelColor};
@@ -466,7 +466,7 @@ export const FormStyles = {
       color: legendColor,
       fontWeight: legendFontWeight,
       marginBottom,
-    } = getStyle('legend')(props);
+    } = themeGet(props, 'legend');
 
     return css`
       color: ${legendColor};
@@ -494,7 +494,7 @@ export const FormStyles = {
       height: selectHeight,
       lineHeight: selectLineHeight,
       padding,
-    } = getStyle('select')(props);
+    } = themeGet(props, 'select');
 
     return css`
       background-color: ${bgColor};
@@ -534,7 +534,7 @@ export const FormStyles = {
       lineHeightTextarea,
       padding,
       validation,
-    } = getStyle('input')(props);
+    } = themeGet(props, 'input');
     let thisColor = borderColor;
 
     if (valid) {
@@ -560,7 +560,7 @@ export const FormStyles = {
   },
   // helpers
   helpBlock(props) {
-    const { helpColor, helpMarginTop } = getStyle('formGroup')(props);
+    const { helpColor, helpMarginTop } = themeGet(props, 'formGroup');
 
     return css`
       color: ${helpColor};
@@ -571,7 +571,7 @@ export const FormStyles = {
     `;
   },
   inlineMargin(props) {
-    const { inlineMargin } = getStyle('formGroup')(props);
+    const { inlineMargin } = themeGet(props, 'formGroup');
 
     return css`margin-right: ${inlineMargin};`;
   },
@@ -582,7 +582,7 @@ export const FormStyles = {
       color: inputColor,
       focusColor,
       requiredColor,
-    } = getStyle('input')(props);
+    } = themeGet(props, 'input');
     const inputOnly = typeof multiple === 'undefined'
       ? `
     ${placeholder(`color: ${lighten(0.5, inputColor)};`)};
@@ -616,16 +616,16 @@ export const FormStyles = {
 export const HeadingStyles = {
   base(props) {
     const { gutterBottom } = props;
-    const headingWeight = getStyle('headingWeight')(props);
-    const headingGutter = getStyle('headingGutter')(props);
-    const headingSize = getStyle('headingSizes', { key: ['size', 'as'], base: 'h1' })(props);
+    const gutter = themeGet(props, 'gutter');
+    const headingWeight = themeGet(props, 'headingWeight');
+    const headingSize = themeGet(props, 'headingSizes', { key: 'as', base: 'h1' });
 
     return css`
       font-size: ${headingSize};
       font-family: inherit;
       font-weight: ${headingWeight};
       line-height: ${base.lineHeight};
-      margin: 0 0 ${gutterBottom ? headingGutter : 0};
+      margin: 0 0 ${gutterBottom ? `${gutter[2]}px` : 0};
       ${borders};
       ${fontSize};
       ${fontWeight};
@@ -637,7 +637,7 @@ export const HeadingStyles = {
 
 export const GroupStyles = {
   base(props) {
-    const gutter = getStyle('gutter')(props);
+    const gutter = themeGet(props, 'gutter');
 
     return css`
       ${space};
@@ -670,8 +670,8 @@ export const ImageStyles = {
 
 export const LinkStyles = {
   base(props) {
-    const palette = getStyle('palette')(props);
-    const grays = getStyle('grays')(props);
+    const palette = themeGet(props, 'palette');
+    const grays = themeGet(props, 'grays');
 
     return css`
       color: ${palette.primary};
@@ -695,7 +695,7 @@ export const ListStyles = {
     const {
       borderColor,
       borderRadius: radii,
-    } = getStyle('list')(props);
+    } = themeGet(props, 'list');
 
     return css`
       ${bordered ? `border: 1px solid ${borderColor};` : ''};
@@ -714,7 +714,7 @@ export const ListStyles = {
   },
   item(props) {
     const { size } = props;
-    const { padding } = getStyle('list')(props);
+    const { padding } = themeGet(props, 'list');
 
     return css`
       padding: ${padding[size]};
@@ -722,7 +722,7 @@ export const ListStyles = {
   },
   itemSibling(props) {
     const { bordered } = props;
-    const { borderColor } = getStyle('list')(props);
+    const { borderColor } = themeGet(props, 'list');
 
     if (bordered) {
       return css`
@@ -761,7 +761,7 @@ export const ScreenStyles = {
 export const TableStyles = {
   base(props) {
     const { bordered, borderless, inverted } = props;
-    const { borderColors, colors } = getStyle('table')(props);
+    const { borderColors, colors } = themeGet(props, 'table');
 
     return css`
       background-color: ${colors[inverted ? 'secondary' : 'primary']};
@@ -772,7 +772,7 @@ export const TableStyles = {
     `;
   },
   caption(props) {
-    const { captionColor, captionPadding } = getStyle('table')(props);
+    const { captionColor, captionPadding } = themeGet(props, 'table');
 
     return css`
       caption {
@@ -787,7 +787,7 @@ export const TableStyles = {
   },
   cellBorder(props) {
     const { bordered, borderless, inverted } = props;
-    const { borderColors } = getStyle('table')(props);
+    const { borderColors } = themeGet(props, 'table');
 
     if (borderless) {
       return '';
@@ -797,19 +797,19 @@ export const TableStyles = {
   },
   color(props) {
     const { inverted } = props;
-    const { colors } = getStyle('table')(props);
+    const { colors } = themeGet(props, 'table');
 
     return css`color: ${colors[inverted ? 'primary' : 'secondary']};`;
   },
   headBackgroundColor(props) {
     const { head } = props;
-    const { headColors } = getStyle('table')(props);
+    const { headColors } = themeGet(props, 'table');
 
     return css`background-color: ${headColors[head] || 'transparent'};`;
   },
   headCellBorder(props) {
     const { bordered, borderless, inverted } = props;
-    const { borderColors } = getStyle('table')(props);
+    const { borderColors } = themeGet(props, 'table');
     const colorProp = borderColors[inverted ? 'secondary' : 'primary'];
 
     if (borderless) {
@@ -823,7 +823,7 @@ export const TableStyles = {
   },
   headColor(props) {
     const { head } = props;
-    const { colors } = getStyle('table')(props);
+    const { colors } = themeGet(props, 'table');
 
     if (head) {
       return css`color: ${colors[head === 'dark' ? 'primary' : 'secondary']};`;
@@ -833,13 +833,13 @@ export const TableStyles = {
   },
   padding(props) {
     const { size } = props;
-    const { padding } = getStyle('table')(props);
+    const { padding } = themeGet(props, 'table');
 
     return css`padding: ${padding[size]};`;
   },
   striped(props) {
     const { inverted, striped } = props;
-    const { stripedColors } = getStyle('table')(props);
+    const { stripedColors } = themeGet(props, 'table');
 
     if (striped) {
       return css`background-color: ${stripedColors[inverted ? 'secondary' : 'primary']};`;
@@ -866,7 +866,7 @@ export const TextStyles = {
 export const SwitchStyles = {
   base(props) {
     const { size, status } = props;
-    const sizes = getStyle('switchSizes')(props);
+    const sizes = themeGet(props, 'switchSizes');
     const themeColor = getColor(props);
 
     return css`
