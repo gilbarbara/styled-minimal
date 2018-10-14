@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { withTheme } from './utils/helpers';
+import { withComponent } from './utils/helpers';
 import { sizeType } from './utils/propTypes';
 import { ListStyles } from './utils/system';
 
@@ -50,4 +50,4 @@ StyledList.defaultProps = {
   type: '1',
 };
 
-export default withTheme(StyledList, 'List');
+export default withComponent(StyledList, 'List');

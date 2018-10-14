@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { withTheme } from './utils/helpers';
+import { withComponent } from './utils/helpers';
 import { FormStyles } from './utils/system';
 
 export const StyledForm = styled.form`
@@ -25,4 +25,4 @@ StyledForm.defaultProps = {
   bordered: false,
 };
 
-export default withTheme(StyledForm, 'Form');
+export default withComponent(StyledForm, 'Form');

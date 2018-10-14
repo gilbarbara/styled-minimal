@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { withTheme } from './utils/helpers';
+import { withComponent } from './utils/helpers';
 import { ScreenStyles } from './utils/system';
 
 export const StyledScreen = styled.div`
@@ -19,4 +19,4 @@ StyledScreen.defaultProps = {
   minHeight: '100vh',
 };
 
-export default withTheme(StyledScreen, 'Screen');
+export default withComponent(StyledScreen, 'Screen');

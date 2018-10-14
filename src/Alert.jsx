@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { withTheme } from './utils/helpers';
+import { withComponent } from './utils/helpers';
 import { sizeTypeFull, variantType } from './utils/propTypes';
 import { AlertStyles } from './utils/system';
 
@@ -27,4 +27,4 @@ StyledAlert.defaultProps = {
   variant: 'primary',
 };
 
-export default withTheme(StyledAlert, 'Alert');
+export default withComponent(StyledAlert, 'Alert');

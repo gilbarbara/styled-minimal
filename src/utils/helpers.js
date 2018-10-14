@@ -114,8 +114,8 @@ export function getYiq(color: string): number {
   return (r * 299 + g * 587 + b * 114) / 1000;
 }
 
-export function withTheme(BaseComponent: any, displayName: string = ''): Function {
-  const Component = (props) => React.createElement(BaseComponent, { ...props, theme: getTheme(props) });
+export function withComponent(BaseComponent: any, displayName: string = ''): Function {
+  const Component = (props) => React.createElement(BaseComponent, { ...props });
   Component.displayName = `${displayName}${typeof BaseComponent === 'function' ? 'Wrapper' : ''}`;
 
   return Component;

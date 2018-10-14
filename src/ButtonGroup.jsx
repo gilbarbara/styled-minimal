@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { withTheme } from './utils/helpers';
 import { sizeTypeFull, variantType } from './utils/propTypes';
 import { ButtonGroupStyles } from './utils/system';
 
@@ -12,6 +11,7 @@ export const StyledButtonGroup = styled.div`
 
 const ButtonGroup = ({ children, size, variant, ...props }) => {
   const buttonProps = {};
+  console.log(props);
 
   if (typeof size !== 'undefined') {
     buttonProps.size = size;
@@ -34,4 +34,4 @@ ButtonGroup.propTypes = {
   variant: variantType,
 };
 
-export default withTheme(ButtonGroup, 'ButtonGroup');
+export default ButtonGroup;

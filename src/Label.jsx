@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { withTheme } from './utils/helpers';
+import { withComponent } from './utils/helpers';
 import { FormStyles } from './utils/system';
 
 export const StyledLabel =  styled.label`
@@ -15,4 +15,4 @@ StyledLabel.propTypes = {
   inline: PropTypes.bool,
 };
 
-export default withTheme(StyledLabel, 'Label');
+export default withComponent(StyledLabel, 'Label');

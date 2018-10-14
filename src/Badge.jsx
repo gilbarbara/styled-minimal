@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { withTheme } from './utils/helpers';
+import { withComponent } from './utils/helpers';
 import { sizeTypeFull, variantType } from './utils/propTypes';
 import { BadgeStyles } from './utils/system';
 
@@ -17,4 +17,4 @@ StyledBadge.propTypes = {
   variant: variantType,
 };
 
-export default withTheme(StyledBadge, 'Badge');
+export default withComponent(StyledBadge, 'Badge');

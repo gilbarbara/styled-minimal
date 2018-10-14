@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { withTheme } from './utils/helpers';
+import { withComponent } from './utils/helpers';
 import { buttonType, sizeTypeFull, variantType } from './utils/propTypes';
 import { ButtonStyles } from './utils/system';
 
@@ -56,4 +56,4 @@ StyledButton.defaultProps = {
   variant: 'primary',
 };
 
-export default withTheme(StyledButton, 'Button');
+export default withComponent(StyledButton, 'Button');

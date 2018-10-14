@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { withTheme } from './utils/helpers';
+import { withComponent } from './utils/helpers';
 import { ContainerStyles } from './utils/system';
 import { textAlignType } from './utils/propTypes';
 
@@ -23,4 +23,4 @@ StyledContainer.defaultProps = {
   verticalPadding: false,
 };
 
-export default withTheme(StyledContainer, 'Container');
+export default withComponent(StyledContainer, 'Container');

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { withTheme } from './utils/helpers';
+import { withComponent } from './utils/helpers';
 import { sizeType } from './utils/propTypes';
 import { TableStyles } from './utils/system';
 
@@ -55,4 +55,4 @@ StyledTable.defaultProps = {
   striped: false,
 };
 
-export default withTheme(StyledTable, 'Table');
+export default withComponent(StyledTable, 'Table');

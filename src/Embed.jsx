@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { withTheme } from './utils/helpers';
+import { withComponent } from './utils/helpers';
 import { EmbedStyles } from './utils/system';
 
 export const StyledEmbed = styled.div`
@@ -18,4 +18,4 @@ StyledEmbed.defaultProps = {
   ratio: 9 / 16,
 };
 
-export default withTheme(StyledEmbed, 'Embed');
+export default withComponent(StyledEmbed, 'Embed');

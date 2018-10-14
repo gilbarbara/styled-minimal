@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { withTheme } from './utils/helpers';
+import { withComponent } from './utils/helpers';
 import { headingType } from './utils/propTypes';
 import { HeadingStyles } from './utils/system';
 
@@ -23,4 +23,4 @@ StyledHeading.defaultProps = {
   as: 'h1',
 };
 
-export default withTheme(StyledHeading, 'Heading');
+export default withComponent(StyledHeading, 'Heading');

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { withTheme } from './utils/helpers';
+import { withComponent } from './utils/helpers';
 import { TextStyles } from './utils/system';
 
 export const StyledText = styled.span`
@@ -13,4 +13,4 @@ StyledText.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default withTheme(StyledText, 'Text');
+export default withComponent(StyledText, 'Text');

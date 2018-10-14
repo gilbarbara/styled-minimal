@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { withTheme } from './utils/helpers';
+import { withComponent } from './utils/helpers';
 import { FormStyles } from './utils/system';
 
 import { StyledLegend } from './Legend';
@@ -26,4 +26,4 @@ StyledFieldset.defaultProps = {
   inline: false,
 };
 
-export default withTheme(StyledFieldset, 'Fieldset');
+export default withComponent(StyledFieldset, 'Fieldset');
