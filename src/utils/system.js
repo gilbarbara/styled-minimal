@@ -37,11 +37,11 @@ import {
   zIndex,
 } from 'styled-system';
 
-import { calcUnits, getColor, getYiq, themeGet } from './helpers';
+import { calcUnits, getColor, getYiq, px, themeGet } from './helpers';
 import { placeholder } from './mixins';
 import { inputTextOptions } from './options';
 
-export const base = {
+const base = {
   color: props => {
     const { disabled, outline } = props;
     const colors = themeGet(props, 'colors');
@@ -256,15 +256,33 @@ export const CodeStyles = {
 };
 
 export const ContainerStyles = {
-  base(props) {
-    const container = themeGet(props, 'container');
+  base({ layout, theme }) {
+    const { container, grid, gutter } = theme;
+
+    const vertical = ({ verticalPadding }) => {
+      if (!verticalPadding) return '';
+
+      return css`
+          padding-bottom: ${px(gutter[2])};
+          padding-top: ${px(gutter[2])};
+  
+          ${grid.md} {
+            padding-bottom: ${px(gutter[3])};
+            padding-top: ${px(gutter[3])};
+          }
+        `;
+    };
 
     return css`
       margin-left: auto;
       margin-right: auto;
+      padding-left: ${px(gutter[2])};
+      padding-right: ${px(gutter[2])};
       max-width: ${container.maxWidth};
       position: relative;
       width: 100%;
+      ${container.layout[layout] || ''}
+      ${vertical};
       ${alignContent};
       ${alignItems};
       ${alignSelf};
@@ -282,6 +300,11 @@ export const ContainerStyles = {
       ${space};
       ${textAlign}
       ${width};
+      
+      ${grid.md} {
+        padding-left: ${px(gutter[3])};
+        padding-right: ${px(gutter[3])};
+      }
     `;
   },
 };
@@ -625,7 +648,7 @@ export const HeadingStyles = {
       font-family: inherit;
       font-weight: ${headingWeight};
       line-height: ${base.lineHeight};
-      margin: 0 0 ${gutterBottom ? `${gutter[2]}px` : 0};
+      margin: 0 0 ${gutterBottom ? px(gutter[2]) : 0};
       ${borders};
       ${fontSize};
       ${fontWeight};
@@ -643,7 +666,7 @@ export const GroupStyles = {
       ${space};
       
       > * + * {
-        margin-left: ${gutter[0]};
+        margin-left: ${px(gutter[1])};
       }
     `;
   },
