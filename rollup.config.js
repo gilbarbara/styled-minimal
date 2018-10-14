@@ -50,12 +50,4 @@ export default [
       visualizer(),
     ],
   },
-  {
-    input: 'src/styles/index.js',
-    external,
-    output: [
-      { file: 'styles.js', format: 'cjs' },
-    ],
-    plugins: plugins(),
-  },
 ];
