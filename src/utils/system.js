@@ -37,7 +37,7 @@ import {
   zIndex,
 } from 'styled-system';
 
-import { calcUnits, getColor, getYiq, px, themeGet } from './helpers';
+import { calcUnits, getColor, getTheme, getYiq, px, themeGet } from './helpers';
 import { placeholder } from './mixins';
 import { inputTextOptions } from './options';
 
@@ -256,8 +256,8 @@ export const CodeStyles = {
 };
 
 export const ContainerStyles = {
-  base({ layout, theme }) {
-    const { container, grid, gutter } = theme;
+  base(props) {
+    const { container, grid, gutter } = getTheme(props);
 
     const vertical = ({ verticalPadding }) => {
       if (!verticalPadding) return '';
@@ -281,7 +281,7 @@ export const ContainerStyles = {
       max-width: ${container.maxWidth};
       position: relative;
       width: 100%;
-      ${container.layout[layout] || ''}
+      ${container.layout[props.layout] || ''}
       ${vertical};
       ${alignContent};
       ${alignItems};
