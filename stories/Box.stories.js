@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, select, text } from '@storybook/addon-knobs/react';
+import { withKnobs, select, text, number } from '@storybook/addon-knobs/react';
 
 import { Box } from '../src';
 import { View } from './helpers/components';
@@ -18,8 +18,7 @@ storiesOf('Box', module)
         bg={text('BG Color', '#eee')}
         color={text('Color', '#f04')}
         fontSize={text('Font Size', '16px')}
-        height={text('Height', '100px')}
-        p={text('Padding', '8px')}
+        p={number('Padding', 2)}
         m={text('Margin', '')}
         textAlign={select('Text Align', ['left', 'center', 'right'], 'left')}
         width={text('Width', '450px')}
