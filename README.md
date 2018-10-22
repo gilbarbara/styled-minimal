@@ -64,5 +64,3 @@ const MyComponent = () => {
   )
 }
 ```
-
-

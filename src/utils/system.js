@@ -32,6 +32,7 @@ import {
   right,
   space,
   textAlign,
+  textTransform,
   top,
   width,
   zIndex,
@@ -204,6 +205,7 @@ export const ButtonStyles = {
       ${fontWeight};
       ${lineHeight};
       ${space};
+      ${textTransform};
     `;
   },
   outlineColor(props) {
@@ -652,8 +654,10 @@ export const HeadingStyles = {
       ${borders};
       ${fontSize};
       ${fontWeight};
+      ${lineHeight};
       ${space};
       ${textAlign};
+      ${textTransform};
     `;
   },
 };
@@ -768,6 +772,7 @@ export const ParagraphStyles = {
       ${fontWeight};
       ${lineHeight};
       ${space};
+      ${textTransform};
     `;
   },
 };
@@ -882,6 +887,7 @@ export const TextStyles = {
       ${fontWeight};
       ${lineHeight};
       ${space};
+      ${textTransform};
     `;
   },
 };
