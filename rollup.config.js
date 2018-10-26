@@ -14,7 +14,7 @@ const deps = [
   ...Object.keys(packageJSON.dependencies),
 ];
 
-const external = id => /^\.\/[A-Z]\w+$/.test(id) || deps.includes(id);
+const external = id => /^\.\/[A-Z]\w+$/.test(id) || /^^\.\/utils\/.*$/.test(id) || deps.includes(id);
 
 const plugins = () => ([
   replace({
