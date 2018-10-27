@@ -74,7 +74,6 @@
     "babel-plugin-array-includes": "^2.0.3",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.19",
     "babel-runtime": "^6.26.0",
-    "bundlesize": "^0.17.0",
     "chalk": "^2.4.1",
     "cross-env": "^5.2.0",
     "del-cli": "^1.1.0",
@@ -88,9 +87,11 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
     "flow-bin": "^0.84.0",
+    "gzip-size": "^5.0.0",
     "husky": "^1.1.2",
     "jest": "^23.6.0",
     "jest-enzyme": "^7.0.0",
+    "prettysize": "^1.1.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
@@ -120,15 +121,14 @@
     "lint": "eslint --ext .js --ext .jsx src stories",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
-    "bundlesize": "bundlesize",
-    "precommit": "npm run lint && npm run build && bundlesize",
+    "bundlesize": "node tools/sizer",
+    "precommit": "npm run lint && npm run build && npm run bundlesize",
     "prepublishOnly": "npm run build",
     "storybook": "start-storybook -p 9001"
   },
-  "bundlesize": [
-    {
-      "path": "./index*.js",
-      "maxSize": "1 kB"
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precommit"
     }
-  ]
+  }
 }
