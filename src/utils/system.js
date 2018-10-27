@@ -31,8 +31,8 @@ import {
   ratio,
   right,
   space,
+  style,
   textAlign,
-  textTransform,
   top,
   width,
   zIndex,
@@ -41,6 +41,12 @@ import {
 import { calcUnits, getColor, getTheme, getYiq, px, themeGet } from './helpers';
 import { placeholder } from './mixins';
 import { inputTextOptions } from './options';
+
+const textTransform = style({
+  prop: 'textTransform',
+  cssProperty: 'textTransform',
+  transformValue: px,
+});
 
 const base = {
   color: props => {
@@ -138,8 +144,6 @@ export const BoxStyles = {
   base() {
     return css`
       width: 100%;
-      ${alignContent};
-      ${alignItems};
       ${alignSelf};
       ${backgroundImage};
       ${borders};
@@ -147,14 +151,10 @@ export const BoxStyles = {
       ${color};
       ${display};
       ${flex};
-      ${flexBasis};
-      ${flexDirection};
-      ${flexWrap};
       ${fontFamily};
       ${fontSize};
       ${fontWeight};
       ${height};
-      ${justifyContent};
       ${left};
       ${maxHeight};
       ${maxWidth};
@@ -650,7 +650,7 @@ export const HeadingStyles = {
       font-family: inherit;
       font-weight: ${headingWeight};
       line-height: ${base.lineHeight};
-      margin: 0 0 ${gutterBottom ? px(gutter[2]) : 0};
+      margin: ${px(gutter[2])} 0 ${gutterBottom ? px(gutter[2]) : 0};
       ${borders};
       ${fontSize};
       ${fontWeight};
@@ -658,6 +658,10 @@ export const HeadingStyles = {
       ${space};
       ${textAlign};
       ${textTransform};
+      
+      &:first-child {
+        margin-top: 0;
+      }
     `;
   },
 };
