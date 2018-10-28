@@ -7,16 +7,16 @@ import { backgroundAddon } from './helpers/extras';
 import { sizeOptions } from '../src/utils/options';
 
 import { Table } from '../src';
-import { View } from './helpers/components';
+import { ViewCheckbox } from './helpers/components';
 
 storiesOf('Table', module)
   .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
   .add('default', withInfo({
-    propTablesExclude: [View],
+    propTablesExclude: [ViewCheckbox],
     text: 'Table wrapper',
   })(() => (
-    <View skipCentered>
+    <ViewCheckbox>
       <Table
         bordered={boolean('Bordered', false)}
         borderless={boolean('Borderless', false)}
@@ -55,5 +55,5 @@ storiesOf('Table', module)
           </tr>
         </tbody>
       </Table>
-    </View>
+    </ViewCheckbox>
   )));

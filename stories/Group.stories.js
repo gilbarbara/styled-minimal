@@ -11,7 +11,7 @@ storiesOf('Group', module)
   .add('default', withInfo({
     propTablesExclude: [Badge, Button, Text, View],
   })(() => (
-    <View skipSpacer hideCheckbox>
+    <View skipSpacer>
       <Group>
         <Button>Hey</Button>
         <Badge>1</Badge>

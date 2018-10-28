@@ -6,16 +6,16 @@ import { withKnobs, select } from '@storybook/addon-knobs/react';
 import { Button, ButtonGroup } from '../src';
 import { sizeOptions, variantOptions } from '../src/utils/options';
 
-import { View } from './helpers/components';
+import { ViewCheckbox } from './helpers/components';
 import { backgroundAddon } from './helpers/extras';
 
 storiesOf('ButtonGroup', module)
   .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
   .add('default', withInfo({
-    propTablesExclude: [Button, View],
+    propTablesExclude: [Button, ViewCheckbox],
   })(() => (
-    <View skipSpacer hideCheckbox>
+    <ViewCheckbox skipSpacer>
       <ButtonGroup
         size={select('Size', sizeOptions, 'md')}
         variant={select('Variant', variantOptions, 'primary')}
@@ -25,5 +25,5 @@ storiesOf('ButtonGroup', module)
         <Button outline>Third</Button>
         <Button outline>Forth</Button>
       </ButtonGroup>
-    </View>
+    </ViewCheckbox>
   )));

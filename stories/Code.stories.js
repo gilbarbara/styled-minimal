@@ -13,9 +13,9 @@ storiesOf('Code', module)
   .add('default', withInfo({
     propTablesExclude: [View],
   })(() => (
-    <View hideCheckbox skipSpacer>
+    <View skipSpacer>
       <Code>
-        {text('Children', '<Code>Some Code</Code>')}
+        {text('Children', '<MyComponent variant="green">Some Code</MyComponent>')}
       </Code>
     </View>
   )));

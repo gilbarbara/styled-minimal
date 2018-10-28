@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
@@ -7,18 +6,16 @@ import { withKnobs, text, select, boolean } from '@storybook/addon-knobs/react';
 
 import { Button } from '../src';
 import { sizeOptions, variantOptions } from '../src/utils/options';
-import { SVG, View } from './helpers/components';
+import { SVG, ViewCheckbox } from './helpers/components';
 import { backgroundAddon, capitalize } from './helpers/extras';
 
-const stories = storiesOf('Button', module);
-
-stories
+storiesOf('Button', module)
   .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
   .add('default', withInfo({
-    propTablesExclude: [View],
+    propTablesExclude: [ViewCheckbox],
   })(() => (
-    <View>
+    <ViewCheckbox>
       <Button
         animate={boolean('Animate', false)}
         block={boolean('Block', false)}
@@ -31,40 +28,56 @@ stories
       >
         {text('Children', 'Click here now')}
       </Button>
-    </View>
+    </ViewCheckbox>
   )))
   .add('with size', () => (
-    <View>
+    <ViewCheckbox>
       <Button onClick={action('clicked')} size="xs">Button XS</Button>
       <Button onClick={action('clicked')} size="sm">Button SM</Button>
       <Button onClick={action('clicked')} size="md">Button MD</Button>
       <Button onClick={action('clicked')} size="lg">Button LG</Button>
       <Button onClick={action('clicked')} size="xl">Button XL</Button>
-    </View>
+    </ViewCheckbox>
   ))
   .add('with as', () => (
-    <View>
+    <ViewCheckbox>
       <Button as="a" onClick={action('clicked')} href="https://amaro.com" target="_blank">Anchor</Button>
       <Button as="span" onClick={action('clicked')}>Span</Button>
       <Button as="label" onClick={action('clicked')}>Label</Button>
-    </View>
+    </ViewCheckbox>
   ))
   .add('with variant', () => (
-    <View>
+    <ViewCheckbox>
       {variantOptions.map((d, i) => (
-        <Button key={i} variant={d}>{capitalize(d)}</Button>
+        <Button
+          key={i}
+          variant={d}
+          disabled={boolean('Disabled', false)}
+          onClick={action('clicked')}
+          outline={boolean('Outline', false)}
+        >
+          {capitalize(d)}
+        </Button>
       ))}
-    </View>
+    </ViewCheckbox>
   ))
   .add('with outline', () => (
-    <View>
+    <ViewCheckbox>
       {variantOptions.map((d, i) => (
-        <Button key={i} outline variant={d}>{capitalize(d)}</Button>
+        <Button
+          key={i}
+          disabled={boolean('Disabled', false)}
+          onClick={action('clicked')}
+          outline
+          variant={d}
+        >
+          {capitalize(d)}
+        </Button>
       ))}
-    </View>
+    </ViewCheckbox>
   ))
   .add('with icons', () => (
-    <View>
+    <ViewCheckbox>
       <Button onClick={action('clicked')}>
         <span role="img" aria-label="so cool" style={{ marginRight: 5 }}>😀</span>
         <span>COOL</span>
@@ -77,12 +90,12 @@ stories
         <span style={{ marginRight: 5 }}>SUPER</span>
         <span role="img" aria-label="fresh"><SVG /></span>
       </Button>
-    </View>
+    </ViewCheckbox>
   ))
   .add('with animation', () => (
-    <View>
+    <ViewCheckbox>
       <Button onClick={action('clicked')} animate>Waiting</Button>
       <Button onClick={action('clicked')} variant="success" animate>Loading</Button>
       <Button onClick={action('clicked')} variant="indigo" animate>Running</Button>
-    </View>
+    </ViewCheckbox>
   ));

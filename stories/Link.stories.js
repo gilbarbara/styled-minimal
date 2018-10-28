@@ -13,7 +13,7 @@ storiesOf('Link', module)
   .add('default', withInfo({
     propTablesExclude: [View],
   })(() => (
-    <View hideCheckbox skipSpacer>
+    <View skipSpacer>
       <Link
         title={text('Alt', 'Moon')}
         target={text('Height')}

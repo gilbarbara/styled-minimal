@@ -4,16 +4,16 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, select, text } from '@storybook/addon-knobs/react';
 
 import { Image } from '../src';
-import { View } from './helpers/components';
+import { ViewCheckbox } from './helpers/components';
 import { backgroundAddon } from './helpers/extras';
 
 storiesOf('Image', module)
   .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
   .add('default', withInfo({
-    propTablesExclude: [View],
+    propTablesExclude: [ViewCheckbox],
   })(() => (
-    <View skipSpacer>
+    <ViewCheckbox>
       <Image
         alt={text('Alt', 'Moon')}
         height={text('Height')}
@@ -21,5 +21,5 @@ storiesOf('Image', module)
         textAlign={select('Text Align', ['left', 'center', 'right'], 'left')}
         width={text('Width')}
       />
-    </View>
+    </ViewCheckbox>
   )));

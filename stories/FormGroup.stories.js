@@ -7,13 +7,24 @@ import { Button, FormGroup, Input, Label, Legend, Textarea } from '../src';
 import { View } from './helpers/components';
 import { backgroundAddon } from './helpers/extras';
 
+const FormGroupView = ({ children, ...rest }) => (
+  <View
+    direction="column"
+    skipSpacer
+    style={{ padding: 10 }}
+    {...rest}
+  >
+    {children}
+  </View>
+);
+
 storiesOf('FormGroup', module)
   .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
   .add('default', withInfo({
     propTablesExclude: [View, Input, Label],
   })(() => (
-    <View direction="column" hideCheckbox skipCentered skipFlex>
+    <FormGroupView>
       <FormGroup
         bordered={boolean('Bordered', false)}
         inline={boolean('Inline', false)}
@@ -22,10 +33,10 @@ storiesOf('FormGroup', module)
         <Label>Password</Label>
         <Input type="password" name="password" placeholder="Your Password" />
       </FormGroup>
-    </View>
+    </FormGroupView>
   )))
   .add('with type', () => (
-    <View direction="column" hideCheckbox skipCentered skipFlex>
+    <FormGroupView>
       <FormGroup>
         <Label>Name</Label>
         <Input type="text" name="name" placeholder="Your Name" />
@@ -50,10 +61,10 @@ storiesOf('FormGroup', module)
         <Label>Comment</Label>
         <Textarea name="comment" placeholder="Your Comment" />
       </FormGroup>
-    </View>
+    </FormGroupView>
   ))
   .add('with bordered', () => (
-    <View direction="column" hideCheckbox skipCentered skipFlex>
+    <FormGroupView>
       <FormGroup bordered>
         <Label>Name</Label>
         <Input type="text" name="name" placeholder="Your Name" />
@@ -82,10 +93,10 @@ storiesOf('FormGroup', module)
         <Label>Comment</Label>
         <Textarea name="comment" placeholder="Your Comment" />
       </FormGroup>
-    </View>
+    </FormGroupView>
   ))
   .add('with inline', () => (
-    <View direction="column" hideCheckbox skipCentered skipFlex>
+    <FormGroupView>
       <FormGroup
         bordered
         inline
@@ -126,5 +137,5 @@ storiesOf('FormGroup', module)
         <Label inline><Input type="password" size="lg" name="password" placeholder="Your Password" /></Label>
         <Button type="submit" size="lg">SEND</Button>
       </FormGroup>
-    </View>
+    </FormGroupView>
   ));

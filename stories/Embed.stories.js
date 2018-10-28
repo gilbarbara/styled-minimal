@@ -4,16 +4,16 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, number } from '@storybook/addon-knobs/react';
 
 import { Embed } from '../src';
-import { View } from './helpers/components';
+import { ViewCheckbox } from './helpers/components';
 import { backgroundAddon } from './helpers/extras';
 
 storiesOf('Embed', module)
   .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
   .add('default', withInfo({
-    propTablesExclude: [View],
+    propTablesExclude: [ViewCheckbox],
   })(() => (
-    <View skipSpacer>
+    <ViewCheckbox>
       <Embed ratio={number('Ratio', 9 / 16)}>
         {`<iframe
           width="560"
@@ -24,5 +24,5 @@ storiesOf('Embed', module)
           allowFullScreen
         />`}
       </Embed>
-    </View>
+    </ViewCheckbox>
   )));

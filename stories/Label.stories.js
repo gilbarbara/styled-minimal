@@ -13,7 +13,7 @@ storiesOf('Label', module)
   .add('default', withInfo({
     propTablesExclude: [View],
   })(() => (
-    <View hideCheckbox skipCentered skipFlex skipSpacer>
+    <View>
       <Label
         inline={boolean('Inline', false)}
       >

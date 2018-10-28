@@ -1,13 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
+import styled, { ThemeProvider, css } from 'styled-components';
 
-const Wrapper = styled.div`
-  text-align: center;
-`;
-
-const checkbox = ({ hideCheckbox }) => (
-  !hideCheckbox
+const checkboxCSS = ({ checkbox }) => (
+  checkbox
     ? css`
         background: linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%, #ccc 0), linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%, #ccc 0), transparent;
         background-position: 0 0, 10px 10px;
@@ -16,28 +12,10 @@ const checkbox = ({ hideCheckbox }) => (
     : ''
 );
 
-const spacer = ({ skipSpacer }) => (
-  !skipSpacer
-    ? css`
-        > * {
-          margin: 15px;
-        }
-    `
-    : ''
-);
-
-const centered = ({ skipCentered }) => (
-  !skipCentered
-    ? css`
-      text-align: center;
-    `
-    : ''
-);
-
 const flex = ({ direction, skipFlex }) => (
   !skipFlex
     ? css`
-      align-items: center;
+      align-items: ${direction === 'column' ? 'stretch' : 'center'};
       display: flex;
       flex-direction: ${direction};
       flex-wrap: wrap;
@@ -47,31 +25,42 @@ const flex = ({ direction, skipFlex }) => (
 );
 
 const StyledView = styled.div`
+  background-color: #fff;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   margin: 0 auto;
   min-height: 30vh;
-  ${centered};
+  ${({ centered }) => (centered ? 'text-align: center;' : '')};
   ${flex};
-  ${checkbox}
-  ${spacer};
+  ${checkboxCSS}
+  
+  > * {
+    margin: ${({ skipSpacer }) => (skipSpacer ? 0 : '15px')};
+  }
 `;
 
 const View = ({ children, ...props }) => (
-  <StyledView {...props}>{children}</StyledView>
+  <ThemeProvider
+    theme={{
+      breakpoints: [400, 580, 768, 1024, 1360, 1920],
+      fontSizes: [12, 14, 16, 18, 22, 26, 32, 48],
+      space: [0, 4, 8, 12, 16, 24, 32, 64, 128],
+    }}
+  >
+    <StyledView {...props}>{children}</StyledView>
+  </ThemeProvider>
 );
 
 View.propTypes = {
+  centered: PropTypes.bool,
+  checkbox: PropTypes.bool,
   children: PropTypes.node.isRequired,
   direction: PropTypes.string,
-  hideCheckbox: PropTypes.bool,
-  skipCentered: PropTypes.bool,
   skipFlex: PropTypes.bool,
   skipSpacer: PropTypes.bool,
 };
 
 View.defaultProps = {
   direction: 'row',
-  hideCheckbox: false,
 };
 
 const StyledSVG = styled.div`
@@ -116,4 +105,8 @@ SVG.defaultProps = {
   width: '16px',
 };
 
-export { SVG, Wrapper, View };
+const ViewCheckbox = ({ children, ...rest }) => (
+  <View checkbox {...rest}>{children}</View>
+);
+
+export { SVG, View, ViewCheckbox };

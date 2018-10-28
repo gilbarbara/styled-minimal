@@ -15,7 +15,7 @@ storiesOf('List', module)
   .add('default', withInfo({
     propTablesExclude: [Box, Heading, Paragraph, View],
   })(() => (
-    <View direction="column" skipCentered hideCheckbox>
+    <View>
       <Box width={450}>
         <List
           as={select('Element', ['ul', 'ol'], 'ul')}
@@ -47,7 +47,7 @@ storiesOf('List', module)
     </View>
   )))
   .add('with OL', () => (
-    <View direction="column" skipCentered hideCheckbox>
+    <View>
       <Box width={450}>
         <List as="ol" type="I">
           <li>Cras justo odio</li>
@@ -60,7 +60,7 @@ storiesOf('List', module)
     </View>
   ))
   .add('with size', () => (
-    <View hideCheckbox skipCentered style={{ alignItems: 'flex-start' }}>
+    <View style={{ alignItems: 'flex-start' }}>
       <Box width={200}>
         <Heading as="h5" mb={1}>SM</Heading>
         <List bordered size="sm">

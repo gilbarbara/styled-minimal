@@ -11,7 +11,7 @@ storiesOf('Legend', module)
   .add('default', withInfo({
     propTablesExclude: [View],
   })(() => (
-    <View hideCheckbox skipCentered skipFlex skipSpacer>
+    <View>
       <Legend>Far far away, behind the word mountains, there live the blind texts.</Legend>
     </View>
   )));

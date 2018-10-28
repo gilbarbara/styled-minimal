@@ -7,15 +7,15 @@ import { backgroundAddon } from './helpers/extras';
 import { sizeOptions } from '../src/utils/options';
 
 import { Select } from '../src';
-import { View } from './helpers/components';
+import { ViewCheckbox } from './helpers/components';
 
 storiesOf('Select', module)
   .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
   .add('default', withInfo({
-    propTablesExclude: [View],
+    propTablesExclude: [ViewCheckbox],
   })(() => (
-    <View hideCheckbox skipCentered>
+    <ViewCheckbox>
       <Select
         disabled={boolean('Disabled', false)}
         multiple={boolean('Multiple', false)}
@@ -27,5 +27,5 @@ storiesOf('Select', module)
         <option value="female">Female</option>
         <option value="other">Other</option>
       </Select>
-    </View>
+    </ViewCheckbox>
   )));

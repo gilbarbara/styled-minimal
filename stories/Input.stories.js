@@ -9,13 +9,24 @@ import { sizeOptions } from '../src/utils/options';
 import { Input } from '../src';
 import { View } from './helpers/components';
 
+const InputView = ({ children, ...rest }) => (
+  <View
+    direction="column"
+    skipSpacer
+    style={{ padding: 10 }}
+    {...rest}
+  >
+    {children}
+  </View>
+);
+
 storiesOf('Input', module)
   .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
   .add('default', withInfo({
     propTablesExclude: [View],
   })(() => (
-    <View hideCheckbox>
+    <InputView>
       <Input
         accept={text('Accept')}
         autoComplete={text('Autocomplete')}
@@ -29,41 +40,41 @@ storiesOf('Input', module)
         required={boolean('Required', false)}
         size={select('Size', sizeOptions, 'md')}
       />
-    </View>
+    </InputView>
   )))
   .add('with type', () => (
-    <View direction="column" hideCheckbox skipCentered skipFlex>
-      <Input type="checkbox" />
-      <Input type="color" />
-      <Input type="date" />
-      <Input type="email" placeholder="email" />
-      <Input type="file" placeholder="file" />
-      <Input type="hidden" placeholder="hidden" />
-      <Input type="number" placeholder="number" />
-      <Input type="password" placeholder="password" />
-      <Input type="radio" placeholder="radio" />
-      <Input type="search" placeholder="search" />
-      <Input type="tel" placeholder="tel" />
+    <InputView>
+      <Input type="checkbox" /><br />
+      <Input type="color" /><br />
+      <Input type="date" /><br />
+      <Input type="email" placeholder="email" /><br />
+      <Input type="file" placeholder="file" /><br />
+      <Input type="hidden" placeholder="hidden" /><br />
+      <Input type="number" placeholder="number" /><br />
+      <Input type="password" placeholder="password" /><br />
+      <Input type="radio" placeholder="radio" /><br />
+      <Input type="search" placeholder="search" /><br />
+      <Input type="tel" placeholder="tel" /><br />
       <Input type="text" placeholder="text" />
-    </View>
+    </InputView>
   ))
   .add('with size', () => (
-    <View direction="column" hideCheckbox>
-      <Input size="sm" placeholder="sm" />
-      <Input size="md" placeholder="md" />
+    <InputView>
+      <Input size="sm" placeholder="sm" /><br />
+      <Input size="md" placeholder="md" /><br />
       <Input size="lg" placeholder="lg" />
-    </View>
+    </InputView>
   ))
   .add('with status', () => (
-    <View direction="column" hideCheckbox>
-      <Input disabled placeholder="disabled" />
-      <Input placeholder="normal" />
+    <InputView>
+      <Input disabled placeholder="disabled" /><br />
+      <Input placeholder="normal" /><br />
       <Input required placeholder="required" />
-    </View>
+    </InputView>
   ))
   .add('with validation', () => (
-    <View direction="column" hideCheckbox skipCentered>
-      <Input name="name" placeholder="Your Name" required valid={false} />
+    <InputView>
+      <Input name="name" placeholder="Your Name" required valid={false} /><br />
       <Input name="name" placeholder="Your Name" required valid={true} />
-    </View>
+    </InputView>
   ));

@@ -7,15 +7,15 @@ import { sizeOptions, variantOptions } from '../src/utils/options';
 import { backgroundAddon, capitalize } from './helpers/extras';
 
 import { Badge, Button, Heading } from '../src';
-import { SVG, View } from './helpers/components';
+import { SVG, ViewCheckbox } from './helpers/components';
 
 storiesOf('Badge', module)
   .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
   .add('default', withInfo({
-    propTablesExclude: [View],
+    propTablesExclude: [ViewCheckbox],
   })(() => (
-    <View>
+    <ViewCheckbox>
       <Badge
         outline={boolean('Outline', false)}
         size={select('Size', sizeOptions, 'md')}
@@ -23,55 +23,57 @@ storiesOf('Badge', module)
       >
         {text('Children', 'badge')}
       </Badge>
-    </View>
+    </ViewCheckbox>
   )))
   .add('with Heading', () => (
-    <View direction="column">
-      <Heading as="h1" gutterBottom>Example heading <Badge>New</Badge></Heading>
-      <Heading as="h2" gutterBottom>Example heading <Badge>New</Badge></Heading>
-      <Heading as="h3" gutterBottom>Example heading <Badge>New</Badge></Heading>
-      <Heading as="h4" gutterBottom>Example heading <Badge>New</Badge></Heading>
-      <Heading as="h5" gutterBottom>Example heading <Badge>New</Badge></Heading>
-      <Heading as="h6" gutterBottom>Example heading <Badge>New</Badge></Heading>
-    </View>
+    <ViewCheckbox direction="column">
+      <div>
+        <Heading as="h1">Example heading <Badge>New</Badge></Heading>
+        <Heading as="h2">Example heading <Badge>New</Badge></Heading>
+        <Heading as="h3">Example heading <Badge>New</Badge></Heading>
+        <Heading as="h4">Example heading <Badge>New</Badge></Heading>
+        <Heading as="h5">Example heading <Badge>New</Badge></Heading>
+        <Heading as="h6">Example heading <Badge>New</Badge></Heading>
+      </div>
+    </ViewCheckbox>
   ))
   .add('with Button', () => (
-    <View direction="column">
+    <ViewCheckbox>
       <Button size="xs">Notifications <Badge variant="light">4</Badge></Button>
       <Button size="sm">Notifications <Badge variant="light">4</Badge></Button>
       <Button size="md">Notifications <Badge variant="light">4</Badge></Button>
       <Button size="lg">Notifications <Badge variant="light">4</Badge></Button>
       <Button size="xl">Notifications <Badge variant="light">4</Badge></Button>
-    </View>
+    </ViewCheckbox>
   ))
   .add('with size', () => (
-    <View>
+    <ViewCheckbox>
       <Badge size="xs">Badge XS</Badge>
       <Badge size="sm">Badge SM</Badge>
       <Badge size="md">Badge MD</Badge>
       <Badge size="lg">Badge LG</Badge>
       <Badge size="xl">Badge XL</Badge>
-    </View>
+    </ViewCheckbox>
   ))
   .add('with variant', () => (
-    <View>
+    <ViewCheckbox>
       {variantOptions.map((d, i) => (
         <Badge key={i} variant={d}>{capitalize(d)}</Badge>
       ))}
-    </View>
+    </ViewCheckbox>
   ))
   .add('with outline', () => (
-    <View>
+    <ViewCheckbox>
       {variantOptions.map((d, i) => (
         <Badge key={i} outline variant={d}>{capitalize(d)}</Badge>
       ))}
-    </View>
+    </ViewCheckbox>
   ))
   .add('with icon', () => (
-    <View>
+    <ViewCheckbox>
       <Badge>
         <SVG width="10px" height="10px" />{' '}
         <span>Bad</span>
       </Badge>
-    </View>
+    </ViewCheckbox>
   ));
