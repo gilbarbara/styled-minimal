@@ -38,7 +38,7 @@ import {
   zIndex,
 } from 'styled-system';
 
-import { calcUnits, getColor, getTheme, getYiq, px, themeGet } from './helpers';
+import { getColor, getTheme, getYiq, px, themeGet } from './helpers';
 import { placeholder } from './mixins';
 import { inputTextOptions } from './options';
 
@@ -50,7 +50,7 @@ const textTransform = style({
 
 const base = {
   color: props => {
-    const { disabled, outline } = props;
+    const { outline } = props;
     const colors = themeGet(props, 'colors');
     const selectedColor = getColor(props);
 
@@ -58,23 +58,21 @@ const base = {
     baseColor = outline ? selectedColor : baseColor;
 
     return css`
-      color: ${disabled ? lighten(0.3, baseColor) : baseColor};
+      color: ${baseColor};
     `;
   },
   variant(props) {
-    const { disabled, outline } = props;
+    const { outline } = props;
     const colors = themeGet(props, 'colors');
     const themeColor = getColor(props);
 
     let selectedColor = getYiq(themeColor) > 180 ? colors.black : colors.white;
     selectedColor = outline ? themeColor : selectedColor;
-    let backgroundColor = outline ? colors.white : themeColor;
-    backgroundColor = disabled && !outline ? lighten(0.2, backgroundColor) : backgroundColor;
-    const borderColor = disabled ? lighten(0.2, themeColor) : themeColor;
+    const backgroundColor = outline ? colors.white : themeColor;
 
     return css`
       background-color: ${backgroundColor};
-      border: 1px solid ${borderColor};
+      border: 1px solid ${themeColor};
       color: ${selectedColor};
     `;
   },
@@ -93,11 +91,11 @@ export const AlertStyles = {
 
     return css`
       ${base.variant};
-      border-radius: ${radii};
+      border-radius: ${px(radii)};
       font-size: ${base.fontSize};
       line-height: ${base.lineHeight};
-      max-width: ${alertMaxWidth};
-      padding: ${padding[size]};
+      max-width: ${px(alertMaxWidth)};
+      padding: ${px(padding[size][0])} ${px(padding[size][1])};
       width: 100%;
       ${borderRadius};
       ${fontFamily};
@@ -126,13 +124,13 @@ export const BadgeStyles = {
 
     return css`
       ${base.variant};
-      border-radius: ${radii};
-      display: inline-block;
+      border-radius: ${px(radii)};
+      display: inline-flex;
       font-size: ${badgeFontSize};
       ${fontSizeProp ? `font-size: ${fontSizeProp}` : ''};
       font-weight: ${badgeFontWeight};
-      line-height: ${base.lineHeight};
-      padding: ${padding};
+      line-height: 1;
+      padding: ${px(padding[0])} ${px(padding[1])};
       vertical-align: baseline;
       ${borderRadius};
       ${fontWeight};
@@ -147,6 +145,7 @@ export const BoxStyles = {
       ${alignSelf};
       ${backgroundImage};
       ${borders};
+      ${borderRadius};
       ${bottom};
       ${color};
       ${display};
@@ -174,9 +173,10 @@ export const BoxStyles = {
 
 export const ButtonStyles = {
   base(props) {
-    const { animate, outline, size } = props;
+    const { animate, disabled, outline, size } = props;
     const {
       borderRadius: radii,
+      disabledOpacity,
       lineHeight: buttonLineHeight,
       loader,
       padding,
@@ -186,7 +186,7 @@ export const ButtonStyles = {
     return css`
       ${base.variant};
       align-items: center;
-      border-radius: ${radii[size]};
+      border-radius: ${px(radii[size])};
       box-shadow: none;
       cursor: pointer;
       display: inline-flex;
@@ -194,7 +194,8 @@ export const ButtonStyles = {
       ${fontSizeProp ? `font-size: ${fontSizeProp}` : ''};
       justify-content: center;
       line-height: ${buttonLineHeight};
-      padding: ${padding[size]};
+      ${disabled && `opacity: ${disabledOpacity};`};
+      padding: ${px(padding[size][0])} ${px(padding[size][1])};
       text-decoration: none;
       width: ${({ block }) => (block ? '100%' : 'auto')}
       ${animate ? loader(outline ? '#ccc' : '#fff') : ''};
@@ -247,9 +248,14 @@ export const ButtonGroupStyles = {
 export const CodeStyles = {
   base() {
     return css`
+      background-color: #e8eded;
+      border: 1px solid #d0dada;
+      border-radius: 2px;
       font-family: "SF Mono", "Roboto Mono", Menlo, monospace;
+      padding: 10px;
       ${color};
       ${borders};
+      ${borderRadius};
       ${display};
       ${fontSize};
       ${space};
@@ -280,7 +286,7 @@ export const ContainerStyles = {
       margin-right: auto;
       padding-left: ${px(gutter[2])};
       padding-right: ${px(gutter[2])};
-      max-width: ${container.maxWidth};
+      max-width: ${container.maxWidth ? px(container.maxWidth) : 'none'};
       position: relative;
       width: 100%;
       ${container.layout[props.layout] || ''}
@@ -370,7 +376,6 @@ export const FlexStyles = {
 export const FormStyles = {
   fieldset(props) {
     const {
-      backgroundColor: bgColor,
       borderColor,
       borderRadius: radii,
       padding,
@@ -378,35 +383,31 @@ export const FormStyles = {
     } = themeGet(props, 'fieldset');
 
     return css`
-      background-color: ${bgColor};
       border: 1px solid ${borderColor};
-      border-radius: ${radii};
-      margin-bottom: ${marginBottom};
-      padding: ${padding};
+      border-radius: ${px(radii)};
+      margin-bottom: ${px(marginBottom)};
+      padding: ${px(padding)};
       text-align:left;
     `;
   },
   form(props) {
     const { bordered } = props;
     const {
-      backgroundColor: formBgColor,
       borderColor,
       borderRadius: radii,
       padding,
     } = themeGet(props, 'form');
 
     return css`
-      background-color: ${formBgColor};
       ${bordered ? `border: 1px solid ${borderColor};` : ''}
-      ${bordered ? `border-radius: ${radii};` : ''}
-      ${bordered ? `padding: ${padding};` : ''}
+      ${bordered ? `border-radius: ${px(radii)};` : ''}
+      ${bordered ? `padding: ${px(padding)};` : ''}
       text-align:left;
     `;
   },
   group(props) {
     const { bordered } = props;
     const {
-      backgroundColor: formGroupBgColor,
       borderColor,
       borderRadius: radii,
       marginBottom,
@@ -414,11 +415,10 @@ export const FormStyles = {
     } = themeGet(props, 'formGroup');
 
     return css`
-      background-color: ${formGroupBgColor};
       ${bordered ? `border: 1px solid ${borderColor};` : ''}
-      ${bordered ? `border-radius: ${radii};` : ''}
-      margin-bottom: ${marginBottom};
-      ${bordered ? `padding: ${padding};` : ''};
+      ${bordered ? `border-radius: ${px(radii)};` : ''}
+      margin-bottom: ${px(marginBottom)};
+      ${bordered ? `padding: ${px(padding)};` : ''};
       text-align: left;
     `;
   },
@@ -448,17 +448,22 @@ export const FormStyles = {
 
     return css`
       background-color: ${inputBgColor};
-      border: ${borderWidth ? `${borderWidth} solid ${thisColor}` : ''};
-      border-radius: ${radii};
+      border: ${borderWidth ? `${px(borderWidth)} solid ${thisColor}` : ''};
+      border-radius: ${px(radii)};
       color: ${inputColor};
       display: ${!['checkbox', 'radio'].includes(type) ? 'block' : 'inline-block'};
       font-family: inherit;
-      font-size: ${inputFontSize[size]};
-      ${inputTextOptions.includes(type) ? `height: ${inputHeight[size]}` : ''};
+      font-size: ${px(inputFontSize[size])};
+      ${inputTextOptions.includes(type) ? `height: ${px(inputHeight[size])}` : ''};
       line-height: ${inputLineHeight};
-      ${['checkbox', 'radio'].includes(type) ? `margin: 0 ${inlineMargin} 0 0` : ''};
-      padding: ${inputTextOptions.includes(type) ? padding[size] : 0};
+      ${['checkbox', 'radio'].includes(type) ? `margin-right: ${px(inlineMargin)}` : ''};
+      padding: ${inputTextOptions.includes(type) ? px(padding[size]) : 0};
       ${!['checkbox', 'radio', 'color'].includes(type) ? 'width: 100%;' : ''};
+      
+      &[type=file] {
+        font-size: ${px(inputFontSize[size] - 1)};
+        padding: ${px(padding[size] - 1)};
+      }
     `;
   },
   label(props) {
@@ -475,9 +480,9 @@ export const FormStyles = {
       display: block;
       font-family: inherit;
       font-weight: ${labelFontWeight};
-      ${inline ? `font-size: ${inlineFontSize}` : ''};
+      ${inline ? `font-size: ${px(inlineFontSize)}` : ''};
       line-height: ${base.lineHeight};
-      ${!inline ? `margin-bottom: ${marginBottom}` : ''};
+      ${!inline ? `margin-bottom: ${px(marginBottom)}` : ''};
       white-space: nowrap;
       ${fontFamily};
       ${fontSize};
@@ -499,7 +504,7 @@ export const FormStyles = {
       font-family: inherit;
       font-weight: ${legendFontWeight};
       line-height: ${base.lineHeight};
-      margin-bottom: ${marginBottom};
+      margin-bottom: ${px(marginBottom)};
       white-space: nowrap;
       ${fontFamily};
       ${fontSize};
@@ -524,22 +529,22 @@ export const FormStyles = {
     return css`
       background-color: ${bgColor};
       border: 1px solid ${borderColor};
-      border-radius: ${radii};
+      border-radius: ${px(radii)};
       color: ${selectColor};
       display: block;
-      ${!multiple ? `height: ${selectHeight[sizing]}` : ''};
+      ${!multiple ? `height: ${px(selectHeight[sizing])}` : ''};
       font-family: inherit;
-      font-size: ${selectFontSize[sizing]};
+      font-size: ${px(selectFontSize[sizing])};
       line-height: ${selectLineHeight};
-      ${!multiple ? `padding: ${padding[sizing]};` : ''};
+      ${!multiple ? `padding: ${px(padding[sizing])};` : ''};
       white-space: nowrap;
       width: 100%;
       
       > option {
         background-color: ${bgColor};
-        font-size: ${selectFontSize[sizing]};
+        font-size: ${px(selectFontSize[sizing])};
         line-height: ${selectLineHeight};
-        padding: ${padding[sizing]};
+        padding: ${px(padding[sizing])};
       }
       
       &[multiple]:focus option:checked {
@@ -572,14 +577,14 @@ export const FormStyles = {
     return css`
       background-color: ${inputBgColor};
       border: ${borderWidth ? `${borderWidth} solid ${thisColor}` : ''};
-      border-radius: ${radii};
+      border-radius: ${px(radii)};
       color: ${inputColor};
       display: ${!['checkbox', 'radio'].includes(type) ? 'block' : 'inline-block'};
       font-family: inherit;
-      font-size: ${inputFontSize[size]};
+      font-size: ${px(inputFontSize[size])};
       line-height: ${lineHeightTextarea};
       margin: 0;
-      padding: ${padding[size]};
+      padding: ${px(padding[size])};
       width: 100%;
     `;
   },
@@ -592,13 +597,13 @@ export const FormStyles = {
       display: block;
       font-size: 85%;
       line-height: 1.3;
-      margin-top: ${helpMarginTop};
+      margin-top: ${px(helpMarginTop)};
     `;
   },
   inlineMargin(props) {
     const { inlineMargin } = themeGet(props, 'formGroup');
 
-    return css`margin-right: ${inlineMargin};`;
+    return css`margin-right: ${px(inlineMargin)};`;
   },
   pseudo(props) {
     const { multiple } = props;
@@ -646,12 +651,13 @@ export const HeadingStyles = {
     const headingSize = themeGet(props, 'headingSizes', { key: 'as', base: 'h1' });
 
     return css`
-      font-size: ${headingSize};
+      font-size: ${px(headingSize)};
       font-family: inherit;
       font-weight: ${headingWeight};
       line-height: ${base.lineHeight};
       margin: ${px(gutter[2])} 0 ${gutterBottom ? px(gutter[2]) : 0};
       ${borders};
+      ${borderRadius};
       ${fontSize};
       ${fontWeight};
       ${lineHeight};
@@ -708,6 +714,7 @@ export const LinkStyles = {
       color: ${palette.primary};
       ${color};
       ${borders};
+      ${borderRadius};
       ${display};
       ${fontSize};
       ${fontWeight};
@@ -730,7 +737,7 @@ export const ListStyles = {
 
     return css`
       ${bordered ? `border: 1px solid ${borderColor};` : ''};
-      ${bordered ? `border-radius: ${radii};` : ''};
+      ${bordered ? `border-radius: ${px(radii)};` : ''};
       display: flex;
       flex-direction: ${inline ? 'row' : 'column'};
       ${fontFamily};
@@ -748,7 +755,7 @@ export const ListStyles = {
     const { padding } = themeGet(props, 'list');
 
     return css`
-      padding: ${padding[size]};
+      padding: ${px(padding[size])};
     `;
   },
   itemSibling(props) {
@@ -770,6 +777,7 @@ export const ParagraphStyles = {
     return css`
       margin: 0;
       ${borders};
+      ${borderRadius};
       ${display};
       ${fontFamily};
       ${fontSize};
@@ -786,6 +794,54 @@ export const ScreenStyles = {
     return css`
       ${minHeight};
       ${space};
+    `;
+  },
+};
+
+export const SwitchStyles = {
+  base(props) {
+    const { size, status } = props;
+    const sizes = themeGet(props, 'switchSizes');
+    const themeColor = getColor(props);
+
+    return css`
+      cursor: pointer;
+      height: ${px(sizes[size].height)};
+      position: relative;
+      user-select: none;
+      vertical-align: middle;
+      width: ${px(sizes[size].width)};
+      ${space};
+      
+      input {
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+      
+      .__track {
+        background-color: ${status ? themeColor : '#ccc'};
+        border-radius: ${px(sizes[size].borderRadius)};
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      .__button {
+        background-color: #fff;
+        border-radius: 50%;
+        bottom: ${px(sizes[size].space)};
+        left: ${status ? '50%' : px(sizes[size].space)};
+        position: absolute;
+        top: ${px(sizes[size].space)}
+        transition: left 0.1s ease;
+        width: ${px(sizes[size].height - (sizes[size].space * 2))};
+      }
     `;
   },
 };
@@ -811,8 +867,8 @@ export const TableStyles = {
         caption-side: bottom;
         color: ${captionColor};
         font-size: 90%;
-        padding-bottom: ${captionPadding};
-        padding-top: ${captionPadding};
+        padding-bottom: ${px(captionPadding)};
+        padding-top: ${px(captionPadding)};
         text-align: left;
       }
     `;
@@ -867,7 +923,7 @@ export const TableStyles = {
     const { size } = props;
     const { padding } = themeGet(props, 'table');
 
-    return css`padding: ${padding[size]};`;
+    return css`padding: ${px(padding[size])};`;
   },
   striped(props) {
     const { inverted, striped } = props;
@@ -885,6 +941,7 @@ export const TextStyles = {
   base() {
     return css`
       ${borders};
+      ${borderRadius};
       ${display};
       ${fontFamily};
       ${fontSize};
@@ -892,54 +949,6 @@ export const TextStyles = {
       ${lineHeight};
       ${space};
       ${textTransform};
-    `;
-  },
-};
-
-export const SwitchStyles = {
-  base(props) {
-    const { size, status } = props;
-    const sizes = themeGet(props, 'switchSizes');
-    const themeColor = getColor(props);
-
-    return css`
-      cursor: pointer;
-      height: ${sizes[size].height};
-      position: relative;
-      user-select: none;
-      vertical-align: middle;
-      width: ${sizes[size].width};
-      ${space};
-      
-      input {
-        bottom: 0;
-        left: 0;
-        opacity: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-      }
-      
-      .__track {
-        background-color: ${status ? themeColor : '#ccc'};
-        border-radius: ${sizes[size].borderRadius};
-        bottom: 0;
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-      }
-
-      .__button {
-        background-color: #fff;
-        border-radius: 50%;
-        bottom: ${sizes[size].space};
-        left: ${status ? '50%' : sizes[size].space};
-        position: absolute;
-        top: ${sizes[size].space}
-        transition: left 0.1s ease;
-        width: ${calcUnits(sizes[size].height, '-', calcUnits(sizes[size].space, '*', 2))};
-      }
     `;
   },
 };

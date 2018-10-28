@@ -19,15 +19,15 @@ export const componentSizes = {
 };
 
 export const headingSizes = {
-  h1: '40px',
-  h2: '32px',
-  h3: '28px',
-  h4: '24px',
-  h5: '20px',
-  h6: '16px',
+  h1: 40,
+  h2: 32,
+  h3: 28,
+  h4: 24,
+  h5: 20,
+  h6: 16,
 };
 
-export const headingWeight = '700';
+export const headingWeight = 700;
 
 /**
  * Grid
@@ -99,23 +99,22 @@ export const palette = {
  */
 
 export const alert = {
-  borderRadius: '3px',
-  iconGutter: '16px',
-  maxWidth: '450px',
+  borderRadius: 3,
+  maxWidth: 450,
   padding: {
-    xs: '10px 12px',
-    sm: '10px 14px',
-    md: '10px 16px',
-    lg: '10px 18px',
-    xl: '10px 20px',
+    xs: [10, 12],
+    sm: [10, 14],
+    md: [10, 16],
+    lg: [10, 18],
+    xl: [10, 20],
   },
 };
 
 export const badge = {
-  borderRadius: '3px',
+  borderRadius: 3,
   fontSize: '75%',
   fontWeight: 700,
-  padding: '3px 6px',
+  padding: [3, 6],
 };
 
 /* Button */
@@ -131,21 +130,22 @@ const buttonAnimation = keyframes`
 
 export const button = {
   borderRadius: {
-    xs: '0',
-    sm: '0',
-    md: '0',
-    lg: '0',
-    xl: '0',
+    xs: 0,
+    sm: 0,
+    md: 0,
+    lg: 0,
+    xl: 0,
   },
-  disabledOpacity: 0.5,
+  disabledOpacity: 0.7,
   lineHeight: 1,
   padding: {
-    xs: '4px 12px',
-    sm: '7px 14px',
-    md: '9px 16px',
-    lg: '12px 18px',
-    xl: '14px 20px',
+    xs: [4, 12],
+    sm: [7, 14],
+    md: [9, 16],
+    lg: [12, 18],
+    xl: [14, 20],
   },
+  textTransform: 'none',
   loader: (color: string = '#fff') => css`
     background-image: repeating-linear-gradient(45deg, ${rgba(color, 0.4)}, ${rgba(color, 0.4)} 20px, transparent 20px, transparent 40px);
     background-size: 56px 56px;
@@ -175,76 +175,72 @@ export const container = {
     justify-content: center;
   `,
   },
-  maxWidth: '1440px',
+  maxWidth: 1440,
 };
 
 /* Form */
 export const form = {
-  backgroundColor: '#fff',
   borderColor: '#ccc',
-  borderRadius: '4px',
-  borderWidth: '1px',
-  padding: '10px',
+  borderRadius: 4,
+  borderWidth: 1,
+  padding: 10,
 };
 
 export const formGroup = {
-  backgroundColor: '#fff',
   borderColor: '#ccc',
-  borderRadius: '4px',
+  borderRadius: 4,
   helpColor: '#999',
-  helpMarginTop: '4px',
-  inlineMargin: '12px',
-  marginBottom: '10px',
-  padding: '10px',
+  helpMarginTop: 4,
+  inlineMargin: 12,
+  marginBottom: 10,
+  padding: 10,
 };
 
 export const fieldset = {
-  backgroundColor: '#fff',
   borderColor: '#ccc',
-  borderRadius: '4px',
+  borderRadius: 4,
   color: '#343434',
-  marginBottom: '10px',
-  padding: '10px',
+  marginBottom: 10,
+  padding: 10,
 };
 
 export const label = {
   color: '#343434',
   fontWeight: 'bold',
-  inlineFontSize: '14px',
-  marginBottom: '8px',
+  inlineFontSize: 14,
+  marginBottom: 8,
 };
 
 export const legend = {
   color: '#343434',
   fontWeight: 'bold',
-  inlineFontSize: '14px',
-  marginBottom: '8px',
+  marginBottom: 8,
 };
 
 export const input = {
   backgroundColor: '#fff',
   borderColor: '#ccc',
-  borderRadius: '2px',
-  borderWidth: '1px',
+  borderRadius: 2,
+  borderWidth: 1,
   color: '#343434',
   focusColor: '#000',
   fontSize: {
-    sm: '14px',
-    md: '16px',
-    lg: '20px',
+    sm: 14,
+    md: 16,
+    lg: 20,
   },
   height: {
-    sm: '28px',
-    md: '34px',
-    lg: '42px',
+    sm: 28,
+    md: 34,
+    lg: 42,
   },
-  inlineMargin: '8px',
+  inlineMargin: 8,
   lineHeight: 1,
   lineHeightTextarea: 1.4,
   padding: {
-    sm: '6px',
-    md: '8px',
-    lg: '10px',
+    sm: 6,
+    md: 8,
+    lg: 10,
   },
   requiredColor: '#000',
   validation: {
@@ -257,79 +253,79 @@ export const select = {
   backgroundColor: '#fff',
   color: '#343434',
   borderColor: '#ccc',
-  borderRadius: '2px',
+  borderRadius: 2,
   fontSize: {
-    sm: '14px',
-    md: '16px',
-    lg: '20px',
+    sm: 14,
+    md: 16,
+    lg: 20,
   },
   height: {
-    sm: '28px',
-    md: '34px',
-    lg: '42px',
+    sm: 28,
+    md: 34,
+    lg: 42,
   },
   lineHeight: 1,
   padding: {
-    sm: '6px',
-    md: '8px',
-    lg: '10px',
+    sm: 6,
+    md: 8,
+    lg: 10,
   },
 };
 
 export const list = {
   borderColor: '#ccc',
-  borderRadius: '3px',
+  borderRadius: 3,
   color: '#343434',
   padding: {
-    sm: '6px',
-    md: '12px',
-    lg: '18px',
+    sm: 6,
+    md: 12,
+    lg: 18,
   },
 };
 
 export const switchSizes = {
   xs: {
-    borderRadius: '7px',
-    height: '14px',
-    space: '2px',
-    width: '24px',
+    borderRadius: 7,
+    height: 14,
+    space: 2,
+    width: 24,
   },
   sm: {
-    borderRadius: '10px',
-    height: '20px',
-    space: '3px',
-    width: '35px',
+    borderRadius: 10,
+    height: 20,
+    space: 3,
+    width: 35,
   },
   md: {
-    borderRadius: '14px',
-    height: '26px',
-    space: '3px',
-    width: '47px',
+    borderRadius: 14,
+    height: 26,
+    space: 3,
+    width: 47,
   },
   lg: {
-    borderRadius: '16px',
-    height: '32px',
-    space: '3px',
-    width: '57px',
+    borderRadius: 16,
+    height: 32,
+    space: 3,
+    width: 57,
   },
   xl: {
-    borderRadius: '20px',
-    height: '40px',
-    space: '3px',
-    width: '74px',
+    borderRadius: 20,
+    height: 40,
+    space: 3,
+    width: 74,
   },
 };
 
 export const table = {
   borderColors: { primary: '#ccc', secondary: '#32383e' },
   captionColor: '#ccc',
-  captionPadding: '6px',
+  captionPadding: 6,
   colors: { primary: '#fff', secondary: '#000' },
   headColors: { light: '#f4f4f4', dark: '#000' },
   padding: {
-    sm: '6px',
-    md: '12px',
-    lg: '18px',
+    sm: 6,
+    md: 12,
+    lg: 18,
   },
   stripedColors: { primary: '#ededed', secondary: '#262626' },
 };
