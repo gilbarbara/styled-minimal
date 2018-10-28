@@ -15,15 +15,37 @@ storiesOf('Flex', module)
   })(() => (
     <ViewCheckbox>
       <Flex
-        alignItems={select('Align Items', ['', 'flex-start', 'center', 'flex-end', 'baseline', 'stretch'], 'stretch')}
-        alignContent={select('Align Content', ['', 'flex-start', 'center', 'flex-end', 'stretch', 'space-between', 'space-around'], 'stretch')}
+        alignItems={select('Align Items', [
+          '',
+          'flex-start',
+          'center',
+          'flex-end',
+          'baseline',
+          'stretch',
+        ], 'stretch')}
+        alignContent={select('Align Content', [
+          '',
+          'flex-start',
+          'center',
+          'flex-end',
+          'stretch',
+          'space-between',
+          'space-around',
+        ], 'center')}
         flexDirection={select('Flex Direction', ['row', 'row-reverse', 'column', 'column-reverse'], 'row')}
         flexWrap={select('Flex Wrap', ['nowrap', 'wrap', 'wrap-reverse'], 'wrap')}
         height={text('Height')}
-        justifyContent={select('Justify Content', ['flex-start', 'center', 'flex-end', 'space-between', 'space-around', 'space-evenly'], 'flex-start')}
+        justifyContent={select('Justify Content', [
+          'flex-start',
+          'center',
+          'flex-end',
+          'space-between',
+          'space-around',
+          'space-evenly',
+        ], 'flex-start')}
         p={text('Padding')}
         m={text('Margin')}
-        minHeight={text('Min Height')}
+        minHeight={text('Min Height', '300px')}
         width={text('Width')}
       >
         <Box bg="#f04" p={10} textAlign="center" width="40%">Box 40%</Box>

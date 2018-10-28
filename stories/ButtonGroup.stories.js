@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, select } from '@storybook/addon-knobs/react';
+import { withKnobs, select, boolean } from '@storybook/addon-knobs/react';
 
 import { Button, ButtonGroup } from '../src';
 import { sizeOptions, variantOptions } from '../src/utils/options';
@@ -20,10 +20,27 @@ storiesOf('ButtonGroup', module)
         size={select('Size', sizeOptions, 'md')}
         variant={select('Variant', variantOptions, 'primary')}
       >
-        <Button>First</Button>
-        <Button outline>Second</Button>
-        <Button outline>Third</Button>
-        <Button outline>Forth</Button>
+        <Button
+          dark={boolean('Dark', false)}
+          outline
+        >
+          First
+        </Button>
+        <Button>
+          Second
+        </Button>
+        <Button
+          dark={boolean('Dark', false)}
+          outline
+        >
+          Third
+        </Button>
+        <Button
+          dark={boolean('Dark', false)}
+          outline
+        >
+          Forth
+        </Button>
       </ButtonGroup>
     </ViewCheckbox>
   )));

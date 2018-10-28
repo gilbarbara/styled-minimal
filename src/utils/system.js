@@ -50,29 +50,38 @@ const textTransform = style({
 
 const base = {
   color: props => {
-    const { outline } = props;
+    const { dark, outline } = props;
     const colors = themeGet(props, 'colors');
     const selectedColor = getColor(props);
 
     let baseColor = getYiq(selectedColor) > 180 ? colors.black : colors.white;
-    baseColor = outline ? selectedColor : baseColor;
+    baseColor = outline || dark ? selectedColor : baseColor;
 
     return css`
       color: ${baseColor};
     `;
   },
   variant(props) {
-    const { outline } = props;
-    const colors = themeGet(props, 'colors');
+    const { dark, outline } = props;
+    const { colors, darkColor } = themeGet(props);
     const themeColor = getColor(props);
 
-    let selectedColor = getYiq(themeColor) > 180 ? colors.black : colors.white;
-    selectedColor = outline ? themeColor : selectedColor;
     const backgroundColor = outline ? colors.white : themeColor;
+    const baseColor = getYiq(themeColor) > 180 ? colors.black : colors.white;
+    let selectedColor = outline ? themeColor : baseColor;
+
+    if (dark) {
+      const colorDiff = Math.abs(getYiq(darkColor) - getYiq(themeColor));
+      selectedColor = colorDiff > 40 ? themeColor : lighten(0.3, themeColor);
+    }
+    else if (outline) {
+      const colorDiff = Math.abs(getYiq(backgroundColor) - getYiq(themeColor));
+      selectedColor = colorDiff > 50 ? themeColor : darken(0.2, themeColor);
+    }
 
     return css`
-      background-color: ${backgroundColor};
-      border: 1px solid ${themeColor};
+      background-color: ${dark ? darkColor : backgroundColor};
+      border: 1px solid ${dark && !outline ? darkColor : themeColor};
       color: ${selectedColor};
     `;
   },
@@ -660,7 +669,7 @@ export const HeadingStyles = {
     const { gutterBottom } = props;
     const gutter = themeGet(props, 'gutter');
     const headingWeight = themeGet(props, 'headingWeight');
-    const headingSize = themeGet(props, 'headingSizes', { key: 'as', base: 'h1' });
+    const headingSize = themeGet(props, 'headingSizes', { key: ['size', 'as'], base: 'h1' });
 
     return css`
       font-size: ${px(headingSize)};

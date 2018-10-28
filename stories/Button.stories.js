@@ -54,7 +54,21 @@ storiesOf('Button', module)
           variant={d}
           disabled={boolean('Disabled', false)}
           onClick={action('clicked')}
-          outline={boolean('Outline', false)}
+        >
+          {capitalize(d)}
+        </Button>
+      ))}
+    </ViewCheckbox>
+  ))
+  .add('with dark mode', () => (
+    <ViewCheckbox>
+      {variantOptions.map((d, i) => (
+        <Button
+          key={i}
+          variant={d}
+          dark
+          disabled={boolean('Disabled', false)}
+          onClick={action('clicked')}
         >
           {capitalize(d)}
         </Button>

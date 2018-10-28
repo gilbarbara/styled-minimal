@@ -17,6 +17,7 @@ const Alert = ({ children, ...rest }) => (
 
 Alert.propTypes = {
   children: PropTypes.node.isRequired,
+  dark: PropTypes.bool,
   outline: PropTypes.bool,
   /** button size */
   size: sizeTypeFull,

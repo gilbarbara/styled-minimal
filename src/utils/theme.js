@@ -70,6 +70,8 @@ export const colors = {
   black: '#000',
 };
 
+export const darkColor = '#3C3F41';
+
 export const grays = {
   gray05: '#f4f4f4',
   gray10: '#e6e6e6',

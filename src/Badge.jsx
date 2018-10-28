@@ -15,6 +15,7 @@ const Badge = ({ children, ...rest }) => (
 
 Badge.propTypes = {
   children: PropTypes.node.isRequired,
+  dark: PropTypes.bool,
   outline: PropTypes.bool,
   size: sizeTypeFull,
   variant: variantType,

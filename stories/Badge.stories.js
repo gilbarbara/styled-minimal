@@ -62,6 +62,13 @@ storiesOf('Badge', module)
       ))}
     </ViewCheckbox>
   ))
+  .add('with dark mode', () => (
+    <ViewCheckbox>
+      {variantOptions.map((d, i) => (
+        <Badge key={i} variant={d} dark>{capitalize(d)}</Badge>
+      ))}
+    </ViewCheckbox>
+  ))
   .add('with outline', () => (
     <ViewCheckbox>
       {variantOptions.map((d, i) => (

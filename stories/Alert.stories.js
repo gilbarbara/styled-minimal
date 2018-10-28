@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs/react';
 
-import { Alert, Box, Flex, Heading } from '../src';
+import { Alert, Box, Flex, Heading, Paragraph } from '../src';
 import { sizeOptions, variantOptions } from '../src/utils/options';
 
 import { SVG, ViewCheckbox } from './helpers/components';
@@ -13,11 +13,12 @@ storiesOf('Alert', module)
   .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
   .add('default', withInfo({
-    propTablesExclude: [ViewCheckbox, Heading],
+    propTablesExclude: [ViewCheckbox, Box, Heading, Paragraph],
   })(() => (
     <ViewCheckbox>
       <Alert
         alignHorizontal={select('Align Horizontal', ['left', 'center', 'right'], 'left')}
+        dark={boolean('Dark', false)}
         outline={boolean('Outline', false)}
         size={select('Size', sizeOptions, 'md')}
         variant={select('Variant', variantOptions, 'primary')}
@@ -54,14 +55,30 @@ storiesOf('Alert', module)
   .add('with variant', () => (
     <ViewCheckbox>
       {variantOptions.map((d, i) => (
-        <Alert key={i} variant={d}>{capitalize(d)}</Alert>
+        <Alert key={i} variant={d}>
+          <Heading as="h4">{capitalize(d)}</Heading>
+          <Paragraph>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</Paragraph>
+        </Alert>
+      ))}
+    </ViewCheckbox>
+  ))
+  .add('with dark mode', () => (
+    <ViewCheckbox>
+      {variantOptions.map((d, i) => (
+        <Alert key={i} variant={d} dark>
+          <Heading as="h4">{capitalize(d)}</Heading>
+          <Paragraph>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</Paragraph>
+        </Alert>
       ))}
     </ViewCheckbox>
   ))
   .add('with outline', () => (
     <ViewCheckbox>
       {variantOptions.map((d, i) => (
-        <Alert key={i} outline variant={d}>{capitalize(d)}</Alert>
+        <Alert key={i} outline variant={d}>
+          <Heading as="h4">{capitalize(d)}</Heading>
+          <Paragraph>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</Paragraph>
+        </Alert>
       ))}
     </ViewCheckbox>
   ));

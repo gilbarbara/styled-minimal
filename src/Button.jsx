@@ -33,15 +33,12 @@ const Button = ({ children, ...rest }) => (
 );
 
 Button.propTypes = {
-  /** boolean indicating whether the button should render with an animation */
   animate: PropTypes.bool,
   as: PropTypes.string,
-  /** match its parent width */
   block: PropTypes.bool,
   children: PropTypes.node.isRequired,
-  /** boolean indicating whether the button should render as disabled */
+  dark: PropTypes.bool,
   disabled: PropTypes.bool,
-  /** callback on the click event */
   onClick: PropTypes.func,
   outline: PropTypes.bool,
   size: sizeTypeFull,

@@ -53,6 +53,14 @@ export const themeGet = (props: Object, path: string, options: Object = {}): any
   }
 
   if (key) {
+    if (Array.isArray(key)) {
+      const value = key
+        .filter(d => !!props[d])
+        .map(d => props[d])[0] || base;
+
+      return selection[value];
+    }
+
     return getValue(selection[props[key] || base], key);
   }
 
