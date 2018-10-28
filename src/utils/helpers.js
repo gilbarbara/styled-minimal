@@ -3,35 +3,6 @@ import deepmerge from 'deepmerge';
 import parseToRgb from 'polished/lib/color/parseToRgb';
 import * as defaultTheme from './theme';
 
-export function calcUnits(left: string, operator: string = '+', right: string | number): string {
-  if (!left || !right) {
-    return '';
-  }
-
-  const unit = /\d+(.*)/.exec(left);
-  const leftNum = parseFloat(`${left}`.replace(/px|r?em/, ''));
-  const rightNum = parseFloat(`${right}`.replace(/px|r?em/, ''));
-  let result;
-
-  switch (operator) {
-    case '-':
-      result = leftNum - rightNum;
-      break;
-    case '*':
-      result = leftNum * rightNum;
-      break;
-    case '/':
-      result = leftNum / rightNum;
-      break;
-    case '+':
-    default:
-      result = leftNum + rightNum;
-      break;
-  }
-
-  return `${result}${unit ? unit[1] : ''}`;
-}
-
 export const num = (n: number | string) => typeof n === 'number' && !isNaN(n);
 export const px = (n: any) => (num(n) ? `${n}px` : n);
 
@@ -68,6 +39,10 @@ export const themeGet = (props: Object, path: string, options: Object = {}): any
   const { base, key, toggle } = options;
   const selection = theme[path];
   let isActive = true;
+
+  if (!path) {
+    return theme;
+  }
 
   if (typeof toggle !== 'undefined') {
     isActive = props[toggle] || false;

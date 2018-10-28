@@ -8,6 +8,7 @@ export const variantOptions = [...Object.keys(palette), ...Object.keys(colors)];
 export const inputTextOptions = [
   'date',
   'email',
+  'file',
   'number',
   'password',
   'search',

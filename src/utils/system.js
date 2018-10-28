@@ -375,6 +375,8 @@ export const FlexStyles = {
 
 export const FormStyles = {
   fieldset(props) {
+    const { inline } = props;
+    const { gutter } = getTheme(props);
     const {
       borderColor,
       borderRadius: radii,
@@ -388,6 +390,14 @@ export const FormStyles = {
       margin-bottom: ${px(marginBottom)};
       padding: ${px(padding)};
       text-align:left;
+  
+      > *:not(legend) {
+        ${inline ? 'display: inline-block;' : ''};
+        
+        + * {
+          ${inline ? `margin-left: ${px(gutter[1])} ;` : ''};
+        }
+      }
     `;
   },
   form(props) {
@@ -420,6 +430,7 @@ export const FormStyles = {
       margin-bottom: ${px(marginBottom)};
       ${bordered ? `padding: ${px(padding)};` : ''};
       text-align: left;
+      ${width};
     `;
   },
   input(props) {
@@ -456,7 +467,7 @@ export const FormStyles = {
       font-size: ${px(inputFontSize[size])};
       ${inputTextOptions.includes(type) ? `height: ${px(inputHeight[size])}` : ''};
       line-height: ${inputLineHeight};
-      ${['checkbox', 'radio'].includes(type) ? `margin-right: ${px(inlineMargin)}` : ''};
+      ${['checkbox', 'radio'].includes(type) ? `margin: 0 ${px(inlineMargin)} 0 0` : ''};
       padding: ${inputTextOptions.includes(type) ? px(padding[size]) : 0};
       ${!['checkbox', 'radio', 'color'].includes(type) ? 'width: 100%;' : ''};
       
@@ -476,8 +487,9 @@ export const FormStyles = {
     } = themeGet(props, 'label');
 
     return css`
+      align-items: center;
       color: ${labelColor};
-      display: block;
+      display: flex;
       font-family: inherit;
       font-weight: ${labelFontWeight};
       ${inline ? `font-size: ${px(inlineFontSize)}` : ''};
@@ -603,7 +615,7 @@ export const FormStyles = {
   inlineMargin(props) {
     const { inlineMargin } = themeGet(props, 'formGroup');
 
-    return css`margin-right: ${px(inlineMargin)};`;
+    return px(inlineMargin);
   },
   pseudo(props) {
     const { multiple } = props;
@@ -674,13 +686,19 @@ export const HeadingStyles = {
 
 export const GroupStyles = {
   base(props) {
-    const gutter = themeGet(props, 'gutter');
+    const { grid, gutter } = themeGet(props);
 
     return css`
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      ${flexWrap}
       ${space};
       
       > * + * {
-        margin-left: ${px(gutter[1])};
+        ${grid.sm} {
+          padding-left: ${px(gutter[1])};
+        }
       }
     `;
   },

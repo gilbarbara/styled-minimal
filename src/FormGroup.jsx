@@ -6,7 +6,7 @@ import { FormStyles } from './utils/system';
 
 import Flex, { StyledFlex } from './Flex';
 
-const StyledFormGroup = styled.div`
+export const StyledFormGroup = styled.div`
   ${FormStyles.group};
   
   ${({ inline }) => {
@@ -23,15 +23,16 @@ const StyledFormGroup = styled.div`
     label,
     legend {
       margin-bottom: 0;
-      ${FormStyles.inlineMargin};
+      margin-right: ${FormStyles.inlineMargin};
     }
     
     input {
-      ${FormStyles.inlineMargin};
+      flex: 1;
       width: auto;
     }
     
     small {
+      margin-left: ${FormStyles.inlineMargin};
       margin-top: 0;
     }
   }

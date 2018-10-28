@@ -4,9 +4,9 @@ import rgba from 'polished/lib/color/rgba';
 /**
  * Base
  */
-export const breakpoints = [400, 560, 768, 1024, 1360, 1920];
+export const breakpoints = [400, 580, 768, 1024, 1360, 1920];
 export const fontSizes = [12, 14, 16, 18, 22, 26, 32, 48];
-export const gutter = [4, 8, 16, 32];
+export const gutter = [4, 8, 16, 32, 64];
 export const lineHeight = 1.4;
 export const space = [0, 4, 8, 12, 16, 24, 32, 64, 128];
 
@@ -190,31 +190,31 @@ export const formGroup = {
   borderColor: '#ccc',
   borderRadius: 4,
   helpColor: '#999',
-  helpMarginTop: 4,
-  inlineMargin: 12,
-  marginBottom: 10,
-  padding: 10,
+  helpMarginTop: gutter[0],
+  inlineMargin: gutter[1],
+  marginBottom: gutter[2],
+  padding: gutter[1],
 };
 
 export const fieldset = {
   borderColor: '#ccc',
   borderRadius: 4,
   color: '#343434',
-  marginBottom: 10,
-  padding: 10,
+  marginBottom: gutter[2],
+  padding: gutter[1],
 };
 
 export const label = {
   color: '#343434',
   fontWeight: 'bold',
   inlineFontSize: 14,
-  marginBottom: 8,
+  marginBottom: gutter[1],
 };
 
 export const legend = {
   color: '#343434',
   fontWeight: 'bold',
-  marginBottom: 8,
+  marginBottom: gutter[1],
 };
 
 export const input = {
@@ -234,7 +234,7 @@ export const input = {
     md: 34,
     lg: 42,
   },
-  inlineMargin: 8,
+  inlineMargin: gutter[1],
   lineHeight: 1,
   lineHeightTextarea: 1.4,
   padding: {
