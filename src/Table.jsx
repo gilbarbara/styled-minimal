@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { withComponent } from './utils/helpers';
 import { sizeType } from './utils/propTypes';
 import { TableStyles } from './utils/system';
 
@@ -37,7 +36,11 @@ export const StyledTable = styled.table`
   ${TableStyles.caption};
 `;
 
-StyledTable.propTypes = {
+const Table = ({ children, ...rest }) => (
+  <StyledTable {...rest}>{children}</StyledTable>
+);
+
+Table.propTypes = {
   bordered: PropTypes.bool,
   borderless: PropTypes.bool,
   children: PropTypes.node.isRequired,
@@ -47,7 +50,7 @@ StyledTable.propTypes = {
   striped: PropTypes.bool,
 };
 
-StyledTable.defaultProps = {
+Table.defaultProps = {
   bordered: false,
   borderless: false,
   inverted: false,
@@ -55,4 +58,4 @@ StyledTable.defaultProps = {
   striped: false,
 };
 
-export default withComponent(StyledTable, 'Table');
+export default Table;

@@ -21,6 +21,4 @@ Embed.defaultProps = {
   ratio: 9 / 16,
 };
 
-Embed.styled = StyledEmbed;
-
 export default Embed;

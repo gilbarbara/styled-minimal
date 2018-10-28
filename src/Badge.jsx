@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { withComponent } from './utils/helpers';
 import { sizeTypeFull, variantType } from './utils/propTypes';
 import { BadgeStyles } from './utils/system';
 
@@ -10,11 +9,15 @@ export const StyledBadge = styled.span`
   ${BadgeStyles.base};
 `;
 
-StyledBadge.propTypes = {
+const Badge = ({ children, ...rest }) => (
+  <StyledBadge {...rest}>{children}</StyledBadge>
+);
+
+Badge.propTypes = {
   children: PropTypes.node.isRequired,
   outline: PropTypes.bool,
   size: sizeTypeFull,
   variant: variantType,
 };
 
-export default withComponent(StyledBadge, 'Badge');
+export default Badge;

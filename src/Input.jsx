@@ -2,16 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { withComponent } from './utils/helpers';
 import { FormStyles } from './utils/system';
 
-const StyledInput = styled.input`
+export const StyledInput = styled.input`
   ${FormStyles.input};
   ${FormStyles.pseudo};
 `;
 
 const Input = ({ ...props }) => (
-  //eslint-disable-next-line react/prop-types, react/destructuring-assignment
+  //eslint-disable-next-line react/destructuring-assignment
   <StyledInput id={props.id || props.name} {...props} />
 );
 
@@ -62,4 +61,4 @@ Input.defaultProps = {
   value: undefined,
 };
 
-export default withComponent(Input, 'Input');
+export default Input;

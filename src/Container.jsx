@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { withComponent } from './utils/helpers';
 import { ContainerStyles } from './utils/system';
 import { textAlignType } from './utils/propTypes';
 
@@ -10,7 +9,11 @@ export const StyledContainer = styled.div`
   ${ContainerStyles.base};
 `;
 
-StyledContainer.propTypes = {
+const Container = ({ children, ...rest }) => (
+  <StyledContainer {...rest}>{children}</StyledContainer>
+);
+
+Container.propTypes = {
   children: PropTypes.node.isRequired,
   /** use the whole Screen */
   layout: PropTypes.oneOf(['flex', 'fullScreen']),
@@ -19,8 +22,8 @@ StyledContainer.propTypes = {
   verticalPadding: PropTypes.bool,
 };
 
-StyledContainer.defaultProps = {
+Container.defaultProps = {
   verticalPadding: false,
 };
 
-export default withComponent(StyledContainer, 'Container');
+export default Container;

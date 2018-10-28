@@ -2,16 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { withComponent } from './utils/helpers';
 import { LinkStyles } from './utils/system';
 
 export const StyledLink = styled.a`
   ${LinkStyles.base};
 `;
 
-StyledLink.propTypes = {
+const Link = ({ children, ...rest }) => (
+  <StyledLink {...rest}>{children}</StyledLink>
+);
+
+Link.propTypes = {
   children: PropTypes.node.isRequired,
   href: PropTypes.string.isRequired,
 };
 
-export default withComponent(StyledLink, 'Link');
+export default Link;

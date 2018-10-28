@@ -1,5 +1,4 @@
 // @flow
-import * as React from 'react';
 import deepmerge from 'deepmerge';
 import parseToRgb from 'polished/lib/color/parseToRgb';
 import * as defaultTheme from './theme';
@@ -112,11 +111,4 @@ export function getYiq(color: string): number {
   const b = parseToRgb(color).blue;
 
   return (r * 299 + g * 587 + b * 114) / 1000;
-}
-
-export function withComponent(BaseComponent: any, displayName: string = ''): Function {
-  const Component = (props) => React.createElement(BaseComponent, { ...props });
-  Component.displayName = `${displayName}${typeof BaseComponent === 'function' ? 'Wrapper' : ''}`;
-
-  return Component;
 }

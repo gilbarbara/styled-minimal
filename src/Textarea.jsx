@@ -2,16 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { withComponent } from './utils/helpers';
 import { sizeType } from './utils/propTypes';
 import { FormStyles } from './utils/system';
 
-const StyledTextarea = styled.textarea`
+export const StyledTextarea = styled.textarea`
   ${FormStyles.textarea};
   ${FormStyles.pseudo};
 `;
 
-StyledTextarea.propTypes = {
+const Textarea = ({ children, ...rest }) => (
+  <StyledTextarea {...rest}>{children}</StyledTextarea>
+);
+
+Textarea.propTypes = {
   defaultValue: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
@@ -32,9 +35,9 @@ StyledTextarea.propTypes = {
   wrap: PropTypes.oneOf(['soft', 'hard']),
 };
 
-StyledTextarea.defaultProps = {
+Textarea.defaultProps = {
   rows: 3,
   size: 'md',
 };
 
-export default withComponent(StyledTextarea, 'Textarea');
+export default Textarea;

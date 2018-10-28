@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { withComponent } from './utils/helpers';
 import { sizeType } from './utils/propTypes';
 import { ListStyles } from './utils/system';
 
@@ -18,7 +17,11 @@ export const StyledList = styled.ul`
   }
 `;
 
-StyledList.propTypes = {
+const List = ({ children, ...rest }) => (
+  <StyledList {...rest}>{children}</StyledList>
+);
+
+List.propTypes = {
   /** element type */
   as: PropTypes.oneOf(['ul', 'ol']),
   bordered: PropTypes.bool,
@@ -41,7 +44,7 @@ StyledList.propTypes = {
   type: PropTypes.oneOf(['1', 'a', 'A', 'i', 'I']),
 };
 
-StyledList.defaultProps = {
+List.defaultProps = {
   as: 'ul',
   bordered: false,
   inline: false,
@@ -50,4 +53,4 @@ StyledList.defaultProps = {
   type: '1',
 };
 
-export default withComponent(StyledList, 'List');
+export default List;

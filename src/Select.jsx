@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { withComponent } from './utils/helpers';
 import { sizeType } from './utils/propTypes';
 import { FormStyles } from './utils/system';
 
@@ -11,7 +10,11 @@ export const StyledSelect = styled.select`
   ${FormStyles.pseudo};
 `;
 
-StyledSelect.propTypes = {
+const Select = ({ children, ...rest }) => (
+  <StyledSelect {...rest}>{children}</StyledSelect>
+);
+
+Select.propTypes = {
   children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
   multiple: PropTypes.bool,
@@ -20,8 +23,8 @@ StyledSelect.propTypes = {
   sizing: sizeType,
 };
 
-StyledSelect.defaultProps = {
+Select.defaultProps = {
   sizing: 'md',
 };
 
-export default withComponent(StyledSelect, 'Select');
+export default Select;

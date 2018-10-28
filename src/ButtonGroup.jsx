@@ -11,7 +11,6 @@ export const StyledButtonGroup = styled.div`
 
 const ButtonGroup = ({ children, size, variant, ...props }) => {
   const buttonProps = {};
-  console.log(props);
 
   if (typeof size !== 'undefined') {
     buttonProps.size = size;
