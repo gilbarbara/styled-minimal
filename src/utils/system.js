@@ -228,7 +228,8 @@ export const ButtonStyles = {
 export const ButtonGroupStyles = {
   base() {
     return css`
-      display: flex;
+      display: inline-flex;
+      ${display};
       ${space};
 
       > button {
