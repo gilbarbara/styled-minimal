@@ -6,9 +6,10 @@ import rgba from 'polished/lib/color/rgba';
  */
 export const breakpoints = [400, 580, 768, 1024, 1360, 1920];
 export const fontSizes = [12, 14, 16, 18, 22, 26, 32, 48];
-export const gutter = [4, 8, 16, 32, 64];
 export const lineHeight = 1.4;
 export const space = [0, 4, 8, 12, 16, 24, 32, 64, 128];
+
+export const gutter = [...space];
 
 export const componentSizes = {
   xs: 12,
@@ -192,31 +193,31 @@ export const formGroup = {
   borderColor: '#ccc',
   borderRadius: 4,
   helpColor: '#999',
-  helpMarginTop: gutter[0],
-  inlineMargin: gutter[1],
-  marginBottom: gutter[2],
-  padding: gutter[1],
+  helpMarginTop: gutter[1],
+  inlineMargin: gutter[2],
+  marginBottom: gutter[3],
+  padding: gutter[2],
 };
 
 export const fieldset = {
   borderColor: '#ccc',
   borderRadius: 4,
   color: '#343434',
-  marginBottom: gutter[2],
-  padding: gutter[1],
+  marginBottom: gutter[3],
+  padding: gutter[2],
 };
 
 export const label = {
   color: '#343434',
   fontWeight: 'bold',
   inlineFontSize: 14,
-  marginBottom: gutter[1],
+  marginBottom: gutter[2],
 };
 
 export const legend = {
   color: '#343434',
   fontWeight: 'bold',
-  marginBottom: gutter[1],
+  marginBottom: gutter[2],
 };
 
 export const input = {
@@ -236,7 +237,7 @@ export const input = {
     md: 34,
     lg: 42,
   },
-  inlineMargin: gutter[1],
+  inlineMargin: gutter[2],
   lineHeight: 1,
   lineHeightTextarea: 1.4,
   padding: {

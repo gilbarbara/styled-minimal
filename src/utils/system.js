@@ -281,12 +281,12 @@ export const ContainerStyles = {
       if (!verticalPadding) return '';
 
       return css`
-          padding-bottom: ${px(gutter[2])};
-          padding-top: ${px(gutter[2])};
+          padding-bottom: ${px(space)};
+          padding-top: ${px(space)};
   
           ${grid.md} {
-            padding-bottom: ${px(gutter[3])};
-            padding-top: ${px(gutter[3])};
+            padding-bottom: ${px(gutter[5])};
+            padding-top: ${px(gutter[5])};
           }
         `;
     };
@@ -294,8 +294,8 @@ export const ContainerStyles = {
     return css`
       margin-left: auto;
       margin-right: auto;
-      padding-left: ${px(gutter[2])};
-      padding-right: ${px(gutter[2])};
+      padding-left: ${px(space)};
+      padding-right: ${px(space)};
       max-width: ${container.maxWidth ? px(container.maxWidth) : 'none'};
       position: relative;
       width: 100%;
@@ -320,8 +320,8 @@ export const ContainerStyles = {
       ${width};
       
       ${grid.md} {
-        padding-left: ${px(gutter[3])};
-        padding-right: ${px(gutter[3])};
+        padding-left: ${px(gutter[5])};
+        padding-right: ${px(gutter[5])};
       }
     `;
   },
@@ -405,7 +405,7 @@ export const FormStyles = {
         ${inline ? 'display: inline-block;' : ''};
         
         + * {
-          ${inline ? `margin-left: ${px(gutter[1])} ;` : ''};
+          ${inline ? `margin-left: ${px(gutter[2])} ;` : ''};
         }
       }
     `;
@@ -677,7 +677,7 @@ export const HeadingStyles = {
       font-family: inherit;
       font-weight: ${headingWeight};
       line-height: ${base.lineHeight};
-      margin: ${px(gutter[2])} 0 ${gutterBottom ? px(gutter[2]) : 0};
+      margin: ${px(space)} 0 ${gutterBottom ? px(space) : 0};
       ${borders};
       ${borderRadius};
       ${fontSize};
@@ -707,7 +707,7 @@ export const GroupStyles = {
       
       > * + * {
         ${grid.sm} {
-          padding-left: ${px(gutter[1])};
+          padding-left: ${px(gutter[2])};
         }
       }
     `;
