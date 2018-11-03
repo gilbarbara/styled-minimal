@@ -14,6 +14,29 @@ export const getValue = (value: any, key: ?string): any => {
   return value;
 };
 
+const createMediaQuery = (n, breakpoints) => {
+  const grid = {
+    'xs-only': `@media (min-width: ${breakpoints[0] - 1}px)`,
+    ix: `@media (min-width: ${breakpoints[0]}px)`,
+    'ix-only': `@media (max-width: ${breakpoints[1] - 1}px)`,
+    sm: `@media (min-width: ${breakpoints[1]}px)`,
+    'sm-only': `@media (max-width: ${breakpoints[2] - 1}px)`,
+    md: `@media (min-width: ${breakpoints[2]}px)`,
+    'md-only': `@media (max-width: ${breakpoints[3] - 1}px)`,
+    lg: `@media (min-width: ${breakpoints[3]}px)`,
+    'lg-only': `@media (max-width: ${breakpoints[4] - 1}px)`,
+    xl: `@media (min-width: ${breakpoints[4]}px)`,
+    'xl-only': `@media (max-width: ${breakpoints[5] - 1}px)`,
+    xxl: `@media (min-width: ${breakpoints[5]}px)`,
+  };
+
+  if (num(n)) {
+    return `@media (min-width: ${px(n)})`;
+  }
+
+  return grid[n] || `@media (min-width: ${n})`;
+};
+
 /**
  * Get Styles
  * @param {Object} props
@@ -23,7 +46,7 @@ export const getValue = (value: any, key: ?string): any => {
 export const getTheme = (props: Object = {}): Object => {
   const { theme = {} } = props;
 
-  return deepmerge(defaultTheme, theme);
+  return deepmerge(defaultTheme, theme, (dest, source) => source);
 };
 
 /**
@@ -65,6 +88,29 @@ export const themeGet = (props: Object, path: string, options: Object = {}): any
   }
 
   return getValue(selection);
+};
+
+export const spacer = (value: number|string|Array<number>): Function => (props): string => {
+  const { space } = themeGet(props);
+
+  return px(space[value] || value);
+};
+
+export const responsive = (rules) => (props) => {
+  const { breakpoints } = themeGet(props);
+  const result = [];
+
+  for (const rule in rules) {
+    if ({}.hasOwnProperty.call(rules, rule)) {
+      result.push(`
+        ${createMediaQuery(rule, breakpoints)} {
+          ${rules[rule]}
+        }
+      `);
+    }
+  }
+
+  return result.join('\n');
 };
 
 /**

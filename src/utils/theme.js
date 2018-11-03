@@ -4,12 +4,10 @@ import rgba from 'polished/lib/color/rgba';
 /**
  * Base
  */
-export const breakpoints = [400, 580, 768, 1024, 1360, 1920];
+export const breakpoints = [400, 580, 768, 1024, 1280, 1920];
 export const fontSizes = [12, 14, 16, 18, 22, 26, 32, 48];
 export const lineHeight = 1.4;
 export const space = [0, 4, 8, 12, 16, 24, 32, 64, 128];
-
-export const gutter = [...space];
 
 export const componentSizes = {
   xs: 12,
@@ -29,26 +27,6 @@ export const headingSizes = {
 };
 
 export const headingWeight = 700;
-
-/**
- * Grid
- */
-export const grid = {
-  'xs-only': `@media (min-width: ${breakpoints[0] - 1}px)`,
-  ix: `@media (min-width: ${breakpoints[0]}px)`,
-  'ix-only': `@media (max-width: ${breakpoints[1] - 1}px)`,
-  sm: `@media (min-width: ${breakpoints[1]}px)`,
-  'sm-only': `@media (max-width: ${breakpoints[2] - 1}px)`,
-  md: `@media (min-width: ${breakpoints[2]}px)`,
-  'md-only': `@media (max-width: ${breakpoints[3] - 1}px)`,
-  lg: `@media (min-width: ${breakpoints[3]}px)`,
-  'lg-only': `@media (max-width: ${breakpoints[4] - 1}px)`,
-  xl: `@media (min-width: ${breakpoints[4]}px)`,
-  'xl-only': `@media (max-width: ${breakpoints[5] - 1}px)`,
-  xxl: `@media (min-width: ${breakpoints[5]}px)`,
-  'xxl-only': `@media (max-width: ${breakpoints[6] - 1}px)`,
-  xxxl: `@media (min-width: ${breakpoints[6]}px)`,
-};
 
 /**
  * Colors
@@ -193,31 +171,31 @@ export const formGroup = {
   borderColor: '#ccc',
   borderRadius: 4,
   helpColor: '#999',
-  helpMarginTop: gutter[1],
-  inlineMargin: gutter[2],
-  marginBottom: gutter[3],
-  padding: gutter[2],
+  helpMarginTop: space[1],
+  inlineMargin: space[2],
+  marginBottom: space[3],
+  padding: space[2],
 };
 
 export const fieldset = {
   borderColor: '#ccc',
   borderRadius: 4,
   color: '#343434',
-  marginBottom: gutter[3],
-  padding: gutter[2],
+  marginBottom: space[3],
+  padding: space[2],
 };
 
 export const label = {
   color: '#343434',
   fontWeight: 'bold',
   inlineFontSize: 14,
-  marginBottom: gutter[2],
+  marginBottom: space[2],
 };
 
 export const legend = {
   color: '#343434',
   fontWeight: 'bold',
-  marginBottom: gutter[2],
+  marginBottom: space[2],
 };
 
 export const input = {
@@ -237,7 +215,7 @@ export const input = {
     md: 34,
     lg: 42,
   },
-  inlineMargin: gutter[2],
+  inlineMargin: space[2],
   lineHeight: 1,
   lineHeightTextarea: 1.4,
   padding: {

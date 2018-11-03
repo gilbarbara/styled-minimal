@@ -38,7 +38,7 @@ import {
   zIndex,
 } from 'styled-system';
 
-import { getColor, getTheme, getYiq, px, themeGet } from './helpers';
+import { getColor, getTheme, getYiq, px, responsive, spacer, themeGet } from './helpers';
 import { placeholder } from './mixins';
 import { inputTextOptions } from './options';
 
@@ -275,27 +275,38 @@ export const CodeStyles = {
 
 export const ContainerStyles = {
   base(props) {
-    const { container, grid, gutter } = getTheme(props);
+    const { container } = getTheme(props);
 
     const vertical = ({ verticalPadding }) => {
       if (!verticalPadding) return '';
 
+      const grid = responsive({
+        md: `
+          padding-bottom: ${spacer(6)(props)};
+          padding-top: ${spacer(6)(props)};
+        `,
+      });
+
       return css`
-          padding-bottom: ${px(space)};
-          padding-top: ${px(space)};
-  
-          ${grid.md} {
-            padding-bottom: ${px(gutter[5])};
-            padding-top: ${px(gutter[5])};
-          }
+          padding-bottom: ${spacer(4)};
+          padding-top: ${spacer(4)};
+          
+          ${grid};
         `;
     };
+
+    const grid = responsive({
+      md: `
+        padding-left: ${spacer(6)(props)};
+        padding-right: ${spacer(6)(props)};
+      `,
+    });
 
     return css`
       margin-left: auto;
       margin-right: auto;
-      padding-left: ${px(space)};
-      padding-right: ${px(space)};
+      padding-left: ${spacer(4)};
+      padding-right: ${spacer(4)};
       max-width: ${container.maxWidth ? px(container.maxWidth) : 'none'};
       position: relative;
       width: 100%;
@@ -319,10 +330,7 @@ export const ContainerStyles = {
       ${textAlign}
       ${width};
       
-      ${grid.md} {
-        padding-left: ${px(gutter[5])};
-        padding-right: ${px(gutter[5])};
-      }
+      ${grid};
     `;
   },
 };
@@ -386,7 +394,6 @@ export const FlexStyles = {
 export const FormStyles = {
   fieldset(props) {
     const { inline } = props;
-    const { gutter } = getTheme(props);
     const {
       borderColor,
       borderRadius: radii,
@@ -405,7 +412,7 @@ export const FormStyles = {
         ${inline ? 'display: inline-block;' : ''};
         
         + * {
-          ${inline ? `margin-left: ${px(gutter[2])} ;` : ''};
+          ${inline ? `margin-left: ${spacer(2)} ;` : ''};
         }
       }
     `;
@@ -668,7 +675,6 @@ export const FormStyles = {
 export const HeadingStyles = {
   base(props) {
     const { gutterBottom } = props;
-    const gutter = themeGet(props, 'gutter');
     const headingWeight = themeGet(props, 'headingWeight');
     const headingSize = themeGet(props, 'headingSizes', { key: ['size', 'as'], base: 'h1' });
 
@@ -677,7 +683,7 @@ export const HeadingStyles = {
       font-family: inherit;
       font-weight: ${headingWeight};
       line-height: ${base.lineHeight};
-      margin: ${px(space)} 0 ${gutterBottom ? px(space) : 0};
+      margin: ${spacer(4)} 0 ${gutterBottom ? spacer(4) : 0};
       ${borders};
       ${borderRadius};
       ${fontSize};
@@ -695,9 +701,7 @@ export const HeadingStyles = {
 };
 
 export const GroupStyles = {
-  base(props) {
-    const { grid, gutter } = themeGet(props);
-
+  base() {
     return css`
       align-items: center;
       display: flex;
@@ -705,10 +709,8 @@ export const GroupStyles = {
       ${flexWrap}
       ${space};
       
-      > * + * {
-        ${grid.sm} {
-          padding-left: ${px(gutter[2])};
-        }
+      > *:not(:first-child) {
+        margin-left: ${spacer(2)};
       }
     `;
   },
