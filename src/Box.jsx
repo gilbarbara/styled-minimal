@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { BoxStyles } from './utils/system';
+import { BoxOptions } from './utils/system';
 
 export const StyledBox = styled.div`
-  ${BoxStyles.base};
+  ${BoxOptions.base};
 `;
 
 const Box = ({ children, ...rest }) => (
@@ -14,6 +14,7 @@ const Box = ({ children, ...rest }) => (
 
 Box.propTypes = {
   children: PropTypes.node.isRequired,
+  ...BoxOptions.propTypes,
 };
 
 export default Box;

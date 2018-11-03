@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-foreign-prop-types */
 import lighten from 'polished/lib/color/lighten';
 import darken from 'polished/lib/color/darken';
 import { css } from 'styled-components';
@@ -147,7 +148,7 @@ export const BadgeStyles = {
   },
 };
 
-export const BoxStyles = {
+export const BoxOptions = {
   base() {
     return css`
       width: 100%;
@@ -177,6 +178,33 @@ export const BoxStyles = {
       ${width};
       ${zIndex};
     `;
+  },
+  propTypes: {
+    ...alignSelf.propTypes,
+    ...backgroundImage.propTypes,
+    ...borders.propTypes,
+    ...borderRadius.propTypes,
+    ...bottom.propTypes,
+    ...color.propTypes,
+    ...display.propTypes,
+    ...flex.propTypes,
+    ...fontFamily.propTypes,
+    ...fontSize.propTypes,
+    ...fontWeight.propTypes,
+    ...height.propTypes,
+    ...left.propTypes,
+    ...maxHeight.propTypes,
+    ...maxWidth.propTypes,
+    ...minHeight.propTypes,
+    ...minWidth.propTypes,
+    ...order.propTypes,
+    ...position.propTypes,
+    ...right.propTypes,
+    ...space.propTypes,
+    ...textAlign.propTypes,
+    ...top.propTypes,
+    ...width.propTypes,
+    ...zIndex.propTypes,
   },
 };
 
@@ -361,7 +389,7 @@ export const EmbedStyles = {
   },
 };
 
-export const FlexStyles = {
+export const FlexOptions = {
   base() {
     return css`
       display: flex;
@@ -388,6 +416,29 @@ export const FlexStyles = {
       ${width};
       ${zIndex};
     `;
+  },
+  propTypes: {
+    ...alignContent.propTypes,
+    ...alignItems.propTypes,
+    ...alignSelf.propTypes,
+    ...bottom.propTypes,
+    ...display.propTypes,
+    ...flex.propTypes,
+    ...flexBasis.propTypes,
+    ...flexDirection.propTypes,
+    ...flexWrap.propTypes,
+    ...height.propTypes,
+    ...justifyContent.propTypes,
+    ...left.propTypes,
+    ...minHeight.propTypes,
+    ...minWidth.propTypes,
+    ...order.propTypes,
+    ...position.propTypes,
+    ...right.propTypes,
+    ...space.propTypes,
+    ...top.propTypes,
+    ...width.propTypes,
+    ...zIndex.propTypes,
   },
 };
 

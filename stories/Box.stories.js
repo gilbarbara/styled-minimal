@@ -4,20 +4,20 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, select, text, number } from '@storybook/addon-knobs/react';
 
 import { Box } from '../src';
-import { ViewCheckbox } from './helpers/components';
+import { View } from './helpers/components';
 import { backgroundAddon } from './helpers/extras';
 
 storiesOf('Box', module)
   .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
   .add('default', withInfo({
-    propTablesExclude: [ViewCheckbox],
+    propTablesExclude: [View],
   })(() => (
-    <ViewCheckbox skipSpacer>
+    <View skipSpacer>
       <Box
-        bg={text('BG Color', '#eee')}
+        bg={text('BG Color', '#ccc')}
         color={text('Color', '#f04')}
-        fontSize={text('Font Size', '16px')}
+        fontSize={text('Font Size', '24px')}
         p={number('Padding', 2)}
         m={text('Margin', '')}
         textAlign={select('Text Align', ['left', 'center', 'right'], 'left')}
@@ -25,5 +25,5 @@ storiesOf('Box', module)
       >
         {text('Children', 'This is a box')}
       </Box>
-    </ViewCheckbox>
+    </View>
   )));
