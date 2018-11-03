@@ -26,5 +26,5 @@ export { default as Table, StyledTable } from './Table';
 export { default as Text, StyledText } from './Text';
 export { default as Textarea, StyledTextarea } from './Textarea';
 
-export * from './utils/helpers';
-export * from './utils/theme';
+export * as utils from './utils/helpers';
+export * as theme from './utils/theme';
