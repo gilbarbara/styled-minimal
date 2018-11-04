@@ -1,20 +1,19 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs/react';
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 
 import { Button } from '../src';
 import { sizeOptions, variantOptions } from '../src/utils/options';
 import { SVG, ViewCheckbox } from './helpers/components';
-import { backgroundAddon, capitalize } from './helpers/extras';
+import { capitalize } from './helpers/extras';
 
 storiesOf('Button', module)
-  .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
-  .add('default', withInfo({
-    propTablesExclude: [ViewCheckbox],
-  })(() => (
+  .addParameters({
+    info: { propTablesExclude: [ViewCheckbox] },
+  })
+  .add('default', () => (
     <ViewCheckbox>
       <Button
         animate={boolean('Animate', false)}
@@ -29,7 +28,7 @@ storiesOf('Button', module)
         {text('Children', 'Click here now')}
       </Button>
     </ViewCheckbox>
-  )))
+  ))
   .add('with size', () => (
     <ViewCheckbox>
       <Button onClick={action('clicked')} size="xs">Button XS</Button>

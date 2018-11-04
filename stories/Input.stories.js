@@ -1,15 +1,13 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean, number, select, text } from '@storybook/addon-knobs/react';
+import { withKnobs, boolean, number, select, text } from '@storybook/addon-knobs';
 
-import { backgroundAddon } from './helpers/extras';
 import { sizeOptions } from '../src/utils/options';
 
 import { Input } from '../src';
 import { View } from './helpers/components';
 
-const InputView = ({ children, ...rest }) => (
+const ViewInput = ({ children, ...rest }) => (
   <View
     direction="column"
     skipSpacer
@@ -21,12 +19,12 @@ const InputView = ({ children, ...rest }) => (
 );
 
 storiesOf('Input', module)
-  .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
-  .add('default', withInfo({
-    propTablesExclude: [View],
-  })(() => (
-    <InputView>
+  .addParameters({
+    info: { propTablesExclude: [ViewInput] },
+  })
+  .add('default', () => (
+    <ViewInput>
       <Input
         accept={text('Accept')}
         autoComplete={text('Autocomplete')}
@@ -40,10 +38,10 @@ storiesOf('Input', module)
         required={boolean('Required', false)}
         size={select('Size', sizeOptions, 'md')}
       />
-    </InputView>
-  )))
+    </ViewInput>
+  ))
   .add('with type', () => (
-    <InputView>
+    <ViewInput>
       <Input type="checkbox" /><br />
       <Input type="color" /><br />
       <Input type="date" /><br />
@@ -56,25 +54,25 @@ storiesOf('Input', module)
       <Input type="search" placeholder="search" /><br />
       <Input type="tel" placeholder="tel" /><br />
       <Input type="text" placeholder="text" />
-    </InputView>
-  ))
+    </ViewInput>
+  ), { info: { source: false } })
   .add('with size', () => (
-    <InputView>
+    <ViewInput>
       <Input size="sm" placeholder="sm" /><br />
       <Input size="md" placeholder="md" /><br />
       <Input size="lg" placeholder="lg" />
-    </InputView>
+    </ViewInput>
   ))
   .add('with status', () => (
-    <InputView>
+    <ViewInput>
       <Input disabled placeholder="disabled" /><br />
       <Input placeholder="normal" /><br />
       <Input required placeholder="required" />
-    </InputView>
+    </ViewInput>
   ))
   .add('with validation', () => (
-    <InputView>
+    <ViewInput>
       <Input name="name" placeholder="Your Name" required valid={false} /><br />
       <Input name="name" placeholder="Your Name" required valid={true} />
-    </InputView>
+    </ViewInput>
   ));

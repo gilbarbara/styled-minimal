@@ -1,16 +1,14 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 
 import { Text } from '../src';
 import { View } from './helpers/components';
-import { backgroundAddon } from './helpers/extras';
 
 storiesOf('Text', module)
-  .addDecorator(backgroundAddon)
-  .add('default', withInfo({
-    propTablesExclude: [View],
-  })(() => (
+  .addParameters({
+    info: { propTablesExclude: [View] },
+  })
+  .add('default', () => (
     <View>
       <div>
         <Text>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</Text>
@@ -20,4 +18,4 @@ storiesOf('Text', module)
         </Text>
       </div>
     </View>
-  )));
+  ));

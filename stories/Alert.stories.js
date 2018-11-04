@@ -1,20 +1,19 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs/react';
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 
 import { Alert, Box, Flex, Heading, Paragraph } from '../src';
 import { sizeOptions, variantOptions } from '../src/utils/options';
 
 import { SVG, ViewCheckbox } from './helpers/components';
-import { backgroundAddon, capitalize } from './helpers/extras';
+import { capitalize } from './helpers/extras';
 
 storiesOf('Alert', module)
-  .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
-  .add('default', withInfo({
-    propTablesExclude: [ViewCheckbox, Box, Heading, Paragraph],
-  })(() => (
+  .addParameters({
+    info: { propTablesExclude: [ViewCheckbox, Box, Flex, Heading, Paragraph, SVG] },
+  })
+  .add('default', () => (
     <ViewCheckbox>
       <Alert
         alignHorizontal={select('Align Horizontal', ['left', 'center', 'right'], 'left')}
@@ -26,7 +25,7 @@ storiesOf('Alert', module)
         {text('Children', 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.')}
       </Alert>
     </ViewCheckbox>
-  )))
+  ))
   .add('with child components', () => (
     <ViewCheckbox>
       <Alert

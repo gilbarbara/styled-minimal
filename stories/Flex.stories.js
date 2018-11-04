@@ -1,18 +1,16 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, select } from '@storybook/addon-knobs/react';
+import { withKnobs, text, select } from '@storybook/addon-knobs';
 
 import { Box, Flex } from '../src';
 import { ViewCheckbox } from './helpers/components';
-import { backgroundAddon } from './helpers/extras';
 
 storiesOf('Flex', module)
-  .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
-  .add('default', withInfo({
-    propTablesExclude: [Box, ViewCheckbox],
-  })(() => (
+  .addParameters({
+    info: { propTablesExclude: [ViewCheckbox, Box] },
+  })
+  .add('default', () => (
     <ViewCheckbox>
       <Flex
         alignItems={select('Align Items', [
@@ -54,4 +52,4 @@ storiesOf('Flex', module)
         <Box bg="#999" p={20} textAlign="center" width="70%">Box 70%</Box>
       </Flex>
     </ViewCheckbox>
-  )));
+  ));

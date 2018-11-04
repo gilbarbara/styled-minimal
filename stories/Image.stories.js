@@ -1,18 +1,16 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, select, text } from '@storybook/addon-knobs/react';
+import { withKnobs, select, text } from '@storybook/addon-knobs';
 
 import { Image } from '../src';
 import { ViewCheckbox } from './helpers/components';
-import { backgroundAddon } from './helpers/extras';
 
 storiesOf('Image', module)
-  .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
-  .add('default', withInfo({
-    propTablesExclude: [ViewCheckbox],
-  })(() => (
+  .addParameters({
+    info: { propTablesExclude: [ViewCheckbox] },
+  })
+  .add('default', () => (
     <ViewCheckbox>
       <Image
         alt={text('Alt', 'Moon')}
@@ -22,4 +20,4 @@ storiesOf('Image', module)
         width={text('Width')}
       />
     </ViewCheckbox>
-  )));
+  ));

@@ -1,20 +1,20 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, select, boolean } from '@storybook/addon-knobs/react';
+import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 
 import { Button, ButtonGroup } from '../src';
 import { sizeOptions, variantOptions } from '../src/utils/options';
 
 import { ViewCheckbox } from './helpers/components';
-import { backgroundAddon } from './helpers/extras';
 
 storiesOf('ButtonGroup', module)
-  .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
-  .add('default', withInfo({
-    propTablesExclude: [Button, ViewCheckbox],
-  })(() => (
+  .addParameters({
+    info: {
+      propTablesExclude: [ViewCheckbox, Button],
+    },
+  })
+  .add('default', () => (
     <ViewCheckbox skipSpacer>
       <ButtonGroup
         size={select('Size', sizeOptions, 'md')}
@@ -43,4 +43,4 @@ storiesOf('ButtonGroup', module)
         </Button>
       </ButtonGroup>
     </ViewCheckbox>
-  )));
+  ));

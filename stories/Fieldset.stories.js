@@ -1,18 +1,16 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean } from '@storybook/addon-knobs/react';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 
 import { Fieldset, Input, Label, Legend } from '../src';
-import { backgroundAddon } from './helpers/extras';
 import { View } from './helpers/components';
 
 storiesOf('Fieldset', module)
-  .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
-  .add('default', withInfo({
-    propTablesExclude: [Input, Label, Legend, View],
-  })(() => (
+  .addParameters({
+    info: { propTablesExclude: [Input, Label, Legend, View] },
+  })
+  .add('default', () => (
     <View direction="column">
       <div>
         <Fieldset
@@ -24,4 +22,4 @@ storiesOf('Fieldset', module)
         </Fieldset>
       </div>
     </View>
-  )));
+  ));

@@ -1,16 +1,14 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 
 import { Badge, Button, Group, Text } from '../src';
 import { View } from './helpers/components';
-import { backgroundAddon } from './helpers/extras';
 
 storiesOf('Group', module)
-  .addDecorator(backgroundAddon)
-  .add('default', withInfo({
-    propTablesExclude: [Badge, Button, Text, View],
-  })(() => (
+  .addParameters({
+    info: { propTablesExclude: [Badge, Button, Text, View] },
+  })
+  .add('default', () => (
     <View skipSpacer>
       <Group>
         <Button>Hey</Button>
@@ -18,4 +16,4 @@ storiesOf('Group', module)
         <Text>Hello</Text>
       </Group>
     </View>
-  )));
+  ));

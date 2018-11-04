@@ -1,19 +1,17 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean } from '@storybook/addon-knobs/react';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 
-import { Button, Fieldset, Form, FormGroup, Group, Input, Label, Legend, Select, Switch, Textarea } from '../src';
+import { Button, Fieldset, Flex, Form, FormGroup, Input, Label, Legend, Select, Switch, Textarea } from '../src';
 import { View } from './helpers/components';
-import { backgroundAddon } from './helpers/extras';
 
 storiesOf('Form', module)
-  .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
-  .add('default', withInfo({
-    propTablesExclude: [View, Button, Fieldset, FormGroup, Group, Input, Label, Legend, Select, Switch, Textarea],
-  })(() => (
+  .addParameters({
+    info: { propTablesExclude: [View, Button, Fieldset, Flex, FormGroup, Input, Label, Legend, Select, Switch, Textarea] },
+  })
+  .add('default', () => (
     <View direction="column">
       <Form
         bordered={boolean('Bordered', false)}
@@ -39,27 +37,27 @@ storiesOf('Form', module)
           }, {}));
         }}
       >
-        <Group>
+        <Flex flexWrap="wrap">
           <FormGroup width={[1, 1, 1 / 2]}>
             <Label>First Name</Label>
             <Input type="text" name="firstname" placeholder="First Name" />
           </FormGroup>
-          <FormGroup width={[1, 1, 1 / 2]}>
+          <FormGroup width={[1, 1, 1 / 2]} pl={[0, 0, 2]}>
             <Label>Last Name</Label>
             <Input type="text" name="lastname" placeholder="Last Name" />
           </FormGroup>
-        </Group>
-        <Group>
+        </Flex>
+        <Flex>
           <FormGroup inline width={[1, 1, 1 / 2]}>
             <Label>E-mail</Label>
             <Input type="email" name="email" placeholder="Your E-mail" />
           </FormGroup>
 
-          <FormGroup inline width={[1, 1, 1 / 2]}>
+          <FormGroup inline width={[1, 1, 1 / 2]} pl={[0, 0, 2]}>
             <Label>SSN</Label>
             <Input type="text" name="ssn" placeholder="Your SSN" />
           </FormGroup>
-        </Group>
+        </Flex>
         <FormGroup>
           <Label>Gender</Label>
           <Select name="gender">
@@ -101,4 +99,4 @@ storiesOf('Form', module)
         <Button type="reset" outline>RESET</Button>
       </Form>
     </View>
-  )));
+  ));

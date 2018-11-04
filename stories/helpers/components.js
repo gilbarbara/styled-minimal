@@ -25,7 +25,6 @@ const flex = ({ direction, skipFlex }) => (
 );
 
 const StyledView = styled.div`
-  background-color: #fff;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   margin: 0 auto;
   min-height: 30vh;
@@ -41,7 +40,7 @@ const StyledView = styled.div`
 const View = ({ children, ...props }) => (
   <ThemeProvider
     theme={{
-      breakpoints: [400, 580, 768, 1024, 1360, 1920],
+      breakpoints: [400, 580, 768, 1024, 1280, 1920],
       fontSizes: [12, 14, 16, 18, 22, 26, 32, 48],
       space: [0, 4, 8, 12, 16, 24, 32, 64, 128],
     }}

@@ -1,19 +1,19 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, select, boolean } from '@storybook/addon-knobs/react';
+import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 
 import { Container } from '../src';
 import { ViewCheckbox } from './helpers/components';
-import { backgroundAddon } from './helpers/extras';
 
 storiesOf('Container', module)
-  .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
-  .add('default', withInfo({
-    propTablesExclude: [ViewCheckbox],
-    text: 'Content wrapper with responsive padding',
-  })(() => (
+  .addParameters({
+    info: {
+      propTablesExclude: [ViewCheckbox],
+      text: 'Content wrapper with responsive padding',
+    },
+  })
+  .add('default', () => (
     <ViewCheckbox>
       <Container
         layout={select('Layout', ['', 'flex', 'fullScreen'])}
@@ -24,7 +24,7 @@ storiesOf('Container', module)
         <div style={{ backgroundColor: '#f04' }}>Content</div>
       </Container>
     </ViewCheckbox>
-  )))
+  ))
   .add('with layout', () => (
     <ViewCheckbox>
       <Container layout="fullScreen" style={{ backgroundColor: '#000' }}>

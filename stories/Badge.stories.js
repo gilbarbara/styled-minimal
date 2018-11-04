@@ -1,20 +1,19 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs/react';
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 
 import { sizeOptions, variantOptions } from '../src/utils/options';
-import { backgroundAddon, capitalize } from './helpers/extras';
+import { capitalize } from './helpers/extras';
 
 import { Badge, Button, Heading } from '../src';
 import { SVG, ViewCheckbox } from './helpers/components';
 
 storiesOf('Badge', module)
-  .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
-  .add('default', withInfo({
-    propTablesExclude: [ViewCheckbox],
-  })(() => (
+  .addParameters({
+    info: { propTablesExclude: [ViewCheckbox, Heading] },
+  })
+  .add('default', () => (
     <ViewCheckbox>
       <Badge
         outline={boolean('Outline', false)}
@@ -24,7 +23,7 @@ storiesOf('Badge', module)
         {text('Children', 'badge')}
       </Badge>
     </ViewCheckbox>
-  )))
+  ))
   .add('with Heading', () => (
     <ViewCheckbox direction="column">
       <div>

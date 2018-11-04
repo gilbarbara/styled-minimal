@@ -1,21 +1,19 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, select, boolean, number } from '@storybook/addon-knobs/react';
+import { withKnobs, select, boolean, number } from '@storybook/addon-knobs';
 
-import { backgroundAddon } from './helpers/extras';
 import { sizeOptions } from '../src/utils/options';
 
 import { Select } from '../src';
-import { ViewCheckbox } from './helpers/components';
+import { View } from './helpers/components';
 
 storiesOf('Select', module)
-  .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
-  .add('default', withInfo({
-    propTablesExclude: [ViewCheckbox],
-  })(() => (
-    <ViewCheckbox>
+  .addParameters({
+    info: { propTablesExclude: [View] },
+  })
+  .add('default', () => (
+    <View>
       <Select
         disabled={boolean('Disabled', false)}
         multiple={boolean('Multiple', false)}
@@ -27,5 +25,5 @@ storiesOf('Select', module)
         <option value="female">Female</option>
         <option value="other">Other</option>
       </Select>
-    </ViewCheckbox>
-  )));
+    </View>
+  ));

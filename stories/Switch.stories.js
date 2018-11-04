@@ -1,20 +1,18 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean, select } from '@storybook/addon-knobs/react';
+import { withKnobs, boolean, select } from '@storybook/addon-knobs';
 
 import { Switch } from '../src';
 import { View } from './helpers/components';
-import { backgroundAddon } from './helpers/extras';
 import { sizeOptionsFull, variantOptions } from '../src/utils/options';
 
 storiesOf('Switch', module)
-  .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
-  .add('default', withInfo({
-    propTablesExclude: [View],
-  })(() => (
+  .addParameters({
+    info: { propTablesExclude: [View] },
+  })
+  .add('default', () => (
     <View>
       <Switch
         name="test"
@@ -26,7 +24,7 @@ storiesOf('Switch', module)
         }}
       />
     </View>
-  )))
+  ))
   .add('with size', () => (
     <View>
       <Switch name="test" size="xs" />

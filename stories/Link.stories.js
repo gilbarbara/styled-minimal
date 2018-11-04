@@ -1,18 +1,16 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text } from '@storybook/addon-knobs/react';
+import { withKnobs, text } from '@storybook/addon-knobs';
 
 import { Link } from '../src';
 import { View } from './helpers/components';
-import { backgroundAddon } from './helpers/extras';
 
 storiesOf('Link', module)
-  .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
-  .add('default', withInfo({
-    propTablesExclude: [View],
-  })(() => (
+  .addParameters({
+    info: { propTablesExclude: [View] },
+  })
+  .add('default', () => (
     <View skipSpacer>
       <Link
         title={text('Alt', 'Moon')}
@@ -22,4 +20,4 @@ storiesOf('Link', module)
         {text('Children', 'Moon')}
       </Link>
     </View>
-  )));
+  ));

@@ -1,18 +1,16 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, select, text, number } from '@storybook/addon-knobs/react';
+import { withKnobs, select, text, number } from '@storybook/addon-knobs';
 
 import { Box } from '../src';
 import { View } from './helpers/components';
-import { backgroundAddon } from './helpers/extras';
 
 storiesOf('Box', module)
-  .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
-  .add('default', withInfo({
-    propTablesExclude: [View],
-  })(() => (
+  .addParameters({
+    info: { propTablesExclude: [View] },
+  })
+  .add('default', () => (
     <View skipSpacer>
       <Box
         bg={text('BG Color', '#ccc')}
@@ -26,4 +24,4 @@ storiesOf('Box', module)
         {text('Children', 'This is a box')}
       </Box>
     </View>
-  )));
+  ));

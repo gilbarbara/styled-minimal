@@ -1,20 +1,18 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean, number, select } from '@storybook/addon-knobs/react';
+import { withKnobs, boolean, number, select } from '@storybook/addon-knobs';
 
-import { backgroundAddon } from './helpers/extras';
 import { sizeOptions } from '../src/utils/options';
 
 import { Box, Heading, List, Paragraph } from '../src';
 import { View } from './helpers/components';
 
 storiesOf('List', module)
-  .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
-  .add('default', withInfo({
-    propTablesExclude: [Box, Heading, Paragraph, View],
-  })(() => (
+  .addParameters({
+    info: { propTablesExclude: [View, Box, Heading, Paragraph] },
+  })
+  .add('default', () => (
     <View>
       <Box width={450}>
         <List
@@ -45,7 +43,7 @@ storiesOf('List', module)
         </List>
       </Box>
     </View>
-  )))
+  ))
   .add('with OL', () => (
     <View>
       <Box width={450}>

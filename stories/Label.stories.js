@@ -1,18 +1,16 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean } from '@storybook/addon-knobs/react';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 
 import { Label } from '../src';
 import { View } from './helpers/components';
-import { backgroundAddon } from './helpers/extras';
 
 storiesOf('Label', module)
-  .addDecorator(backgroundAddon)
   .addDecorator(withKnobs)
-  .add('default', withInfo({
-    propTablesExclude: [View],
-  })(() => (
+  .addParameters({
+    info: { propTablesExclude: [View] },
+  })
+  .add('default', () => (
     <View>
       <Label
         inline={boolean('Inline', false)}
@@ -20,4 +18,4 @@ storiesOf('Label', module)
         Far far away, behind the word mountains there live the blind texts.
       </Label>
     </View>
-  )));
+  ));

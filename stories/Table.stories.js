@@ -1,21 +1,18 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean, select } from '@storybook/addon-knobs/react';
+import { withKnobs, boolean, select } from '@storybook/addon-knobs';
 
-import { backgroundAddon } from './helpers/extras';
 import { sizeOptions } from '../src/utils/options';
 
 import { Table } from '../src';
 import { ViewCheckbox } from './helpers/components';
 
 storiesOf('Table', module)
-  .addDecorator(backgroundAddon)
+  .addParameters({
+    info: { propTablesExclude: [ViewCheckbox] },
+  })
   .addDecorator(withKnobs)
-  .add('default', withInfo({
-    propTablesExclude: [ViewCheckbox],
-    text: 'Table wrapper',
-  })(() => (
+  .add('default', () => (
     <ViewCheckbox>
       <Table
         bordered={boolean('Bordered', false)}
@@ -56,4 +53,4 @@ storiesOf('Table', module)
         </tbody>
       </Table>
     </ViewCheckbox>
-  )));
+  ));
