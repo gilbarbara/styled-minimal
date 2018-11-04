@@ -4,7 +4,7 @@ import parseToRgb from 'polished/lib/color/parseToRgb';
 import * as defaultTheme from './theme';
 
 export const num = (n: number | string) => typeof n === 'number' && !isNaN(n);
-export const px = (n: any) => (num(n) ? `${n}px` : n);
+export const px = (n: any): string => (num(n) ? `${n}px` : n);
 
 export const getValue = (value: any, key: ?string): any => {
   if (key && ['size'].includes(key)) {
@@ -14,7 +14,7 @@ export const getValue = (value: any, key: ?string): any => {
   return value;
 };
 
-const createMediaQuery = (n, breakpoints) => {
+const createMediaQuery = (n: string | number, breakpoints: Array<number>): string => {
   const grid = {
     'xs-only': `@media (min-width: ${breakpoints[0] - 1}px)`,
     ix: `@media (min-width: ${breakpoints[0]}px)`,
@@ -46,7 +46,7 @@ const createMediaQuery = (n, breakpoints) => {
 export const getTheme = (props: Object = {}): Object => {
   const { theme = {} } = props;
 
-  return deepmerge(defaultTheme, theme, (dest, source) => source);
+  return deepmerge(defaultTheme, theme, { arrayMerge: (dest, source) => source });
 };
 
 /**
@@ -57,7 +57,7 @@ export const getTheme = (props: Object = {}): Object => {
  * `
  */
 /* eslint-disable react/destructuring-assignment */
-export const themeGet = (props: Object, path: string, options: Object = {}): any => {
+export const themeGet = (props: Object, path: ?string, options: Object = {}): any => {
   const theme = getTheme(props);
   const { base, key, toggle } = options;
   const selection = theme[path];
@@ -90,13 +90,13 @@ export const themeGet = (props: Object, path: string, options: Object = {}): any
   return getValue(selection);
 };
 
-export const spacer = (value: number|string|Array<number>): Function => (props): string => {
+export const spacer = (value: number | string | Array<number>): any => (props: Object): string => {
   const { space } = themeGet(props);
 
   return px(space[value] || value);
 };
 
-export const responsive = (rules) => (props) => {
+export const responsive = (rules: Object): Function => (props: Object): string => {
   const { breakpoints } = themeGet(props);
   const result = [];
 

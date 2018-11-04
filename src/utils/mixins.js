@@ -1,5 +1,4 @@
 // @flow
-
 export function placeholder(content: string): string {
   return `
     &::-webkit-input-placeholder {

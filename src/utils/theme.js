@@ -1,3 +1,4 @@
+// @flow
 import { css, keyframes } from 'styled-components';
 import rgba from 'polished/lib/color/rgba';
 

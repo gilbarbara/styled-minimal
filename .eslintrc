@@ -108,8 +108,8 @@
       }
     ],
     "valid-jsdoc": "off",
-    "flowtype/require-parameter-type": ["warn", { "excludeArrowFunctions": true }],
-    "flowtype/require-return-type": ["warn", "always", { "excludeArrowFunctions": true }],
+    "flowtype/require-parameter-type": ["warn", { "excludeArrowFunctions": "expressionsOnly" }],
+    "flowtype/require-return-type": ["warn", "always", { "excludeArrowFunctions": "expressionsOnly" }],
     "flowtype/space-after-type-colon": ["error", "always"],
     "import/export": "off",
     "import/no-dynamic-require": "off",
