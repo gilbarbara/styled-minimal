@@ -144,6 +144,7 @@ export const BadgeStyles = {
       vertical-align: baseline;
       ${borderRadius};
       ${fontWeight};
+      ${space};
     `;
   },
 };
@@ -342,10 +343,7 @@ export const ContainerStyles = {
       ${vertical};
       ${alignContent};
       ${alignItems};
-      ${alignSelf};
       ${display};
-      ${flex};
-      ${flexBasis};
       ${flexDirection};
       ${flexWrap};
       ${height};
@@ -353,7 +351,6 @@ export const ContainerStyles = {
       ${maxWidth};
       ${minHeight};
       ${minWidth};
-      ${order};
       ${space};
       ${textAlign}
       ${width};
@@ -374,7 +371,6 @@ export const EmbedStyles = {
       ${display};
       ${ratio};
       ${space};
-      ${width};
       
       & > iframe {
         border: 0;
@@ -481,6 +477,8 @@ export const FormStyles = {
       ${bordered ? `border-radius: ${px(radii)};` : ''}
       ${bordered ? `padding: ${px(padding)};` : ''}
       text-align:left;
+      ${space};
+      ${width};
     `;
   },
   group(props) {
@@ -498,6 +496,7 @@ export const FormStyles = {
       margin-bottom: ${px(marginBottom)};
       ${bordered ? `padding: ${px(padding)};` : ''};
       text-align: left;
+      ${space};
       ${width};
     `;
   },
@@ -538,6 +537,8 @@ export const FormStyles = {
       ${['checkbox', 'radio'].includes(type) ? `margin: 0 ${px(inlineMargin)} 0 0` : ''};
       padding: ${inputTextOptions.includes(type) ? px(padding[size]) : 0};
       ${!['checkbox', 'radio', 'color'].includes(type) ? 'width: 100%;' : ''};
+      ${space};
+      ${width};
       
       &[type=file] {
         font-size: ${px(inputFontSize[size] - 1)};
@@ -666,6 +667,8 @@ export const FormStyles = {
       margin: 0;
       padding: ${px(padding[size])};
       width: 100%;
+      ${space};
+      ${width};
     `;
   },
   // helpers
@@ -743,6 +746,7 @@ export const HeadingStyles = {
       ${space};
       ${textAlign};
       ${textTransform};
+      ${width};
       
       &:first-child {
         margin-top: 0;
@@ -759,6 +763,7 @@ export const GroupStyles = {
       flex-wrap: wrap;
       ${flexWrap}
       ${space};
+      ${width};
       
       > *:not(:first-child) {
         margin-left: ${spacer(2)};
@@ -781,7 +786,6 @@ export const ImageStyles = {
       ${minHeight};
       ${minWidth};
       ${space};
-      ${width};
     `;
   },
 };
@@ -826,9 +830,9 @@ export const ListStyles = {
       ${fontWeight};
       margin: 0;
       ${as === 'ul' && styleType === 'none' ? 'padding: 0;' : ''};
+      ${as === 'ul' ? `list-style-type: ${styleType};` : ''};
       ${space};
       ${textAlign};
-      ${as === 'ul' ? `list-style-type: ${styleType};` : ''};
     `;
   },
   item(props) {
@@ -938,6 +942,7 @@ export const TableStyles = {
       border-collapse: collapse;
       color: ${colors[inverted ? 'primary' : 'secondary']};
       width: 100%;
+      ${space};
     `;
   },
   caption(props) {
