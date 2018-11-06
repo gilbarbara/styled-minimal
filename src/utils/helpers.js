@@ -90,21 +90,23 @@ export const themeGet = (props: Object, path: ?string, options: Object = {}): an
   return getValue(selection);
 };
 
-export const spacer = (value: number | string | Array<number>): any => (props: Object): string => {
+export const spacer = (value: number | string | Array<number>, pure: ?Boolean): any => (props: Object): any => {
   const { space } = themeGet(props);
+  const result = space[value] || value;
 
-  return px(space[value] || value);
+  return pure ? result : px(result);
 };
 
-export const responsive = (input: Function | Object): Function => (props: Object): string => {
+export const responsive = (input: Function | Object, queryBuilderFn: ?Function): Function => (props: Object): string => {
   const { breakpoints } = themeGet(props);
   const rules = typeof input === 'function' ? input(props) : input;
+  const queryBuilder = queryBuilderFn || createMediaQuery;
   const result = [];
 
   for (const rule in rules) {
     if ({}.hasOwnProperty.call(rules, rule)) {
       result.push(`
-        ${createMediaQuery(rule, breakpoints)} {
+        ${queryBuilder(rule, breakpoints)} {
           ${rules[rule]}
         }
       `);
