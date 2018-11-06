@@ -96,8 +96,9 @@ export const spacer = (value: number | string | Array<number>): any => (props: O
   return px(space[value] || value);
 };
 
-export const responsive = (rules: Object): Function => (props: Object): string => {
+export const responsive = (input: Function | Object): Function => (props: Object): string => {
   const { breakpoints } = themeGet(props);
+  const rules = typeof input === 'function' ? input(props) : input;
   const result = [];
 
   for (const rule in rules) {

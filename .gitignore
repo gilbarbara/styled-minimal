@@ -5,6 +5,7 @@
 *.iws
 .idea/
 .vscode
+.cache
 local.properties
 
 # Modules and Caches
