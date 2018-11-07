@@ -19,15 +19,13 @@ const createMediaQuery = (n: string | number, breakpoints: Array<number>): strin
     'xs-only': `@media (min-width: ${breakpoints[0] - 1}px)`,
     ix: `@media (min-width: ${breakpoints[0]}px)`,
     'ix-only': `@media (max-width: ${breakpoints[1] - 1}px)`,
-    sm: `@media (min-width: ${breakpoints[1]}px)`,
-    'sm-only': `@media (max-width: ${breakpoints[2] - 1}px)`,
-    md: `@media (min-width: ${breakpoints[2]}px)`,
-    'md-only': `@media (max-width: ${breakpoints[3] - 1}px)`,
-    lg: `@media (min-width: ${breakpoints[3]}px)`,
-    'lg-only': `@media (max-width: ${breakpoints[4] - 1}px)`,
-    xl: `@media (min-width: ${breakpoints[4]}px)`,
-    'xl-only': `@media (max-width: ${breakpoints[5] - 1}px)`,
-    xxl: `@media (min-width: ${breakpoints[5]}px)`,
+    md: `@media (min-width: ${breakpoints[1]}px)`,
+    'md-only': `@media (max-width: ${breakpoints[2] - 1}px)`,
+    lg: `@media (min-width: ${breakpoints[2]}px)`,
+    'lg-only': `@media (max-width: ${breakpoints[3] - 1}px)`,
+    xl: `@media (min-width: ${breakpoints[3]}px)`,
+    'xl-only': `@media (max-width: ${breakpoints[4] - 1}px)`,
+    xxl: `@media (min-width: ${breakpoints[4]}px)`,
   };
 
   if (num(n)) {

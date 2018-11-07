@@ -312,31 +312,35 @@ export const ContainerStyles = {
 
       const grid = responsive({
         md: `
-          padding-bottom: ${spacer(6)(props)};
-          padding-top: ${spacer(6)(props)};
+          padding-bottom: ${spacer(4)(props)};
+          padding-top: ${spacer(4)(props)};
+        `,
+        lg: `
+          padding-bottom: ${spacer(5)(props)};
+          padding-top: ${spacer(5)(props)};
         `,
       });
 
       return css`
-          padding-bottom: ${spacer(4)};
-          padding-top: ${spacer(4)};
-          
-          ${grid};
-        `;
+        padding-bottom: ${spacer(3)};
+        padding-top: ${spacer(3)};
+        
+        ${grid};
+      `;
     };
 
     const grid = responsive({
       md: `
-        padding-left: ${spacer(6)(props)};
-        padding-right: ${spacer(6)(props)};
+        padding-left: ${spacer(4)(props)};
+        padding-right: ${spacer(4)(props)};
       `,
     });
 
     return css`
       margin-left: auto;
       margin-right: auto;
-      padding-left: ${spacer(4)};
-      padding-right: ${spacer(4)};
+      padding-left: ${spacer(3)};
+      padding-right: ${spacer(3)};
       max-width: ${container.maxWidth ? px(container.maxWidth) : 'none'};
       position: relative;
       width: 100%;
@@ -738,7 +742,7 @@ export const HeadingStyles = {
       font-family: inherit;
       font-weight: ${headingWeight};
       line-height: ${base.lineHeight};
-      margin: ${spacer(4)} 0 ${gutterBottom ? spacer(4) : 0};
+      margin: ${spacer(3)} 0 ${gutterBottom ? spacer(3) : 0};
       ${borders};
       ${borderRadius};
       ${fontSize};
