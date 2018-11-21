@@ -263,6 +263,10 @@ export const ButtonGroupStyles = {
       ${space};
 
       > button {
+        + button {
+          margin-left: -1px;
+        }
+        
         &:first-child {
           border-bottom-right-radius: 0;
           border-top-right-radius: 0;
@@ -275,10 +279,6 @@ export const ButtonGroupStyles = {
         
         &:not(:first-child):not(:last-child) {
           border-radius: 0;
-        }
-
-        + button {
-          margin-left: -1px;
         }
       }
     `;
@@ -928,7 +928,7 @@ export const SwitchStyles = {
         bottom: ${px(sizes[size].space)};
         left: ${status ? '50%' : px(sizes[size].space)};
         position: absolute;
-        top: ${px(sizes[size].space)}
+        top: ${px(sizes[size].space)};
         transition: left 0.1s ease;
         width: ${px(sizes[size].height - (sizes[size].space * 2))};
       }

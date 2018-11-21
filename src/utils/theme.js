@@ -141,21 +141,21 @@ export const button = {
 export const container = {
   layout: {
     flex: css`
-    align-items: stretch;
-    display: flex;
-    justify-content: flex-start;
+      align-items: stretch;
+      display: flex;
+      justify-content: flex-start;
 
-    > * {
-      flex: 1 1 auto;
-    }
-  `,
+      > * {
+        flex: 1 1 auto;
+      }
+    `,
     fullScreen: css`
-    align-items: stretch;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    justify-content: center;
-  `,
+      align-items: stretch;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      justify-content: center;
+    `,
   },
   maxWidth: 1440,
 };
