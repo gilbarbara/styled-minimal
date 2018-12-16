@@ -1,9 +1,7 @@
-import React from 'react';
-
 import * as StyledMinimal from '../src';
 
-describe('Badge', () => {
-  it('should ', () => {
+describe('StyledMinimal', () => {
+  it('should export all components', () => {
     expect(StyledMinimal).toMatchSnapshot();
   });
 });

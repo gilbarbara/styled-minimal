@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Badge should  1`] = `
+exports[`StyledMinimal should export all components 1`] = `
 Object {
   "Alert": Object {
     "$$typeof": Symbol(react.forward_ref),

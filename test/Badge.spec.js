@@ -8,7 +8,7 @@ describe('Badge', () => {
     <Badge>4</Badge>
   );
 
-  it('should ', () => {
+  it('should render properly', () => {
     expect(wrapper).toMatchSnapshot();
   });
 });
