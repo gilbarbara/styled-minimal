@@ -29,7 +29,7 @@ const styles = (props: Object): string => {
   `;
 };
 
-export const Alert = styled(Box).attrs({
+const Alert = styled(Box).attrs({
   role: 'alert',
 })`
   ${styles};

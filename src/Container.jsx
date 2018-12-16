@@ -54,7 +54,7 @@ const styles = (props: Object): string => {
     `;
 };
 
-export const Container = styled(Box)`
+const Container = styled(Box)`
   ${styles};
 `;
 

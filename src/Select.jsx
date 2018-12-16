@@ -46,7 +46,7 @@ const select = (props: Object): string => {
   `;
 };
 
-export const Select = styled(Box)`
+const Select = styled(Box)`
   ${select};
   ${formPseudo};
 `;

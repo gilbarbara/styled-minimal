@@ -43,7 +43,7 @@ const styles = (props: Object): string => {
   `;
 };
 
-export const Textarea = styled(Box).attrs(({ id, name }) => ({
+const Textarea = styled(Box).attrs(({ id, name }) => ({
   id: id || name,
 }))`
   ${styles};

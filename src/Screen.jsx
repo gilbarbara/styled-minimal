@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Box from './Box';
 
-export const Screen = styled(Box)({});
+const Screen = styled(Box)({});
 
 Screen.displayName = 'Screen';
 

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Box from './Box';
 
-export const Code = styled(Box)`
+const Code = styled(Box)`
   background-color: #e8eded;
   border: 1px solid #d0dada;
   border-radius: 2px;

@@ -21,7 +21,7 @@ const styles = (props: Object): string => {
   `;
 };
 
-export const Form = styled(Box)`
+const Form = styled(Box)`
   ${styles};
 `;
 

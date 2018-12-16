@@ -6,7 +6,7 @@ import { baseStyles, sizesAllPropTypes, variantPropTypes } from './utils/system'
 
 import Box from './Box';
 
-export const Badge = styled(Box)`
+const Badge = styled(Box)`
   ${(props: Object): string => {
     const {
       borderRadius,

@@ -18,7 +18,7 @@ const styles = (props: Object): string => {
   `;
 };
 
-export const Link = styled(Box)`
+const Link = styled(Box)`
   ${styles};
 `;
 

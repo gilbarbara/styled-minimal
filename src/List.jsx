@@ -42,7 +42,7 @@ const stylesSibling = (props: Object): string => {
   `;
 };
 
-export const List = styled(Box)`
+const List = styled(Box)`
   ${styles};
 
   > li {

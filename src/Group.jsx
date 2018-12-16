@@ -5,7 +5,7 @@ import { spacer } from './utils/helpers';
 
 import Box from './Box';
 
-export const Group = styled(Box)`
+const Group = styled(Box)`
   align-items: center;
   display: flex;
   flex-wrap: wrap;

@@ -87,7 +87,7 @@ const stylesStriped = (props: Object): string => {
   return '';
 };
 
-export const Table = styled(Box)`
+const Table = styled(Box)`
   ${styles};
   
   th {

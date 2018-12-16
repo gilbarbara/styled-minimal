@@ -24,7 +24,7 @@ const styles = (props: Object): string => {
   `;
 };
 
-export const Legend = styled(Box)`
+const Legend = styled(Box)`
   ${styles};
 `;
 

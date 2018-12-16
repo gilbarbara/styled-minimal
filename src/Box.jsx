@@ -40,7 +40,7 @@ import {
 
 import { textTransform } from './utils/system';
 
-export const Box = styled.div(
+const Box = styled.div(
   {
     boxSizing: 'border-box',
   },

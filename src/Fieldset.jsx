@@ -32,7 +32,7 @@ const styles = (props: Object): string => {
   `;
 };
 
-export const Fieldset = styled(Box)`
+const Fieldset = styled(Box)`
   ${styles};
   
   ${Legend} {

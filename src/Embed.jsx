@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import Box from './Box';
 
-export const StyledEmbed = styled(Box)`
+const StyledEmbed = styled(Box)`
   overflow: hidden;
   position: relative;
   width: 100%;

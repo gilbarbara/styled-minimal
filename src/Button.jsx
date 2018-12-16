@@ -37,7 +37,7 @@ const styles = (props: Object): string => {
   `;
 };
 
-export const Button = styled(Box)`
+const Button = styled(Box)`
   ${styles};
   
   &:disabled {

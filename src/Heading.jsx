@@ -24,7 +24,7 @@ const styles = (props: Object): string => {
   `;
 };
 
-export const Heading = styled(Box)`
+const Heading = styled(Box)`
   ${styles};
 `;
 

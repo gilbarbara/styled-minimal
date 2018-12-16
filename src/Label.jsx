@@ -28,7 +28,7 @@ const styles = (props: Object): string => {
   `;
 };
 
-export const Label = styled(Box)`
+const Label = styled(Box)`
   ${styles};
 `;
 

@@ -5,7 +5,7 @@ import { spacer } from './utils/helpers';
 
 import Box from './Box';
 
-export const Paragraph = styled(Box)`
+const Paragraph = styled(Box)`
   margin: 0;
 
   & + & {
