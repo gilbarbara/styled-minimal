@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should render properly 1`] = `
+.c0 {
+  box-sizing: border-box;
+  background-color: #2E2E2E;
+  border: 1px solid #2E2E2E;
+  color: #fff;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 0px;
+  box-shadow: none;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 16px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 9px 16px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  width: auto;
+}
+
+.c0:disabled {
+  pointer-events: none;
+}
+
+.c0:hover {
+  -webkit-transition: -webkit-transform 0.2s;
+  -webkit-transition: transform 0.2s;
+  transition: transform 0.2s;
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.c0:focus {
+  outline-color: #2E2E2E;
+}
+
+.c0 .c1 {
+  margin-left: 5px;
+}
+
+<Button
+  animate={false}
+  block={false}
+  disabled={false}
+  outline={false}
+  size="md"
+  type="button"
+  variant="primary"
+>
+  <div
+    className="c0"
+    disabled={false}
+    size="md"
+    type="button"
+  >
+    CLICK ME
+  </div>
+</Button>
+`;

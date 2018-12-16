@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container should render properly 1`] = `
+.c1 {
+  box-sizing: border-box;
+}
+
+.c0 {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  max-width: 1440px;
+  position: relative;
+  width: 100%;
+  padding-bottom: 16px;
+  padding-top: 16px;
+}
+
+@media (min-width:768px) {
+  .c0 {
+    padding-bottom: 32px;
+    padding-top: 32px;
+  }
+}
+
+@media (min-width:1024px) {
+  .c0 {
+    padding-bottom: 64px;
+    padding-top: 64px;
+  }
+}
+
+@media (min-width:768px) {
+  .c0 {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+<Container
+  verticalPadding={true}
+>
+  <div
+    className="c0"
+  >
+    <Box>
+      <div
+        className="c1"
+      >
+        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
+      </div>
+    </Box>
+    ;
+  </div>
+</Container>
+`;

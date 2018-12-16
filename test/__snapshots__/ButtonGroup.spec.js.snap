@@ -1,0 +1,212 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonGroup should render properly 1`] = `
+.c1 {
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #3F51B5;
+  color: #3F51B5;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 0px;
+  box-shadow: none;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 14px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 7px 14px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  width: auto;
+}
+
+.c1:disabled {
+  pointer-events: none;
+}
+
+.c1:hover {
+  -webkit-transition: -webkit-transform 0.2s;
+  -webkit-transition: transform 0.2s;
+  transition: transform 0.2s;
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.c1:focus {
+  outline-color: #3F51B5;
+}
+
+.c1 .c3 {
+  margin-left: 5px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  background-color: #3F51B5;
+  border: 1px solid #3F51B5;
+  color: #fff;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 0px;
+  box-shadow: none;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 14px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 7px 14px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  width: auto;
+}
+
+.c2:disabled {
+  pointer-events: none;
+}
+
+.c2:hover {
+  -webkit-transition: -webkit-transform 0.2s;
+  -webkit-transition: transform 0.2s;
+  transition: transform 0.2s;
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.c2:focus {
+  outline-color: #3F51B5;
+}
+
+.c2 .c3 {
+  margin-left: 5px;
+}
+
+.c0 {
+  box-sizing: border-box;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.c0 > button + button {
+  margin-left: -1px;
+}
+
+.c0 > button:first-child {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.c0 > button:last-child {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.c0 > button:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+<StyledButtonGroup>
+  <div
+    className="c0"
+  >
+    <Button
+      animate={false}
+      block={false}
+      disabled={false}
+      key=".0"
+      outline={true}
+      size="sm"
+      type="button"
+      variant="indigo"
+    >
+      <div
+        className="c1"
+        disabled={false}
+        size="sm"
+        type="button"
+      >
+        First
+      </div>
+    </Button>
+    <Button
+      animate={false}
+      block={false}
+      disabled={false}
+      key=".1"
+      outline={false}
+      size="sm"
+      type="button"
+      variant="indigo"
+    >
+      <div
+        className="c2"
+        disabled={false}
+        size="sm"
+        type="button"
+      >
+        Second
+      </div>
+    </Button>
+    <Button
+      animate={false}
+      block={false}
+      disabled={false}
+      key=".2"
+      outline={true}
+      size="sm"
+      type="button"
+      variant="indigo"
+    >
+      <div
+        className="c1"
+        disabled={false}
+        size="sm"
+        type="button"
+      >
+        Third
+      </div>
+    </Button>
+    <Button
+      animate={false}
+      block={false}
+      disabled={false}
+      key=".3"
+      outline={true}
+      size="sm"
+      type="button"
+      variant="indigo"
+    >
+      <div
+        className="c1"
+        disabled={false}
+        size="sm"
+        type="button"
+      >
+        Forth
+      </div>
+    </Button>
+  </div>
+</StyledButtonGroup>
+`;

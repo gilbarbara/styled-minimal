@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select should render properly 1`] = `
+.c0 {
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  color: #343434;
+  display: block;
+  height: 34px;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1;
+  padding: 8px;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.c0 > option {
+  background-color: #fff;
+  font-size: 16px;
+  line-height: 1;
+  padding: 8px;
+}
+
+.c0[multiple]:focus option:checked {
+  background: black linear-gradient(0deg,black 0%,black 100%);
+}
+
+.c0::-webkit-input-placeholder {
+  color: #b3b3b3;
+}
+
+.c0:-moz-placeholder {
+  color: #b3b3b3;
+}
+
+.c0::-moz-placeholder {
+  color: #b3b3b3;
+}
+
+.c0:-ms-input-placeholder {
+  color: #b3b3b3;
+}
+
+.c0:-moz-read-only {
+  background-color: #fafafa;
+  color: #818181;
+}
+
+.c0:read-only {
+  background-color: #fafafa;
+  color: #818181;
+}
+
+.c0:disabled {
+  background-color: #f2f2f2;
+  color: #676767;
+}
+
+.c0:focus {
+  outline-color: #000;
+}
+
+.c0:required:not(:valid) {
+  border-color: #000;
+}
+
+.c0:required:not(:valid)::-webkit-input-placeholder {
+  color: #000;
+}
+
+.c0:required:not(:valid):-moz-placeholder {
+  color: #000;
+}
+
+.c0:required:not(:valid)::-moz-placeholder {
+  color: #000;
+}
+
+.c0:required:not(:valid):-ms-input-placeholder {
+  color: #000;
+}
+
+<Select
+  as="select"
+  sizing="md"
+>
+  <select
+    className="c0"
+  >
+    <option
+      value="male"
+    >
+      Male
+    </option>
+    <option
+      value="female"
+    >
+      Female
+    </option>
+    <option
+      value="other"
+    >
+      Other
+    </option>
+  </select>
+</Select>
+`;

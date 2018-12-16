@@ -1,35 +1,33 @@
 module.exports = {
-  transform: {
-    '^.+\\.jsx?$': 'babel-jest',
-  },
-  moduleFileExtensions: [
-    'js',
-    'json',
-  ],
-  moduleDirectories: [
-    'node_modules',
-    'src',
-    './',
-  ],
-  setupFiles: [
-    '<rootDir>/test/__setup__/shim.js',
-    '<rootDir>/test/__setup__/index.js',
-  ],
-  setupTestFrameworkScriptFile: 'jest-enzyme/lib/index.js',
-  testEnvironmentOptions: { pretendToBeVisual: true },
-  testRegex: '/test/.*?\\.(test|spec)\\.js$',
-  testURL: 'http://localhost:3000',
   collectCoverage: false,
-  collectCoverageFrom: [
-    'src/**/*.js',
-  ],
+  collectCoverageFrom: ['src/**/*.{js,jsx}'],
   coverageThreshold: {
     global: {
-      branches: 55,
-      functions: 75,
-      lines: 65,
-      statements: 65
+      branches: 50,
+      functions: 90,
+      lines: 90,
+      statements: 90,
     },
   },
-  verbose: true,
+  moduleDirectories: ['node_modules', 'src', './'],
+  moduleFileExtensions: ['js', 'jsx', 'json'],
+  moduleNameMapper: {
+    '\\.(css|scss)$': '<rootDir>/test/__mocks__/styleMock.js',
+    '\\.(jpe?g|png|gif|ttf|eot|woff|md)$': '<rootDir>/test/__mocks__/fileMock.js',
+    '\\.svg$': '<rootDir>/test/__mocks__/svgMock.js',
+    '^(expose|bundle)': '<rootDir>/test/__mocks__/moduleMock.js',
+  },
+  setupFiles: ['<rootDir>/test/__setup__/setupFiles.js'],
+  setupTestFrameworkScriptFile: '<rootDir>/test/__setup__/setupTests.js',
+  testEnvironment: 'jest-environment-jsdom',
+  testEnvironmentOptions: {
+    resources: 'usable',
+  },
+  testRegex: '/test/.*?\\.(test|spec)\\.js$',
+  testURL: 'http://localhost:3000',
+  transform: {
+    '.*': 'babel-jest',
+  },
+  verbose: false,
+  watchPlugins: ['jest-watch-typeahead/filename', 'jest-watch-typeahead/testname'],
 };
