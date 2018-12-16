@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 
 import { Button } from '../src';
-import { sizeOptions, variantOptions } from '../src/utils/options';
+import { sizesOptions, variantOptions } from '../src/utils/system';
 import { SVG, ViewCheckbox } from './helpers/components';
 import { capitalize } from './helpers/extras';
 
@@ -21,7 +21,7 @@ storiesOf('Button', module)
         disabled={boolean('Disabled', false)}
         onClick={action('clicked')}
         outline={boolean('Outline', false)}
-        size={select('Size', sizeOptions, 'md')}
+        size={select('Size', sizesOptions, 'md')}
         variant={select('Variant', variantOptions, 'primary')}
         fontWeight={select('Font Weight', ['normal', 'bold'], 'normal')}
       >
@@ -36,13 +36,6 @@ storiesOf('Button', module)
       <Button onClick={action('clicked')} size="md">Button MD</Button>
       <Button onClick={action('clicked')} size="lg">Button LG</Button>
       <Button onClick={action('clicked')} size="xl">Button XL</Button>
-    </ViewCheckbox>
-  ))
-  .add('with as', () => (
-    <ViewCheckbox>
-      <Button as="a" onClick={action('clicked')} href="https://amaro.com" target="_blank">Anchor</Button>
-      <Button as="span" onClick={action('clicked')}>Span</Button>
-      <Button as="label" onClick={action('clicked')}>Label</Button>
     </ViewCheckbox>
   ))
   .add('with variant', () => (

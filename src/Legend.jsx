@@ -1,19 +1,44 @@
-import React from 'react';
+import React from 'react'; //eslint-disable-line no-unused-vars
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { FormStyles } from './utils/system';
+import { px, themeGet } from './utils/helpers';
+import { baseStyles } from './utils/system';
 
-export const StyledLegend = styled.legend`
-  ${FormStyles.legend};
+import Box from './Box';
+
+const styles = (props: Object): string => {
+  const {
+    color: legendColor,
+    fontWeight: legendFontWeight,
+    marginBottom,
+  } = themeGet(props, 'legend');
+
+  return css`
+    color: ${legendColor};
+    display: block;
+    font-family: inherit;
+    font-weight: ${legendFontWeight};
+    line-height: ${baseStyles.lineHeight};
+    margin-bottom: ${px(marginBottom)};
+    white-space: nowrap;
+  `;
+};
+
+export const Legend = styled(Box)`
+  ${styles};
 `;
 
-const Legend = ({ children, ...rest }) => (
-  <StyledLegend {...rest}>{children}</StyledLegend>
-);
+Legend.displayName = 'Legend';
 
 Legend.propTypes = {
+  as: PropTypes.string,
   children: PropTypes.node.isRequired,
+  ...Box.propTypes,
+};
+
+Legend.defaultProps = {
+  as: 'legend',
 };
 
 export default Legend;

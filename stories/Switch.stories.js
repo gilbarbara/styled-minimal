@@ -5,7 +5,7 @@ import { withKnobs, boolean, select } from '@storybook/addon-knobs';
 
 import { Switch } from '../src';
 import { View } from './helpers/components';
-import { sizeOptionsFull, variantOptions } from '../src/utils/options';
+import { sizesAllOptions, variantOptions } from '../src/utils/system';
 
 storiesOf('Switch', module)
   .addDecorator(withKnobs)
@@ -16,7 +16,7 @@ storiesOf('Switch', module)
     <View>
       <Switch
         name="test"
-        size={select('Size', sizeOptionsFull, 'md')}
+        size={select('Size', sizesAllOptions, 'md')}
         variant={select('Variant', variantOptions, 'primary')}
         value={boolean('Value', false)}
         onChange={value => {

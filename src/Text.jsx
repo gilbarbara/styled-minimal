@@ -1,19 +1,21 @@
-import React from 'react';
+import React from 'react'; //eslint-disable-line no-unused-vars
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { TextStyles } from './utils/system';
+import Box from './Box';
 
-export const StyledText = styled.span`
-  ${TextStyles.base};
-`;
+export const Text = styled(Box)({});
 
-const Text = ({ children, ...rest }) => (
-  <StyledText {...rest}>{children}</StyledText>
-);
+Text.displayName = 'Text';
 
 Text.propTypes = {
+  as: PropTypes.string,
   children: PropTypes.node.isRequired,
+  ...Box.propTypes,
+};
+
+Text.defaultProps = {
+  as: 'span',
 };
 
 export default Text;

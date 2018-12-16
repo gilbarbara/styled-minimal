@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select, boolean, number } from '@storybook/addon-knobs';
 
-import { sizeOptions } from '../src/utils/options';
+import { sizesOptions } from '../src/utils/system';
 
 import { Textarea } from '../src';
 import { ViewCheckbox } from './helpers/components';
@@ -20,7 +20,7 @@ storiesOf('Textarea', module)
         readOnly={boolean('Readonly', false)}
         required={boolean('Required', false)}
         rows={number('Rows', 3)}
-        size={select('Size', sizeOptions, 'md')}
+        size={select('Size', sizesOptions, 'md')}
       />
     </ViewCheckbox>
   ));

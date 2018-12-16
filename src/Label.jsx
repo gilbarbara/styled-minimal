@@ -1,20 +1,49 @@
-import React from 'react';
+import React from 'react'; //eslint-disable-line no-unused-vars
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { FormStyles } from './utils/system';
+import { px, themeGet } from './utils/helpers';
+import { baseStyles } from './utils/system';
 
-export const StyledLabel = styled.label`
-  ${FormStyles.label};
+import Box from './Box';
+
+const styles = (props: Object): string => {
+  const { inline } = props;
+  const {
+    color: labelColor,
+    fontWeight: labelFontWeight,
+    inlineFontSize,
+    marginBottom,
+  } = themeGet(props, 'label');
+
+  return css`
+    align-items: center;
+    color: ${labelColor};
+    display: flex;
+    font-family: inherit;
+    font-weight: ${labelFontWeight};
+    ${inline ? `font-size: ${px(inlineFontSize)}` : ''};
+    line-height: ${baseStyles.lineHeight};
+    ${!inline ? `margin-bottom: ${px(marginBottom)}` : ''};
+    white-space: nowrap;
+  `;
+};
+
+export const Label = styled(Box)`
+  ${styles};
 `;
 
-const Label = ({ children, ...rest }) => (
-  <StyledLabel {...rest}>{children}</StyledLabel>
-);
+Label.displayName = 'Label';
 
 Label.propTypes = {
+  as: PropTypes.string,
   children: PropTypes.node.isRequired,
   inline: PropTypes.bool,
+  ...Box.propTypes,
+};
+
+Label.defaultProps = {
+  as: 'label',
 };
 
 export default Label;

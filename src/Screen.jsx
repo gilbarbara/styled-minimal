@@ -1,21 +1,18 @@
-import React from 'react';
+import React from 'react'; //eslint-disable-line no-unused-vars
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { ScreenStyles } from './utils/system';
+import Box from './Box';
 
-export const StyledScreen = styled.div`
-  ${ScreenStyles.base};
-`;
+export const Screen = styled(Box)({});
 
-const Screen = ({ children, ...rest }) => (
-  <StyledScreen {...rest}>{children}</StyledScreen>
-);
+Screen.displayName = 'Screen';
 
 Screen.propTypes = {
   as: PropTypes.string,
   children: PropTypes.node.isRequired,
   minHeight: PropTypes.string,
+  ...Box.propTypes,
 };
 
 Screen.defaultProps = {

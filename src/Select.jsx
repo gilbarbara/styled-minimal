@@ -1,29 +1,72 @@
-import React from 'react';
+import React from 'react'; //eslint-disable-line no-unused-vars
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { sizeType } from './utils/propTypes';
-import { FormStyles } from './utils/system';
+import { formPseudo, sizesPropTypes } from './utils/system';
 
-export const StyledSelect = styled.select`
-  ${FormStyles.select};
-  ${FormStyles.pseudo};
+import Box from './Box';
+import { px, themeGet } from './utils/helpers';
+
+const select = (props: Object): string => {
+  const { multiple, sizing } = props;
+  const {
+    backgroundColor,
+    color,
+    borderColor,
+    borderRadius,
+    fontSize,
+    height,
+    lineHeight,
+    padding,
+  } = themeGet(props, 'select');
+
+  return css`
+    background-color: ${backgroundColor};
+    border: 1px solid ${borderColor};
+    border-radius: ${px(borderRadius)};
+    color: ${color};
+    display: block;
+    ${!multiple ? `height: ${px(height[sizing])}` : ''};
+    font-family: inherit;
+    font-size: ${px(fontSize[sizing])};
+    line-height: ${lineHeight};
+    ${!multiple ? `padding: ${px(padding[sizing])};` : ''};
+    white-space: nowrap;
+    width: 100%;
+    
+    > option {
+      background-color: ${backgroundColor};
+      font-size: ${px(fontSize[sizing])};
+      line-height: ${lineHeight};
+      padding: ${px(padding[sizing])};
+    }
+    
+    &[multiple]:focus option:checked {
+      background: black linear-gradient(0deg, black 0%, black 100%);
+    }
+  `;
+};
+
+export const Select = styled(Box)`
+  ${select};
+  ${formPseudo};
 `;
 
-const Select = ({ children, ...rest }) => (
-  <StyledSelect {...rest}>{children}</StyledSelect>
-);
+Select.displayName = 'Select';
 
 Select.propTypes = {
+  as: PropTypes.string,
   children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
   multiple: PropTypes.bool,
   required: PropTypes.bool,
   size: PropTypes.number,
-  sizing: sizeType,
+  sizing: sizesPropTypes,
+  ...Box.propTypes,
 };
 
 Select.defaultProps = {
+  as: 'select',
   sizing: 'md',
 };
 

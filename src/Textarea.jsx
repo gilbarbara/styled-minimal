@@ -1,20 +1,58 @@
-import React from 'react';
+import React from 'react'; //eslint-disable-line no-unused-vars
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { sizeType } from './utils/propTypes';
-import { FormStyles } from './utils/system';
+import { px, themeGet } from './utils/helpers';
+import { formPseudo, sizesPropTypes } from './utils/system';
 
-export const StyledTextarea = styled.textarea`
-  ${FormStyles.textarea};
-  ${FormStyles.pseudo};
+import Box from './Box';
+
+const styles = (props: Object): string => {
+  const { size, valid } = props;
+  const {
+    backgroundColor,
+    borderColor,
+    borderRadius,
+    borderWidth,
+    color,
+    fontSize,
+    lineHeightTextarea,
+    padding,
+    validation,
+  } = themeGet(props, 'input');
+  let thisColor = borderColor;
+
+  if (valid) {
+    thisColor = validation.valid;
+  }
+  else if (valid === false) {
+    thisColor = validation.invalid;
+  }
+
+  return css`
+    background-color: ${backgroundColor};
+    border: ${borderWidth ? `${borderWidth} solid ${thisColor}` : ''};
+    border-radius: ${px(borderRadius)};
+    color: ${color};
+    display: block;
+    font-family: inherit;
+    font-size: ${px(fontSize[size])};
+    line-height: ${lineHeightTextarea};
+    margin: 0;
+    padding: ${px(padding[size])};
+    width: 100%;
+  `;
+};
+
+export const Textarea = styled(Box).attrs(({ id, name }) => ({
+  id: id || name,
+}))`
+  ${styles};
+  ${formPseudo};
 `;
 
-const Textarea = ({ children, ...rest }) => (
-  <StyledTextarea {...rest}>{children}</StyledTextarea>
-);
-
 Textarea.propTypes = {
+  as: PropTypes.string,
   defaultValue: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
@@ -28,14 +66,16 @@ Textarea.propTypes = {
   readOnly: PropTypes.bool,
   required: PropTypes.bool,
   rows: PropTypes.number,
-  size: sizeType,
+  size: sizesPropTypes,
   tabindex: PropTypes.number,
   valid: PropTypes.bool,
   value: PropTypes.string,
   wrap: PropTypes.oneOf(['soft', 'hard']),
+  ...Box.propTypes,
 };
 
 Textarea.defaultProps = {
+  as: 'textarea',
   rows: 3,
   size: 'md',
 };

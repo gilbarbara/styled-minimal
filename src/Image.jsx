@@ -1,20 +1,24 @@
-import React from 'react';
+import React from 'react'; //eslint-disable-line no-unused-vars
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { ImageStyles } from './utils/system';
+import Box from './Box';
 
-export const StyledImage = styled.img`
-  ${ImageStyles.base};
+export const Image = styled(Box)`
+  max-width: 100%;
 `;
 
-const Image = ({ children, ...rest }) => (
-  <StyledImage {...rest}>{children}</StyledImage>
-);
+Image.displayName = 'Image';
 
 Image.propTypes = {
   alt: PropTypes.string.isRequired,
+  as: PropTypes.string,
   src: PropTypes.string.isRequired,
+  ...Box.propTypes,
+};
+
+Image.defaultProps = {
+  as: 'img',
 };
 
 export default Image;

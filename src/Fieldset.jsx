@@ -1,29 +1,57 @@
-import React from 'react';
+import React from 'react'; //eslint-disable-line no-unused-vars
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { FormStyles } from './utils/system';
+import { px, spacer, themeGet } from './utils/helpers';
 
-import { StyledLegend } from './Legend';
+import Box from './Box';
+import Legend from './Legend';
 
-export const StyledFieldset = styled.fieldset`
-  ${FormStyles.fieldset};
+const styles = (props: Object): string => {
+  const { inline } = props;
+  const {
+    borderColor,
+    borderRadius,
+    padding,
+    marginBottom,
+  } = themeGet(props, 'fieldset');
+
+  return css`
+    border: 1px solid ${borderColor};
+    border-radius: ${px(borderRadius)};
+    margin-bottom: ${px(marginBottom)};
+    padding: ${px(padding)};
+    text-align:left;
+
+    > *:not(legend) {
+      ${inline ? 'display: inline-block;' : ''};
+      
+      + * {
+        ${inline ? `margin-left: ${spacer(2)} ;` : ''};
+      }
+    }
+  `;
+};
+
+export const Fieldset = styled(Box)`
+  ${styles};
   
-  ${StyledLegend} {
+  ${Legend} {
     margin: 0;
   }
 `;
 
-const Fieldset = ({ children, ...rest }) => (
-  <StyledFieldset {...rest}>{children}</StyledFieldset>
-);
+Fieldset.displayName = 'Fieldset';
 
 Fieldset.propTypes = {
+  as: PropTypes.string,
   children: PropTypes.node.isRequired,
   inline: PropTypes.bool,
+  ...Box.propTypes,
 };
 
 Fieldset.defaultProps = {
+  as: 'fieldset',
   inline: false,
 };
 

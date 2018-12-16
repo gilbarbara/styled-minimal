@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, number, select } from '@storybook/addon-knobs';
 
-import { sizeOptions } from '../src/utils/options';
+import { sizesOptions } from '../src/utils/system';
 
 import { Box, Heading, List, Paragraph } from '../src';
 import { View } from './helpers/components';
@@ -29,7 +29,7 @@ storiesOf('List', module)
             'lower-alpha',
             'none',
           ], 'none')}
-          size={select('Size', sizeOptions, 'md')}
+          size={select('Size', sizesOptions, 'md')}
           type={select('List Type (OL)', ['1', 'a', 'A', 'i', 'I'], '1')}
         >
           <li>
