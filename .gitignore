@@ -11,7 +11,7 @@ local.properties
 # Modules and Caches
 ###########################
 .tmp
-package/
+coverage
 node_modules
 /*.js
 !/*.config.js

@@ -123,7 +123,7 @@
     "jsx-a11y/no-static-element-interactions": "off",
     "jsx-quotes": "warn",
     "react/destructuring-assignment": "warn",
-    "react/forbid-prop-types": "off",
+    "react/forbid-foreign-prop-types": "off",
     "react/jsx-closing-bracket-location": ["warn", "line-aligned"],
     "react/jsx-filename-extension": "off",
     "react/jsx-first-prop-new-line": ["warn", "multiline"],
