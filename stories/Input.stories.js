@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, number, select, text } from '@storybook/addon-knobs';
 
-import { sizeOptions } from '../src/utils/options';
+import { sizesOptions } from '../src/utils/system';
 
 import { Input } from '../src';
 import { View } from './helpers/components';
@@ -36,7 +36,7 @@ storiesOf('Input', module)
         placeholder={text('Placeholder', 'Data')}
         readOnly={boolean('Readonly', false)}
         required={boolean('Required', false)}
-        size={select('Size', sizeOptions, 'md')}
+        size={select('Size', sizesOptions, 'md')}
       />
     </ViewInput>
   ))

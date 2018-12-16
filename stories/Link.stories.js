@@ -13,9 +13,8 @@ storiesOf('Link', module)
   .add('default', () => (
     <View skipSpacer>
       <Link
-        title={text('Alt', 'Moon')}
-        target={text('Height')}
-        href={text('Source', 'https://assets.imgix.net/unsplash/moon.jpg')}
+        href={text('HREF', 'https://assets.imgix.net/unsplash/moon.jpg')}
+        target={text('Target')}
       >
         {text('Children', 'Moon')}
       </Link>

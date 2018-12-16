@@ -1,20 +1,107 @@
-import React from 'react';
+import React from 'react'; //eslint-disable-line no-unused-vars
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { BoxOptions } from './utils/system';
+import {
+  alignSelf,
+  backgroundImage,
+  borders,
+  borderRadius,
+  bottom,
+  color,
+  display,
+  flex,
+  fontFamily,
+  fontSize,
+  fontStyle,
+  fontWeight,
+  height,
+  left,
+  lineHeight,
+  maxHeight,
+  maxWidth,
+  minHeight,
+  minWidth,
+  order,
+  position,
+  ratio,
+  right,
+  space,
+  textAlign,
+  top,
+  width,
+  zIndex,
+} from 'styled-system';
 
-export const StyledBox = styled.div`
-  ${BoxOptions.base};
-`;
+import { textTransform } from './utils/system';
 
-const Box = ({ children, ...rest }) => (
-  <StyledBox {...rest}>{children}</StyledBox>
+export const Box = styled.div(
+  {
+    boxSizing: 'border-box',
+  },
+  alignSelf,
+  backgroundImage,
+  borders,
+  borderRadius,
+  bottom,
+  color,
+  display,
+  flex,
+  fontFamily,
+  fontSize,
+  fontStyle,
+  fontWeight,
+  lineHeight,
+  height,
+  left,
+  maxHeight,
+  maxWidth,
+  minHeight,
+  minWidth,
+  order,
+  position,
+  ratio,
+  right,
+  space,
+  textAlign,
+  textTransform,
+  top,
+  width,
+  zIndex
 );
 
+Box.displayName = 'Box';
+
 Box.propTypes = {
-  children: PropTypes.node.isRequired,
-  ...BoxOptions.propTypes,
+  as: PropTypes.string,
+  children: PropTypes.node,
+  textTransform: PropTypes.string,
+  ...alignSelf.propTypes,
+  ...backgroundImage.propTypes,
+  ...borders.propTypes,
+  ...borderRadius.propTypes,
+  ...bottom.propTypes,
+  ...color.propTypes,
+  ...display.propTypes,
+  ...flex.propTypes,
+  ...fontFamily.propTypes,
+  ...fontSize.propTypes,
+  ...fontWeight.propTypes,
+  ...height.propTypes,
+  ...left.propTypes,
+  ...maxHeight.propTypes,
+  ...maxWidth.propTypes,
+  ...minHeight.propTypes,
+  ...minWidth.propTypes,
+  ...order.propTypes,
+  ...position.propTypes,
+  ...right.propTypes,
+  ...ratio.propTypes,
+  ...space.propTypes,
+  ...textAlign.propTypes,
+  ...top.propTypes,
+  ...width.propTypes,
+  ...zIndex.propTypes,
 };
 
 export default Box;

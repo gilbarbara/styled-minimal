@@ -1,23 +1,29 @@
-import React from 'react';
+import React from 'react'; //eslint-disable-line no-unused-vars
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { ParagraphStyles } from './utils/system';
+import { spacer } from './utils/helpers';
 
-export const StyledParagraph = styled.p`
-  ${ParagraphStyles.base};
+import Box from './Box';
+
+export const Paragraph = styled(Box)`
+  margin: 0;
 
   & + & {
-    margin-top: 16px;
+    margin-top: ${spacer(2)};
   }
 `;
 
-const Paragraph = ({ children, ...rest }) => (
-  <StyledParagraph {...rest}>{children}</StyledParagraph>
-);
+Paragraph.displayName = 'Paragraph';
 
 Paragraph.propTypes = {
+  as: PropTypes.string,
   children: PropTypes.node.isRequired,
+  ...Box.propTypes,
+};
+
+Paragraph.defaultProps = {
+  as: 'p',
 };
 
 export default Paragraph;

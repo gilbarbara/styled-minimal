@@ -2,11 +2,32 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { sizeTypeFull, variantType } from './utils/propTypes';
-import { ButtonGroupStyles } from './utils/system';
+import { sizesAllPropTypes, variantPropTypes } from './utils/system';
 
-export const StyledButtonGroup = styled.div`
-  ${ButtonGroupStyles.base};
+import Box from './Box';
+
+export const StyledButtonGroup = styled(Box)`
+   display: inline-flex;
+
+  > button {
+    + button {
+      margin-left: -1px;
+    }
+    
+    &:first-child {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+    }
+  
+    &:last-child {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
+    
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+  }
 `;
 
 const ButtonGroup = ({ children, size, variant, ...props }) => {
@@ -27,10 +48,14 @@ const ButtonGroup = ({ children, size, variant, ...props }) => {
   );
 };
 
+ButtonGroup.displayName = 'ButtonGroup';
+
 ButtonGroup.propTypes = {
+  as: PropTypes.string,
   children: PropTypes.node.isRequired,
-  size: sizeTypeFull,
-  variant: variantType,
+  size: sizesAllPropTypes,
+  variant: variantPropTypes,
+  ...Box.propTypes,
 };
 
 export default ButtonGroup;

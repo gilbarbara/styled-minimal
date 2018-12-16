@@ -1,13 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { FormStyles } from './utils/system';
+import { px, themeGet } from './utils/helpers';
 
-import Flex, { StyledFlex } from './Flex';
+import Box from './Box';
+import Flex from './Flex';
 
-export const StyledFormGroup = styled.div`
-  ${FormStyles.group};
+const styles = (props: Object): string => {
+  const { bordered } = props;
+  const {
+    borderColor,
+    borderRadius,
+    marginBottom,
+    padding,
+  } = themeGet(props, 'formGroup');
+
+  return css`
+    ${bordered ? `border: 1px solid ${borderColor};` : ''}
+    ${bordered ? `border-radius: ${px(borderRadius)};` : ''}
+    margin-bottom: ${px(marginBottom)};
+    ${bordered ? `padding: ${px(padding)};` : ''};
+    text-align: left;
+  `;
+};
+
+const margin = (props: Object): string => {
+  const { inlineMargin } = themeGet(props, 'formGroup');
+
+  return px(inlineMargin);
+};
+
+export const StyledFormGroup = styled(Box)`
+  ${styles};
   
   ${({ inline }) => {
     if (inline) return '';
@@ -19,11 +44,11 @@ export const StyledFormGroup = styled.div`
     `;
   }};
   
-  ${StyledFlex} {
+  ${Flex} {
     label,
     legend {
       margin-bottom: 0;
-      margin-right: ${FormStyles.inlineMargin};
+      margin-right: ${margin};
     }
     
     input {
@@ -32,18 +57,30 @@ export const StyledFormGroup = styled.div`
     }
     
     small {
-      margin-left: ${FormStyles.inlineMargin};
+      margin-left: ${margin};
       margin-top: 0;
     }
   }
 `;
 
-const StyledHelpText = styled.small`
-  ${FormStyles.helpBlock};
+const helpBlock = (props: Object): string => {
+  const { helpColor, helpMarginTop } = themeGet(props, 'formGroup');
+
+  return css`
+      color: ${helpColor};
+      display: block;
+      font-size: 85%;
+      line-height: 1.3;
+      margin-top: ${px(helpMarginTop)};
+    `;
+};
+
+const HelpText = styled.small`
+  ${helpBlock};
 `;
 
 const FormGroup = ({ children, helpText, inline, ...props }) => {
-  const helpComponent = helpText && <StyledHelpText>{helpText}</StyledHelpText>;
+  const helpComponent = helpText && <HelpText>{helpText}</HelpText>;
   let content = (
     <React.Fragment>
       {children}
@@ -71,6 +108,7 @@ FormGroup.propTypes = {
   children: PropTypes.node.isRequired,
   helpText: PropTypes.string,
   inline: PropTypes.bool,
+  ...Box.propTypes,
 };
 
 FormGroup.defaultProps = {

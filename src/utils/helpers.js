@@ -102,6 +102,7 @@ export const responsive = (input: Function | Object, queryBuilderFn: ?Function):
   const result = [];
 
   for (const rule in rules) {
+    /* istanbul ignore else */
     if ({}.hasOwnProperty.call(rules, rule)) {
       result.push(`
         ${queryBuilder(rule, breakpoints)} {

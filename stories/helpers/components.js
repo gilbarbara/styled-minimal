@@ -33,7 +33,7 @@ const StyledView = styled.div`
   ${checkboxCSS}
   
   > * {
-    margin: ${({ skipSpacer }) => (skipSpacer ? 0 : '15px')};
+    ${({ skipSpacer }) => (!skipSpacer && 'margin: 15px')};
   }
 `;
 

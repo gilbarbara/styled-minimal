@@ -1,19 +1,26 @@
-import React from 'react';
+import React from 'react'; //eslint-disable-line no-unused-vars
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { GroupStyles } from './utils/system';
+import { spacer } from './utils/helpers';
 
-export const StyledGroup = styled.div`
-  ${GroupStyles.base};
+import Box from './Box';
+
+export const Group = styled(Box)`
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  
+  > *:not(:first-child) {
+    margin-left: ${spacer(2)};
+  }
 `;
 
-const Group = ({ children, ...rest }) => (
-  <StyledGroup {...rest}>{children}</StyledGroup>
-);
+Group.displayName = 'Group';
 
 Group.propTypes = {
   children: PropTypes.node.isRequired,
+  ...Box.propTypes,
 };
 
 export default Group;

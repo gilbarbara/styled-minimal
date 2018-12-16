@@ -1,19 +1,27 @@
-import React from 'react';
+import React from 'react'; //eslint-disable-line no-unused-vars
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { CodeStyles } from './utils/system';
+import Box from './Box';
 
-export const StyledCode = styled.code`
-  ${CodeStyles.base};
+export const Code = styled(Box)`
+  background-color: #e8eded;
+  border: 1px solid #d0dada;
+  border-radius: 2px;
+  font-family: "SF Mono", "Roboto Mono", Menlo, monospace;
+  padding: 10px;
 `;
 
-const Code = ({ children, ...rest }) => (
-  <StyledCode {...rest}>{children}</StyledCode>
-);
+Code.displayName = 'Code';
 
 Code.propTypes = {
+  as: PropTypes.string,
   children: PropTypes.node.isRequired,
+  ...Box.propTypes,
+};
+
+Code.defaultProps = {
+  as: 'code',
 };
 
 export default Code;

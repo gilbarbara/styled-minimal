@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 
 import { Alert, Box, Flex, Heading, Paragraph } from '../src';
-import { sizeOptions, variantOptions } from '../src/utils/options';
+import { sizesOptions, variantOptions } from '../src/utils/system';
 
 import { SVG, ViewCheckbox } from './helpers/components';
 import { capitalize } from './helpers/extras';
@@ -19,7 +19,7 @@ storiesOf('Alert', module)
         alignHorizontal={select('Align Horizontal', ['left', 'center', 'right'], 'left')}
         dark={boolean('Dark', false)}
         outline={boolean('Outline', false)}
-        size={select('Size', sizeOptions, 'md')}
+        size={select('Size', sizesOptions, 'md')}
         variant={select('Variant', variantOptions, 'primary')}
       >
         {text('Children', 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.')}
@@ -31,7 +31,7 @@ storiesOf('Alert', module)
       <Alert
         alignHorizontal={select('Align Horizontal', ['left', 'center', 'right'], 'left')}
         outline={boolean('Outline', false)}
-        size={select('Size', sizeOptions, 'md')}
+        size={select('Size', sizesOptions, 'md')}
         variant={select('Variant', variantOptions, 'primary')}
       >
         <Flex alignItems="center">

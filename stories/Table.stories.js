@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs';
 
-import { sizeOptions } from '../src/utils/options';
+import { sizesOptions } from '../src/utils/system';
 
 import { Table } from '../src';
 import { ViewCheckbox } from './helpers/components';
@@ -17,7 +17,7 @@ storiesOf('Table', module)
       <Table
         bordered={boolean('Bordered', false)}
         borderless={boolean('Borderless', false)}
-        size={select('Size', sizeOptions, 'md')}
+        size={select('Size', sizesOptions, 'md')}
         head={select('Head Color', ['', 'light', 'dark'])}
         inverted={boolean('Inverted', false)}
         striped={boolean('Striped', false)}

@@ -1,14 +1,45 @@
-import React from 'react';
+import React from 'react'; //eslint-disable-line no-unused-vars
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { buttonType, sizeTypeFull, variantType } from './utils/propTypes';
-import { ButtonStyles } from './utils/system';
+import { getColor, px, themeGet } from './utils/helpers';
+import { baseStyles, buttonPropTypes, sizesAllPropTypes, variantPropTypes } from './utils/system';
 
-import { StyledBadge } from './Badge';
+import Badge from './Badge';
+import Box from './Box';
 
-export const StyledButton = styled.button`
-  ${ButtonStyles.base};
+const styles = (props: Object): string => {
+  const { animate, disabled, outline, size } = props;
+  const {
+    borderRadius,
+    disabledOpacity,
+    lineHeight,
+    loader,
+    padding,
+  } = themeGet(props, 'button');
+  const fontSizeProp = themeGet(props, 'componentSizes', { key: 'size' });
+
+  return css`
+    ${baseStyles.variant};
+    align-items: center;
+    border-radius: ${px(borderRadius[size])};
+    box-shadow: none;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: inherit;
+    ${fontSizeProp ? `font-size: ${fontSizeProp}` : ''};
+    justify-content: center;
+    line-height: ${lineHeight};
+    ${disabled && `opacity: ${disabledOpacity};`};
+    padding: ${px(padding[size][0])} ${px(padding[size][1])};
+    text-decoration: none;
+    width: ${({ block }) => (block ? '100%' : 'auto')}
+    ${animate ? loader(outline ? '#ccc' : '#fff') : ''};
+  `;
+};
+
+export const Button = styled(Box)`
+  ${styles};
   
   &:disabled {
     pointer-events: none;
@@ -19,18 +50,14 @@ export const StyledButton = styled.button`
     transform: scale(1.05);
   }
   
-  &:focus {  
-      ${ButtonStyles.outlineColor};
+  &:focus {
+    outline-color: ${getColor};
   }
   
-  ${StyledBadge} {
+  ${Badge} {
     margin-left: 5px;
   }
 `;
-
-const Button = ({ children, ...rest }) => (
-  <StyledButton {...rest}>{children}</StyledButton>
-);
 
 Button.propTypes = {
   animate: PropTypes.bool,
@@ -41,9 +68,10 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
   outline: PropTypes.bool,
-  size: sizeTypeFull,
-  type: buttonType,
-  variant: variantType,
+  size: sizesAllPropTypes,
+  type: buttonPropTypes,
+  variant: variantPropTypes,
+  ...Box.propTypes,
 };
 
 Button.defaultProps = {

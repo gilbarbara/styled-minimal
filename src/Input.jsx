@@ -1,21 +1,67 @@
-import React from 'react';
+import React from 'react'; //eslint-disable-line no-unused-vars
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { FormStyles } from './utils/system';
+import { px, themeGet } from './utils/helpers';
+import { formPseudo, inputTextTypes } from './utils/system';
 
-export const StyledInput = styled.input`
-  ${FormStyles.input};
-  ${FormStyles.pseudo};
+import Box from './Box';
+
+const styles = (props: Object): string => {
+  const { size, type, valid } = props;
+  const {
+    backgroundColor,
+    borderColor,
+    borderRadius,
+    borderWidth,
+    color,
+    fontSize,
+    height,
+    inlineMargin,
+    lineHeight,
+    padding,
+    validation,
+  } = themeGet(props, 'input');
+  let thisColor = borderColor;
+
+  if (valid) {
+    thisColor = validation.valid;
+  }
+  else if (valid === false) {
+    thisColor = validation.invalid;
+  }
+
+  return css`
+    background-color: ${backgroundColor};
+    border: ${borderWidth ? `${px(borderWidth)} solid ${thisColor}` : ''};
+    border-radius: ${px(borderRadius)};
+    color: ${color};
+    display: ${!['checkbox', 'radio'].includes(type) ? 'block' : 'inline-block'};
+    font-family: inherit;
+    font-size: ${px(fontSize[size])};
+    ${inputTextTypes.includes(type) ? `height: ${px(height[size])}` : ''};
+    line-height: ${lineHeight};
+    ${['checkbox', 'radio'].includes(type) ? `margin: 0 ${px(inlineMargin)} 0 0` : ''};
+    padding: ${inputTextTypes.includes(type) ? px(padding[size]) : 0};
+    ${!['checkbox', 'radio', 'color'].includes(type) ? 'width: 100%;' : ''};
+    
+    &[type=file] {
+      font-size: ${px(fontSize[size] - 1)};
+      padding: ${px(padding[size] - 1)};
+    }
+  `;
+};
+
+const Input = styled(Box).attrs(({ id, name }) => ({
+  id: id || name,
+}))`
+  ${styles};
+  ${formPseudo};
 `;
-
-const Input = ({ ...props }) => (
-  //eslint-disable-next-line react/destructuring-assignment
-  <StyledInput id={props.id || props.name} {...props} />
-);
 
 Input.propTypes = {
   accept: PropTypes.string,
+  as: PropTypes.string,
   autoComplete: PropTypes.string,
   checked: PropTypes.bool,
   defaultChecked: PropTypes.bool,
@@ -53,9 +99,11 @@ Input.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]),
+  ...Box.propTypes,
 };
 
 Input.defaultProps = {
+  as: 'input',
   size: 'md',
   type: 'text',
   value: undefined,

@@ -1,25 +1,43 @@
-import React from 'react';
+import React from 'react'; //eslint-disable-line no-unused-vars
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { headingType } from './utils/propTypes';
-import { HeadingStyles } from './utils/system';
+import { px, spacer, themeGet } from './utils/helpers';
+import { baseStyles, headingPropTypes } from './utils/system';
 
-export const StyledHeading = styled.h1`
-  ${HeadingStyles.base};
+import Box from './Box';
+
+const styles = (props: Object): string => {
+  const { gutterBottom } = props;
+  const headingWeight = themeGet(props, 'headingWeight');
+  const headingSize = themeGet(props, 'headingSizes', { key: ['size', 'as'], base: 'h1' });
+
+  return css`
+    font-size: ${px(headingSize)};
+    font-family: inherit;
+    font-weight: ${headingWeight};
+    line-height: ${baseStyles.lineHeight};
+    margin: ${spacer(3)} 0 ${gutterBottom ? spacer(3) : 0};
+    
+    &:first-child {
+      margin-top: 0;
+    }
+  `;
+};
+
+export const Heading = styled(Box)`
+  ${styles};
 `;
 
-const Heading = ({ children, ...rest }) => (
-  <StyledHeading {...rest}>{children}</StyledHeading>
-);
+Heading.displayName = 'Heading';
 
 Heading.propTypes = {
-  /** element type */
-  as: headingType,
+  as: headingPropTypes,
   children: PropTypes.node.isRequired,
   gutterBottom: PropTypes.bool,
   /** element size */
-  size: headingType,
+  size: headingPropTypes,
+  ...Box.propTypes,
 };
 
 Heading.defaultProps = {

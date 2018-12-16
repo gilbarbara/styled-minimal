@@ -1,19 +1,36 @@
-import React from 'react';
+import React from 'react'; //eslint-disable-line no-unused-vars
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { FormStyles } from './utils/system';
+import { px, themeGet } from './utils/helpers';
 
-export const StyledForm = styled.form`
-  ${FormStyles.form};
+import Box from './Box';
+
+const styles = (props: Object): string => {
+  const { bordered } = props;
+  const {
+    borderColor,
+    borderRadius,
+    padding,
+  } = themeGet(props, 'form');
+
+  return css`
+    ${bordered ? `border: 1px solid ${borderColor};` : ''}
+    ${bordered ? `border-radius: ${px(borderRadius)};` : ''}
+    ${bordered ? `padding: ${px(padding)};` : ''}
+    text-align:left;
+  `;
+};
+
+export const Form = styled(Box)`
+  ${styles};
 `;
 
-const Form = ({ children, ...rest }) => (
-  <StyledForm {...rest}>{children}</StyledForm>
-);
+Form.displayName = 'Form';
 
 Form.propTypes = {
   action: PropTypes.string,
+  as: PropTypes.string,
   bordered: PropTypes.bool,
   children: PropTypes.node.isRequired,
   enctype: PropTypes.string,
@@ -22,9 +39,11 @@ Form.propTypes = {
     'post',
   ]),
   target: PropTypes.string,
+  ...Box.propTypes,
 };
 
 Form.defaultProps = {
+  as: 'form',
   bordered: false,
 };
 

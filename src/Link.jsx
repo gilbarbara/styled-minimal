@@ -1,20 +1,39 @@
-import React from 'react';
+import React from 'react'; //eslint-disable-line no-unused-vars
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { LinkStyles } from './utils/system';
+import { themeGet } from './utils/helpers';
 
-export const StyledLink = styled.a`
-  ${LinkStyles.base};
+import Box from './Box';
+
+const styles = (props: Object): string => {
+  const palette = themeGet(props, 'palette');
+  const grays = themeGet(props, 'grays');
+
+  return css`
+    color: ${palette.primary};
+    
+    &:visited {
+      color: ${grays.gray50};
+    }
+  `;
+};
+
+export const Link = styled(Box)`
+  ${styles};
 `;
 
-const Link = ({ children, ...rest }) => (
-  <StyledLink {...rest}>{children}</StyledLink>
-);
+Link.displayName = 'Link';
 
 Link.propTypes = {
+  as: PropTypes.string,
   children: PropTypes.node.isRequired,
   href: PropTypes.string.isRequired,
+  ...Box.propTypes,
+};
+
+Link.defaultProps = {
+  as: 'a',
 };
 
 export default Link;

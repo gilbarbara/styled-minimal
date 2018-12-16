@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 
-import { sizeOptions, variantOptions } from '../src/utils/options';
+import { sizesOptions, variantOptions } from '../src/utils/system';
 import { capitalize } from './helpers/extras';
 
 import { Badge, Button, Heading } from '../src';
@@ -17,7 +17,7 @@ storiesOf('Badge', module)
     <ViewCheckbox>
       <Badge
         outline={boolean('Outline', false)}
-        size={select('Size', sizeOptions, 'md')}
+        size={select('Size', sizesOptions, 'md')}
         variant={select('Variant', variantOptions, 'primary')}
       >
         {text('Children', 'badge')}

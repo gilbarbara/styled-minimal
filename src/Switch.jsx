@@ -1,12 +1,78 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { sizeTypeFull, variantType } from './utils/propTypes';
-import { SwitchStyles } from './utils/system';
+import { getColor, px, themeGet } from './utils/helpers';
+import { sizesAllPropTypes, variantPropTypes } from './utils/system';
 
-export const StyledSwitch = styled.div`
-  ${SwitchStyles.base};
+import Box from './Box';
+
+const styles = (props: Object): string => {
+  const { size } = props;
+  const sizes = themeGet(props, 'switchSizes');
+
+  return css`
+    cursor: pointer;
+    height: ${px(sizes[size].height)};
+    position: relative;
+    user-select: none;
+    vertical-align: middle;
+    width: ${px(sizes[size].width)};
+  `;
+};
+
+const stylesTrack = (props: Object): string => {
+  const { size, status } = props;
+  const sizes = themeGet(props, 'switchSizes');
+  const themeColor = getColor(props);
+
+  return css`
+    background-color: ${status ? themeColor : '#ccc'};
+    border-radius: ${px(sizes[size].borderRadius)};
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  `;
+};
+
+
+const stylesButton = (props: Object): string => {
+  const { size, status } = props;
+  const sizes = themeGet(props, 'switchSizes');
+
+  return css`
+    background-color: #fff;
+    border-radius: 50%;
+    bottom: ${px(sizes[size].space)};
+    left: ${status ? '50%' : px(sizes[size].space)};
+    position: absolute;
+    top: ${px(sizes[size].space)};
+    transition: left 0.1s ease;
+    width: ${px(sizes[size].height - (sizes[size].space * 2))};
+  `;
+};
+
+const StyledInput = styled.input`
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+`;
+
+const StyledTrack = styled.span`
+  ${stylesTrack};
+`;
+
+const StyledButton = styled.span`
+  ${stylesButton};
+`;
+
+export const StyledSwitch = styled(Box)`
+  ${styles};
 `;
 
 class Switch extends React.PureComponent {
@@ -21,9 +87,10 @@ class Switch extends React.PureComponent {
   static propTypes = {
     name: PropTypes.string.isRequired,
     onChange: PropTypes.func,
-    size: sizeTypeFull,
+    size: sizesAllPropTypes,
     value: PropTypes.bool,
-    variant: variantType,
+    variant: variantPropTypes,
+    ...Box.propTypes,
   };
 
   static defaultProps = {
@@ -53,18 +120,18 @@ class Switch extends React.PureComponent {
   };
 
   render() {
-    const { name, ...props } = this.props;
+    const { name, ...rest } = this.props;
     const { status } = this.state;
 
     return (
-      <StyledSwitch status={status} {...props} onClick={this.handleClick}>
-        <input
+      <StyledSwitch status={status} {...rest} onClick={this.handleClick}>
+        <StyledInput
           type="hidden"
           name={name}
           value={status}
         />
-        <span className="__track" />
-        <span className="__button" />
+        <StyledTrack {...rest} />
+        <StyledButton {...rest} />
       </StyledSwitch>
     );
   }

@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 
 import { Button, ButtonGroup } from '../src';
-import { sizeOptions, variantOptions } from '../src/utils/options';
+import { sizesOptions, variantOptions } from '../src/utils/system';
 
 import { ViewCheckbox } from './helpers/components';
 
@@ -17,7 +17,7 @@ storiesOf('ButtonGroup', module)
   .add('default', () => (
     <ViewCheckbox skipSpacer>
       <ButtonGroup
-        size={select('Size', sizeOptions, 'md')}
+        size={select('Size', sizesOptions, 'md')}
         variant={select('Variant', variantOptions, 'primary')}
       >
         <Button
