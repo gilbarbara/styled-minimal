@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Badge should  1`] = `
+.c0 {
+  box-sizing: border-box;
+  background-color: #2E2E2E;
+  border: 1px solid #2E2E2E;
+  color: #fff;
+  border-radius: 3px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  padding: 3px 6px;
+  vertical-align: baseline;
+}
+
+<Badge
+  as="span"
+>
+  <span
+    className="c0"
+  >
+    4
+  </span>
+</Badge>
+`;

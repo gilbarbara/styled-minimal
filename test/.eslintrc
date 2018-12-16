@@ -1,0 +1,19 @@
+{
+  "globals": {
+    "getSaga": true,
+    "jsdom": false,
+    "navigate": true,
+    "mount": false,
+    "mountWithContext": false,
+    "shallow": false,
+    "shallowWithContext": false,
+    "render": false,
+    "setMockDispatch": false,
+    "store": false
+  },
+  "rules": {
+    "no-console": 0,
+    "react/jsx-filename-extension": 0,
+    "react/prop-types": 0
+  }
+}

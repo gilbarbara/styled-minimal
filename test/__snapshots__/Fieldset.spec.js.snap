@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Fieldset should render properly 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: #343434;
+  display: block;
+  font-family: inherit;
+  font-weight: bold;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  white-space: nowrap;
+}
+
+.c0 {
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  padding: 8px;
+  text-align: left;
+}
+
+.c0 .c1 {
+  margin: 0;
+}
+
+<Fieldset
+  as="fieldset"
+  inline={false}
+>
+  <fieldset
+    className="c0"
+  >
+    <Legend
+      as="legend"
+    >
+      <legend
+        className="c1 c2"
+      >
+        Title
+      </legend>
+    </Legend>
+  </fieldset>
+</Fieldset>
+`;

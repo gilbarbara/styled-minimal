@@ -133,7 +133,7 @@
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "bundlesize": "node tools/sizer",
-    "precommit": "npm run lint && npm run lint:styles && npm run build && npm run bundlesize",
+    "validate": "npm run lint && npm run lint:styles && npm t && flow && npm run build && npm run bundlesize",
     "prepublishOnly": "npm run build"
   },
   "browserslist": [
@@ -142,7 +142,7 @@
   ],
   "husky": {
     "hooks": {
-      "pre-commit": "npm run precommit"
+      "pre-commit": "npm run validate"
     }
   }
 }
