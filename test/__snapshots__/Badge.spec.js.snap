@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Badge should  1`] = `
+exports[`Badge should render properly 1`] = `
 .c0 {
   box-sizing: border-box;
   background-color: #2E2E2E;
