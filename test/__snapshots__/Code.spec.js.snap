@@ -7,7 +7,7 @@ exports[`Code should render properly 1`] = `
   border: 1px solid #d0dada;
   border-radius: 2px;
   font-family: "SF Mono","Roboto Mono",Menlo,monospace;
-  padding: 10px;
+  padding: 8px;
 }
 
 <Code

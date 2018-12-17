@@ -3,10 +3,16 @@ import deepmerge from 'deepmerge';
 import parseToRgb from 'polished/lib/color/parseToRgb';
 import * as defaultTheme from './theme';
 
-export const num = (n: number | string) => typeof n === 'number' && !isNaN(n);
-export const px = (n: any): string => (num(n) ? `${n}px` : n);
+/** Check if a variable is defined **/
+export const isDefined = (val: any): boolean %checks => typeof val !== 'undefined';
 
-export const getValue = (value: any, key: ?string): any => {
+/** Check if a variable is a number **/
+export const isNumber = (val: number | string): boolean %checks => typeof val === 'number';
+
+/** Get textual unit value */
+export const px = (val: string|number): string => (isNumber(val) ? `${val}px` : val);
+
+const getValue = (value: any, key?: string): any => {
   if (key && ['size'].includes(key)) {
     return px(value);
   }
@@ -14,6 +20,12 @@ export const getValue = (value: any, key: ?string): any => {
   return value;
 };
 
+/**
+ *
+ * @param {string|number} n
+ * @param {Array} breakpoints
+ * @returns {string}
+ */
 const createMediaQuery = (n: string | number, breakpoints: Array<number>): string => {
   const grid = {
     'xs-only': `@media (min-width: ${breakpoints[0] - 1}px)`,
@@ -28,7 +40,7 @@ const createMediaQuery = (n: string | number, breakpoints: Array<number>): strin
     xxl: `@media (min-width: ${breakpoints[4]}px)`,
   };
 
-  if (num(n)) {
+  if (isNumber(n)) {
     return `@media (min-width: ${px(n)})`;
   }
 
@@ -55,7 +67,7 @@ export const getTheme = (props: Object = {}): Object => {
  * `
  */
 /* eslint-disable react/destructuring-assignment */
-export const themeGet = (props: Object, path: ?string, options: Object = {}): any => {
+export const themeGet = (props: Object, path?: string, options: Object = {}): any => {
   const theme = getTheme(props);
   const { base, key, toggle } = options;
   const selection = theme[path];
@@ -88,14 +100,30 @@ export const themeGet = (props: Object, path: ?string, options: Object = {}): an
   return getValue(selection);
 };
 
-export const spacer = (value: number | string | Array<number>, pure: ?Boolean): any => (props: Object): any => {
+/**
+ * Get the space from its scale
+ *
+ * @param {number|string|Array} value
+ * @param {boolean} [pure]
+ *
+ * @returns {function}
+ */
+export const spacer = (value: number | string | Array<number>, pure?: Boolean): any => (props: Object): any => {
   const { space } = themeGet(props);
   const result = space[value] || value;
 
   return pure ? result : px(result);
 };
 
-export const responsive = (input: Function | Object, queryBuilderFn: ?Function): Function => (props: Object): string => {
+/**
+ * Generate responsive media queries
+ *
+ * @param {function|Object} input
+ * @param {function} [queryBuilderFn]
+ *
+ * @returns {function}
+ */
+export const responsive = (input: Function | Object, queryBuilderFn?: Function): Function => (props: Object): string => {
   const { breakpoints } = themeGet(props);
   const rules = typeof input === 'function' ? input(props) : input;
   const queryBuilder = queryBuilderFn || createMediaQuery;

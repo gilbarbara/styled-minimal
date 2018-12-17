@@ -1,32 +1,30 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { px, spacer, themeGet } from './utils/helpers';
+import { isDefined, px, spacer, themeGet } from './utils/helpers';
 import { baseStyles, headingPropTypes } from './utils/system';
 
 import Box from './Box';
 
-const styles = (props: Object): string => {
-  const { gutterBottom } = props;
+const Heading = styled(Box)(props => {
+  const { gutterBottom, mb, mt } = props;
   const headingWeight = themeGet(props, 'headingWeight');
   const headingSize = themeGet(props, 'headingSizes', { key: ['size', 'as'], base: 'h1' });
+  const marginTop = gutterBottom ? spacer(3) : 0;
 
   return css`
     font-size: ${px(headingSize)};
     font-family: inherit;
     font-weight: ${headingWeight};
     line-height: ${baseStyles.lineHeight};
-    margin: ${spacer(3)} 0 ${gutterBottom ? spacer(3) : 0};
+    margin-bottom: ${isDefined(mb) ? px(mb) : marginTop};
+    margin-top: ${isDefined(mt) ? px(mt) : spacer(3)};
     
     &:first-child {
-      margin-top: 0;
+      margin-top: ${isDefined(mt) ? px(mt) : 0};
     }
   `;
-};
-
-const Heading = styled(Box)`
-  ${styles};
-`;
+});
 
 Heading.displayName = 'Heading';
 

@@ -536,7 +536,9 @@ Object {
         [Function],
         [Function],
         [Function],
-        "background-color:#e8eded;border:1px solid #d0dada;border-radius:2px;font-family:\\"SF Mono\\",\\"Roboto Mono\\",Menlo,monospace;padding:10px;",
+        "background-color:#e8eded;border:1px solid #d0dada;border-radius:2px;font-family:\\"SF Mono\\",\\"Roboto Mono\\",Menlo,monospace;padding:",
+        [Function],
+        ";",
       ],
     },
     "defaultProps": Object {
@@ -1203,7 +1205,7 @@ Object {
     "$$typeof": Symbol(react.forward_ref),
     "attrs": Array [],
     "componentStyle": ComponentStyle {
-      "componentId": "Heading-iis3j2-0",
+      "componentId": "sc-bwzfXH",
       "isStatic": false,
       "rules": Array [
         "box-sizing: border-box;",
@@ -1243,7 +1245,6 @@ Object {
         [Function],
         [Function],
         [Function],
-        ";",
       ],
     },
     "defaultProps": Object {
@@ -1311,7 +1312,7 @@ Object {
       "zIndex": [Function],
     },
     "render": [Function],
-    "styledComponentId": "Heading-iis3j2-0",
+    "styledComponentId": "sc-bwzfXH",
     "target": "div",
     "toString": [Function],
     "warnTooManyClasses": [Function],
@@ -2179,7 +2180,7 @@ Object {
     "$$typeof": Symbol(react.forward_ref),
     "attrs": Array [],
     "componentStyle": ComponentStyle {
-      "componentId": "sc-bwzfXH",
+      "componentId": "sc-htpNat",
       "isStatic": false,
       "rules": Array [
         "box-sizing: border-box;",
@@ -2284,7 +2285,7 @@ Object {
       "zIndex": [Function],
     },
     "render": [Function],
-    "styledComponentId": "sc-bwzfXH",
+    "styledComponentId": "sc-htpNat",
     "target": "div",
     "toString": [Function],
     "warnTooManyClasses": [Function],
@@ -2906,7 +2907,7 @@ Object {
     "$$typeof": Symbol(react.forward_ref),
     "attrs": Array [],
     "componentStyle": ComponentStyle {
-      "componentId": "sc-htpNat",
+      "componentId": "sc-bxivhb",
       "isStatic": false,
       "rules": Array [
         "box-sizing: border-box;",
@@ -3011,7 +3012,7 @@ Object {
       "zIndex": [Function],
     },
     "render": [Function],
-    "styledComponentId": "sc-htpNat",
+    "styledComponentId": "sc-bxivhb",
     "target": "div",
     "toString": [Function],
     "warnTooManyClasses": [Function],
@@ -3476,9 +3477,9 @@ Object {
   "utils": Object {
     "getColor": [Function],
     "getTheme": [Function],
-    "getValue": [Function],
     "getYiq": [Function],
-    "num": [Function],
+    "isDefined": [Function],
+    "isNumber": [Function],
     "px": [Function],
     "responsive": [Function],
     "spacer": [Function],

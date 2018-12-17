@@ -7,7 +7,8 @@ exports[`Heading should render properly 1`] = `
   font-family: inherit;
   font-weight: 700;
   line-height: 1.4;
-  margin: 16px 0 0;
+  margin-bottom: 0;
+  margin-top: 16px;
 }
 
 .c0:first-child {
