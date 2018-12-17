@@ -27,7 +27,7 @@ const styles = (props: Object): string => {
     return css`
       padding-bottom: ${spacer(3)};
       padding-top: ${spacer(3)};
-      
+
       ${grid};
     `;
   };
@@ -40,18 +40,18 @@ const styles = (props: Object): string => {
   });
 
   return css`
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: ${spacer(3)};
-      padding-right: ${spacer(3)};
-      max-width: ${container.maxWidth ? px(container.maxWidth) : 'none'};
-      position: relative;
-      width: 100%;
-      ${container.layout[props.layout] || ''}
-      ${vertical};
-      
-      ${grid};
-    `;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: ${spacer(3)};
+    padding-right: ${spacer(3)};
+    max-width: ${container.maxWidth ? px(container.maxWidth) : 'none'};
+    position: relative;
+    width: 100%;
+    ${container.layout[props.layout] || ''}
+    ${vertical};
+
+    ${grid};
+  `;
 };
 
 const Container = styled(Box)`

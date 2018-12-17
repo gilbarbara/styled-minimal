@@ -78,7 +78,7 @@ const Box = styled.div(
   textTransform,
   top,
   width,
-  zIndex
+  zIndex,
 );
 
 Box.displayName = 'Box';

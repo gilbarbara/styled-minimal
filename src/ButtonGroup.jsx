@@ -7,23 +7,23 @@ import { sizesAllPropTypes, variantPropTypes } from './utils/system';
 import Box from './Box';
 
 export const StyledButtonGroup = styled(Box)`
-   display: inline-flex;
+  display: inline-flex;
 
   > button {
     + button {
       margin-left: -1px;
     }
-    
+
     &:first-child {
       border-bottom-right-radius: 0;
       border-top-right-radius: 0;
     }
-  
+
     &:last-child {
       border-bottom-left-radius: 0;
       border-top-left-radius: 0;
     }
-    
+
     &:not(:first-child):not(:last-child) {
       border-radius: 0;
     }

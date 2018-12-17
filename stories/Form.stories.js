@@ -3,13 +3,39 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 
-import { Button, Fieldset, Flex, Form, FormGroup, Input, Label, Legend, Select, Switch, Textarea } from '../src';
+import {
+  Button,
+  Fieldset,
+  Flex,
+  Form,
+  FormGroup,
+  Input,
+  Label,
+  Legend,
+  Select,
+  Switch,
+  Textarea,
+} from '../src';
 import { View } from './helpers/components';
 
 storiesOf('Form', module)
   .addDecorator(withKnobs)
   .addParameters({
-    info: { propTablesExclude: [View, Button, Fieldset, Flex, FormGroup, Input, Label, Legend, Select, Switch, Textarea] },
+    info: {
+      propTablesExclude: [
+        View,
+        Button,
+        Fieldset,
+        Flex,
+        FormGroup,
+        Input,
+        Label,
+        Legend,
+        Select,
+        Switch,
+        Textarea,
+      ],
+    },
   })
   .add('default', () => (
     <View direction="column">
@@ -19,22 +45,26 @@ storiesOf('Form', module)
           e.preventDefault();
 
           const formData = new FormData(e.target);
-          action('submitted')([...formData.entries()].reduce((acc, [key, value]) => {
-            //eslint-disable-next-line no-nested-ternary
-            const data = ['on', 'true'].includes(value) ? true : (value === 'false' ? false : value);
+          action('submitted')(
+            [...formData.entries()].reduce((acc, [key, value]) => {
+              //eslint-disable-next-line no-nested-ternary
+              const data = ['on', 'true'].includes(value)
+                ? true
+                : value === 'false'
+                ? false
+                : value;
 
-            if (Array.isArray(acc[key])) {
-              acc[key].push(data);
-            }
-            else if (acc[key]) {
-              acc[key] = [acc[key], data];
-            }
-            else {
-              acc[key] = data;
-            }
+              if (Array.isArray(acc[key])) {
+                acc[key].push(data);
+              } else if (acc[key]) {
+                acc[key] = [acc[key], data];
+              } else {
+                acc[key] = data;
+              }
 
-            return acc;
-          }, {}));
+              return acc;
+            }, {}),
+          );
         }}
       >
         <Flex flexWrap="wrap">
@@ -77,26 +107,41 @@ storiesOf('Form', module)
         </FormGroup>
         <Fieldset>
           <Legend>Options</Legend>
-          <Label inline><Input type="checkbox" name="1_click" value="on" />1-click Buy</Label>
-          <Label inline><Input type="checkbox" name="fast_checkout" value="on" defaultChecked />Fast Checkout</Label>
+          <Label inline>
+            <Input type="checkbox" name="1_click" value="on" />
+            1-click Buy
+          </Label>
+          <Label inline>
+            <Input type="checkbox" name="fast_checkout" value="on" defaultChecked />
+            Fast Checkout
+          </Label>
         </Fieldset>
         <FormGroup>
           <Legend>Settings</Legend>
-          <Label inline><Input type="radio" name="settings" value="1" defaultChecked />Show Icons</Label>
-          <Label inline><Input type="radio" name="settings" value="2" />Show Label</Label>
+          <Label inline>
+            <Input type="radio" name="settings" value="1" defaultChecked />
+            Show Icons
+          </Label>
+          <Label inline>
+            <Input type="radio" name="settings" value="2" />
+            Show Label
+          </Label>
         </FormGroup>
         <FormGroup>
           <Legend>Preferences</Legend>
-          <Label inline><Switch name="private" size="sm" mr={2} value={true} />is private?</Label>
+          <Label inline>
+            <Switch name="private" size="sm" mr={2} value={true} />
+            is private?
+          </Label>
         </FormGroup>
-        <FormGroup
-          helpText="Max length: 1024 characters"
-        >
+        <FormGroup helpText="Max length: 1024 characters">
           <Label>Comment</Label>
           <Textarea name="comment" placeholder="Your Comment" />
         </FormGroup>
         <Button type="submit">SEND</Button>{' '}
-        <Button type="reset" outline>RESET</Button>
+        <Button type="reset" outline>
+          RESET
+        </Button>
       </Form>
     </View>
   ));

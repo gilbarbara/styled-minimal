@@ -32,14 +32,14 @@ const select = (props: Object): string => {
     ${!multiple ? `padding: ${px(padding[sizing])};` : ''};
     white-space: nowrap;
     width: 100%;
-    
+
     > option {
       background-color: ${backgroundColor};
       font-size: ${px(fontSize[sizing])};
       line-height: ${lineHeight};
       padding: ${px(padding[sizing])};
     }
-    
+
     &[multiple]:focus option:checked {
       background: black linear-gradient(0deg, black 0%, black 100%);
     }

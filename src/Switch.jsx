@@ -37,7 +37,6 @@ const stylesTrack = (props: Object): string => {
   `;
 };
 
-
 const stylesButton = (props: Object): string => {
   const { size, status } = props;
   const sizes = themeGet(props, 'switchSizes');
@@ -50,17 +49,17 @@ const stylesButton = (props: Object): string => {
     position: absolute;
     top: ${px(sizes[size].space)};
     transition: left 0.1s ease;
-    width: ${px(sizes[size].height - (sizes[size].space * 2))};
+    width: ${px(sizes[size].height - sizes[size].space * 2)};
   `;
 };
 
 const StyledInput = styled.input`
-    bottom: 0;
-    left: 0;
-    opacity: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 `;
 
 const StyledTrack = styled.span`
@@ -125,11 +124,7 @@ class Switch extends React.PureComponent {
 
     return (
       <StyledSwitch status={status} {...rest} onClick={this.handleClick}>
-        <StyledInput
-          type="hidden"
-          name={name}
-          value={status}
-        />
+        <StyledInput type="hidden" name={name} value={status} />
         <StyledTrack {...rest} />
         <StyledButton {...rest} />
       </StyledSwitch>

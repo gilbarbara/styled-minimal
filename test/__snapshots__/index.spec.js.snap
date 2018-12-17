@@ -132,7 +132,7 @@ Object {
     "$$typeof": Symbol(react.forward_ref),
     "attrs": Array [],
     "componentStyle": ComponentStyle {
-      "componentId": "Badge-o6kad8-0",
+      "componentId": "sc-bdVaJa",
       "isStatic": false,
       "rules": Array [
         "box-sizing: border-box;",
@@ -172,7 +172,6 @@ Object {
         [Function],
         [Function],
         [Function],
-        ";",
       ],
     },
     "defaultProps": Object {
@@ -242,7 +241,7 @@ Object {
       "zIndex": [Function],
     },
     "render": [Function],
-    "styledComponentId": "Badge-o6kad8-0",
+    "styledComponentId": "sc-bdVaJa",
     "target": "div",
     "toString": [Function],
     "warnTooManyClasses": [Function],
@@ -404,7 +403,7 @@ Object {
         ";&:disabled{pointer-events:none;}&:hover{transition:transform 0.2s;transform:scale(1.05);}&:focus{outline-color:",
         [Function],
         ";}",
-        ".Badge-o6kad8-0",
+        ".sc-bdVaJa",
         "{margin-left:5px;}",
       ],
     },
@@ -536,7 +535,7 @@ Object {
         [Function],
         [Function],
         [Function],
-        "background-color:#e8eded;border:1px solid #d0dada;border-radius:2px;font-family:\\"SF Mono\\",\\"Roboto Mono\\",Menlo,monospace;padding:",
+        "background-color:#e8eded;border:1px solid #d0dada;border-radius:2px;font-family:'SF Mono','Roboto Mono',Menlo,monospace;padding:",
         [Function],
         ";",
       ],
@@ -853,7 +852,7 @@ Object {
     "$$typeof": Symbol(react.forward_ref),
     "attrs": Array [],
     "componentStyle": ComponentStyle {
-      "componentId": "sc-bdVaJa",
+      "componentId": "sc-bwzfXH",
       "isStatic": false,
       "rules": Array [
         "box-sizing: border-box;",
@@ -958,7 +957,7 @@ Object {
       "zIndex": [Function],
     },
     "render": [Function],
-    "styledComponentId": "sc-bdVaJa",
+    "styledComponentId": "sc-bwzfXH",
     "target": "div",
     "toString": [Function],
     "warnTooManyClasses": [Function],
@@ -1205,7 +1204,7 @@ Object {
     "$$typeof": Symbol(react.forward_ref),
     "attrs": Array [],
     "componentStyle": ComponentStyle {
-      "componentId": "sc-bwzfXH",
+      "componentId": "sc-htpNat",
       "isStatic": false,
       "rules": Array [
         "box-sizing: border-box;",
@@ -1312,7 +1311,7 @@ Object {
       "zIndex": [Function],
     },
     "render": [Function],
-    "styledComponentId": "sc-bwzfXH",
+    "styledComponentId": "sc-htpNat",
     "target": "div",
     "toString": [Function],
     "warnTooManyClasses": [Function],
@@ -2180,7 +2179,7 @@ Object {
     "$$typeof": Symbol(react.forward_ref),
     "attrs": Array [],
     "componentStyle": ComponentStyle {
-      "componentId": "sc-htpNat",
+      "componentId": "sc-bxivhb",
       "isStatic": false,
       "rules": Array [
         "box-sizing: border-box;",
@@ -2285,7 +2284,7 @@ Object {
       "zIndex": [Function],
     },
     "render": [Function],
-    "styledComponentId": "sc-htpNat",
+    "styledComponentId": "sc-bxivhb",
     "target": "div",
     "toString": [Function],
     "warnTooManyClasses": [Function],
@@ -2574,7 +2573,7 @@ Object {
         ";",
         [Function],
         ";",
-        ".sc-bdVaJa",
+        ".sc-bwzfXH",
         "{label,legend{margin-bottom:0;margin-right:",
         [Function],
         ";}input{flex:1;width:auto;}small{margin-left:",
@@ -2907,7 +2906,7 @@ Object {
     "$$typeof": Symbol(react.forward_ref),
     "attrs": Array [],
     "componentStyle": ComponentStyle {
-      "componentId": "sc-bxivhb",
+      "componentId": "sc-ifAKCX",
       "isStatic": false,
       "rules": Array [
         "box-sizing: border-box;",
@@ -3012,7 +3011,7 @@ Object {
       "zIndex": [Function],
     },
     "render": [Function],
-    "styledComponentId": "sc-bxivhb",
+    "styledComponentId": "sc-ifAKCX",
     "target": "div",
     "toString": [Function],
     "warnTooManyClasses": [Function],

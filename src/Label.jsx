@@ -8,12 +8,10 @@ import Box from './Box';
 
 const styles = (props: Object): string => {
   const { inline } = props;
-  const {
-    color: labelColor,
-    fontWeight: labelFontWeight,
-    inlineFontSize,
-    marginBottom,
-  } = themeGet(props, 'label');
+  const { color: labelColor, fontWeight: labelFontWeight, inlineFontSize, marginBottom } = themeGet(
+    props,
+    'label',
+  );
 
   return css`
     align-items: center;

@@ -11,25 +11,31 @@ function loadStories() {
   req.keys().forEach(filename => req(filename));
 }
 
-addDecorator(withOptions({
-  name: 'styled-minimal',
-  url: 'https://github.com/gilbarbara/styled-minimal',
-  theme: {
-    ...themes.dark,
-    mainBackground: '#27292a linear-gradient(to right, #27292a, #333)',
-    brand: { background: '#f04' },
-  },
-}));
+addDecorator(
+  withOptions({
+    name: 'styled-minimal',
+    url: 'https://github.com/gilbarbara/styled-minimal',
+    theme: {
+      ...themes.dark,
+      mainBackground: '#27292a linear-gradient(to right, #27292a, #333)',
+      brand: { background: '#f04' },
+    },
+  }),
+);
 
-addDecorator(withBackgrounds([
-  { name: 'light', value: '#f7f7f7', default: true },
-  { name: 'gray', value: '#999' },
-  { name: 'dark', value: '#333' },
-]));
+addDecorator(
+  withBackgrounds([
+    { name: 'light', value: '#f7f7f7', default: true },
+    { name: 'gray', value: '#999' },
+    { name: 'dark', value: '#333' },
+  ]),
+);
 
-addDecorator(withInfo({
-  inline: true,
-  source: false,
-}));
+addDecorator(
+  withInfo({
+    inline: true,
+    source: false,
+  }),
+);
 
 configure(loadStories, module);

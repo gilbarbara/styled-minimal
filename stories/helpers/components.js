@@ -2,38 +2,46 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider, css } from 'styled-components';
 
-const checkboxCSS = ({ checkbox }) => (
+const checkboxCSS = ({ checkbox }) =>
   checkbox
     ? css`
-        background: linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%, #ccc 0), linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%, #ccc 0), transparent;
+        background: linear-gradient(
+            45deg,
+            #ccc 25%,
+            transparent 25%,
+            transparent 75%,
+            #ccc 75%,
+            #ccc 0
+          ),
+          linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%, #ccc 0),
+          transparent;
         background-position: 0 0, 10px 10px;
         background-size: 20px 20px;
-    `
-    : ''
-);
+      `
+    : '';
 
-const flex = ({ direction, skipFlex }) => (
+const flex = ({ direction, skipFlex }) =>
   !skipFlex
     ? css`
-      align-items: ${direction === 'column' ? 'stretch' : 'center'};
-      display: flex;
-      flex-direction: ${direction};
-      flex-wrap: wrap;
-      justify-content: center;
-    `
-    : ''
-);
+        align-items: ${direction === 'column' ? 'stretch' : 'center'};
+        display: flex;
+        flex-direction: ${direction};
+        flex-wrap: wrap;
+        justify-content: center;
+      `
+    : '';
 
 const StyledView = styled.div`
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   margin: 0 auto;
   min-height: 30vh;
   ${({ centered }) => (centered ? 'text-align: center;' : '')};
   ${flex};
   ${checkboxCSS}
-  
+
   > * {
-    ${({ skipSpacer }) => (!skipSpacer && 'margin: 15px')};
+    ${({ skipSpacer }) => !skipSpacer && 'margin: 15px'};
   }
 `;
 
@@ -66,7 +74,7 @@ const StyledSVG = styled.div`
   display: flex;
   height: ${({ height }) => height};
   width: ${({ width }) => width};
-  
+
   & + * {
     margin-left: 6px;
   }
@@ -105,7 +113,9 @@ SVG.defaultProps = {
 };
 
 const ViewCheckbox = ({ children, ...rest }) => (
-  <View checkbox {...rest}>{children}</View>
+  <View checkbox {...rest}>
+    {children}
+  </View>
 );
 
 export { SVG, View, ViewCheckbox };

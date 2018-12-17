@@ -9,7 +9,7 @@ const Group = styled(Box)`
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  
+
   > *:not(:first-child) {
     margin-left: ${spacer(2)};
   }

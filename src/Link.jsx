@@ -11,7 +11,7 @@ const styles = (props: Object): string => {
 
   return css`
     color: ${palette.primary};
-    
+
     &:visited {
       color: ${grays.gray50};
     }

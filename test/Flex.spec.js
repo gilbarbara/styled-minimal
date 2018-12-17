@@ -9,7 +9,7 @@ describe('Flex', () => {
     <Flex>
       <Box>Left</Box>
       <Box>Right</Box>
-    </Flex>
+    </Flex>,
   );
 
   it('should render properly', () => {

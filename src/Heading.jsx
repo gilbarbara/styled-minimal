@@ -19,7 +19,7 @@ const Heading = styled(Box)(props => {
     line-height: ${baseStyles.lineHeight};
     margin-bottom: ${isDefined(mb) ? px(mb) : marginTop};
     margin-top: ${isDefined(mt) ? px(mt) : spacer(3)};
-    
+
     &:first-child {
       margin-top: ${isDefined(mt) ? px(mt) : 0};
     }

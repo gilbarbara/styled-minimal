@@ -10,7 +10,7 @@ export const isDefined = (val: any): boolean %checks => typeof val !== 'undefine
 export const isNumber = (val: number | string): boolean %checks => typeof val === 'number';
 
 /** Get textual unit value */
-export const px = (val: string|number): string => (isNumber(val) ? `${val}px` : val);
+export const px = (val: string | number): string => (isNumber(val) ? `${val}px` : val);
 
 const getValue = (value: any, key?: string): any => {
   if (key && ['size'].includes(key)) {
@@ -87,9 +87,7 @@ export const themeGet = (props: Object, path?: string, options: Object = {}): an
 
   if (key) {
     if (Array.isArray(key)) {
-      const value = key
-        .filter(d => !!props[d])
-        .map(d => props[d])[0] || base;
+      const value = key.filter(d => !!props[d]).map(d => props[d])[0] || base;
 
       return selection[value];
     }
@@ -108,7 +106,9 @@ export const themeGet = (props: Object, path?: string, options: Object = {}): an
  *
  * @returns {function}
  */
-export const spacer = (value: number | string | Array<number>, pure?: Boolean): any => (props: Object): any => {
+export const spacer = (value: number | string | Array<number>, pure?: Boolean): any => (
+  props: Object,
+): any => {
   const { space } = themeGet(props);
   const result = space[value] || value;
 
@@ -123,7 +123,9 @@ export const spacer = (value: number | string | Array<number>, pure?: Boolean): 
  *
  * @returns {function}
  */
-export const responsive = (input: Function | Object, queryBuilderFn?: Function): Function => (props: Object): string => {
+export const responsive = (input: Function | Object, queryBuilderFn?: Function): Function => (
+  props: Object,
+): string => {
   const { breakpoints } = themeGet(props);
   const rules = typeof input === 'function' ? input(props) : input;
   const queryBuilder = queryBuilderFn || createMediaQuery;

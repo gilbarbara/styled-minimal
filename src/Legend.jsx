@@ -7,11 +7,10 @@ import { baseStyles } from './utils/system';
 import Box from './Box';
 
 const styles = (props: Object): string => {
-  const {
-    color: legendColor,
-    fontWeight: legendFontWeight,
-    marginBottom,
-  } = themeGet(props, 'legend');
+  const { color: legendColor, fontWeight: legendFontWeight, marginBottom } = themeGet(
+    props,
+    'legend',
+  );
 
   return css`
     color: ${legendColor};

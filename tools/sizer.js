@@ -24,22 +24,17 @@ console.log(chalk.magenta('>>> LIBRARY SIZE'));
 console.log('');
 
 if (!totalSize) {
-  console.log([
-    chalk.bgRed(' FAIL '),
-    chalk.red('Nothing to measure'),
-  ].join(' '));
+  console.log([chalk.bgRed(' FAIL '), chalk.red('Nothing to measure')].join(' '));
   process.exit(1);
 }
 
 if (totalSize > limit) {
-  console.log([
-    chalk.bgRed(' FAIL '),
-    chalk.red(`${ps(totalSize)} > ${ps(limit)} (gzip)`),
-  ].join(' '));
+  console.log(
+    [chalk.bgRed(' FAIL '), chalk.red(`${ps(totalSize)} > ${ps(limit)} (gzip)`)].join(' '),
+  );
   process.exit(1);
 }
 
-console.log([
-  chalk.bgGreen(' PASS '),
-  chalk.green(`${ps(totalSize)} < ${ps(limit)} (gzip)`),
-].join(' '));
+console.log(
+  [chalk.bgGreen(' PASS '), chalk.green(`${ps(totalSize)} < ${ps(limit)} (gzip)`)].join(' '),
+);

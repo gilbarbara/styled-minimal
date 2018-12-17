@@ -6,29 +6,22 @@ import { baseStyles, sizesAllPropTypes, variantPropTypes } from './utils/system'
 
 import Box from './Box';
 
-const Badge = styled(Box)`
-  ${(props: Object): string => {
-    const {
-      borderRadius,
-      fontSize,
-      fontWeight,
-      padding,
-    } = themeGet(props, 'badge');
-    const fontSizeProp = themeGet(props, 'componentSizes', { key: 'size' });
+const Badge = styled(Box)(props => {
+  const { borderRadius, fontSize, fontWeight, padding } = themeGet(props, 'badge');
+  const fontSizeProp = themeGet(props, 'componentSizes', { key: 'size' });
 
-    return css`
-      ${baseStyles.variant};
-      border-radius: ${px(borderRadius)};
-      display: inline-flex;
-      font-size: ${fontSize};
-      ${fontSizeProp ? `font-size: ${fontSizeProp}` : ''};
-      font-weight: ${fontWeight};
-      line-height: 1;
-      padding: ${px(padding[0])} ${px(padding[1])};
-      vertical-align: baseline;
-    `;
-  }};
-`;
+  return css`
+    ${baseStyles.variant};
+    border-radius: ${px(borderRadius)};
+    display: inline-flex;
+    font-size: ${fontSize};
+    ${fontSizeProp ? `font-size: ${fontSizeProp}` : ''};
+    font-weight: ${fontWeight};
+    line-height: 1;
+    padding: ${px(padding[0])} ${px(padding[1])};
+    vertical-align: baseline;
+  `;
+});
 
 Badge.displayName = 'Badge';
 

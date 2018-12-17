@@ -32,7 +32,6 @@ storiesOf('Switch', module)
       <Switch name="test" size="md" />
       <Switch name="test" size="lg" />
       <Switch name="test" size="xl" />
-
     </View>
   ))
   .add('with variant', () => (

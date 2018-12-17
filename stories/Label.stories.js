@@ -12,9 +12,7 @@ storiesOf('Label', module)
   })
   .add('default', () => (
     <View>
-      <Label
-        inline={boolean('Inline', false)}
-      >
+      <Label inline={boolean('Inline', false)}>
         Far far away, behind the word mountains there live the blind texts.
       </Label>
     </View>

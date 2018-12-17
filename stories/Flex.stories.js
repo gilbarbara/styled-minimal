@@ -13,43 +13,45 @@ storiesOf('Flex', module)
   .add('default', () => (
     <ViewCheckbox>
       <Flex
-        alignItems={select('Align Items', [
-          '',
-          'flex-start',
-          'center',
-          'flex-end',
-          'baseline',
+        alignItems={select(
+          'Align Items',
+          ['', 'flex-start', 'center', 'flex-end', 'baseline', 'stretch'],
           'stretch',
-        ], 'stretch')}
-        alignContent={select('Align Content', [
-          '',
-          'flex-start',
+        )}
+        alignContent={select(
+          'Align Content',
+          ['', 'flex-start', 'center', 'flex-end', 'stretch', 'space-between', 'space-around'],
           'center',
-          'flex-end',
-          'stretch',
-          'space-between',
-          'space-around',
-        ], 'center')}
-        flexDirection={select('Flex Direction', ['row', 'row-reverse', 'column', 'column-reverse'], 'row')}
+        )}
+        flexDirection={select(
+          'Flex Direction',
+          ['row', 'row-reverse', 'column', 'column-reverse'],
+          'row',
+        )}
         flexWrap={select('Flex Wrap', ['nowrap', 'wrap', 'wrap-reverse'], 'wrap')}
         height={text('Height')}
-        justifyContent={select('Justify Content', [
+        justifyContent={select(
+          'Justify Content',
+          ['flex-start', 'center', 'flex-end', 'space-between', 'space-around', 'space-evenly'],
           'flex-start',
-          'center',
-          'flex-end',
-          'space-between',
-          'space-around',
-          'space-evenly',
-        ], 'flex-start')}
+        )}
         p={text('Padding')}
         m={text('Margin')}
         minHeight={text('Min Height', '300px')}
         width={text('Width')}
       >
-        <Box bg="#f04" p={10} textAlign="center" width="40%">Box 40%</Box>
-        <Box bg="#0F4" p={30} textAlign="center" width="60%">Box 60%</Box>
-        <Box bg="#CCC" p={40} textAlign="center" width="30%">Box 30%</Box>
-        <Box bg="#999" p={20} textAlign="center" width="70%">Box 70%</Box>
+        <Box bg="#f04" p={10} textAlign="center" width="40%">
+          Box 40%
+        </Box>
+        <Box bg="#0F4" p={30} textAlign="center" width="60%">
+          Box 60%
+        </Box>
+        <Box bg="#CCC" p={40} textAlign="center" width="30%">
+          Box 30%
+        </Box>
+        <Box bg="#999" p={20} textAlign="center" width="70%">
+          Box 70%
+        </Box>
       </Flex>
     </ViewCheckbox>
   ));

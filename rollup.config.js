@@ -14,9 +14,10 @@ const deps = [
   ...Object.keys(packageJSON.dependencies),
 ];
 
-const external = id => /^\.\/[A-Z]\w+$/.test(id) || /^^\.\/utils\/.*$/.test(id) || deps.includes(id);
+const external = id =>
+  /^\.\/[A-Z]\w+$/.test(id) || /^^\.\/utils\/.*$/.test(id) || deps.includes(id);
 
-const plugins = () => ([
+const plugins = () => [
   replace({
     'process.env.NODE_ENV': JSON.stringify('production'),
   }),
@@ -35,19 +36,13 @@ const plugins = () => ([
   }),
   filesize(),
   cleanup(),
-]);
+];
 
 export default [
   {
     input: 'src/index.js',
     external,
-    output: [
-      { file: packageJSON.main, format: 'cjs' },
-      { file: packageJSON.module, format: 'es' },
-    ],
-    plugins: [
-      ...plugins(),
-      visualizer(),
-    ],
+    output: [{ file: packageJSON.main, format: 'cjs' }, { file: packageJSON.module, format: 'es' }],
+    plugins: [...plugins(), visualizer()],
   },
 ];

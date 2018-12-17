@@ -8,11 +8,7 @@ import Box from './Box';
 
 const styles = (props: Object): string => {
   const { size } = props;
-  const {
-    borderRadius,
-    maxWidth,
-    padding,
-  } = themeGet(props, 'alert');
+  const { borderRadius, maxWidth, padding } = themeGet(props, 'alert');
 
   return css`
     ${baseStyles.variant};
@@ -22,7 +18,7 @@ const styles = (props: Object): string => {
     max-width: ${px(maxWidth)};
     padding: ${px(padding[size][0])} ${px(padding[size][1])};
     width: 100%;
-    
+
     a {
       ${baseStyles.color};
     }

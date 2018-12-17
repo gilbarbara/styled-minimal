@@ -9,12 +9,7 @@ import Flex from './Flex';
 
 const styles = (props: Object): string => {
   const { bordered } = props;
-  const {
-    borderColor,
-    borderRadius,
-    marginBottom,
-    padding,
-  } = themeGet(props, 'formGroup');
+  const { borderColor, borderRadius, marginBottom, padding } = themeGet(props, 'formGroup');
 
   return css`
     ${bordered ? `border: 1px solid ${borderColor};` : ''}
@@ -33,7 +28,7 @@ const margin = (props: Object): string => {
 
 export const StyledFormGroup = styled(Box)`
   ${styles};
-  
+
   ${({ inline }) => {
     if (inline) return '';
 
@@ -43,19 +38,19 @@ export const StyledFormGroup = styled(Box)`
        }
     `;
   }};
-  
+
   ${Flex} {
     label,
     legend {
       margin-bottom: 0;
       margin-right: ${margin};
     }
-    
+
     input {
       flex: 1;
       width: auto;
     }
-    
+
     small {
       margin-left: ${margin};
       margin-top: 0;
@@ -67,12 +62,12 @@ const helpBlock = (props: Object): string => {
   const { helpColor, helpMarginTop } = themeGet(props, 'formGroup');
 
   return css`
-      color: ${helpColor};
-      display: block;
-      font-size: 85%;
-      line-height: 1.3;
-      margin-top: ${px(helpMarginTop)};
-    `;
+    color: ${helpColor};
+    display: block;
+    font-size: 85%;
+    line-height: 1.3;
+    margin-top: ${px(helpMarginTop)};
+  `;
 };
 
 const HelpText = styled.small`
@@ -89,11 +84,7 @@ const FormGroup = ({ children, helpText, inline, ...props }) => {
   );
 
   if (inline) {
-    content = (
-      <Flex alignItems="center">
-        {content}
-      </Flex>
-    );
+    content = <Flex alignItems="center">{content}</Flex>;
   }
 
   return (

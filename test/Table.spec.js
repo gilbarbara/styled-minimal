@@ -35,7 +35,7 @@ describe('Table', () => {
           <td>@twitter</td>
         </tr>
       </tbody>
-    </Table>
+    </Table>,
   );
 
   it('should render properly', () => {

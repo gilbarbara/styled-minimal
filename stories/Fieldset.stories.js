@@ -13,12 +13,16 @@ storiesOf('Fieldset', module)
   .add('default', () => (
     <View direction="column">
       <div>
-        <Fieldset
-          inline={boolean('Inline', false)}
-        >
+        <Fieldset inline={boolean('Inline', false)}>
           <Legend>Options</Legend>
-          <Label inline><Input type="checkbox" name="1_click" value="on" />1-click Buy</Label>
-          <Label inline><Input type="checkbox" name="fast_checkout" value="on" defaultChecked />Fast Checkout</Label>
+          <Label inline>
+            <Input type="checkbox" name="1_click" value="on" />
+            1-click Buy
+          </Label>
+          <Label inline>
+            <Input type="checkbox" name="fast_checkout" value="on" defaultChecked />
+            Fast Checkout
+          </Label>
         </Fieldset>
       </div>
     </View>

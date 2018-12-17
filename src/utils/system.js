@@ -62,8 +62,7 @@ export const baseStyles = {
     if (dark) {
       const colorDiff = Math.abs(getYiq(darkColor) - getYiq(themeColor));
       selectedColor = colorDiff > 40 ? themeColor : lighten(0.3, themeColor);
-    }
-    else if (outline) {
+    } else if (outline) {
       const colorDiff = Math.abs(getYiq(backgroundColor) - getYiq(themeColor));
       selectedColor = colorDiff > 50 ? themeColor : darken(0.2, themeColor);
     }
@@ -80,37 +79,36 @@ export const baseStyles = {
 
 export const formPseudo = (props: Object): string => {
   const { multiple } = props;
-  const {
-    backgroundColor: inputBgColor,
-    color: inputColor,
-    focusColor,
-    requiredColor,
-  } = themeGet(props, 'input');
-  const inputOnly = typeof multiple === 'undefined'
-    ? `
+  const { backgroundColor: inputBgColor, color: inputColor, focusColor, requiredColor } = themeGet(
+    props,
+    'input',
+  );
+  const inputOnly =
+    typeof multiple === 'undefined'
+      ? `
     ${placeholder(`color: ${lighten(0.5, inputColor)};`)};
     
     &:read-only {
       background-color: ${darken(0.02, inputBgColor)};
       color: ${lighten(0.3, inputColor)};
     }`
-    : '';
+      : '';
 
   return css`
-      ${inputOnly};
-      
-      &:disabled {
-        background-color: ${darken(0.05, inputBgColor)};
-        color: ${lighten(0.2, inputColor)};
-      }
-      
-      &:focus {
-        outline-color: ${focusColor};
-      }
-      
-      &:required:not(:valid) {
-        border-color: ${requiredColor};
-        ${placeholder(`color: ${requiredColor};`)};
-      }
-    `;
+    ${inputOnly};
+
+    &:disabled {
+      background-color: ${darken(0.05, inputBgColor)};
+      color: ${lighten(0.2, inputColor)};
+    }
+
+    &:focus {
+      outline-color: ${focusColor};
+    }
+
+    &:required:not(:valid) {
+      border-color: ${requiredColor};
+      ${placeholder(`color: ${requiredColor};`)};
+    }
+  `;
 };

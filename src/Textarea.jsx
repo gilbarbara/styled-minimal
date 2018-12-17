@@ -23,8 +23,7 @@ const styles = (props: Object): string => {
 
   if (valid) {
     thisColor = validation.valid;
-  }
-  else if (valid === false) {
+  } else if (valid === false) {
     thisColor = validation.invalid;
   }
 
@@ -52,10 +51,7 @@ const Textarea = styled(Box).attrs(({ id, name }) => ({
 
 Textarea.propTypes = {
   as: PropTypes.string,
-  defaultValue: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
+  defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   disabled: PropTypes.bool,
   id: PropTypes.string,
   maxlength: PropTypes.number,

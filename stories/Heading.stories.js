@@ -36,12 +36,24 @@ storiesOf('Heading', module)
   .add('with size', () => (
     <View>
       <div>
-        <Heading as="h1" size="h6">Heading 1 with h6 size</Heading>
-        <Heading as="h2" size="h5">Heading 2 with h5 size</Heading>
-        <Heading as="h3" size="h4">Heading 3 with h4 size</Heading>
-        <Heading as="h4" size="h3">Heading 4 with h3 size</Heading>
-        <Heading as="h5" size="h2">Heading 5 with h2 size</Heading>
-        <Heading as="h6" size="h1">Heading 6 with h1 size</Heading>
+        <Heading as="h1" size="h6">
+          Heading 1 with h6 size
+        </Heading>
+        <Heading as="h2" size="h5">
+          Heading 2 with h5 size
+        </Heading>
+        <Heading as="h3" size="h4">
+          Heading 3 with h4 size
+        </Heading>
+        <Heading as="h4" size="h3">
+          Heading 4 with h3 size
+        </Heading>
+        <Heading as="h5" size="h2">
+          Heading 5 with h2 size
+        </Heading>
+        <Heading as="h6" size="h1">
+          Heading 6 with h1 size
+        </Heading>
       </div>
     </View>
   ));

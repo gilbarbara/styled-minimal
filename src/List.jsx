@@ -8,10 +8,7 @@ import Box from './Box';
 
 const styles = (props: Object): string => {
   const { as, bordered, inline, styleType } = props;
-  const {
-    borderColor,
-    borderRadius,
-  } = themeGet(props, 'list');
+  const { borderColor, borderRadius } = themeGet(props, 'list');
 
   return css`
     ${bordered ? `border: 1px solid ${borderColor};` : ''};
@@ -47,7 +44,7 @@ const List = styled(Box)`
 
   > li {
     ${stylesItem}
-  
+
     + li {
       ${stylesSibling}
     }
@@ -66,14 +63,7 @@ List.propTypes = {
   size: sizesPropTypes,
   start: PropTypes.number,
   styleType: PropTypes.oneOfType([
-    PropTypes.oneOf([
-      'disc',
-      'circle',
-      'square',
-      'decimal',
-      'lower-alpha',
-      'none',
-    ]),
+    PropTypes.oneOf(['disc', 'circle', 'square', 'decimal', 'lower-alpha', 'none']),
     PropTypes.string,
   ]),
   type: PropTypes.oneOf(['1', 'a', 'A', 'i', 'I']),

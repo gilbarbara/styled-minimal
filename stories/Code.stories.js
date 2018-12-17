@@ -10,8 +10,6 @@ storiesOf('Code', module)
   })
   .add('default', () => (
     <View skipSpacer>
-      <Code>
-        {'<MyComponent variant="green">Some Code</MyComponent>'}
-      </Code>
+      <Code>{'<MyComponent variant="green">Some Code</MyComponent>'}</Code>
     </View>
   ));

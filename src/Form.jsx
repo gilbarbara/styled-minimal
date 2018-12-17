@@ -7,11 +7,7 @@ import Box from './Box';
 
 const styles = (props: Object): string => {
   const { bordered } = props;
-  const {
-    borderColor,
-    borderRadius,
-    padding,
-  } = themeGet(props, 'form');
+  const { borderColor, borderRadius, padding } = themeGet(props, 'form');
 
   return css`
     ${bordered ? `border: 1px solid ${borderColor};` : ''}
@@ -33,10 +29,7 @@ Form.propTypes = {
   bordered: PropTypes.bool,
   children: PropTypes.node.isRequired,
   enctype: PropTypes.string,
-  method: PropTypes.oneOf([
-    'get',
-    'post',
-  ]),
+  method: PropTypes.oneOf(['get', 'post']),
   target: PropTypes.string,
   ...Box.propTypes,
 };

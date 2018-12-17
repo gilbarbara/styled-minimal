@@ -25,8 +25,7 @@ const styles = (props: Object): string => {
 
   if (valid) {
     thisColor = validation.valid;
-  }
-  else if (valid === false) {
+  } else if (valid === false) {
     thisColor = validation.invalid;
   }
 
@@ -43,8 +42,8 @@ const styles = (props: Object): string => {
     ${['checkbox', 'radio'].includes(type) ? `margin: 0 ${px(inlineMargin)} 0 0` : ''};
     padding: ${inputTextTypes.includes(type) ? px(padding[size]) : 0};
     ${!['checkbox', 'radio', 'color'].includes(type) ? 'width: 100%;' : ''};
-    
-    &[type=file] {
+
+    &[type='file'] {
       font-size: ${px(fontSize[size] - 1)};
       padding: ${px(padding[size] - 1)};
     }
@@ -64,10 +63,7 @@ Input.propTypes = {
   autoComplete: PropTypes.string,
   checked: PropTypes.bool,
   defaultChecked: PropTypes.bool,
-  defaultValue: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
+  defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   disabled: PropTypes.bool,
   id: PropTypes.string,
   maxLength: PropTypes.number,
@@ -94,10 +90,7 @@ Input.propTypes = {
     'text',
   ]),
   valid: PropTypes.bool,
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   ...Box.propTypes,
 };
 

@@ -129,7 +129,13 @@ export const button = {
   },
   textTransform: 'none',
   loader: (color: string = '#fff') => css`
-    background-image: repeating-linear-gradient(45deg, ${rgba(color, 0.4)}, ${rgba(color, 0.4)} 20px, transparent 20px, transparent 40px);
+    background-image: repeating-linear-gradient(
+      45deg,
+      ${rgba(color, 0.4)},
+      ${rgba(color, 0.4)} 20px,
+      transparent 20px,
+      transparent 40px
+    );
     background-size: 56px 56px;
     animation: ${buttonAnimation} 0.5s linear infinite;
     pointer-events: none;

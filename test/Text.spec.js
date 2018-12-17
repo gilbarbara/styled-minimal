@@ -8,7 +8,7 @@ describe('Text', () => {
     <React.Fragment>
       <Text>Far far away, behind the word mountains, </Text>
       <Text>far from the countries Vokalia and Consonantia, there live the blind texts.</Text>
-    </React.Fragment>
+    </React.Fragment>,
   );
 
   it('should render properly', () => {

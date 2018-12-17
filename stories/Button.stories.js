@@ -31,11 +31,21 @@ storiesOf('Button', module)
   ))
   .add('with size', () => (
     <ViewCheckbox>
-      <Button onClick={action('clicked')} size="xs">Button XS</Button>
-      <Button onClick={action('clicked')} size="sm">Button SM</Button>
-      <Button onClick={action('clicked')} size="md">Button MD</Button>
-      <Button onClick={action('clicked')} size="lg">Button LG</Button>
-      <Button onClick={action('clicked')} size="xl">Button XL</Button>
+      <Button onClick={action('clicked')} size="xs">
+        Button XS
+      </Button>
+      <Button onClick={action('clicked')} size="sm">
+        Button SM
+      </Button>
+      <Button onClick={action('clicked')} size="md">
+        Button MD
+      </Button>
+      <Button onClick={action('clicked')} size="lg">
+        Button LG
+      </Button>
+      <Button onClick={action('clicked')} size="xl">
+        Button XL
+      </Button>
     </ViewCheckbox>
   ))
   .add('with variant', () => (
@@ -85,23 +95,35 @@ storiesOf('Button', module)
   .add('with icons', () => (
     <ViewCheckbox>
       <Button onClick={action('clicked')}>
-        <span role="img" aria-label="so cool" style={{ marginRight: 5 }}>😀</span>
+        <span role="img" aria-label="so cool" style={{ marginRight: 5 }}>
+          😀
+        </span>
         <span>COOL</span>
       </Button>
       <Button onClick={action('clicked')}>
-        <span role="img" aria-label="fresh" style={{ marginRight: 5 }}><SVG /></span>
+        <span role="img" aria-label="fresh" style={{ marginRight: 5 }}>
+          <SVG />
+        </span>
         <span>COOL</span>
       </Button>
       <Button onClick={action('clicked')}>
         <span style={{ marginRight: 5 }}>SUPER</span>
-        <span role="img" aria-label="fresh"><SVG /></span>
+        <span role="img" aria-label="fresh">
+          <SVG />
+        </span>
       </Button>
     </ViewCheckbox>
   ))
   .add('with animation', () => (
     <ViewCheckbox>
-      <Button onClick={action('clicked')} animate>Waiting</Button>
-      <Button onClick={action('clicked')} variant="success" animate>Loading</Button>
-      <Button onClick={action('clicked')} variant="indigo" animate>Running</Button>
+      <Button onClick={action('clicked')} animate>
+        Waiting
+      </Button>
+      <Button onClick={action('clicked')} variant="success" animate>
+        Loading
+      </Button>
+      <Button onClick={action('clicked')} variant="indigo" animate>
+        Running
+      </Button>
     </ViewCheckbox>
   ));

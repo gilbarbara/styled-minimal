@@ -14,7 +14,7 @@ describe('Embed', () => {
           frameBorder="0"
           allowFullScreen
         />`}
-    </Embed>
+    </Embed>,
   );
 
   it('should render properly', () => {

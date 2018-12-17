@@ -16,7 +16,7 @@ exports[`Input should render properly 1`] = `
   width: 100%;
 }
 
-.c0[type=file] {
+.c0[type='file'] {
   font-size: 15px;
   padding: 7px;
 }

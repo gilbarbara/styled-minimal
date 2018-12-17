@@ -8,7 +8,7 @@ describe('Fieldset', () => {
   const wrapper = mount(
     <Fieldset>
       <Legend>Title</Legend>
-    </Fieldset>
+    </Fieldset>,
   );
 
   it('should render properly', () => {

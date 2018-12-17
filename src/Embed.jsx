@@ -8,7 +8,7 @@ const StyledEmbed = styled(Box)`
   overflow: hidden;
   position: relative;
   width: 100%;
-  
+
   & > iframe {
     border: 0;
     bottom: 0;

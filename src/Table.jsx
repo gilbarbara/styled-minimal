@@ -12,7 +12,9 @@ const styles = (props: Object): string => {
 
   return css`
     background-color: ${colors[inverted ? 'secondary' : 'primary']};
-    ${bordered && !borderless ? `border: 1px solid ${borderColors[inverted ? 'secondary' : 'primary']};` : ''};
+    ${bordered && !borderless
+      ? `border: 1px solid ${borderColors[inverted ? 'secondary' : 'primary']};`
+      : ''};
     border-collapse: collapse;
     color: ${colors[inverted ? 'primary' : 'secondary']};
     width: 100%;
@@ -38,13 +40,18 @@ const stylesCellBorder = (props: Object): string => {
     return '';
   }
 
-  return css`${bordered ? 'border' : 'border-top'}: 1px solid ${borderColors[inverted ? 'secondary' : 'primary']};`;
+  return css`
+    ${bordered ? 'border' : 'border-top'}: 1px solid
+      ${borderColors[inverted ? 'secondary' : 'primary']};
+  `;
 };
 const stylesHeadBackgroundColor = (props: Object): string => {
   const { head } = props;
   const { headColors } = themeGet(props, 'table');
 
-  return css`background-color: ${headColors[head] || 'transparent'};`;
+  return css`
+    background-color: ${headColors[head] || 'transparent'};
+  `;
 };
 const stylesHeadCellBorder = (props: Object): string => {
   const { bordered, borderless, inverted } = props;
@@ -65,7 +72,9 @@ const stylesHeadColor = (props: Object): string => {
   const { colors } = themeGet(props, 'table');
 
   if (head) {
-    return css`color: ${colors[head === 'dark' ? 'primary' : 'secondary']};`;
+    return css`
+      color: ${colors[head === 'dark' ? 'primary' : 'secondary']};
+    `;
   }
 
   return '';
@@ -74,14 +83,18 @@ const stylesPadding = (props: Object): string => {
   const { size } = props;
   const { padding } = themeGet(props, 'table');
 
-  return css`padding: ${px(padding[size])};`;
+  return css`
+    padding: ${px(padding[size])};
+  `;
 };
 const stylesStriped = (props: Object): string => {
   const { inverted, striped } = props;
   const { stripedColors } = themeGet(props, 'table');
 
   if (striped) {
-    return css`background-color: ${stripedColors[inverted ? 'secondary' : 'primary']};`;
+    return css`
+      background-color: ${stripedColors[inverted ? 'secondary' : 'primary']};
+    `;
   }
 
   return '';
@@ -89,7 +102,7 @@ const stylesStriped = (props: Object): string => {
 
 const Table = styled(Box)`
   ${styles};
-  
+
   th {
     text-align: inherit;
   }
@@ -100,17 +113,17 @@ const Table = styled(Box)`
     ${stylesPadding};
     vertical-align: top;
   }
-  
+
   thead {
     ${stylesHeadBackgroundColor};
     ${stylesHeadColor};
   }
-  
+
   thead th {
     ${stylesHeadCellBorder};
     vertical-align: bottom;
   }
-  
+
   tbody tr:nth-of-type(odd) {
     ${stylesStriped};
   }

@@ -4,9 +4,7 @@ import { mount } from 'enzyme';
 import Button from '../src/Button';
 
 describe('Button', () => {
-  const wrapper = mount(
-    <Button>CLICK ME</Button>
-  );
+  const wrapper = mount(<Button>CLICK ME</Button>);
 
   it('should render properly', () => {
     expect(wrapper).toMatchSnapshot();

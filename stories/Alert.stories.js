@@ -22,7 +22,10 @@ storiesOf('Alert', module)
         size={select('Size', sizesOptions, 'md')}
         variant={select('Variant', variantOptions, 'primary')}
       >
-        {text('Children', 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.')}
+        {text(
+          'Children',
+          'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.',
+        )}
       </Alert>
     </ViewCheckbox>
   ))
@@ -36,9 +39,13 @@ storiesOf('Alert', module)
       >
         <Flex alignItems="center">
           <SVG style={{ marginRight: 16 }} />
-          <Box>It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</Box>
+          <Box>
+            It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
+          </Box>
         </Flex>
-        <Box mt={1} pt={1} borderTop="1px solid #fff">Footer</Box>
+        <Box mt={1} pt={1} borderTop="1px solid #fff">
+          Footer
+        </Box>
       </Alert>
     </ViewCheckbox>
   ))
@@ -56,7 +63,10 @@ storiesOf('Alert', module)
       {variantOptions.map((d, i) => (
         <Alert key={i} variant={d}>
           <Heading as="h4">{capitalize(d)}</Heading>
-          <Paragraph>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</Paragraph>
+          <Paragraph>
+            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+            there live the blind texts.
+          </Paragraph>
         </Alert>
       ))}
     </ViewCheckbox>
@@ -66,7 +76,10 @@ storiesOf('Alert', module)
       {variantOptions.map((d, i) => (
         <Alert key={i} variant={d} dark>
           <Heading as="h4">{capitalize(d)}</Heading>
-          <Paragraph>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</Paragraph>
+          <Paragraph>
+            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+            there live the blind texts.
+          </Paragraph>
         </Alert>
       ))}
     </ViewCheckbox>
@@ -76,7 +89,10 @@ storiesOf('Alert', module)
       {variantOptions.map((d, i) => (
         <Alert key={i} outline variant={d}>
           <Heading as="h4">{capitalize(d)}</Heading>
-          <Paragraph>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</Paragraph>
+          <Paragraph>
+            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+            there live the blind texts.
+          </Paragraph>
         </Alert>
       ))}
     </ViewCheckbox>

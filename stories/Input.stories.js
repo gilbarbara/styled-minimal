@@ -8,12 +8,7 @@ import { Input } from '../src';
 import { View } from './helpers/components';
 
 const ViewInput = ({ children, ...rest }) => (
-  <View
-    direction="column"
-    skipSpacer
-    style={{ padding: 10 }}
-    {...rest}
-  >
+  <View direction="column" skipSpacer style={{ padding: 10 }} {...rest}>
     {children}
   </View>
 );
@@ -40,39 +35,59 @@ storiesOf('Input', module)
       />
     </ViewInput>
   ))
-  .add('with type', () => (
-    <ViewInput>
-      <Input type="checkbox" /><br />
-      <Input type="color" /><br />
-      <Input type="date" /><br />
-      <Input type="email" placeholder="email" /><br />
-      <Input type="file" placeholder="file" /><br />
-      <Input type="hidden" placeholder="hidden" /><br />
-      <Input type="number" placeholder="number" /><br />
-      <Input type="password" placeholder="password" /><br />
-      <Input type="radio" placeholder="radio" /><br />
-      <Input type="search" placeholder="search" /><br />
-      <Input type="tel" placeholder="tel" /><br />
-      <Input type="text" placeholder="text" />
-    </ViewInput>
-  ), { info: { source: false } })
+  .add(
+    'with type',
+    () => (
+      <ViewInput>
+        <Input type="checkbox" />
+        <br />
+        <Input type="color" />
+        <br />
+        <Input type="date" />
+        <br />
+        <Input type="email" placeholder="email" />
+        <br />
+        <Input type="file" placeholder="file" />
+        <br />
+        <Input type="hidden" placeholder="hidden" />
+        <br />
+        <Input type="number" placeholder="number" />
+        <br />
+        <Input type="password" placeholder="password" />
+        <br />
+        <Input type="radio" placeholder="radio" />
+        <br />
+        <Input type="search" placeholder="search" />
+        <br />
+        <Input type="tel" placeholder="tel" />
+        <br />
+        <Input type="text" placeholder="text" />
+      </ViewInput>
+    ),
+    { info: { source: false } },
+  )
   .add('with size', () => (
     <ViewInput>
-      <Input size="sm" placeholder="sm" /><br />
-      <Input size="md" placeholder="md" /><br />
+      <Input size="sm" placeholder="sm" />
+      <br />
+      <Input size="md" placeholder="md" />
+      <br />
       <Input size="lg" placeholder="lg" />
     </ViewInput>
   ))
   .add('with status', () => (
     <ViewInput>
-      <Input disabled placeholder="disabled" /><br />
-      <Input placeholder="normal" /><br />
+      <Input disabled placeholder="disabled" />
+      <br />
+      <Input placeholder="normal" />
+      <br />
       <Input required placeholder="required" />
     </ViewInput>
   ))
   .add('with validation', () => (
     <ViewInput>
-      <Input name="name" placeholder="Your Name" required valid={false} /><br />
+      <Input name="name" placeholder="Your Name" required valid={false} />
+      <br />
       <Input name="name" placeholder="Your Name" required valid={true} />
     </ViewInput>
   ));

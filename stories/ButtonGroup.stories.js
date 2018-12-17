@@ -20,25 +20,14 @@ storiesOf('ButtonGroup', module)
         size={select('Size', sizesOptions, 'md')}
         variant={select('Variant', variantOptions, 'primary')}
       >
-        <Button
-          dark={boolean('Dark', false)}
-          outline
-        >
+        <Button dark={boolean('Dark', false)} outline>
           First
         </Button>
-        <Button>
-          Second
-        </Button>
-        <Button
-          dark={boolean('Dark', false)}
-          outline
-        >
+        <Button>Second</Button>
+        <Button dark={boolean('Dark', false)} outline>
           Third
         </Button>
-        <Button
-          dark={boolean('Dark', false)}
-          outline
-        >
+        <Button dark={boolean('Dark', false)} outline>
           Forth
         </Button>
       </ButtonGroup>

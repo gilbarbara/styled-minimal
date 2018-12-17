@@ -9,7 +9,7 @@ const Code = styled(Box)`
   background-color: #e8eded;
   border: 1px solid #d0dada;
   border-radius: 2px;
-  font-family: "SF Mono", "Roboto Mono", Menlo, monospace;
+  font-family: 'SF Mono', 'Roboto Mono', Menlo, monospace;
   padding: ${spacer(2)};
 `;
 

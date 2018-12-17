@@ -8,23 +8,18 @@ import Legend from './Legend';
 
 const styles = (props: Object): string => {
   const { inline } = props;
-  const {
-    borderColor,
-    borderRadius,
-    padding,
-    marginBottom,
-  } = themeGet(props, 'fieldset');
+  const { borderColor, borderRadius, padding, marginBottom } = themeGet(props, 'fieldset');
 
   return css`
     border: 1px solid ${borderColor};
     border-radius: ${px(borderRadius)};
     margin-bottom: ${px(marginBottom)};
     padding: ${px(padding)};
-    text-align:left;
+    text-align: left;
 
     > *:not(legend) {
       ${inline ? 'display: inline-block;' : ''};
-      
+
       + * {
         ${inline ? `margin-left: ${spacer(2)} ;` : ''};
       }
@@ -34,7 +29,7 @@ const styles = (props: Object): string => {
 
 const Fieldset = styled(Box)`
   ${styles};
-  
+
   ${Legend} {
     margin: 0;
   }
