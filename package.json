@@ -93,12 +93,14 @@
     "flow-bin": "^0.89.0",
     "gzip-size": "^5.0.0",
     "husky": "^1.2.1",
+    "is-ci-cli": "^1.1.1",
     "jest": "^23.6.0",
     "jest-chain": "^1.0.5",
     "jest-enzyme": "^7.0.1",
     "jest-extended": "^0.11.0",
     "jest-styled-components": "^6.3.1",
     "jest-watch-typeahead": "^0.2.0",
+    "lint-staged": "^8.1.0",
     "prettier": "^1.15.3",
     "prettysize": "^2.0.0",
     "prop-types": "^15.6.2",
@@ -132,11 +134,14 @@
     "lint": "eslint --ext .js --ext .jsx src stories",
     "lint:styles": "stylelint '(src/**/*.{js,jsx}|!src/index.js)'",
     "format": "prettier \"**/*.{js,jsx}\" --write",
-    "test": "jest --coverage",
+    "test": "is-ci \"test:coverage\" \"test:watch\"",
+    "test:coverage": "jest --bail --coverage",
     "test:watch": "jest --watch",
     "bundlesize": "node tools/sizer",
     "validate": "npm run lint && npm run lint:styles && npm t && flow && npm run build && npm run bundlesize",
-    "prepublishOnly": "npm run build"
+    "precommit": "lint-staged && flow",
+    "prepublishOnly": "npm run build",
+    "postpublish": "npm run clean"
   },
   "browserslist": [
     "> 0.2%",
@@ -144,7 +149,7 @@
   ],
   "husky": {
     "hooks": {
-      "pre-commit": "npm run validate"
+      "pre-commit": "npm run precommit"
     }
   }
 }
