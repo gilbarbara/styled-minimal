@@ -133,6 +133,7 @@ exports[`ButtonGroup should render properly 1`] = `
   >
     <Button
       animate={false}
+      as="button"
       block={false}
       disabled={false}
       key=".0"
@@ -141,17 +142,18 @@ exports[`ButtonGroup should render properly 1`] = `
       type="button"
       variant="indigo"
     >
-      <div
+      <button
         className="c1"
         disabled={false}
         size="sm"
         type="button"
       >
         First
-      </div>
+      </button>
     </Button>
     <Button
       animate={false}
+      as="button"
       block={false}
       disabled={false}
       key=".1"
@@ -160,17 +162,18 @@ exports[`ButtonGroup should render properly 1`] = `
       type="button"
       variant="indigo"
     >
-      <div
+      <button
         className="c2"
         disabled={false}
         size="sm"
         type="button"
       >
         Second
-      </div>
+      </button>
     </Button>
     <Button
       animate={false}
+      as="button"
       block={false}
       disabled={false}
       key=".2"
@@ -179,17 +182,18 @@ exports[`ButtonGroup should render properly 1`] = `
       type="button"
       variant="indigo"
     >
-      <div
+      <button
         className="c1"
         disabled={false}
         size="sm"
         type="button"
       >
         Third
-      </div>
+      </button>
     </Button>
     <Button
       animate={false}
+      as="button"
       block={false}
       disabled={false}
       key=".3"
@@ -198,14 +202,14 @@ exports[`ButtonGroup should render properly 1`] = `
       type="button"
       variant="indigo"
     >
-      <div
+      <button
         className="c1"
         disabled={false}
         size="sm"
         type="button"
       >
         Forth
-      </div>
+      </button>
     </Button>
   </div>
 </StyledButtonGroup>

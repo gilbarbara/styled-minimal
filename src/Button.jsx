@@ -69,6 +69,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   animate: false,
+  as: 'button',
   block: false,
   disabled: false,
   outline: false,

@@ -51,7 +51,6 @@ const ButtonGroup = ({ children, size, variant, ...props }) => {
 ButtonGroup.displayName = 'ButtonGroup';
 
 ButtonGroup.propTypes = {
-  as: PropTypes.string,
   children: PropTypes.node.isRequired,
   size: sizesAllPropTypes,
   variant: variantPropTypes,

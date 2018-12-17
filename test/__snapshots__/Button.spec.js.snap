@@ -53,6 +53,7 @@ exports[`Button should render properly 1`] = `
 
 <Button
   animate={false}
+  as="button"
   block={false}
   disabled={false}
   outline={false}
@@ -60,13 +61,13 @@ exports[`Button should render properly 1`] = `
   type="button"
   variant="primary"
 >
-  <div
+  <button
     className="c0"
     disabled={false}
     size="md"
     type="button"
   >
     CLICK ME
-  </div>
+  </button>
 </Button>
 `;

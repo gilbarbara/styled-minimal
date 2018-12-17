@@ -409,6 +409,7 @@ Object {
     },
     "defaultProps": Object {
       "animate": false,
+      "as": "button",
       "block": false,
       "disabled": false,
       "outline": false,
