@@ -5,7 +5,7 @@ const chalk = require('chalk');
 const { fileSync } = require('gzip-size');
 const ps = require('prettysize');
 
-const limit = 1024 * 40;
+const limit = 1024 * 45;
 
 function getSizes(path, regex = /\.js$/) {
   if (!existsSync(path)) {
