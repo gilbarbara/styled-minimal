@@ -1,27 +1,27 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { px, spacer, themeGet } from './utils/helpers';
+import { isDefined, px, spacer, themeGet } from './utils/helpers';
 
 import Box from './Box';
 import Legend from './Legend';
 
 const styles = (props: Object): string => {
-  const { inline } = props;
+  const { borderRadius: br, inline, mb, ml, padding: pd } = props;
   const { borderColor, borderRadius, padding, marginBottom } = themeGet(props, 'fieldset');
 
   return css`
     border: 1px solid ${borderColor};
-    border-radius: ${px(borderRadius)};
-    margin-bottom: ${px(marginBottom)};
-    padding: ${px(padding)};
+    border-radius: ${px(isDefined(br) ? px(br) : borderRadius)};
+    margin-bottom: ${px(isDefined(mb) ? mb : marginBottom)};
+    padding: ${px(isDefined(pd) ? pd : padding)};
     text-align: left;
 
     > *:not(legend) {
       ${inline ? 'display: inline-block;' : ''};
 
       + * {
-        ${inline ? `margin-left: ${spacer(2)} ;` : ''};
+        ${inline ? `margin-left: ${isDefined(ml) ? px(ml) : spacer(2)} ;` : ''};
       }
     }
   `;

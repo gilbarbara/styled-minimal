@@ -13,16 +13,44 @@ const ViewInput = ({ children, ...rest }) => (
   </View>
 );
 
+class Validator extends React.Component {
+  state = {
+    i1: false,
+    i2: null,
+  };
+
+  handleChange = ({ target }) => {
+    this.setState({
+      [target.name]: target.value.length > 0,
+    });
+  };
+
+  render() {
+    const { i1, i2 } = this.state;
+
+    return (
+      <ViewInput>
+        <Input name="i1" placeholder="Your Name" onChange={this.handleChange} valid={i1} />
+        <br />
+        <Input name="i2" placeholder="Your Email" onChange={this.handleChange} valid={i2} />
+      </ViewInput>
+    );
+  }
+}
+
 storiesOf('Input', module)
   .addDecorator(withKnobs)
   .addParameters({
-    info: { propTablesExclude: [ViewInput] },
+    info: { propTablesExclude: [ViewInput, Validator] },
   })
   .add('default', () => (
     <ViewInput>
       <Input
         accept={text('Accept')}
         autoComplete={text('Autocomplete')}
+        bg={text('Background Color', '')}
+        color={text('Color', '')}
+        bordered={boolean('Bordered', true)}
         checked={boolean('Checked', false)}
         disabled={boolean('Disabled', false)}
         maxLength={number('Max Length')}
@@ -84,10 +112,4 @@ storiesOf('Input', module)
       <Input required placeholder="required" />
     </ViewInput>
   ))
-  .add('with validation', () => (
-    <ViewInput>
-      <Input name="name" placeholder="Your Name" required valid={false} />
-      <br />
-      <Input name="name" placeholder="Your Name" required valid={true} />
-    </ViewInput>
-  ));
+  .add('with validation', () => <Validator />);

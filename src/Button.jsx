@@ -1,33 +1,33 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { getColor, px, themeGet } from './utils/helpers';
+import { getColor, isDefined, px, themeGet } from './utils/helpers';
 import { baseStyles, buttonPropTypes, sizesAllPropTypes, variantPropTypes } from './utils/system';
 
 import Badge from './Badge';
 import Box from './Box';
 
 const styles = (props: Object): string => {
-  const { animate, disabled, outline, size } = props;
+  const { animate, borderRadius: br, disabled, fontSize, lineHeight: lh, outline, size } = props;
   const { borderRadius, disabledOpacity, lineHeight, loader, padding } = themeGet(props, 'button');
   const fontSizeProp = themeGet(props, 'componentSizes', { key: 'size' });
 
   return css`
     ${baseStyles.variant};
     align-items: center;
-    border-radius: ${px(borderRadius[size])};
+    border-radius: ${px(isDefined(br) ? br : borderRadius[size])};
     box-shadow: none;
     cursor: pointer;
     display: inline-flex;
     font-family: inherit;
-    ${fontSizeProp ? `font-size: ${fontSizeProp}` : ''};
+    ${fontSizeProp ? `font-size: ${fontSize || fontSizeProp}` : ''};
     justify-content: center;
-    line-height: ${lineHeight};
+    line-height: ${lh || lineHeight};
     ${disabled && `opacity: ${disabledOpacity};`};
     padding: ${px(padding[size][0])} ${px(padding[size][1])};
     text-decoration: none;
-    width: ${({ block }) => (block ? '100%' : 'auto')}
-      ${animate ? loader(outline ? '#ccc' : '#fff') : ''};
+    width: ${({ block }) => (block ? '100%' : 'auto')};
+    ${animate ? loader(outline ? '#ccc' : '#fff') : ''};
   `;
 };
 

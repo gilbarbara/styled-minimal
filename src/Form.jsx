@@ -6,14 +6,14 @@ import { px, themeGet } from './utils/helpers';
 import Box from './Box';
 
 const styles = (props: Object): string => {
-  const { bordered } = props;
+  const { bordered, textAlign } = props;
   const { borderColor, borderRadius, padding } = themeGet(props, 'form');
 
   return css`
     ${bordered ? `border: 1px solid ${borderColor};` : ''}
     ${bordered ? `border-radius: ${px(borderRadius)};` : ''}
     ${bordered ? `padding: ${px(padding)};` : ''}
-    text-align:left;
+    text-align: ${textAlign || 'left'};
   `;
 };
 

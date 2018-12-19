@@ -4,9 +4,9 @@ exports[`Textarea should render properly 1`] = `
 .c0 {
   box-sizing: border-box;
   background-color: #fff;
-  border: 1 solid #ccc;
+  border: 1px solid #ccc;
   border-radius: 2px;
-  color: #343434;
+  color: #2E2E2E;
   display: block;
   font-family: inherit;
   font-size: 16px;
@@ -17,38 +17,39 @@ exports[`Textarea should render properly 1`] = `
 }
 
 .c0::-webkit-input-placeholder {
-  color: #b3b3b3;
+  color: #aeaeae;
 }
 
 .c0:-moz-placeholder {
-  color: #b3b3b3;
+  color: #aeaeae;
 }
 
 .c0::-moz-placeholder {
-  color: #b3b3b3;
+  color: #aeaeae;
 }
 
 .c0:-ms-input-placeholder {
-  color: #b3b3b3;
+  color: #aeaeae;
 }
 
 .c0:-moz-read-only {
   background-color: #fafafa;
-  color: #818181;
+  color: #7a7a7a;
 }
 
 .c0:read-only {
   background-color: #fafafa;
-  color: #818181;
+  color: #7a7a7a;
 }
 
 .c0:disabled {
   background-color: #f2f2f2;
-  color: #676767;
+  color: #616161;
 }
 
 .c0:focus {
-  outline-color: #000;
+  outline-color: #ccc;
+  outline-offset: 1px;
 }
 
 .c0:required:not(:valid) {
@@ -73,6 +74,7 @@ exports[`Textarea should render properly 1`] = `
 
 <Textarea
   as="textarea"
+  bordered={true}
   defaultValue="Far far away"
   name="test"
   rows={3}

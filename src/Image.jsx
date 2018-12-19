@@ -1,11 +1,15 @@
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import Box from './Box';
 
-const Image = styled(Box)`
-  max-width: 100%;
-`;
+const Image = styled(Box)(props => {
+  const { maxWidth } = props;
+
+  return css`
+    max-width: ${maxWidth || '100%'};
+  `;
+});
 
 Image.displayName = 'Image';
 

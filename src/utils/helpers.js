@@ -1,6 +1,6 @@
 // @flow
 import deepmerge from 'deepmerge';
-import parseToRgb from 'polished/lib/color/parseToRgb';
+import { darken, getLuminance, lighten, opacify, parseToRgb, rgba } from 'polished';
 import * as defaultTheme from './theme';
 
 /** Check if a variable is defined **/
@@ -154,11 +154,29 @@ export const responsive = (input: Function | Object, queryBuilderFn?: Function):
  */
 export function getColor(props: Object, base: string = 'primary'): string {
   const { variant } = props;
-  const colors = themeGet(props, 'colors');
-  const palette = themeGet(props, 'palette');
+  const { colors, palette } = themeGet(props);
 
   return palette[variant] || colors[variant] || palette[base];
 }
+
+export const getDimmerColor = (val: string): string => {
+  try {
+    const luminance = getLuminance(val);
+    let dimmer = lighten(0.4, val);
+
+    if (luminance > 0.7) {
+      dimmer = darken(0.2, val);
+    } else if (luminance > 0.2) {
+      dimmer = lighten(0.2, val);
+    } else if (luminance > 0.1) {
+      dimmer = lighten(0.3, val);
+    }
+
+    return dimmer;
+  } catch (error) {
+    return val;
+  }
+};
 
 /**
  * Color contrast
@@ -173,3 +191,5 @@ export function getYiq(color: string): number {
 
   return (r * 299 + g * 587 + b * 114) / 1000;
 }
+
+export { darken, lighten, opacify, rgba };

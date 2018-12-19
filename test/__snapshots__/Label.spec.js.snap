@@ -7,7 +7,7 @@ exports[`Label should render properly 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  color: #343434;
+  color: #2E2E2E;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

@@ -1,13 +1,27 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { px, themeGet } from './utils/helpers';
-import { formPseudo, sizesPropTypes } from './utils/system';
+import { isDefined, px, themeGet } from './utils/helpers';
+import { formPseudo, outlines, sizesPropTypes } from './utils/system';
 
 import Box from './Box';
 
 const styles = (props: Object): string => {
-  const { size, valid } = props;
+  const {
+    bg,
+    bordered,
+    borderColor: bc,
+    borderRadius: br,
+    borderWidth: bw,
+    color: cl,
+    fontFamily,
+    fontSize: fz,
+    lineHeight: lh,
+    padding: pd,
+    size,
+    valid,
+    width,
+  } = props;
   const {
     backgroundColor,
     borderColor,
@@ -15,30 +29,30 @@ const styles = (props: Object): string => {
     borderWidth,
     color,
     fontSize,
-    lineHeightTextarea,
+    lineHeight,
     padding,
     validation,
-  } = themeGet(props, 'input');
-  let thisColor = borderColor;
+  } = themeGet(props, 'textarea');
 
+  let currentBorderColor = bc || borderColor;
   if (valid) {
-    thisColor = validation.valid;
+    currentBorderColor = validation.valid;
   } else if (valid === false) {
-    thisColor = validation.invalid;
+    currentBorderColor = validation.invalid;
   }
 
   return css`
-    background-color: ${backgroundColor};
-    border: ${borderWidth ? `${borderWidth} solid ${thisColor}` : ''};
-    border-radius: ${px(borderRadius)};
-    color: ${color};
+    background-color: ${bg || backgroundColor};
+    border: ${bordered ? `${px(bw || borderWidth)} solid ${currentBorderColor}` : 0};
+    border-radius: ${px(isDefined(br) ? br : borderRadius)};
+    color: ${cl || color};
     display: block;
-    font-family: inherit;
-    font-size: ${px(fontSize[size])};
-    line-height: ${lineHeightTextarea};
+    font-family: ${fontFamily || 'inherit'};
+    font-size: ${px(fz || fontSize[size])};
+    line-height: ${lh || lineHeight};
     margin: 0;
-    padding: ${px(padding[size])};
-    width: 100%;
+    padding: ${px(isDefined(pd) ? pd : padding[size])};
+    width: ${width || '100%'};
   `;
 };
 
@@ -51,6 +65,7 @@ const Textarea = styled(Box).attrs(({ id, name }) => ({
 
 Textarea.propTypes = {
   as: PropTypes.string,
+  bordered: PropTypes.bool,
   defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   disabled: PropTypes.bool,
   id: PropTypes.string,
@@ -67,10 +82,12 @@ Textarea.propTypes = {
   value: PropTypes.string,
   wrap: PropTypes.oneOf(['soft', 'hard']),
   ...Box.propTypes,
+  ...outlines.propTypes,
 };
 
 Textarea.defaultProps = {
   as: 'textarea',
+  bordered: true,
   rows: 3,
   size: 'md',
 };

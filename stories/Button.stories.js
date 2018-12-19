@@ -19,11 +19,11 @@ storiesOf('Button', module)
         animate={boolean('Animate', false)}
         block={boolean('Block', false)}
         disabled={boolean('Disabled', false)}
+        fontWeight={select('Font Weight', ['normal', 'bold'], 'normal')}
         onClick={action('clicked')}
         outline={boolean('Outline', false)}
         size={select('Size', sizesOptions, 'md')}
         variant={select('Variant', variantOptions, 'primary')}
-        fontWeight={select('Font Weight', ['normal', 'bold'], 'normal')}
       >
         {text('Children', 'Click here now')}
       </Button>

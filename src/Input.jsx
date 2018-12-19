@@ -1,13 +1,29 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { px, themeGet } from './utils/helpers';
-import { formPseudo, inputTextTypes } from './utils/system';
+import { isDefined, px, themeGet } from './utils/helpers';
+import { formPseudo, inputTextTypes, outlines } from './utils/system';
 
 import Box from './Box';
 
 const styles = (props: Object): string => {
-  const { size, type, valid } = props;
+  const {
+    bg,
+    bordered,
+    borderColor: bc,
+    borderRadius: br,
+    borderWidth: bw,
+    color: cl,
+    fontFamily,
+    fontSize: fz,
+    height: h,
+    lineHeight: lh,
+    padding: pd,
+    size,
+    type,
+    valid,
+    width,
+  } = props;
   const {
     backgroundColor,
     borderColor,
@@ -21,27 +37,28 @@ const styles = (props: Object): string => {
     padding,
     validation,
   } = themeGet(props, 'input');
-  let thisColor = borderColor;
+
+  let currentBorderColor = bc || borderColor;
 
   if (valid) {
-    thisColor = validation.valid;
+    currentBorderColor = validation.valid;
   } else if (valid === false) {
-    thisColor = validation.invalid;
+    currentBorderColor = validation.invalid;
   }
 
   return css`
-    background-color: ${backgroundColor};
-    border: ${borderWidth ? `${px(borderWidth)} solid ${thisColor}` : ''};
-    border-radius: ${px(borderRadius)};
-    color: ${color};
+    background-color: ${bg || backgroundColor};
+    border: ${bordered ? `${px(bw || borderWidth)} solid ${currentBorderColor}` : 0};
+    border-radius: ${px(isDefined(br) ? br : borderRadius)};
+    color: ${cl || color};
     display: ${!['checkbox', 'radio'].includes(type) ? 'block' : 'inline-block'};
-    font-family: inherit;
-    font-size: ${px(fontSize[size])};
-    ${inputTextTypes.includes(type) ? `height: ${px(height[size])}` : ''};
-    line-height: ${lineHeight};
+    font-family: ${fontFamily || 'inherit'};
+    font-size: ${px(fz || fontSize[size])};
+    ${inputTextTypes.includes(type) ? `height: ${h || px(height[size])}` : ''};
+    line-height: ${lh || lineHeight};
     ${['checkbox', 'radio'].includes(type) ? `margin: 0 ${px(inlineMargin)} 0 0` : ''};
-    padding: ${inputTextTypes.includes(type) ? px(padding[size]) : 0};
-    ${!['checkbox', 'radio', 'color'].includes(type) ? 'width: 100%;' : ''};
+    padding: ${inputTextTypes.includes(type) ? px(isDefined(pd) ? pd : padding[size]) : 0};
+    ${!['checkbox', 'radio', 'color'].includes(type) ? `width: ${width || '100%'}` : ''};
 
     &[type='file'] {
       font-size: ${px(fontSize[size] - 1)};
@@ -61,6 +78,7 @@ Input.propTypes = {
   accept: PropTypes.string,
   as: PropTypes.string,
   autoComplete: PropTypes.string,
+  bordered: PropTypes.bool,
   checked: PropTypes.bool,
   defaultChecked: PropTypes.bool,
   defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
@@ -92,10 +110,12 @@ Input.propTypes = {
   valid: PropTypes.bool,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   ...Box.propTypes,
+  ...outlines.propTypes,
 };
 
 Input.defaultProps = {
   as: 'input',
+  bordered: true,
   size: 'md',
   type: 'text',
   value: undefined,

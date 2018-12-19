@@ -1,34 +1,27 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { px, themeGet } from './utils/helpers';
+import { isDefined, px, themeGet } from './utils/helpers';
 import { baseStyles } from './utils/system';
 
 import Box from './Box';
 
-const styles = (props: Object): string => {
-  const { inline } = props;
-  const { color: labelColor, fontWeight: labelFontWeight, inlineFontSize, marginBottom } = themeGet(
-    props,
-    'label',
-  );
+const Label = styled(Box)(props => {
+  const { color: cl, fontFamily, fontSize, fontWeight: fw, inline, lineHeight, mb } = props;
+  const { color, fontWeight, inlineFontSize, marginBottom } = themeGet(props, 'label');
 
   return css`
     align-items: center;
-    color: ${labelColor};
+    color: ${cl || color};
     display: flex;
-    font-family: inherit;
-    font-weight: ${labelFontWeight};
-    ${inline ? `font-size: ${px(inlineFontSize)}` : ''};
-    line-height: ${baseStyles.lineHeight};
-    ${!inline ? `margin-bottom: ${px(marginBottom)}` : ''};
+    font-family: ${fontFamily || 'inherit'};
+    font-weight: ${fw || fontWeight};
+    ${inline ? `font-size: ${px(fontSize || inlineFontSize)}` : ''};
+    line-height: ${lineHeight || baseStyles.lineHeight};
+    ${!inline ? `margin-bottom: ${px(isDefined(mb) ? mb : marginBottom)}` : ''};
     white-space: nowrap;
   `;
-};
-
-const Label = styled(Box)`
-  ${styles};
-`;
+});
 
 Label.displayName = 'Label';
 

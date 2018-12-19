@@ -2,21 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { px, themeGet } from './utils/helpers';
+import { isDefined, px, themeGet } from './utils/helpers';
 
 import Box from './Box';
 import Flex from './Flex';
 
 const styles = (props: Object): string => {
-  const { bordered } = props;
+  const { bordered, mb, textAlign } = props;
   const { borderColor, borderRadius, marginBottom, padding } = themeGet(props, 'formGroup');
 
   return css`
     ${bordered ? `border: 1px solid ${borderColor};` : ''}
     ${bordered ? `border-radius: ${px(borderRadius)};` : ''}
-    margin-bottom: ${px(marginBottom)};
+    margin-bottom: ${px(isDefined(mb) ? mb : marginBottom)};
     ${bordered ? `padding: ${px(padding)};` : ''};
-    text-align: left;
+    text-align: ${textAlign || 'left'};
   `;
 };
 

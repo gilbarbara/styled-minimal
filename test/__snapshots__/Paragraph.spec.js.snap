@@ -4,7 +4,8 @@ exports[`Paragraph should render properly 1`] = `
 Array [
   .c1 {
   box-sizing: border-box;
-  margin: 0;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 .c1 + .c0 {
@@ -22,7 +23,8 @@ Array [
   </Paragraph>,
   .c1 {
   box-sizing: border-box;
-  margin: 0;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 .c1 + .c0 {

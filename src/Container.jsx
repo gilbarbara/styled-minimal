@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { px, responsive, spacer, themeGet } from './utils/helpers';
+import { isDefined, px, responsive, spacer, themeGet } from './utils/helpers';
 import { textAlignPropTypes } from './utils/system';
 
 import Box from './Box';
 
 const styles = (props: Object): string => {
+  const { ml, mr, pb, pl, pr, pt } = props;
   const container = themeGet(props, 'container');
 
   const vertical = ({ verticalPadding }: Object): string => {
@@ -15,18 +16,18 @@ const styles = (props: Object): string => {
 
     const grid = responsive({
       md: `
-          padding-bottom: ${spacer(4)(props)};
-          padding-top: ${spacer(4)(props)};
+          padding-bottom: ${isDefined(pb) ? px(pb) : spacer(4)(props)};
+          padding-top: ${isDefined(pt) ? px(pt) : spacer(4)(props)};
         `,
       lg: `
-          padding-bottom: ${spacer(5)(props)};
-          padding-top: ${spacer(5)(props)};
+          padding-bottom: ${isDefined(pb) ? px(pb) : spacer(5)(props)};
+          padding-top: ${isDefined(pt) ? px(pt) : spacer(5)(props)};
         `,
     });
 
     return css`
-      padding-bottom: ${spacer(3)};
-      padding-top: ${spacer(3)};
+      padding-bottom: ${isDefined(pb) ? px(pb) : spacer(3)};
+      padding-top: ${isDefined(pt) ? px(pt) : spacer(3)};
 
       ${grid};
     `;
@@ -34,16 +35,16 @@ const styles = (props: Object): string => {
 
   const grid = responsive({
     md: `
-        padding-left: ${spacer(4)(props)};
-        padding-right: ${spacer(4)(props)};
+        padding-left: ${isDefined(pl) ? px(pl) : spacer(4)(props)};
+        padding-right: ${isDefined(pr) ? px(pr) : spacer(4)(props)};
       `,
   });
 
   return css`
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: ${spacer(3)};
-    padding-right: ${spacer(3)};
+    margin-left: ${isDefined(ml) ? px(ml) : 'auto'};
+    margin-right: ${isDefined(mr) ? px(mr) : 'auto'};
+    padding-left: ${isDefined(pl) ? px(pl) : spacer(3)};
+    padding-right: ${isDefined(pr) ? px(pr) : spacer(3)};
     max-width: ${container.maxWidth ? px(container.maxWidth) : 'none'};
     position: relative;
     width: 100%;

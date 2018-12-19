@@ -1,24 +1,22 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { px, themeGet } from './utils/helpers';
+import { isDefined, px, themeGet } from './utils/helpers';
 import { baseStyles } from './utils/system';
 
 import Box from './Box';
 
 const styles = (props: Object): string => {
-  const { color: legendColor, fontWeight: legendFontWeight, marginBottom } = themeGet(
-    props,
-    'legend',
-  );
+  const { color: cl, fontFamily, fontWeight: fw, lineHeight, mb } = props;
+  const { color, fontWeight, marginBottom } = themeGet(props, 'legend');
 
   return css`
-    color: ${legendColor};
+    color: ${cl || color};
     display: block;
-    font-family: inherit;
-    font-weight: ${legendFontWeight};
-    line-height: ${baseStyles.lineHeight};
-    margin-bottom: ${px(marginBottom)};
+    font-family: ${fontFamily || 'inherit'};
+    font-weight: ${fw || fontWeight};
+    line-height: ${lineHeight || baseStyles.lineHeight};
+    margin-bottom: ${px(isDefined(mb) ? mb : marginBottom)};
     white-space: nowrap;
   `;
 };

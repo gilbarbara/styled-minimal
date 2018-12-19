@@ -1,23 +1,24 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { px, themeGet } from './utils/helpers';
+import { isDefined, px, themeGet } from './utils/helpers';
 import { baseStyles, sizesAllPropTypes, variantPropTypes } from './utils/system';
 
 import Box from './Box';
 
 const Badge = styled(Box)(props => {
+  const { borderRadius: radii, fontSize: fz, fontWeight: fw, lineHeight } = props;
   const { borderRadius, fontSize, fontWeight, padding } = themeGet(props, 'badge');
   const fontSizeProp = themeGet(props, 'componentSizes', { key: 'size' });
 
   return css`
     ${baseStyles.variant};
-    border-radius: ${px(borderRadius)};
+    border-radius: ${px(isDefined(radii) ? radii : borderRadius)};
     display: inline-flex;
-    font-size: ${fontSize};
-    ${fontSizeProp ? `font-size: ${fontSizeProp}` : ''};
-    font-weight: ${fontWeight};
-    line-height: 1;
+    font-size: ${fz || fontSize};
+    ${fontSizeProp ? `font-size: ${fz || fontSizeProp}` : ''};
+    font-weight: ${fw || fontWeight};
+    line-height: ${lineHeight || 1};
     padding: ${px(padding[0])} ${px(padding[1])};
     vertical-align: baseline;
   `;

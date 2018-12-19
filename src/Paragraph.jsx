@@ -1,17 +1,20 @@
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { spacer } from './utils/helpers';
+import { isDefined, spacer } from './utils/helpers';
 
 import Box from './Box';
 
-const Paragraph = styled(Box)`
-  margin: 0;
+const Paragraph = styled(Box)(
+  ({ mb, mt }) => css`
+    margin-bottom: ${isDefined(mb) ? mb : 0};
+    margin-top: ${isDefined(mt) ? mt : 0};
 
-  & + & {
-    margin-top: ${spacer(2)};
-  }
-`;
+    & + & {
+      margin-top: ${spacer(2)};
+    }
+  `,
+);
 
 Paragraph.displayName = 'Paragraph';
 

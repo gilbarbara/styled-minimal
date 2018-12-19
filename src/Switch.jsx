@@ -99,13 +99,17 @@ class Switch extends React.PureComponent {
     variant: 'primary',
   };
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(prevProps) {
     const { value } = this.props;
 
-    if (value !== nextProps.value) {
-      this.setState({ status: nextProps.value });
+    if (prevProps.value !== value) {
+      this.update(value);
     }
   }
+
+  update = value => {
+    this.setState({ status: value });
+  };
 
   handleClick = () => {
     const { status } = this.state;
@@ -125,8 +129,8 @@ class Switch extends React.PureComponent {
     return (
       <StyledSwitch status={status} {...rest} onClick={this.handleClick}>
         <StyledInput type="hidden" name={name} value={status} />
-        <StyledTrack {...rest} />
-        <StyledButton {...rest} />
+        <StyledTrack status={status} {...rest} />
+        <StyledButton status={status} {...rest} />
       </StyledSwitch>
     );
   }

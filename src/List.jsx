@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { px, themeGet } from './utils/helpers';
+import { isDefined, px, themeGet } from './utils/helpers';
 import { sizesPropTypes } from './utils/system';
 
 import Box from './Box';
 
 const styles = (props: Object): string => {
-  const { as, bordered, inline, styleType } = props;
+  const { as, bordered, inline, m, styleType } = props;
   const { borderColor, borderRadius } = themeGet(props, 'list');
 
   return css`
@@ -15,7 +15,7 @@ const styles = (props: Object): string => {
     ${bordered ? `border-radius: ${px(borderRadius)};` : ''};
     display: flex;
     flex-direction: ${inline ? 'row' : 'column'};
-    margin: 0;
+    margin: ${isDefined(m) ? m : 0};
     ${as === 'ul' && styleType === 'none' ? 'padding: 0;' : ''};
     ${as === 'ul' ? `list-style-type: ${styleType};` : ''};
   `;

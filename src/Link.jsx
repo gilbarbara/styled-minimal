@@ -1,26 +1,23 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { themeGet } from './utils/helpers';
+import { getColor, getDimmerColor } from './utils/helpers';
+import { variantPropTypes } from './utils/system';
 
 import Box from './Box';
 
-const styles = (props: Object): string => {
-  const palette = themeGet(props, 'palette');
-  const grays = themeGet(props, 'grays');
+const Link = styled(Box)(props => {
+  const { color } = props;
+  const currentColor = color || getColor(props);
 
   return css`
-    color: ${palette.primary};
+    color: ${currentColor};
 
     &:visited {
-      color: ${grays.gray50};
+      color: ${getDimmerColor(currentColor)};
     }
   `;
-};
-
-const Link = styled(Box)`
-  ${styles};
-`;
+});
 
 Link.displayName = 'Link';
 
@@ -28,6 +25,7 @@ Link.propTypes = {
   as: PropTypes.string,
   children: PropTypes.node.isRequired,
   href: PropTypes.string.isRequired,
+  variant: variantPropTypes,
   ...Box.propTypes,
 };
 

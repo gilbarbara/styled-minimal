@@ -1,17 +1,22 @@
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { spacer } from './utils/helpers';
+import { isDefined, px, themeGet } from './utils/helpers';
 
 import Box from './Box';
 
-const Code = styled(Box)`
-  background-color: #e8eded;
-  border: 1px solid #d0dada;
-  border-radius: 2px;
-  font-family: 'SF Mono', 'Roboto Mono', Menlo, monospace;
-  padding: ${spacer(2)};
-`;
+const Code = styled(Box)(props => {
+  const { bg, border: bd, borderRadius: br, fontFamily: ff, padding: pd } = props;
+  const { backgroundColor, border, borderRadius, fontFamily, padding } = themeGet(props, 'code');
+
+  return css`
+    background-color: ${bg || backgroundColor};
+    border: ${bd || border};
+    border-radius: ${px(isDefined(br) ? br : borderRadius)};
+    font-family: ${ff || fontFamily || ff};
+    padding: ${px(isDefined(pd) ? pd : padding)};
+  `;
+});
 
 Code.displayName = 'Code';
 

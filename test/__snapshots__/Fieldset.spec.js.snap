@@ -3,7 +3,7 @@
 exports[`Fieldset should render properly 1`] = `
 .c2 {
   box-sizing: border-box;
-  color: #343434;
+  color: #2E2E2E;
   display: block;
   font-family: inherit;
   font-weight: bold;

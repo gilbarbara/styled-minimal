@@ -51,6 +51,8 @@ export const colors = {
 };
 
 export const darkColor = '#3C3F41';
+export const textColor = '#2E2E2E';
+export const borderColor = '#ccc';
 
 export const grays = {
   gray05: '#f4f4f4',
@@ -99,7 +101,6 @@ export const badge = {
   padding: [3, 6],
 };
 
-/* Button */
 const buttonAnimation = keyframes`
   0% {
     background-position: 0 0;
@@ -143,7 +144,14 @@ export const button = {
   `,
 };
 
-/* Container */
+export const code = {
+  backgroundColor: '#e8eded',
+  border: '1px solid #d0dada',
+  borderRadius: 2,
+  fontFamily: '"SF Mono", "Roboto Mono", Menlo, monospace',
+  padding: space[2],
+};
+
 export const container = {
   layout: {
     flex: css`
@@ -166,16 +174,15 @@ export const container = {
   maxWidth: 1440,
 };
 
-/* Form */
 export const form = {
-  borderColor: '#ccc',
+  borderColor,
   borderRadius: 4,
   borderWidth: 1,
   padding: 10,
 };
 
 export const formGroup = {
-  borderColor: '#ccc',
+  borderColor,
   borderRadius: 4,
   helpColor: '#999',
   helpMarginTop: space[1],
@@ -185,33 +192,43 @@ export const formGroup = {
 };
 
 export const fieldset = {
-  borderColor: '#ccc',
+  borderColor,
   borderRadius: 4,
-  color: '#343434',
+  color: textColor,
   marginBottom: space[3],
   padding: space[2],
 };
 
 export const label = {
-  color: '#343434',
+  color: textColor,
   fontWeight: 'bold',
   inlineFontSize: 14,
   marginBottom: space[2],
 };
 
 export const legend = {
-  color: '#343434',
+  color: textColor,
   fontWeight: 'bold',
   marginBottom: space[2],
 };
 
-export const input = {
+export const list = {
+  borderColor,
+  borderRadius: 3,
+  color: textColor,
+  padding: {
+    sm: 6,
+    md: 12,
+    lg: 18,
+  },
+};
+
+const baseInput = {
   backgroundColor: '#fff',
-  borderColor: '#ccc',
+  borderColor,
   borderRadius: 2,
   borderWidth: 1,
-  color: '#343434',
-  focusColor: '#000',
+  color: textColor,
   fontSize: {
     sm: 14,
     md: 16,
@@ -222,9 +239,7 @@ export const input = {
     md: 34,
     lg: 42,
   },
-  inlineMargin: space[2],
   lineHeight: 1,
-  lineHeightTextarea: 1.4,
   padding: {
     sm: 6,
     md: 8,
@@ -237,38 +252,18 @@ export const input = {
   },
 };
 
-export const select = {
-  backgroundColor: '#fff',
-  color: '#343434',
-  borderColor: '#ccc',
-  borderRadius: 2,
-  fontSize: {
-    sm: 14,
-    md: 16,
-    lg: 20,
-  },
-  height: {
-    sm: 28,
-    md: 34,
-    lg: 42,
-  },
-  lineHeight: 1,
-  padding: {
-    sm: 6,
-    md: 8,
-    lg: 10,
-  },
+export const input = {
+  ...baseInput,
+  inlineMargin: space[2],
 };
 
-export const list = {
-  borderColor: '#ccc',
-  borderRadius: 3,
-  color: '#343434',
-  padding: {
-    sm: 6,
-    md: 12,
-    lg: 18,
-  },
+export const select = {
+  ...baseInput,
+};
+
+export const textarea = {
+  ...baseInput,
+  lineHeight: 1.4,
 };
 
 export const switchSizes = {
