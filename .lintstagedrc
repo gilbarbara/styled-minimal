@@ -9,5 +9,5 @@
       "git add"
     ]
   },
-  "ignore": ["**/dist/*"]
+  "ignore": ["**/docs/*", "**/es/*", "**/lib/*"]
 }
