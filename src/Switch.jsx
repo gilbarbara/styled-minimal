@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { getColor, px, themeGet } from './utils/helpers';
+import { getColor, getTheme, px } from './utils/helpers';
 import { sizesAllPropTypes, variantPropTypes } from './utils/system';
 
 import Box from './Box';
 
 const styles = (props: Object): string => {
   const { size } = props;
-  const sizes = themeGet(props, 'switchSizes');
+  const sizes = getTheme(props, 'switchSizes');
 
   return css`
     cursor: pointer;
@@ -23,11 +23,11 @@ const styles = (props: Object): string => {
 
 const stylesTrack = (props: Object): string => {
   const { size, status } = props;
-  const sizes = themeGet(props, 'switchSizes');
-  const themeColor = getColor(props);
+  const sizes = getTheme(props, 'switchSizes');
+  const color = getColor(props);
 
   return css`
-    background-color: ${status ? themeColor : '#ccc'};
+    background-color: ${status ? color : '#ccc'};
     border-radius: ${px(sizes[size].borderRadius)};
     bottom: 0;
     left: 0;
@@ -39,7 +39,7 @@ const stylesTrack = (props: Object): string => {
 
 const stylesButton = (props: Object): string => {
   const { size, status } = props;
-  const sizes = themeGet(props, 'switchSizes');
+  const sizes = getTheme(props, 'switchSizes');
 
   return css`
     background-color: #fff;
@@ -89,7 +89,7 @@ class Switch extends React.PureComponent {
     size: sizesAllPropTypes,
     value: PropTypes.bool,
     variant: variantPropTypes,
-    ...Box.propTypes,
+    ...Box.basePropTypes,
   };
 
   static defaultProps = {

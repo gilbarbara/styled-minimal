@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { isDefined, px, themeGet } from './utils/helpers';
+import { getTheme, isDefined, px } from './utils/helpers';
 import { baseStyles } from './utils/system';
 
 import Box from './Box';
 
 const styles = (props: Object): string => {
   const { color: cl, fontFamily, fontWeight: fw, lineHeight, mb } = props;
-  const { color, fontWeight, marginBottom } = themeGet(props, 'legend');
+  const { color, fontWeight, marginBottom } = getTheme(props, 'legend');
 
   return css`
     color: ${cl || color};
@@ -30,7 +30,7 @@ Legend.displayName = 'Legend';
 Legend.propTypes = {
   as: PropTypes.string,
   children: PropTypes.node.isRequired,
-  ...Box.propTypes,
+  ...Box.basePropTypes,
 };
 
 Legend.defaultProps = {

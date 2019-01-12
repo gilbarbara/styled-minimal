@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { isDefined, px, themeGet } from './utils/helpers';
+import { getTheme, isDefined, px } from './utils/helpers';
 import { baseStyles, sizesAllPropTypes, variantPropTypes } from './utils/system';
 
 import Box from './Box';
@@ -10,7 +10,7 @@ const Alert = styled(Box).attrs({
   role: 'alert',
 })(props => {
   const { borderRadius: br, fontSize, lineHeight, size, width } = props;
-  const { borderRadius, maxWidth, padding } = themeGet(props, 'alert');
+  const { borderRadius, maxWidth, padding } = getTheme(props, 'alert');
 
   return css`
     ${baseStyles.variant};
@@ -38,7 +38,7 @@ Alert.propTypes = {
   size: sizesAllPropTypes,
   /** button variant */
   variant: variantPropTypes,
-  ...Box.propTypes,
+  ...Box.basePropTypes,
 };
 
 Alert.defaultProps = {

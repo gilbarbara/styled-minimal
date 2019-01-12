@@ -26,7 +26,7 @@ Link.propTypes = {
   children: PropTypes.node.isRequired,
   href: PropTypes.string.isRequired,
   variant: variantPropTypes,
-  ...Box.propTypes,
+  ...Box.basePropTypes,
 };
 
 Link.defaultProps = {

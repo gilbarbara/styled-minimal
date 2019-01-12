@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { isDefined, px, themeGet } from './utils/helpers';
+import { getTheme, isDefined, px } from './utils/helpers';
 
 import Box from './Box';
 import Flex from './Flex';
 
 const styles = (props: Object): string => {
   const { bordered, mb, textAlign } = props;
-  const { borderColor, borderRadius, marginBottom, padding } = themeGet(props, 'formGroup');
+  const { borderColor, borderRadius, marginBottom, padding } = getTheme(props, 'formGroup');
 
   return css`
     ${bordered ? `border: 1px solid ${borderColor};` : ''}
@@ -21,7 +21,7 @@ const styles = (props: Object): string => {
 };
 
 const margin = (props: Object): string => {
-  const { inlineMargin } = themeGet(props, 'formGroup');
+  const { inlineMargin } = getTheme(props, 'formGroup');
 
   return px(inlineMargin);
 };
@@ -59,7 +59,7 @@ export const StyledFormGroup = styled(Box)`
 `;
 
 const helpBlock = (props: Object): string => {
-  const { helpColor, helpMarginTop } = themeGet(props, 'formGroup');
+  const { helpColor, helpMarginTop } = getTheme(props, 'formGroup');
 
   return css`
     color: ${helpColor};
@@ -99,7 +99,7 @@ FormGroup.propTypes = {
   children: PropTypes.node.isRequired,
   helpText: PropTypes.string,
   inline: PropTypes.bool,
-  ...Box.propTypes,
+  ...Box.basePropTypes,
 };
 
 FormGroup.defaultProps = {

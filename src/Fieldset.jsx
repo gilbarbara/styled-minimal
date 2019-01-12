@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { isDefined, px, spacer, themeGet } from './utils/helpers';
+import { getTheme, isDefined, px, spacer } from './utils/helpers';
 
 import Box from './Box';
 import Legend from './Legend';
 
 const styles = (props: Object): string => {
   const { borderRadius: br, inline, mb, ml, padding: pd } = props;
-  const { borderColor, borderRadius, padding, marginBottom } = themeGet(props, 'fieldset');
+  const { borderColor, borderRadius, padding, marginBottom } = getTheme(props, 'fieldset');
 
   return css`
     border: 1px solid ${borderColor};
@@ -41,7 +41,7 @@ Fieldset.propTypes = {
   as: PropTypes.string,
   children: PropTypes.node.isRequired,
   inline: PropTypes.bool,
-  ...Box.propTypes,
+  ...Box.basePropTypes,
 };
 
 Fieldset.defaultProps = {

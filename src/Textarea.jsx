@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { isDefined, px, themeGet } from './utils/helpers';
+import { getTheme, isDefined, px } from './utils/helpers';
 import { formPseudo, outlines, sizesPropTypes } from './utils/system';
 
 import Box from './Box';
@@ -32,7 +32,7 @@ const styles = (props: Object): string => {
     lineHeight,
     padding,
     validation,
-  } = themeGet(props, 'textarea');
+  } = getTheme(props, 'textarea');
 
   let currentBorderColor = bc || borderColor;
   if (valid) {
@@ -81,7 +81,7 @@ Textarea.propTypes = {
   valid: PropTypes.bool,
   value: PropTypes.string,
   wrap: PropTypes.oneOf(['soft', 'hard']),
-  ...Box.propTypes,
+  ...Box.basePropTypes,
   ...outlines.propTypes,
 };
 

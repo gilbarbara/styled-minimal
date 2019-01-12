@@ -48,27 +48,22 @@ const createMediaQuery = (n: string | number, breakpoints: Array<number>): strin
 };
 
 /**
- * Get Styles
+ * Merge ThemeProvides's theme with the default theme
  * @param {Object} props
  *
  * @returns {Object}
  */
-export const getTheme = (props: Object = {}): Object => {
+export const mergeTheme = (props: Object = {}): Object => {
   const { theme = {} } = props;
 
   return deepmerge(defaultTheme, theme, { arrayMerge: (dest, source) => source });
 };
 
 /**
- * Returns the value of `props[path]` or `defaultValue`
- * @example
- * const Button = styled.button`
- *  color: ${prop('color', 'red')};
- * `
+ * Get the merged theme
  */
-/* eslint-disable react/destructuring-assignment */
-export const themeGet = (props: Object, path?: string, options: Object = {}): any => {
-  const theme = getTheme(props);
+export const getTheme = (props: Object, path?: string, options: Object = {}): any => {
+  const theme = mergeTheme(props);
   const { base, key, toggle } = options;
   const selection = theme[path];
   let isActive = true;
@@ -99,7 +94,20 @@ export const themeGet = (props: Object, path?: string, options: Object = {}): an
 };
 
 /**
- * Get the space from its scale
+ * SC Helper to get parts of the theme.
+ *
+ * @param {string} key
+ * @param {string} [prop]
+ * @returns {function(Object): *}
+ */
+export const getStyles = (key: string, prop?: string): Function => (props: Object): any => {
+  const styles = getTheme(props, key);
+
+  return prop ? styles[prop] : styles;
+};
+
+/**
+ * SC Helper to get the corresponding item from the space scale
  *
  * @param {number|string|Array} value
  * @param {boolean} [pure]
@@ -109,14 +117,14 @@ export const themeGet = (props: Object, path?: string, options: Object = {}): an
 export const spacer = (value: number | string | Array<number>, pure?: Boolean): any => (
   props: Object,
 ): any => {
-  const { space } = themeGet(props);
+  const { space } = getTheme(props);
   const result = space[value] || value;
 
   return pure ? result : px(result);
 };
 
 /**
- * Generate responsive media queries
+ * SC Helper to generate responsive media queries
  *
  * @param {function|Object} input
  * @param {function} [queryBuilderFn]
@@ -126,7 +134,7 @@ export const spacer = (value: number | string | Array<number>, pure?: Boolean): 
 export const responsive = (input: Function | Object, queryBuilderFn?: Function): Function => (
   props: Object,
 ): string => {
-  const { breakpoints } = themeGet(props);
+  const { breakpoints } = getTheme(props);
   const rules = typeof input === 'function' ? input(props) : input;
   const queryBuilder = queryBuilderFn || createMediaQuery;
   const result = [];
@@ -146,15 +154,16 @@ export const responsive = (input: Function | Object, queryBuilderFn?: Function):
 };
 
 /**
- * Get Color from theme
+ * Get color from theme
  *
  * @param {Object} props
  * @param {string} base
- * @returns {*}
+ *
+ * @returns {string}
  */
 export function getColor(props: Object, base: string = 'primary'): string {
   const { variant } = props;
-  const { colors, palette } = themeGet(props);
+  const { colors, palette } = getTheme(props);
 
   return palette[variant] || colors[variant] || palette[base];
 }

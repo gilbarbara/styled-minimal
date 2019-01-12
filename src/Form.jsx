@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { px, themeGet } from './utils/helpers';
+import { getTheme, px } from './utils/helpers';
 
 import Box from './Box';
 
 const styles = (props: Object): string => {
   const { bordered, textAlign } = props;
-  const { borderColor, borderRadius, padding } = themeGet(props, 'form');
+  const { borderColor, borderRadius, padding } = getTheme(props, 'form');
 
   return css`
     ${bordered ? `border: 1px solid ${borderColor};` : ''}
@@ -31,7 +31,7 @@ Form.propTypes = {
   enctype: PropTypes.string,
   method: PropTypes.oneOf(['get', 'post']),
   target: PropTypes.string,
-  ...Box.propTypes,
+  ...Box.basePropTypes,
 };
 
 Form.defaultProps = {

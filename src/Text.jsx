@@ -10,7 +10,7 @@ Text.displayName = 'Text';
 Text.propTypes = {
   as: PropTypes.string,
   children: PropTypes.node.isRequired,
-  ...Box.propTypes,
+  ...Box.basePropTypes,
 };
 
 Text.defaultProps = {

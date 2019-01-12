@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { isDefined, px, themeGet } from './utils/helpers';
+import { getTheme, isDefined, px } from './utils/helpers';
 import { baseStyles } from './utils/system';
 
 import Box from './Box';
 
 const Label = styled(Box)(props => {
   const { color: cl, fontFamily, fontSize, fontWeight: fw, inline, lineHeight, mb } = props;
-  const { color, fontWeight, inlineFontSize, marginBottom } = themeGet(props, 'label');
+  const { color, fontWeight, inlineFontSize, marginBottom } = getTheme(props, 'label');
 
   return css`
     align-items: center;
@@ -29,7 +29,7 @@ Label.propTypes = {
   as: PropTypes.string,
   children: PropTypes.node.isRequired,
   inline: PropTypes.bool,
-  ...Box.propTypes,
+  ...Box.basePropTypes,
 };
 
 Label.defaultProps = {

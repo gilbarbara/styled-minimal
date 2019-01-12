@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { isDefined, px, spacer, themeGet } from './utils/helpers';
+import { getTheme, isDefined, px, spacer } from './utils/helpers';
 import { baseStyles, headingPropTypes } from './utils/system';
 
 import Box from './Box';
 
 const Heading = styled(Box)(props => {
   const { fontFamily, fontSize, fontWeight, lineHeight, gutterBottom, mb, mt } = props;
-  const headingWeight = themeGet(props, 'headingWeight');
-  const headingSize = themeGet(props, 'headingSizes', { key: ['size', 'as'], base: 'h1' });
+  const headingWeight = getTheme(props, 'headingWeight');
+  const headingSize = getTheme(props, 'headingSizes', { key: ['size', 'as'], base: 'h1' });
   const marginTop = gutterBottom ? spacer(3) : 0;
 
   return css`
@@ -34,7 +34,7 @@ Heading.propTypes = {
   gutterBottom: PropTypes.bool,
   /** element size */
   size: headingPropTypes,
-  ...Box.propTypes,
+  ...Box.basePropTypes,
 };
 
 Heading.defaultProps = {

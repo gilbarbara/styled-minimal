@@ -12,7 +12,7 @@ Flex.displayName = 'Flex';
 Flex.propTypes = {
   as: PropTypes.string,
   children: PropTypes.node.isRequired,
-  ...Box.propTypes,
+  ...Box.basePropTypes,
 };
 
 Flex.defaultProps = {

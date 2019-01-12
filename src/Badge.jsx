@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { isDefined, px, themeGet } from './utils/helpers';
+import { getTheme, isDefined, px } from './utils/helpers';
 import { baseStyles, sizesAllPropTypes, variantPropTypes } from './utils/system';
 
 import Box from './Box';
 
 const Badge = styled(Box)(props => {
   const { borderRadius: radii, fontSize: fz, fontWeight: fw, lineHeight } = props;
-  const { borderRadius, fontSize, fontWeight, padding } = themeGet(props, 'badge');
-  const fontSizeProp = themeGet(props, 'componentSizes', { key: 'size' });
+  const { borderRadius, fontSize, fontWeight, padding } = getTheme(props, 'badge');
+  const fontSizeProp = getTheme(props, 'componentSizes', { key: 'size' });
 
   return css`
     ${baseStyles.variant};
@@ -33,7 +33,7 @@ Badge.propTypes = {
   outline: PropTypes.bool,
   size: sizesAllPropTypes,
   variant: variantPropTypes,
-  ...Box.propTypes,
+  ...Box.basePropTypes,
 };
 
 Badge.defaultProps = {

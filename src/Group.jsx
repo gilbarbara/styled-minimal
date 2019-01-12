@@ -19,7 +19,7 @@ Group.displayName = 'Group';
 
 Group.propTypes = {
   children: PropTypes.node.isRequired,
-  ...Box.propTypes,
+  ...Box.basePropTypes,
 };
 
 export default Group;

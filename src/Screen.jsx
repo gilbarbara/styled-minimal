@@ -11,7 +11,7 @@ Screen.propTypes = {
   as: PropTypes.string,
   children: PropTypes.node.isRequired,
   minHeight: PropTypes.string,
-  ...Box.propTypes,
+  ...Box.basePropTypes,
 };
 
 Screen.defaultProps = {

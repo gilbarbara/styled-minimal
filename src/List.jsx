@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { isDefined, px, themeGet } from './utils/helpers';
+import { getTheme, isDefined, px } from './utils/helpers';
 import { sizesPropTypes } from './utils/system';
 
 import Box from './Box';
 
 const styles = (props: Object): string => {
   const { as, bordered, inline, m, styleType } = props;
-  const { borderColor, borderRadius } = themeGet(props, 'list');
+  const { borderColor, borderRadius } = getTheme(props, 'list');
 
   return css`
     ${bordered ? `border: 1px solid ${borderColor};` : ''};
@@ -22,7 +22,7 @@ const styles = (props: Object): string => {
 };
 const stylesItem = (props: Object): string => {
   const { bordered, size } = props;
-  const { padding } = themeGet(props, 'list');
+  const { padding } = getTheme(props, 'list');
 
   return css`
     padding: ${bordered ? px(padding[size]) : 0};
@@ -31,7 +31,7 @@ const stylesItem = (props: Object): string => {
 
 const stylesSibling = (props: Object): string => {
   const { bordered, size } = props;
-  const { borderColor, padding } = themeGet(props, 'list');
+  const { borderColor, padding } = getTheme(props, 'list');
 
   return css`
     border-top: ${bordered ? `1px solid ${borderColor}` : 'none'};
@@ -67,7 +67,7 @@ List.propTypes = {
     PropTypes.string,
   ]),
   type: PropTypes.oneOf(['1', 'a', 'A', 'i', 'I']),
-  ...Box.propTypes,
+  ...Box.basePropTypes,
 };
 
 List.defaultProps = {

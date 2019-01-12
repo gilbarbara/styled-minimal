@@ -17,7 +17,7 @@ Image.propTypes = {
   alt: PropTypes.string.isRequired,
   as: PropTypes.string,
   src: PropTypes.string.isRequired,
-  ...Box.propTypes,
+  ...Box.basePropTypes,
 };
 
 Image.defaultProps = {

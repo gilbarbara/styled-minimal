@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { isDefined, px, themeGet } from './utils/helpers';
+import { getTheme, isDefined, px } from './utils/helpers';
 
 import Box from './Box';
 
 const Code = styled(Box)(props => {
   const { bg, border: bd, borderRadius: br, fontFamily: ff, padding: pd } = props;
-  const { backgroundColor, border, borderRadius, fontFamily, padding } = themeGet(props, 'code');
+  const { backgroundColor, border, borderRadius, fontFamily, padding } = getTheme(props, 'code');
 
   return css`
     background-color: ${bg || backgroundColor};
@@ -23,7 +23,7 @@ Code.displayName = 'Code';
 Code.propTypes = {
   as: PropTypes.string,
   children: PropTypes.node.isRequired,
-  ...Box.propTypes,
+  ...Box.basePropTypes,
 };
 
 Code.defaultProps = {

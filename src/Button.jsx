@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { getColor, isDefined, px, themeGet } from './utils/helpers';
+import { getColor, getStyles, getTheme, isDefined, px } from './utils/helpers';
 import { baseStyles, buttonPropTypes, sizesAllPropTypes, variantPropTypes } from './utils/system';
 
 import Badge from './Badge';
 import Box from './Box';
 
 const styles = (props: Object): string => {
-  const { animate, borderRadius: br, disabled, fontSize, lineHeight: lh, outline, size } = props;
-  const { borderRadius, disabledOpacity, lineHeight, loader, padding } = themeGet(props, 'button');
-  const fontSizeProp = themeGet(props, 'componentSizes', { key: 'size' });
+  const { animate, borderRadius: br, fontSize, lineHeight: lh, outline, size } = props;
+  const { borderRadius, lineHeight, loader, padding } = getTheme(props, 'button');
+  const fontSizeProp = getTheme(props, 'componentSizes', { key: 'size' });
 
   return css`
     ${baseStyles.variant};
@@ -23,7 +23,6 @@ const styles = (props: Object): string => {
     ${fontSizeProp ? `font-size: ${fontSize || fontSizeProp}` : ''};
     justify-content: center;
     line-height: ${lh || lineHeight};
-    ${disabled && `opacity: ${disabledOpacity};`};
     padding: ${px(padding[size][0])} ${px(padding[size][1])};
     text-decoration: none;
     width: ${({ block }) => (block ? '100%' : 'auto')};
@@ -36,11 +35,7 @@ const Button = styled(Box)`
 
   &:disabled {
     pointer-events: none;
-  }
-
-  &:hover {
-    transition: transform 0.2s;
-    transform: scale(1.05);
+    opacity: ${getStyles('button', 'disabledOpacity')};
   }
 
   &:focus {
@@ -64,7 +59,7 @@ Button.propTypes = {
   size: sizesAllPropTypes,
   type: buttonPropTypes,
   variant: variantPropTypes,
-  ...Box.propTypes,
+  ...Box.basePropTypes,
 };
 
 Button.defaultProps = {

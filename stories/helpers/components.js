@@ -118,4 +118,8 @@ const ViewCheckbox = ({ children, ...rest }) => (
   </View>
 );
 
+ViewCheckbox.propTypes = {
+  children: PropTypes.node,
+};
+
 export { SVG, View, ViewCheckbox };

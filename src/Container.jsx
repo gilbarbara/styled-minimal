@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { isDefined, px, responsive, spacer, themeGet } from './utils/helpers';
+import { getTheme, isDefined, px, responsive, spacer } from './utils/helpers';
 import { textAlignPropTypes } from './utils/system';
 
 import Box from './Box';
 
 const styles = (props: Object): string => {
   const { ml, mr, pb, pl, pr, pt } = props;
-  const container = themeGet(props, 'container');
+  const container = getTheme(props, 'container');
 
   const vertical = ({ verticalPadding }: Object): string => {
     /* istanbul ignore else */
@@ -68,7 +68,7 @@ Container.propTypes = {
   textAlign: textAlignPropTypes,
   /** add padding top/bottom */
   verticalPadding: PropTypes.bool,
-  ...Box.propTypes,
+  ...Box.basePropTypes,
 };
 
 Container.defaultProps = {

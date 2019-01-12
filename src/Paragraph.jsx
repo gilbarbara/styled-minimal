@@ -21,7 +21,7 @@ Paragraph.displayName = 'Paragraph';
 Paragraph.propTypes = {
   as: PropTypes.string,
   children: PropTypes.node.isRequired,
-  ...Box.propTypes,
+  ...Box.basePropTypes,
 };
 
 Paragraph.defaultProps = {

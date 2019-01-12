@@ -54,7 +54,7 @@ ButtonGroup.propTypes = {
   children: PropTypes.node.isRequired,
   size: sizesAllPropTypes,
   variant: variantPropTypes,
-  ...Box.propTypes,
+  ...Box.basePropTypes,
 };
 
 export default ButtonGroup;

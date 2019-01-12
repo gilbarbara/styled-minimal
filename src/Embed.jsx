@@ -27,7 +27,7 @@ const Embed = ({ children, ...props }) => (
 Embed.propTypes = {
   children: PropTypes.node.isRequired,
   ratio: PropTypes.number,
-  ...Box.propTypes,
+  ...Box.basePropTypes,
 };
 
 Embed.defaultProps = {

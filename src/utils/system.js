@@ -6,7 +6,7 @@ import darken from 'polished/lib/color/darken';
 import { css } from 'styled-components';
 import { cloneFunc, compose, propTypes, style } from 'styled-system';
 
-import { getColor, getYiq, isDefined, px, themeGet } from './helpers';
+import { getColor, getTheme, getYiq, isDefined, px } from './helpers';
 import { placeholder } from './mixins';
 import { colors as colorsTheme, palette } from './theme';
 
@@ -71,8 +71,7 @@ export const variantPropTypes = PropTypes.oneOf(variantOptions);
 export const baseStyles = {
   color: (props: Object): string => {
     const { dark, outline } = props;
-
-    const colors = themeGet(props, 'colors');
+    const colors = getTheme(props, 'colors');
     const currentColor = getColor(props);
 
     let baseColor = getYiq(currentColor) > 180 ? colors.black : colors.white;
@@ -84,7 +83,7 @@ export const baseStyles = {
   },
   variant: (props: Object): string => {
     const { dark, outline } = props;
-    const { colors, darkColor } = themeGet(props);
+    const { colors, darkColor } = getTheme(props);
     const themeColor = getColor(props);
 
     const backgroundColor = outline ? colors.white : themeColor;
@@ -105,8 +104,8 @@ export const baseStyles = {
       color: ${currentColor};
     `;
   },
-  fontSize: (props: Object) => themeGet(props, 'componentSizes', { key: 'size', base: 'md' }),
-  lineHeight: (props: Object) => themeGet(props, 'lineHeight'),
+  fontSize: (props: Object) => getTheme(props, 'componentSizes', { key: 'size', base: 'md' }),
+  lineHeight: (props: Object) => getTheme(props, 'lineHeight'),
 };
 
 export const formPseudo = (props: Object): string => {
@@ -123,7 +122,7 @@ export const formPseudo = (props: Object): string => {
     multiple,
     valid,
   } = props;
-  const { backgroundColor, borderColor, color, requiredColor, validation } = themeGet(
+  const { backgroundColor, borderColor, color, requiredColor, validation } = getTheme(
     props,
     'input',
   );

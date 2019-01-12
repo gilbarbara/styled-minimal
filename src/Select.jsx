@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { getDimmerColor, isDefined, lighten, px, themeGet } from './utils/helpers';
+import { getDimmerColor, getTheme, isDefined, lighten, px } from './utils/helpers';
 import { formPseudo, sizesPropTypes } from './utils/system';
 
 import Box from './Box';
@@ -35,7 +35,7 @@ const select = (props: Object): string => {
     lineHeight,
     padding,
     validation,
-  } = themeGet(props, 'select');
+  } = getTheme(props, 'select');
 
   const currentBgColor = bg || backgroundColor;
   let currentBorderColor = bc || borderColor;
@@ -98,7 +98,7 @@ Select.propTypes = {
   size: PropTypes.number,
   sizing: sizesPropTypes,
   valid: PropTypes.bool,
-  ...Box.propTypes,
+  ...Box.basePropTypes,
 };
 
 Select.defaultProps = {

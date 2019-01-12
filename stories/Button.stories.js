@@ -19,7 +19,7 @@ storiesOf('Button', module)
         animate={boolean('Animate', false)}
         block={boolean('Block', false)}
         disabled={boolean('Disabled', false)}
-        fontWeight={select('Font Weight', ['normal', 'bold'], 'normal')}
+        dark={boolean('Dark', false)}
         onClick={action('clicked')}
         outline={boolean('Outline', false)}
         size={select('Size', sizesOptions, 'md')}
@@ -65,13 +65,7 @@ storiesOf('Button', module)
   .add('with dark mode', () => (
     <ViewCheckbox>
       {variantOptions.map((d, i) => (
-        <Button
-          key={i}
-          variant={d}
-          dark
-          disabled={boolean('Disabled', false)}
-          onClick={action('clicked')}
-        >
+        <Button key={i} variant={d} dark onClick={action('clicked')}>
           {capitalize(d)}
         </Button>
       ))}
