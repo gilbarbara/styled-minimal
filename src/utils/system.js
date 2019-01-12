@@ -47,9 +47,6 @@ outlines.propTypes = {
   outlineWidth: cloneFunc(propTypes.numberOrString),
 };
 
-export const sizesOptions = ['sm', 'md', 'lg'];
-export const sizesAllOptions = ['xs', 'sm', 'md', 'lg', 'xl'];
-export const variantOptions = [...Object.keys(palette), ...Object.keys(colorsTheme)];
 export const inputTextTypes = [
   'date',
   'email',
@@ -63,10 +60,13 @@ export const inputTextTypes = [
 
 export const buttonPropTypes = PropTypes.oneOf(['button', 'submit', 'reset']);
 export const headingPropTypes = PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']);
-export const sizesPropTypes = PropTypes.oneOf(sizesOptions);
-export const sizesAllPropTypes = PropTypes.oneOf(sizesAllOptions);
+export const sizesPropTypes = PropTypes.oneOf(['sm', 'md', 'lg']);
+export const sizesAllPropTypes = PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']);
 export const textAlignPropTypes = PropTypes.oneOf(['left', 'center', 'right', 'justify']);
-export const variantPropTypes = PropTypes.oneOf(variantOptions);
+export const variantPropTypes = PropTypes.oneOf([
+  ...Object.keys(palette),
+  ...Object.keys(colorsTheme),
+]);
 
 export const baseStyles = {
   color: (props: Object): string => {
