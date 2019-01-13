@@ -18,7 +18,7 @@ storiesOf('Alert', module)
       <Alert
         alignHorizontal={select('Align Horizontal', ['left', 'center', 'right'], 'left')}
         dark={boolean('Dark', false)}
-        outline={boolean('Outline', false)}
+        bordered={boolean('Bordered', false)}
         size={select('Size', sizesOptions, 'md')}
         variant={select('Variant', variantOptions, 'primary')}
       >
@@ -32,8 +32,6 @@ storiesOf('Alert', module)
   .add('with child components', () => (
     <ViewCheckbox>
       <Alert
-        alignHorizontal={select('Align Horizontal', ['left', 'center', 'right'], 'left')}
-        outline={boolean('Outline', false)}
         size={select('Size', sizesOptions, 'md')}
         variant={select('Variant', variantOptions, 'primary')}
       >
@@ -87,7 +85,6 @@ storiesOf('Alert', module)
   .add('with outline', () => (
     <ViewCheckbox>
       {variantOptions.map((d, i) => (
-        <Alert key={i} outline variant={d}>
           <Heading as="h4">{capitalize(d)}</Heading>
           <Paragraph>
             Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,

@@ -30,7 +30,7 @@ Badge.propTypes = {
   as: PropTypes.string,
   children: PropTypes.node.isRequired,
   dark: PropTypes.bool,
-  outline: PropTypes.bool,
+  bordered: PropTypes.bool,
   size: sizesAllPropTypes,
   variant: variantPropTypes,
   ...basePropTypes,
@@ -38,6 +38,10 @@ Badge.propTypes = {
 
 Badge.defaultProps = {
   as: 'span',
+  dark: false,
+  bordered: false,
+  size: 'md',
+  variant: 'primary',
 };
 
 export default Badge;

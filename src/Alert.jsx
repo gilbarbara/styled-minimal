@@ -31,9 +31,9 @@ Alert.displayName = 'Alert';
 
 Alert.propTypes = {
   as: PropTypes.string,
+  bordered: PropTypes.bool,
   children: PropTypes.node.isRequired,
   dark: PropTypes.bool,
-  outline: PropTypes.bool,
   /** button size */
   size: sizesAllPropTypes,
   /** button variant */
@@ -42,7 +42,8 @@ Alert.propTypes = {
 };
 
 Alert.defaultProps = {
-  outline: false,
+  bordered: false,
+  dark: false,
   size: 'md',
   variant: 'primary',
 };

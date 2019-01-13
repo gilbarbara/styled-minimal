@@ -82,25 +82,25 @@ export const baseStyles = {
     `;
   },
   variant: (props: Object): string => {
-    const { dark, outline } = props;
+    const { dark, bordered } = props;
     const { colors, darkColor } = getTheme(props);
     const themeColor = getColor(props);
 
-    const backgroundColor = outline ? colors.white : themeColor;
+    const backgroundColor = bordered ? colors.white : themeColor;
     const baseColor = getYiq(themeColor) > 180 ? colors.black : colors.white;
-    let currentColor = outline ? themeColor : baseColor;
+    let currentColor = bordered ? themeColor : baseColor;
 
     if (dark) {
       const colorDiff = Math.abs(getYiq(darkColor) - getYiq(themeColor));
       currentColor = colorDiff > 40 ? themeColor : lighten(0.3, themeColor);
-    } else if (outline) {
+    } else if (bordered) {
       const colorDiff = Math.abs(getYiq(backgroundColor) - getYiq(themeColor));
       currentColor = colorDiff > 50 ? themeColor : darken(0.2, themeColor);
     }
 
     return css`
       background-color: ${dark ? darkColor : backgroundColor};
-      border: 1px solid ${dark && !outline ? darkColor : themeColor};
+      border: 1px solid ${dark && !bordered ? darkColor : themeColor};
       color: ${currentColor};
     `;
   },
@@ -181,7 +181,7 @@ export const formPseudo = (props: Object): string => {
     ${disabled};
 
     &:focus {
-      outline-color: ${bordered ? currentBorderColor : outlineColor || currentBgColor};
+      outline-color: ${outlineColor || (bordered ? currentBorderColor : currentBgColor)};
       ${outline ? `outline: ${outline}` : null};
       ${outlineOffset ? `outline-offset: ${px(outlineOffset)}` : null};
       ${outlineStyle ? `outline-style: ${outlineStyle}` : null};

@@ -18,10 +18,10 @@ storiesOf('Button', module)
       <Button
         animate={boolean('Animate', false)}
         block={boolean('Block', false)}
+        bordered={boolean('Border', false)}
         disabled={boolean('Disabled', false)}
         dark={boolean('Dark', false)}
         onClick={action('clicked')}
-        outline={boolean('Outline', false)}
         size={select('Size', sizesOptions, 'md')}
         variant={select('Variant', variantOptions, 'primary')}
       >
@@ -74,13 +74,12 @@ storiesOf('Button', module)
   .add('with outline', () => (
     <ViewCheckbox>
       {variantOptions.map((d, i) => (
-        <Button
           key={i}
-          disabled={boolean('Disabled', false)}
           onClick={action('clicked')}
           outline
           variant={d}
         >
+        <Button key={i} bordered onClick={action('clicked')} variant={d}>
           {capitalize(d)}
         </Button>
       ))}

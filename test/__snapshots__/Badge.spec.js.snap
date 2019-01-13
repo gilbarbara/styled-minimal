@@ -12,6 +12,7 @@ exports[`Badge should render properly 1`] = `
   display: -ms-inline-flexbox;
   display: inline-flex;
   font-size: 75%;
+  font-size: 16px;
   font-weight: 700;
   line-height: 1;
   padding: 3px 6px;
@@ -20,9 +21,14 @@ exports[`Badge should render properly 1`] = `
 
 <Badge
   as="span"
+  bordered={false}
+  dark={false}
+  size="md"
+  variant="primary"
 >
   <span
     className="c0"
+    size="md"
   >
     4
   </span>

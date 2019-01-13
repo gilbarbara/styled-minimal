@@ -19,7 +19,8 @@ exports[`Alert should render properly 1`] = `
 }
 
 <Alert
-  outline={false}
+  bordered={false}
+  dark={false}
   size="md"
   variant="primary"
 >

@@ -16,7 +16,8 @@ storiesOf('Badge', module)
   .add('default', () => (
     <ViewCheckbox>
       <Badge
-        outline={boolean('Outline', false)}
+        bordered={boolean('Bordered', false)}
+        dark={boolean('Dark', false)}
         size={select('Size', sizesOptions, 'md')}
         variant={select('Variant', variantOptions, 'primary')}
       >
@@ -96,8 +97,9 @@ storiesOf('Badge', module)
   ))
   .add('with outline', () => (
     <ViewCheckbox>
+  .add('with border', () => (
       {variantOptions.map((d, i) => (
-        <Badge key={i} outline variant={d}>
+        <Badge key={i} bordered variant={d}>
           {capitalize(d)}
         </Badge>
       ))}

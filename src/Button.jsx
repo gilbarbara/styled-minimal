@@ -14,7 +14,7 @@ import Badge from './Badge';
 import Box, { basePropTypes } from './Box';
 
 const styles = (props: Object): string => {
-  const { animate, borderRadius: br, fontSize, lineHeight: lh, outline, size } = props;
+  const { animate, borderRadius: br, fontSize, lineHeight: lh, bordered, size } = props;
   const { borderRadius, lineHeight, loader, padding } = getTheme(props, 'button');
   const fontSizeProp = getTheme(props, 'componentSizes', { key: 'size' });
 
@@ -32,7 +32,7 @@ const styles = (props: Object): string => {
     padding: ${px(padding[size][0])} ${px(padding[size][1])};
     text-decoration: none;
     width: ${({ block }) => (block ? '100%' : 'auto')};
-    ${animate ? loader(outline ? '#ccc' : '#fff') : ''};
+    ${animate ? loader(bordered ? '#ccc' : '#fff') : ''};
   `;
 };
 
@@ -58,23 +58,25 @@ Button.propTypes = {
   animate: PropTypes.bool,
   as: PropTypes.string,
   block: PropTypes.bool,
+  bordered: PropTypes.bool,
   children: PropTypes.node.isRequired,
   dark: PropTypes.bool,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
-  outline: PropTypes.bool,
   size: sizesAllPropTypes,
   type: buttonPropTypes,
   variant: variantPropTypes,
   ...basePropTypes,
+  ...outlines.propTypes,
 };
 
 Button.defaultProps = {
   animate: false,
   as: 'button',
   block: false,
+  bordered: false,
+  dark: false,
   disabled: false,
-  outline: false,
   size: 'md',
   type: 'button',
   variant: 'primary',
