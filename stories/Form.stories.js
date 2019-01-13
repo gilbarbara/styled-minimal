@@ -16,14 +16,14 @@ import {
   Switch,
   Textarea,
 } from '../src';
-import { View } from './helpers/components';
+import { Example } from './helpers/components';
 
 storiesOf('Form', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: {
       propTablesExclude: [
-        View,
+        Example,
         Button,
         Fieldset,
         Flex,
@@ -38,7 +38,7 @@ storiesOf('Form', module)
     },
   })
   .add('default', () => (
-    <View direction="column">
+    <Example direction="column">
       <Form
         bordered={boolean('Bordered', false)}
         onSubmit={e => {
@@ -143,5 +143,5 @@ storiesOf('Form', module)
           RESET
         </Button>
       </Form>
-    </View>
+    </Example>
   ));

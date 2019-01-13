@@ -3,21 +3,21 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 
 import { Button, FormGroup, Input, Label, Legend, Textarea } from '../src';
-import { View } from './helpers/components';
+import { Example } from './helpers/components';
 
-const ViewFormGroup = ({ children, ...rest }) => (
-  <View direction="column" skipSpacer style={{ padding: 10 }} {...rest}>
+const ExampleFormGroup = ({ children, ...rest }) => (
+  <Example direction="column" skipSpacer style={{ padding: 10 }} {...rest}>
     {children}
-  </View>
+  </Example>
 );
 
 storiesOf('FormGroup', module)
   .addDecorator(withKnobs)
   .addParameters({
-    info: { propTablesExclude: [ViewFormGroup, Button, Input, Label, Legend, Textarea] },
+    info: { propTablesExclude: [ExampleFormGroup, Button, Input, Label, Legend, Textarea] },
   })
   .add('default', () => (
-    <ViewFormGroup>
+    <ExampleFormGroup>
       <FormGroup
         bordered={boolean('Bordered', false)}
         inline={boolean('Inline', false)}
@@ -29,10 +29,10 @@ storiesOf('FormGroup', module)
         <Label>Password</Label>
         <Input type="password" name="password" placeholder="Your Password" />
       </FormGroup>
-    </ViewFormGroup>
+    </ExampleFormGroup>
   ))
   .add('with type', () => (
-    <ViewFormGroup>
+    <ExampleFormGroup>
       <FormGroup>
         <Label>Name</Label>
         <Input type="text" name="name" placeholder="Your Name" />
@@ -67,10 +67,10 @@ storiesOf('FormGroup', module)
         <Label>Comment</Label>
         <Textarea name="comment" placeholder="Your Comment" />
       </FormGroup>
-    </ViewFormGroup>
+    </ExampleFormGroup>
   ))
   .add('with bordered', () => (
-    <ViewFormGroup>
+    <ExampleFormGroup>
       <FormGroup bordered>
         <Label>Name</Label>
         <Input type="text" name="name" placeholder="Your Name" />
@@ -105,10 +105,10 @@ storiesOf('FormGroup', module)
         <Label>Comment</Label>
         <Textarea name="comment" placeholder="Your Comment" />
       </FormGroup>
-    </ViewFormGroup>
+    </ExampleFormGroup>
   ))
   .add('with inline', () => (
-    <ViewFormGroup>
+    <ExampleFormGroup>
       <FormGroup bordered inline>
         <Legend>Options</Legend>
         <Label inline>
@@ -162,5 +162,5 @@ storiesOf('FormGroup', module)
           SEND
         </Button>
       </FormGroup>
-    </ViewFormGroup>
+    </ExampleFormGroup>
   ));

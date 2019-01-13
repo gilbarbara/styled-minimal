@@ -4,16 +4,16 @@ import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs';
 
 import { Switch } from '../src';
-import { View } from './helpers/components';
-import { sizesAllOptions, variantOptions } from '../src/utils/system';
+import { Example } from './helpers/components';
+import { sizesAllOptions, variantOptions } from './helpers/extras';
 
 storiesOf('Switch', module)
   .addDecorator(withKnobs)
   .addParameters({
-    info: { propTablesExclude: [View] },
+    info: { propTablesExclude: [Example] },
   })
   .add('default', () => (
-    <View>
+    <Example>
       <Switch
         name="test"
         size={select('Size', sizesAllOptions, 'md')}
@@ -23,21 +23,21 @@ storiesOf('Switch', module)
           action('changed')(value);
         }}
       />
-    </View>
+    </Example>
   ))
   .add('with size', () => (
-    <View>
+    <Example>
       <Switch name="test" size="xs" />
       <Switch name="test" size="sm" />
       <Switch name="test" size="md" />
       <Switch name="test" size="lg" />
       <Switch name="test" size="xl" />
-    </View>
+    </Example>
   ))
   .add('with variant', () => (
-    <View>
+    <Example>
       {variantOptions.map((d, i) => (
         <Switch key={i} name={d} value={true} variant={d} />
       ))}
-    </View>
+    </Example>
   ));

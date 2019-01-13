@@ -2,19 +2,18 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 
-import { sizesOptions, variantOptions } from '../src/utils/system';
-import { capitalize } from './helpers/extras';
-
 import { Badge, Button, Heading } from '../src';
-import { SVG, ViewCheckbox } from './helpers/components';
+
+import { SVG, Example } from './helpers/components';
+import { capitalize, sizesOptions, variantOptions } from './helpers/extras';
 
 storiesOf('Badge', module)
   .addDecorator(withKnobs)
   .addParameters({
-    info: { propTablesExclude: [ViewCheckbox, Heading] },
+    info: { propTablesExclude: [Example, Heading, SVG] },
   })
   .add('default', () => (
-    <ViewCheckbox>
+    <Example>
       <Badge
         bordered={boolean('Bordered', false)}
         dark={boolean('Dark', false)}
@@ -23,10 +22,10 @@ storiesOf('Badge', module)
       >
         {text('Children', 'badge')}
       </Badge>
-    </ViewCheckbox>
+    </Example>
   ))
   .add('with Heading', () => (
-    <ViewCheckbox direction="column">
+    <Example direction="column">
       <div>
         <Heading as="h1">
           Example heading <Badge>New</Badge>
@@ -47,10 +46,10 @@ storiesOf('Badge', module)
           Example heading <Badge>New</Badge>
         </Heading>
       </div>
-    </ViewCheckbox>
+    </Example>
   ))
   .add('with Button', () => (
-    <ViewCheckbox>
+    <Example>
       <Button size="xs">
         Notifications <Badge variant="light">4</Badge>
       </Button>
@@ -66,49 +65,48 @@ storiesOf('Badge', module)
       <Button size="xl">
         Notifications <Badge variant="light">4</Badge>
       </Button>
-    </ViewCheckbox>
+    </Example>
   ))
   .add('with size', () => (
-    <ViewCheckbox>
+    <Example>
       <Badge size="xs">Badge XS</Badge>
       <Badge size="sm">Badge SM</Badge>
       <Badge size="md">Badge MD</Badge>
       <Badge size="lg">Badge LG</Badge>
       <Badge size="xl">Badge XL</Badge>
-    </ViewCheckbox>
+    </Example>
   ))
   .add('with variant', () => (
-    <ViewCheckbox>
+    <Example>
       {variantOptions.map((d, i) => (
         <Badge key={i} variant={d}>
           {capitalize(d)}
         </Badge>
       ))}
-    </ViewCheckbox>
+    </Example>
   ))
   .add('with dark mode', () => (
-    <ViewCheckbox>
+    <Example>
       {variantOptions.map((d, i) => (
         <Badge key={i} variant={d} dark>
           {capitalize(d)}
         </Badge>
       ))}
-    </ViewCheckbox>
+    </Example>
   ))
-  .add('with outline', () => (
-    <ViewCheckbox>
   .add('with border', () => (
+    <Example>
       {variantOptions.map((d, i) => (
         <Badge key={i} bordered variant={d}>
           {capitalize(d)}
         </Badge>
       ))}
-    </ViewCheckbox>
+    </Example>
   ))
   .add('with icon', () => (
-    <ViewCheckbox>
+    <Example>
       <Badge>
         <SVG width="10px" height="10px" /> <span>Bad</span>
       </Badge>
-    </ViewCheckbox>
+    </Example>
   ));

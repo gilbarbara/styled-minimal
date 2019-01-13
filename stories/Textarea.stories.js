@@ -2,10 +2,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select, boolean, number, text } from '@storybook/addon-knobs';
 
-import { sizesOptions } from '../src/utils/system';
+import { sizesOptions } from './helpers/extras';
 
 import { Textarea } from '../src';
-import { View } from './helpers/components';
+import { Example } from './helpers/components';
 
 class Validator extends React.Component {
   state = {
@@ -23,7 +23,7 @@ class Validator extends React.Component {
     const { i1, i2 } = this.state;
 
     return (
-      <View>
+      <Example>
         <Textarea name="i1" placeholder="Your resume" onChange={this.handleChange} valid={i1} />
         <br />
         <Textarea
@@ -32,7 +32,7 @@ class Validator extends React.Component {
           onChange={this.handleChange}
           valid={i2}
         />
-      </View>
+      </Example>
     );
   }
 }
@@ -40,10 +40,10 @@ class Validator extends React.Component {
 storiesOf('Textarea', module)
   .addDecorator(withKnobs)
   .addParameters({
-    info: { propTablesExclude: [View] },
+    info: { propTablesExclude: [Example] },
   })
   .add('default', () => (
-    <View>
+    <Example>
       <Textarea
         defaultValue="Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth."
         bg={text('Background Color', '')}
@@ -55,6 +55,6 @@ storiesOf('Textarea', module)
         rows={number('Rows', 3)}
         size={select('Size', sizesOptions, 'md')}
       />
-    </View>
+    </Example>
   ))
   .add('with validation', () => <Validator />);

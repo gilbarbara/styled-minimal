@@ -31,7 +31,7 @@ const flex = ({ direction, skipFlex }) =>
       `
     : '';
 
-const StyledView = styled.div`
+const StyledExample = styled.div`
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   margin: 0 auto;
@@ -45,7 +45,7 @@ const StyledView = styled.div`
   }
 `;
 
-const View = ({ children, ...props }) => (
+const Example = ({ children, ...props }) => (
   <ThemeProvider
     theme={{
       breakpoints: [400, 580, 768, 1024, 1280, 1920],
@@ -53,11 +53,11 @@ const View = ({ children, ...props }) => (
       space: [0, 4, 8, 12, 16, 24, 32, 64, 128],
     }}
   >
-    <StyledView {...props}>{children}</StyledView>
+    <StyledExample {...props}>{children}</StyledExample>
   </ThemeProvider>
 );
 
-View.propTypes = {
+Example.propTypes = {
   centered: PropTypes.bool,
   checkbox: PropTypes.bool,
   children: PropTypes.node.isRequired,
@@ -66,7 +66,7 @@ View.propTypes = {
   skipSpacer: PropTypes.bool,
 };
 
-View.defaultProps = {
+Example.defaultProps = {
   direction: 'row',
 };
 
@@ -112,14 +112,4 @@ SVG.defaultProps = {
   width: '16px',
 };
 
-const ViewCheckbox = ({ children, ...rest }) => (
-  <View checkbox {...rest}>
-    {children}
-  </View>
-);
-
-ViewCheckbox.propTypes = {
-  children: PropTypes.node,
-};
-
-export { SVG, View, ViewCheckbox };
+export { SVG, Example };

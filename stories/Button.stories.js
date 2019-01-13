@@ -4,17 +4,17 @@ import { action } from '@storybook/addon-actions';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 
 import { Button } from '../src';
-import { sizesOptions, variantOptions } from '../src/utils/system';
-import { SVG, ViewCheckbox } from './helpers/components';
-import { capitalize } from './helpers/extras';
+
+import { SVG, Example } from './helpers/components';
+import { capitalize, sizesOptions, variantOptions } from './helpers/extras';
 
 storiesOf('Button', module)
   .addDecorator(withKnobs)
   .addParameters({
-    info: { propTablesExclude: [ViewCheckbox] },
+    info: { propTablesExclude: [Example, SVG] },
   })
   .add('default', () => (
-    <ViewCheckbox>
+    <Example>
       <Button
         animate={boolean('Animate', false)}
         block={boolean('Block', false)}
@@ -27,10 +27,10 @@ storiesOf('Button', module)
       >
         {text('Children', 'Click here now')}
       </Button>
-    </ViewCheckbox>
+    </Example>
   ))
   .add('with size', () => (
-    <ViewCheckbox>
+    <Example>
       <Button onClick={action('clicked')} size="xs">
         Button XS
       </Button>
@@ -46,47 +46,37 @@ storiesOf('Button', module)
       <Button onClick={action('clicked')} size="xl">
         Button XL
       </Button>
-    </ViewCheckbox>
+    </Example>
   ))
   .add('with variant', () => (
-    <ViewCheckbox>
+    <Example>
       {variantOptions.map((d, i) => (
-        <Button
-          key={i}
-          variant={d}
-          disabled={boolean('Disabled', false)}
-          onClick={action('clicked')}
-        >
+        <Button key={i} onClick={action('clicked')} variant={d}>
           {capitalize(d)}
         </Button>
       ))}
-    </ViewCheckbox>
+    </Example>
   ))
   .add('with dark mode', () => (
-    <ViewCheckbox>
+    <Example>
       {variantOptions.map((d, i) => (
-        <Button key={i} variant={d} dark onClick={action('clicked')}>
+        <Button key={i} dark onClick={action('clicked')} variant={d}>
           {capitalize(d)}
         </Button>
       ))}
-    </ViewCheckbox>
+    </Example>
   ))
-  .add('with outline', () => (
-    <ViewCheckbox>
+  .add('with border', () => (
+    <Example>
       {variantOptions.map((d, i) => (
-          key={i}
-          onClick={action('clicked')}
-          outline
-          variant={d}
-        >
         <Button key={i} bordered onClick={action('clicked')} variant={d}>
           {capitalize(d)}
         </Button>
       ))}
-    </ViewCheckbox>
+    </Example>
   ))
   .add('with icons', () => (
-    <ViewCheckbox>
+    <Example>
       <Button onClick={action('clicked')}>
         <span role="img" aria-label="so cool" style={{ marginRight: 5 }}>
           😀
@@ -105,10 +95,10 @@ storiesOf('Button', module)
           <SVG />
         </span>
       </Button>
-    </ViewCheckbox>
+    </Example>
   ))
   .add('with animation', () => (
-    <ViewCheckbox>
+    <Example>
       <Button onClick={action('clicked')} animate>
         Waiting
       </Button>
@@ -118,5 +108,5 @@ storiesOf('Button', module)
       <Button onClick={action('clicked')} variant="indigo" animate>
         Running
       </Button>
-    </ViewCheckbox>
+    </Example>
   ));

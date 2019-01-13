@@ -2,18 +2,18 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, number, select } from '@storybook/addon-knobs';
 
-import { sizesOptions } from '../src/utils/system';
+import { sizesOptions } from './helpers/extras';
 
 import { Box, Heading, List, Paragraph } from '../src';
-import { View } from './helpers/components';
+import { Example } from './helpers/components';
 
 storiesOf('List', module)
   .addDecorator(withKnobs)
   .addParameters({
-    info: { propTablesExclude: [View, Box, Heading, Paragraph] },
+    info: { propTablesExclude: [Example, Box, Heading, Paragraph] },
   })
   .add('default', () => (
-    <View>
+    <Example>
       <Box width={450}>
         <List
           as={select('Element', ['ul', 'ol'], 'ul')}
@@ -47,10 +47,10 @@ storiesOf('List', module)
           <li>Vestibulum at eros</li>
         </List>
       </Box>
-    </View>
+    </Example>
   ))
   .add('with OL', () => (
-    <View>
+    <Example>
       <Box width={450}>
         <List as="ol" type="I">
           <li>Cras justo odio</li>
@@ -60,10 +60,10 @@ storiesOf('List', module)
           <li>Vestibulum at eros</li>
         </List>
       </Box>
-    </View>
+    </Example>
   ))
   .add('with size', () => (
-    <View style={{ alignItems: 'flex-start' }}>
+    <Example style={{ alignItems: 'flex-start' }}>
       <Box width={200}>
         <Heading as="h5" mb={1}>
           SM
@@ -100,5 +100,5 @@ storiesOf('List', module)
           <li>Vestibulum at eros</li>
         </List>
       </Box>
-    </View>
+    </Example>
   ));

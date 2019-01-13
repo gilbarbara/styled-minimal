@@ -3,15 +3,15 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, number } from '@storybook/addon-knobs';
 
 import { Embed } from '../src';
-import { ViewCheckbox } from './helpers/components';
+import { Example } from './helpers/components';
 
 storiesOf('Embed', module)
   .addDecorator(withKnobs)
   .addParameters({
-    info: { propTablesExclude: [ViewCheckbox] },
+    info: { propTablesExclude: [Example] },
   })
   .add('default', () => (
-    <ViewCheckbox>
+    <Example>
       <Embed ratio={number('Ratio', 9 / 16)}>
         {`<iframe
           width="560"
@@ -22,5 +22,5 @@ storiesOf('Embed', module)
           allowFullScreen
         />`}
       </Embed>
-    </ViewCheckbox>
+    </Example>
   ));

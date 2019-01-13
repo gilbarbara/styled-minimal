@@ -3,18 +3,18 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 
 import { Container } from '../src';
-import { ViewCheckbox } from './helpers/components';
+import { Example } from './helpers/components';
 
 storiesOf('Container', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: {
-      propTablesExclude: [ViewCheckbox],
+      propTablesExclude: [Example],
       text: 'Content wrapper with responsive padding',
     },
   })
   .add('default', () => (
-    <ViewCheckbox>
+    <Example>
       <Container
         layout={select('Layout', ['', 'flex', 'fullScreen'])}
         textAlign={select('Text Align', ['', 'left', 'center', 'right', 'justify'])}
@@ -23,12 +23,12 @@ storiesOf('Container', module)
       >
         <div style={{ backgroundColor: '#f04' }}>Content</div>
       </Container>
-    </ViewCheckbox>
+    </Example>
   ))
   .add('with layout', () => (
-    <ViewCheckbox>
+    <Example>
       <Container layout="fullScreen" style={{ backgroundColor: '#000' }}>
         <div style={{ backgroundColor: '#f04' }}>Content</div>
       </Container>
-    </ViewCheckbox>
+    </Example>
   ));

@@ -28,9 +28,9 @@ Badge.displayName = 'Badge';
 
 Badge.propTypes = {
   as: PropTypes.string,
+  bordered: PropTypes.bool,
   children: PropTypes.node.isRequired,
   dark: PropTypes.bool,
-  bordered: PropTypes.bool,
   size: sizesAllPropTypes,
   variant: variantPropTypes,
   ...basePropTypes,

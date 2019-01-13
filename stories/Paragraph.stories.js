@@ -2,14 +2,14 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { Paragraph } from '../src';
-import { View } from './helpers/components';
+import { Example } from './helpers/components';
 
 storiesOf('Paragraph', module)
   .addParameters({
-    info: { propTablesExclude: [View] },
+    info: { propTablesExclude: [Example] },
   })
   .add('default', () => (
-    <View direction="column" skipSpacer>
+    <Example direction="column" skipSpacer>
       <Paragraph>
         Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
         there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
@@ -26,7 +26,7 @@ storiesOf('Paragraph', module)
         belt and made herself on the way.
       </Paragraph>
       <Paragraph>
-        When she reached the first hills of the Italic Mountains, she had a last view back on the
+        When she reached the first hills of the Italic Mountains, she had a last Example back on the
         skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of
         her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she
         continued her way. On her way she met a copy.
@@ -46,5 +46,5 @@ storiesOf('Paragraph', module)
         all-powerful Pointing has no control about the blind texts it is an almost unorthographic
         life One.
       </Paragraph>
-    </View>
+    </Example>
   ));

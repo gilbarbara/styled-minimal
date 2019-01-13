@@ -2,14 +2,14 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { Code } from '../src';
-import { View } from './helpers/components';
+import { Example } from './helpers/components';
 
 storiesOf('Code', module)
   .addParameters({
-    info: { propTablesExclude: [View] },
+    info: { propTablesExclude: [Example] },
   })
   .add('default', () => (
-    <View skipSpacer>
+    <Example skipSpacer>
       <Code>{'<MyComponent variant="green">Some Code</MyComponent>'}</Code>
-    </View>
+    </Example>
   ));

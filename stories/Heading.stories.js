@@ -3,15 +3,15 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 
 import { Heading } from '../src';
-import { View } from './helpers/components';
+import { Example } from './helpers/components';
 
 storiesOf('Heading', module)
   .addDecorator(withKnobs)
   .addParameters({
-    info: { propTablesExclude: [View] },
+    info: { propTablesExclude: [Example] },
   })
   .add('default', () => (
-    <View>
+    <Example>
       <Heading
         as={select('As', ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'], 'h1')}
         size={select('Size', ['', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'])}
@@ -19,10 +19,10 @@ storiesOf('Heading', module)
       >
         {text('Children', 'My Super Awesome Title')}
       </Heading>
-    </View>
+    </Example>
   ))
   .add('with as', () => (
-    <View>
+    <Example>
       <div>
         <Heading as="h1">Heading 1</Heading>
         <Heading as="h2">Heading 2</Heading>
@@ -31,10 +31,10 @@ storiesOf('Heading', module)
         <Heading as="h5">Heading 5</Heading>
         <Heading as="h6">Heading 6</Heading>
       </div>
-    </View>
+    </Example>
   ))
   .add('with size', () => (
-    <View>
+    <Example>
       <div>
         <Heading as="h1" size="h6">
           Heading 1 with h6 size
@@ -55,5 +55,5 @@ storiesOf('Heading', module)
           Heading 6 with h1 size
         </Heading>
       </div>
-    </View>
+    </Example>
   ));

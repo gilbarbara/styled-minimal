@@ -3,15 +3,15 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 
 import { Box, Flex } from '../src';
-import { ViewCheckbox } from './helpers/components';
+import { Example } from './helpers/components';
 
 storiesOf('Flex', module)
   .addDecorator(withKnobs)
   .addParameters({
-    info: { propTablesExclude: [ViewCheckbox, Box] },
+    info: { propTablesExclude: [Example, Box] },
   })
   .add('default', () => (
-    <ViewCheckbox>
+    <Example>
       <Flex
         alignItems={select(
           'Align Items',
@@ -53,5 +53,5 @@ storiesOf('Flex', module)
           Box 70%
         </Box>
       </Flex>
-    </ViewCheckbox>
+    </Example>
   ));

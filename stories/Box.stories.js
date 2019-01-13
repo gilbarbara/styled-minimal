@@ -3,15 +3,15 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, select, text, number } from '@storybook/addon-knobs';
 
 import { Box } from '../src';
-import { View } from './helpers/components';
+import { Example } from './helpers/components';
 
 storiesOf('Box', module)
   .addDecorator(withKnobs)
   .addParameters({
-    info: { propTablesExclude: [View] },
+    info: { propTablesExclude: [Example] },
   })
   .add('default', () => (
-    <View skipSpacer>
+    <Example skipSpacer>
       <Box
         bg={text('BG Color', '#ccc')}
         color={text('Color', '#f04')}
@@ -23,5 +23,5 @@ storiesOf('Box', module)
       >
         {text('Children', 'This is a box')}
       </Box>
-    </View>
+    </Example>
   ));

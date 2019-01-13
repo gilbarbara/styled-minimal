@@ -3,18 +3,17 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 
 import { Alert, Box, Flex, Heading, Paragraph } from '../src';
-import { sizesOptions, variantOptions } from '../src/utils/system';
 
-import { SVG, ViewCheckbox } from './helpers/components';
-import { capitalize } from './helpers/extras';
+import { SVG, Example } from './helpers/components';
+import { capitalize, sizesOptions, variantOptions } from './helpers/extras';
 
 storiesOf('Alert', module)
   .addDecorator(withKnobs)
   .addParameters({
-    info: { propTablesExclude: [ViewCheckbox, Box, Flex, Heading, Paragraph, SVG] },
+    info: { propTablesExclude: [Example, Box, Flex, Heading, Paragraph, SVG] },
   })
   .add('default', () => (
-    <ViewCheckbox>
+    <Example>
       <Alert
         alignHorizontal={select('Align Horizontal', ['left', 'center', 'right'], 'left')}
         dark={boolean('Dark', false)}
@@ -27,10 +26,10 @@ storiesOf('Alert', module)
           'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.',
         )}
       </Alert>
-    </ViewCheckbox>
+    </Example>
   ))
   .add('with child components', () => (
-    <ViewCheckbox>
+    <Example>
       <Alert
         size={select('Size', sizesOptions, 'md')}
         variant={select('Variant', variantOptions, 'primary')}
@@ -45,19 +44,19 @@ storiesOf('Alert', module)
           Footer
         </Box>
       </Alert>
-    </ViewCheckbox>
+    </Example>
   ))
   .add('with size', () => (
-    <ViewCheckbox direction="column">
+    <Example direction="column">
       <Alert size="xs">Alert XS</Alert>
       <Alert size="sm">Alert SM</Alert>
       <Alert size="md">Alert MD</Alert>
       <Alert size="lg">Alert LG</Alert>
       <Alert size="xl">Alert XL</Alert>
-    </ViewCheckbox>
+    </Example>
   ))
   .add('with variant', () => (
-    <ViewCheckbox>
+    <Example>
       {variantOptions.map((d, i) => (
         <Alert key={i} variant={d}>
           <Heading as="h4">{capitalize(d)}</Heading>
@@ -67,10 +66,10 @@ storiesOf('Alert', module)
           </Paragraph>
         </Alert>
       ))}
-    </ViewCheckbox>
+    </Example>
   ))
   .add('with dark mode', () => (
-    <ViewCheckbox>
+    <Example>
       {variantOptions.map((d, i) => (
         <Alert key={i} variant={d} dark>
           <Heading as="h4">{capitalize(d)}</Heading>
@@ -80,11 +79,12 @@ storiesOf('Alert', module)
           </Paragraph>
         </Alert>
       ))}
-    </ViewCheckbox>
+    </Example>
   ))
-  .add('with outline', () => (
-    <ViewCheckbox>
+  .add('with border', () => (
+    <Example>
       {variantOptions.map((d, i) => (
+        <Alert key={i} bordered variant={d}>
           <Heading as="h4">{capitalize(d)}</Heading>
           <Paragraph>
             Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
@@ -92,5 +92,5 @@ storiesOf('Alert', module)
           </Paragraph>
         </Alert>
       ))}
-    </ViewCheckbox>
+    </Example>
   ));

@@ -2,14 +2,14 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { Screen } from '../src';
-import { View } from './helpers/components';
+import { Example } from './helpers/components';
 
 storiesOf('Screen', module)
   .addParameters({
-    info: { propTablesExclude: [View] },
+    info: { propTablesExclude: [Example] },
   })
   .add('default', () => (
-    <View>
+    <Example>
       <Screen>
         Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
         there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
@@ -17,5 +17,5 @@ storiesOf('Screen', module)
         supplies it with the necessary regelialia. It is a paradisematic country, in which roasted
         parts of sentences fly into your mouth.
       </Screen>
-    </View>
+    </Example>
   ));

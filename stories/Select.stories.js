@@ -2,10 +2,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select, boolean, number, text } from '@storybook/addon-knobs';
 
-import { sizesOptions } from '../src/utils/system';
+import { sizesOptions } from './helpers/extras';
 
 import { Select } from '../src';
-import { View } from './helpers/components';
+import { Example } from './helpers/components';
 
 class Validator extends React.Component {
   state = {
@@ -23,7 +23,7 @@ class Validator extends React.Component {
     const { i1, i2 } = this.state;
 
     return (
-      <View>
+      <Example>
         <Select name="i1" placeholder="Your Name" onChange={this.handleChange} valid={i1}>
           <option value="">--</option>
           <option value="male">Male</option>
@@ -36,7 +36,7 @@ class Validator extends React.Component {
           <option value="female">Female</option>
           <option value="other">Other</option>
         </Select>
-      </View>
+      </Example>
     );
   }
 }
@@ -44,10 +44,10 @@ class Validator extends React.Component {
 storiesOf('Select', module)
   .addDecorator(withKnobs)
   .addParameters({
-    info: { propTablesExclude: [View] },
+    info: { propTablesExclude: [Example] },
   })
   .add('default', () => (
-    <View>
+    <Example>
       <Select
         bg={text('Background Color', '')}
         color={text('Color', '')}
@@ -62,6 +62,6 @@ storiesOf('Select', module)
         <option value="female">Female</option>
         <option value="other">Other</option>
       </Select>
-    </View>
+    </Example>
   ))
   .add('with validation', () => <Validator />);

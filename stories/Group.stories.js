@@ -2,18 +2,18 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { Badge, Button, Group, Text } from '../src';
-import { View } from './helpers/components';
+import { Example } from './helpers/components';
 
 storiesOf('Group', module)
   .addParameters({
-    info: { propTablesExclude: [Badge, Button, Text, View] },
+    info: { propTablesExclude: [Example, Badge, Button, Text] },
   })
   .add('default', () => (
-    <View skipSpacer>
+    <Example skipSpacer>
       <Group>
         <Button>Hey</Button>
         <Badge>1</Badge>
         <Text>Hello</Text>
       </Group>
-    </View>
+    </Example>
   ));

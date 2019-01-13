@@ -4,6 +4,8 @@ import { withOptions } from '@storybook/addon-options';
 import { withInfo } from '@storybook/addon-info';
 import { themes } from '@storybook/components';
 
+import TableComponent from './TableComponent';
+
 // automatically import all files ending in *.stories.js
 const req = require.context('../stories', true, /.stories.js$/);
 
@@ -35,6 +37,7 @@ addDecorator(
   withInfo({
     inline: true,
     source: false,
+    TableComponent,
   }),
 );
 

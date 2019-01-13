@@ -2,15 +2,15 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, number, select, text } from '@storybook/addon-knobs';
 
-import { sizesOptions } from '../src/utils/system';
+import { sizesOptions } from './helpers/extras';
 
 import { Input } from '../src';
-import { View } from './helpers/components';
+import { Example } from './helpers/components';
 
-const ViewInput = ({ children, ...rest }) => (
-  <View direction="column" skipSpacer style={{ padding: 10 }} {...rest}>
+const ExampleInput = ({ children, ...rest }) => (
+  <Example direction="column" skipSpacer style={{ padding: 10 }} {...rest}>
     {children}
-  </View>
+  </Example>
 );
 
 class Validator extends React.Component {
@@ -29,11 +29,11 @@ class Validator extends React.Component {
     const { i1, i2 } = this.state;
 
     return (
-      <ViewInput>
+      <ExampleInput>
         <Input name="i1" placeholder="Your Name" onChange={this.handleChange} valid={i1} />
         <br />
         <Input name="i2" placeholder="Your Email" onChange={this.handleChange} valid={i2} />
-      </ViewInput>
+      </ExampleInput>
     );
   }
 }
@@ -41,10 +41,10 @@ class Validator extends React.Component {
 storiesOf('Input', module)
   .addDecorator(withKnobs)
   .addParameters({
-    info: { propTablesExclude: [ViewInput, Validator] },
+    info: { propTablesExclude: [ExampleInput, Validator] },
   })
   .add('default', () => (
-    <ViewInput>
+    <ExampleInput>
       <Input
         accept={text('Accept')}
         autoComplete={text('Autocomplete')}
@@ -61,12 +61,12 @@ storiesOf('Input', module)
         required={boolean('Required', false)}
         size={select('Size', sizesOptions, 'md')}
       />
-    </ViewInput>
+    </ExampleInput>
   ))
   .add(
     'with type',
     () => (
-      <ViewInput>
+      <ExampleInput>
         <Input type="checkbox" />
         <br />
         <Input type="color" />
@@ -90,26 +90,26 @@ storiesOf('Input', module)
         <Input type="tel" placeholder="tel" />
         <br />
         <Input type="text" placeholder="text" />
-      </ViewInput>
+      </ExampleInput>
     ),
     { info: { source: false } },
   )
   .add('with size', () => (
-    <ViewInput>
+    <ExampleInput>
       <Input size="sm" placeholder="sm" />
       <br />
       <Input size="md" placeholder="md" />
       <br />
       <Input size="lg" placeholder="lg" />
-    </ViewInput>
+    </ExampleInput>
   ))
   .add('with status', () => (
-    <ViewInput>
+    <ExampleInput>
       <Input disabled placeholder="disabled" />
       <br />
       <Input placeholder="normal" />
       <br />
       <Input required placeholder="required" />
-    </ViewInput>
+    </ExampleInput>
   ))
   .add('with validation', () => <Validator />);

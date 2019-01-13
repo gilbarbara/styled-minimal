@@ -3,15 +3,15 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 
 import { Fieldset, Input, Label, Legend } from '../src';
-import { View } from './helpers/components';
+import { Example } from './helpers/components';
 
 storiesOf('Fieldset', module)
   .addDecorator(withKnobs)
   .addParameters({
-    info: { propTablesExclude: [Input, Label, Legend, View] },
+    info: { propTablesExclude: [Example, Input, Label, Legend] },
   })
   .add('default', () => (
-    <View direction="column">
+    <Example direction="column">
       <div>
         <Fieldset inline={boolean('Inline', false)}>
           <Legend>Options</Legend>
@@ -25,5 +25,5 @@ storiesOf('Fieldset', module)
           </Label>
         </Fieldset>
       </div>
-    </View>
+    </Example>
   ));

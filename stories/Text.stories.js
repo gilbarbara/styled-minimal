@@ -2,14 +2,14 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { Text } from '../src';
-import { View } from './helpers/components';
+import { Example } from './helpers/components';
 
 storiesOf('Text', module)
   .addParameters({
-    info: { propTablesExclude: [View] },
+    info: { propTablesExclude: [Example] },
   })
   .add('default', () => (
-    <View>
+    <Example>
       <div>
         <Text>
           Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
@@ -21,9 +21,9 @@ storiesOf('Text', module)
           decided to leave for the far World of Grammar.
         </Text>
         <Text>
-          When she reached the first hills of the Italic Mountains, she had a last view back on the
-          skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline
-          of her own road, the Line Lane.
+          When she reached the first hills of the Italic Mountains, she had a last Example back on
+          the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the
+          subline of her own road, the Line Lane.
         </Text>
         <Text>
           A small river named Duden flows by their place and supplies it with the necessary
@@ -32,5 +32,5 @@ storiesOf('Text', module)
           almost unorthographic life One.
         </Text>
       </div>
-    </View>
+    </Example>
   ));

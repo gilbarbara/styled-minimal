@@ -3,19 +3,19 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 
 import { Button, ButtonGroup } from '../src';
-import { sizesOptions, variantOptions } from '../src/utils/system';
+import { sizesOptions, variantOptions } from './helpers/extras';
 
-import { ViewCheckbox } from './helpers/components';
+import { Example } from './helpers/components';
 
 storiesOf('ButtonGroup', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: {
-      propTablesExclude: [ViewCheckbox, Button],
+      propTablesExclude: [Example, Button],
     },
   })
   .add('default', () => (
-    <ViewCheckbox skipSpacer>
+    <Example skipSpacer>
       <ButtonGroup
         size={select('Size', sizesOptions, 'md')}
         variant={select('Variant', variantOptions, 'primary')}
@@ -31,5 +31,5 @@ storiesOf('ButtonGroup', module)
           Forth
         </Button>
       </ButtonGroup>
-    </ViewCheckbox>
+    </Example>
   ));
