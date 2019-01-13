@@ -2,7 +2,13 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 import { getColor, getStyles, getTheme, isDefined, px } from './utils/helpers';
-import { baseStyles, buttonPropTypes, sizesAllPropTypes, variantPropTypes } from './utils/system';
+import {
+  baseStyles,
+  buttonPropTypes,
+  outlines,
+  sizesAllPropTypes,
+  variantPropTypes,
+} from './utils/system';
 
 import Badge from './Badge';
 import Box, { basePropTypes } from './Box';
@@ -40,6 +46,7 @@ const Button = styled(Box)`
 
   &:focus {
     outline-color: ${getColor};
+    ${outlines}
   }
 
   ${Badge} {

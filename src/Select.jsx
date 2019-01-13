@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 import { getDimmerColor, getTheme, isDefined, lighten, px } from './utils/helpers';
-import { formPseudo, sizesPropTypes } from './utils/system';
+import { formPseudo, outlines, sizesPropTypes } from './utils/system';
 
 import Box, { basePropTypes } from './Box';
 
@@ -99,6 +99,7 @@ Select.propTypes = {
   sizing: sizesPropTypes,
   valid: PropTypes.bool,
   ...basePropTypes,
+  ...outlines.propTypes,
 };
 
 Select.defaultProps = {
