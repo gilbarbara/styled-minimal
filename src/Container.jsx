@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { getTheme, isDefined, px, responsive, spacer } from './utils/helpers';
 import { textAlignPropTypes } from './utils/system';
 
-import Box from './Box';
+import Box, { basePropTypes } from './Box';
 
 const styles = (props: Object): string => {
   const { ml, mr, pb, pl, pr, pt } = props;
@@ -68,7 +68,7 @@ Container.propTypes = {
   textAlign: textAlignPropTypes,
   /** add padding top/bottom */
   verticalPadding: PropTypes.bool,
-  ...Box.basePropTypes,
+  ...basePropTypes,
 };
 
 Container.defaultProps = {

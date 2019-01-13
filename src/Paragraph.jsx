@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 import { isDefined, spacer } from './utils/helpers';
 
-import Box from './Box';
+import Box, { basePropTypes } from './Box';
 
 const Paragraph = styled(Box)(
   ({ mb, mt }) => css`
@@ -21,7 +21,7 @@ Paragraph.displayName = 'Paragraph';
 Paragraph.propTypes = {
   as: PropTypes.string,
   children: PropTypes.node.isRequired,
-  ...Box.basePropTypes,
+  ...basePropTypes,
 };
 
 Paragraph.defaultProps = {

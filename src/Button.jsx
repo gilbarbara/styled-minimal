@@ -5,7 +5,7 @@ import { getColor, getStyles, getTheme, isDefined, px } from './utils/helpers';
 import { baseStyles, buttonPropTypes, sizesAllPropTypes, variantPropTypes } from './utils/system';
 
 import Badge from './Badge';
-import Box from './Box';
+import Box, { basePropTypes } from './Box';
 
 const styles = (props: Object): string => {
   const { animate, borderRadius: br, fontSize, lineHeight: lh, outline, size } = props;
@@ -59,7 +59,7 @@ Button.propTypes = {
   size: sizesAllPropTypes,
   type: buttonPropTypes,
   variant: variantPropTypes,
-  ...Box.basePropTypes,
+  ...basePropTypes,
 };
 
 Button.defaultProps = {

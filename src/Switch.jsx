@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components';
 import { getColor, getTheme, px } from './utils/helpers';
 import { sizesAllPropTypes, variantPropTypes } from './utils/system';
 
-import Box from './Box';
+import Box, { basePropTypes } from './Box';
 
 const styles = (props: Object): string => {
   const { size } = props;
@@ -89,7 +89,7 @@ class Switch extends React.PureComponent {
     size: sizesAllPropTypes,
     value: PropTypes.bool,
     variant: variantPropTypes,
-    ...Box.basePropTypes,
+    ...basePropTypes,
   };
 
   static defaultProps = {

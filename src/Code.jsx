@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 import { getTheme, isDefined, px } from './utils/helpers';
 
-import Box from './Box';
+import Box, { basePropTypes } from './Box';
 
 const Code = styled(Box)(props => {
   const { bg, border: bd, borderRadius: br, fontFamily: ff, padding: pd } = props;
@@ -23,7 +23,7 @@ Code.displayName = 'Code';
 Code.propTypes = {
   as: PropTypes.string,
   children: PropTypes.node.isRequired,
-  ...Box.basePropTypes,
+  ...basePropTypes,
 };
 
 Code.defaultProps = {

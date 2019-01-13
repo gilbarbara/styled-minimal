@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { getTheme, isDefined, px } from './utils/helpers';
 import { baseStyles } from './utils/system';
 
-import Box from './Box';
+import Box, { basePropTypes } from './Box';
 
 const Label = styled(Box)(props => {
   const { color: cl, fontFamily, fontSize, fontWeight: fw, inline, lineHeight, mb } = props;
@@ -29,7 +29,7 @@ Label.propTypes = {
   as: PropTypes.string,
   children: PropTypes.node.isRequired,
   inline: PropTypes.bool,
-  ...Box.basePropTypes,
+  ...basePropTypes,
 };
 
 Label.defaultProps = {

@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { getTheme, isDefined, px, spacer } from './utils/helpers';
 import { baseStyles, headingPropTypes } from './utils/system';
 
-import Box from './Box';
+import Box, { basePropTypes } from './Box';
 
 const Heading = styled(Box)(props => {
   const { fontFamily, fontSize, fontWeight, lineHeight, gutterBottom, mb, mt } = props;
@@ -34,7 +34,7 @@ Heading.propTypes = {
   gutterBottom: PropTypes.bool,
   /** element size */
   size: headingPropTypes,
-  ...Box.basePropTypes,
+  ...basePropTypes,
 };
 
 Heading.defaultProps = {

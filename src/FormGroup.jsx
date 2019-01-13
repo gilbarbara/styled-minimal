@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 
 import { getTheme, isDefined, px } from './utils/helpers';
 
-import Box from './Box';
+import Box, { basePropTypes } from './Box';
 import Flex from './Flex';
 
 const styles = (props: Object): string => {
@@ -99,7 +99,7 @@ FormGroup.propTypes = {
   children: PropTypes.node.isRequired,
   helpText: PropTypes.string,
   inline: PropTypes.bool,
-  ...Box.basePropTypes,
+  ...basePropTypes,
 };
 
 FormGroup.defaultProps = {

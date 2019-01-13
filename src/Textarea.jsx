@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { getTheme, isDefined, px } from './utils/helpers';
 import { formPseudo, outlines, sizesPropTypes } from './utils/system';
 
-import Box from './Box';
+import Box, { basePropTypes } from './Box';
 
 const styles = (props: Object): string => {
   const {
@@ -81,7 +81,7 @@ Textarea.propTypes = {
   valid: PropTypes.bool,
   value: PropTypes.string,
   wrap: PropTypes.oneOf(['soft', 'hard']),
-  ...Box.basePropTypes,
+  ...basePropTypes,
   ...outlines.propTypes,
 };
 

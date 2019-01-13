@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import Box from './Box';
+import Box, { basePropTypes } from './Box';
 
 const Screen = styled(Box)({});
 
@@ -11,7 +11,7 @@ Screen.propTypes = {
   as: PropTypes.string,
   children: PropTypes.node.isRequired,
   minHeight: PropTypes.string,
-  ...Box.basePropTypes,
+  ...basePropTypes,
 };
 
 Screen.defaultProps = {

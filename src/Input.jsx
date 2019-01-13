@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { getTheme, isDefined, px } from './utils/helpers';
 import { formPseudo, inputTextTypes, outlines } from './utils/system';
 
-import Box from './Box';
+import Box, { basePropTypes } from './Box';
 
 const styles = (props: Object): string => {
   const {
@@ -109,7 +109,7 @@ Input.propTypes = {
   ]),
   valid: PropTypes.bool,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  ...Box.basePropTypes,
+  ...basePropTypes,
   ...outlines.propTypes,
 };
 

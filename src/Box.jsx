@@ -106,7 +106,7 @@ const Box = styled.div(
 );
 Box.displayName = 'Box';
 
-Box.basePropTypes = {
+export const basePropTypes = {
   ...alignContent.propTypes,
   ...alignItems.propTypes,
   ...alignSelf.propTypes,
@@ -144,10 +144,7 @@ Box.basePropTypes = {
   ...zIndex.propTypes,
 };
 
-Box.propTypes = {
-  as: PropTypes.string,
-  children: PropTypes.node,
-  ...Box.basePropTypes,
+export const gridPropTypes = {
   ...gridGap.propTypes,
   ...gridRowGap.propTypes,
   ...gridColumnGap.propTypes,
@@ -160,6 +157,13 @@ Box.propTypes = {
   ...gridTemplateRows.propTypes,
   ...gridTemplateColumns.propTypes,
   ...gridTemplateAreas.propTypes,
+};
+
+Box.propTypes = {
+  as: PropTypes.string,
+  children: PropTypes.node,
+  ...basePropTypes,
+  ...gridPropTypes,
 };
 
 export default Box;

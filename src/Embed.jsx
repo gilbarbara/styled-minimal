@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import Box from './Box';
+import Box, { basePropTypes } from './Box';
 
 const StyledEmbed = styled(Box)`
   overflow: hidden;
@@ -27,7 +27,7 @@ const Embed = ({ children, ...props }) => (
 Embed.propTypes = {
   children: PropTypes.node.isRequired,
   ratio: PropTypes.number,
-  ...Box.basePropTypes,
+  ...basePropTypes,
 };
 
 Embed.defaultProps = {

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import { sizesAllPropTypes, variantPropTypes } from './utils/system';
 
-import Box from './Box';
+import Box, { basePropTypes } from './Box';
 
 export const StyledButtonGroup = styled(Box)`
   display: inline-flex;
@@ -54,7 +54,7 @@ ButtonGroup.propTypes = {
   children: PropTypes.node.isRequired,
   size: sizesAllPropTypes,
   variant: variantPropTypes,
-  ...Box.basePropTypes,
+  ...basePropTypes,
 };
 
 export default ButtonGroup;

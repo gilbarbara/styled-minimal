@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { getTheme, px } from './utils/helpers';
 import { sizesPropTypes } from './utils/system';
 
-import Box from './Box';
+import Box, { basePropTypes } from './Box';
 
 const styles = (props: Object): string => {
   const { bordered, borderless, inverted } = props;
@@ -144,7 +144,7 @@ Table.propTypes = {
   inverted: PropTypes.bool,
   size: sizesPropTypes,
   striped: PropTypes.bool,
-  ...Box.basePropTypes,
+  ...basePropTypes,
 };
 
 Table.defaultProps = {

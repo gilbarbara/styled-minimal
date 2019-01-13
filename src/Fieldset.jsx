@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 import { getTheme, isDefined, px, spacer } from './utils/helpers';
 
-import Box from './Box';
+import Box, { basePropTypes } from './Box';
 import Legend from './Legend';
 
 const styles = (props: Object): string => {
@@ -41,7 +41,7 @@ Fieldset.propTypes = {
   as: PropTypes.string,
   children: PropTypes.node.isRequired,
   inline: PropTypes.bool,
-  ...Box.basePropTypes,
+  ...basePropTypes,
 };
 
 Fieldset.defaultProps = {

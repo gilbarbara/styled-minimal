@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { getTheme, isDefined, px } from './utils/helpers';
 import { baseStyles } from './utils/system';
 
-import Box from './Box';
+import Box, { basePropTypes } from './Box';
 
 const styles = (props: Object): string => {
   const { color: cl, fontFamily, fontWeight: fw, lineHeight, mb } = props;
@@ -30,7 +30,7 @@ Legend.displayName = 'Legend';
 Legend.propTypes = {
   as: PropTypes.string,
   children: PropTypes.node.isRequired,
-  ...Box.basePropTypes,
+  ...basePropTypes,
 };
 
 Legend.defaultProps = {

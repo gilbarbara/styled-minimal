@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { getTheme, isDefined, px } from './utils/helpers';
 import { sizesPropTypes } from './utils/system';
 
-import Box from './Box';
+import Box, { basePropTypes } from './Box';
 
 const styles = (props: Object): string => {
   const { as, bordered, inline, m, styleType } = props;
@@ -67,7 +67,7 @@ List.propTypes = {
     PropTypes.string,
   ]),
   type: PropTypes.oneOf(['1', 'a', 'A', 'i', 'I']),
-  ...Box.basePropTypes,
+  ...basePropTypes,
 };
 
 List.defaultProps = {

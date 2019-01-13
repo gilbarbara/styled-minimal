@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import Box from './Box';
+import Box, { basePropTypes } from './Box';
 
 const Image = styled(Box)(props => {
   const { maxWidth } = props;
@@ -17,7 +17,7 @@ Image.propTypes = {
   alt: PropTypes.string.isRequired,
   as: PropTypes.string,
   src: PropTypes.string.isRequired,
-  ...Box.basePropTypes,
+  ...basePropTypes,
 };
 
 Image.defaultProps = {

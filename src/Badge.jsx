@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { getTheme, isDefined, px } from './utils/helpers';
 import { baseStyles, sizesAllPropTypes, variantPropTypes } from './utils/system';
 
-import Box from './Box';
+import Box, { basePropTypes } from './Box';
 
 const Badge = styled(Box)(props => {
   const { borderRadius: radii, fontSize: fz, fontWeight: fw, lineHeight } = props;
@@ -33,7 +33,7 @@ Badge.propTypes = {
   outline: PropTypes.bool,
   size: sizesAllPropTypes,
   variant: variantPropTypes,
-  ...Box.basePropTypes,
+  ...basePropTypes,
 };
 
 Badge.defaultProps = {

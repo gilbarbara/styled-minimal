@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { getTheme, isDefined, px } from './utils/helpers';
 import { baseStyles, sizesAllPropTypes, variantPropTypes } from './utils/system';
 
-import Box from './Box';
+import Box, { basePropTypes } from './Box';
 
 const Alert = styled(Box).attrs({
   role: 'alert',
@@ -38,7 +38,7 @@ Alert.propTypes = {
   size: sizesAllPropTypes,
   /** button variant */
   variant: variantPropTypes,
-  ...Box.basePropTypes,
+  ...basePropTypes,
 };
 
 Alert.defaultProps = {

@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { getColor, getDimmerColor } from './utils/helpers';
 import { variantPropTypes } from './utils/system';
 
-import Box from './Box';
+import Box, { basePropTypes } from './Box';
 
 const Link = styled(Box)(props => {
   const { color } = props;
@@ -26,7 +26,7 @@ Link.propTypes = {
   children: PropTypes.node.isRequired,
   href: PropTypes.string.isRequired,
   variant: variantPropTypes,
-  ...Box.basePropTypes,
+  ...basePropTypes,
 };
 
 Link.defaultProps = {

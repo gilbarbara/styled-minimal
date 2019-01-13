@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { getDimmerColor, getTheme, isDefined, lighten, px } from './utils/helpers';
 import { formPseudo, sizesPropTypes } from './utils/system';
 
-import Box from './Box';
+import Box, { basePropTypes } from './Box';
 
 const select = (props: Object): string => {
   const {
@@ -98,7 +98,7 @@ Select.propTypes = {
   size: PropTypes.number,
   sizing: sizesPropTypes,
   valid: PropTypes.bool,
-  ...Box.basePropTypes,
+  ...basePropTypes,
 };
 
 Select.defaultProps = {

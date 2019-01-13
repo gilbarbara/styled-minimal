@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { spacer } from './utils/helpers';
 
-import Box from './Box';
+import Box, { basePropTypes } from './Box';
 
 const Group = styled(Box)`
   align-items: center;
@@ -19,7 +19,7 @@ Group.displayName = 'Group';
 
 Group.propTypes = {
   children: PropTypes.node.isRequired,
-  ...Box.basePropTypes,
+  ...basePropTypes,
 };
 
 export default Group;

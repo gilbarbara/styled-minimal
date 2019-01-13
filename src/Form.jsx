@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 import { getTheme, px } from './utils/helpers';
 
-import Box from './Box';
+import Box, { basePropTypes } from './Box';
 
 const styles = (props: Object): string => {
   const { bordered, textAlign } = props;
@@ -31,7 +31,7 @@ Form.propTypes = {
   enctype: PropTypes.string,
   method: PropTypes.oneOf(['get', 'post']),
   target: PropTypes.string,
-  ...Box.basePropTypes,
+  ...basePropTypes,
 };
 
 Form.defaultProps = {
