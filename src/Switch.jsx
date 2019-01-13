@@ -7,7 +7,7 @@ import { sizesAllPropTypes, variantPropTypes } from './utils/system';
 
 import Box, { basePropTypes } from './Box';
 
-const styles = (props: Object): string => {
+const styles = props => {
   const { size } = props;
   const sizes = getTheme(props, 'switchSizes');
 
@@ -21,7 +21,7 @@ const styles = (props: Object): string => {
   `;
 };
 
-const stylesTrack = (props: Object): string => {
+const stylesTrack = props => {
   const { size, status } = props;
   const sizes = getTheme(props, 'switchSizes');
   const color = getColor(props);
@@ -37,7 +37,7 @@ const stylesTrack = (props: Object): string => {
   `;
 };
 
-const stylesButton = (props: Object): string => {
+const stylesButton = props => {
   const { size, status } = props;
   const sizes = getTheme(props, 'switchSizes');
 

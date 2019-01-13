@@ -5,7 +5,7 @@ import { getTheme, px } from './utils/helpers';
 
 import Box, { basePropTypes } from './Box';
 
-const styles = (props: Object): string => {
+const styles = props => {
   const { bordered, textAlign } = props;
   const { borderColor, borderRadius, padding } = getTheme(props, 'form');
 

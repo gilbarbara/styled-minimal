@@ -6,7 +6,7 @@ import { formPseudo, outlines, sizesPropTypes } from './utils/system';
 
 import Box, { basePropTypes } from './Box';
 
-const styles = (props: Object): string => {
+const styles = props => {
   const {
     bg,
     bordered,

@@ -13,7 +13,7 @@ import {
 import Badge from './Badge';
 import Box, { basePropTypes } from './Box';
 
-const styles = (props: Object): string => {
+const styles = props => {
   const { animate, borderRadius: br, fontSize, lineHeight: lh, bordered, size } = props;
   const { borderRadius, lineHeight, loader, padding } = getTheme(props, 'button');
   const fontSizeProp = getTheme(props, 'componentSizes', { key: 'size' });

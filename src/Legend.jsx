@@ -6,7 +6,7 @@ import { baseStyles } from './utils/system';
 
 import Box, { basePropTypes } from './Box';
 
-const styles = (props: Object): string => {
+const styles = props => {
   const { color: cl, fontFamily, fontWeight: fw, lineHeight, mb } = props;
   const { color, fontWeight, marginBottom } = getTheme(props, 'legend');
 

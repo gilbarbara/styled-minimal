@@ -6,11 +6,11 @@ import { textAlignPropTypes } from './utils/system';
 
 import Box, { basePropTypes } from './Box';
 
-const styles = (props: Object): string => {
+const styles = props => {
   const { ml, mr, pb, pl, pr, pt } = props;
   const container = getTheme(props, 'container');
 
-  const vertical = ({ verticalPadding }: Object): string => {
+  const vertical = ({ verticalPadding }) => {
     /* istanbul ignore else */
     if (!verticalPadding) return '';
 

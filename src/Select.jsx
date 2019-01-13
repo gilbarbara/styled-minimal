@@ -6,7 +6,7 @@ import { formPseudo, outlines, sizesPropTypes } from './utils/system';
 
 import Box, { basePropTypes } from './Box';
 
-const select = (props: Object): string => {
+const select = props => {
   const {
     bg,
     bordered,

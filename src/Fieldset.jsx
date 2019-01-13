@@ -6,7 +6,7 @@ import { getTheme, isDefined, px, spacer } from './utils/helpers';
 import Box, { basePropTypes } from './Box';
 import Legend from './Legend';
 
-const styles = (props: Object): string => {
+const styles = props => {
   const { borderRadius: br, inline, mb, ml, padding: pd } = props;
   const { borderColor, borderRadius, padding, marginBottom } = getTheme(props, 'fieldset');
 

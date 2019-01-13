@@ -7,7 +7,7 @@ import { getTheme, isDefined, px } from './utils/helpers';
 import Box, { basePropTypes } from './Box';
 import Flex from './Flex';
 
-const styles = (props: Object): string => {
+const styles = props => {
   const { bordered, mb, textAlign } = props;
   const { borderColor, borderRadius, marginBottom, padding } = getTheme(props, 'formGroup');
 
@@ -20,7 +20,7 @@ const styles = (props: Object): string => {
   `;
 };
 
-const margin = (props: Object): string => {
+const margin = props => {
   const { inlineMargin } = getTheme(props, 'formGroup');
 
   return px(inlineMargin);
@@ -58,7 +58,7 @@ export const StyledFormGroup = styled(Box)`
   }
 `;
 
-const helpBlock = (props: Object): string => {
+const helpBlock = props => {
   const { helpColor, helpMarginTop } = getTheme(props, 'formGroup');
 
   return css`

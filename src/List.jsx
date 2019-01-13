@@ -6,7 +6,7 @@ import { sizesPropTypes } from './utils/system';
 
 import Box, { basePropTypes } from './Box';
 
-const styles = (props: Object): string => {
+const styles = props => {
   const { as, bordered, inline, m, styleType } = props;
   const { borderColor, borderRadius } = getTheme(props, 'list');
 
@@ -20,7 +20,7 @@ const styles = (props: Object): string => {
     ${as === 'ul' ? `list-style-type: ${styleType};` : ''};
   `;
 };
-const stylesItem = (props: Object): string => {
+const stylesItem = props => {
   const { bordered, size } = props;
   const { padding } = getTheme(props, 'list');
 
@@ -29,7 +29,7 @@ const stylesItem = (props: Object): string => {
   `;
 };
 
-const stylesSibling = (props: Object): string => {
+const stylesSibling = props => {
   const { bordered, size } = props;
   const { borderColor, padding } = getTheme(props, 'list');
 

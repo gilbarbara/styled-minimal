@@ -6,7 +6,7 @@ import { sizesPropTypes } from './utils/system';
 
 import Box, { basePropTypes } from './Box';
 
-const styles = (props: Object): string => {
+const styles = props => {
   const { bordered, borderless, inverted } = props;
   const { borderColors, colors } = getTheme(props, 'table');
 
@@ -20,7 +20,7 @@ const styles = (props: Object): string => {
     width: 100%;
   `;
 };
-const stylesCaption = (props: Object): string => {
+const stylesCaption = props => {
   const { captionColor, captionPadding } = getTheme(props, 'table');
 
   return css`
@@ -32,7 +32,7 @@ const stylesCaption = (props: Object): string => {
     text-align: left;
   `;
 };
-const stylesCellBorder = (props: Object): string => {
+const stylesCellBorder = props => {
   const { bordered, borderless, inverted } = props;
   const { borderColors } = getTheme(props, 'table');
 
@@ -45,7 +45,7 @@ const stylesCellBorder = (props: Object): string => {
       ${borderColors[inverted ? 'secondary' : 'primary']};
   `;
 };
-const stylesHeadBackgroundColor = (props: Object): string => {
+const stylesHeadBackgroundColor = props => {
   const { head } = props;
   const { headColors } = getTheme(props, 'table');
 
@@ -53,7 +53,7 @@ const stylesHeadBackgroundColor = (props: Object): string => {
     background-color: ${headColors[head] || 'transparent'};
   `;
 };
-const stylesHeadCellBorder = (props: Object): string => {
+const stylesHeadCellBorder = props => {
   const { bordered, borderless, inverted } = props;
   const { borderColors } = getTheme(props, 'table');
   const colorProp = borderColors[inverted ? 'secondary' : 'primary'];
@@ -67,7 +67,7 @@ const stylesHeadCellBorder = (props: Object): string => {
     ${bordered && 'border-bottom-width: 2px'};
   `;
 };
-const stylesHeadColor = (props: Object): string => {
+const stylesHeadColor = props => {
   const { head } = props;
   const { colors } = getTheme(props, 'table');
 
@@ -79,7 +79,7 @@ const stylesHeadColor = (props: Object): string => {
 
   return '';
 };
-const stylesPadding = (props: Object): string => {
+const stylesPadding = props => {
   const { size } = props;
   const { padding } = getTheme(props, 'table');
 
@@ -87,7 +87,7 @@ const stylesPadding = (props: Object): string => {
     padding: ${px(padding[size])};
   `;
 };
-const stylesStriped = (props: Object): string => {
+const stylesStriped = props => {
   const { inverted, striped } = props;
   const { stripedColors } = getTheme(props, 'table');
 
