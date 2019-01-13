@@ -89,6 +89,7 @@
     "eslint-plugin-flowtype": "^3.2.1",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.3",
     "flow-bin": "^0.90.0",
     "gzip-size": "^5.0.0",
@@ -146,6 +147,29 @@
     "> 0.2%",
     "not dead"
   ],
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "jsxBracketSameLine": false
+  },
+  "lint-staged": {
+    "linters": {
+      "**/*.+(js|jsx)": [
+        "eslint",
+        "jest --findRelatedTests"
+      ],
+      "**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx)": [
+        "prettier --write",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "**/docs/*",
+      "**/es/*",
+      "**/lib/*"
+    ]
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged && flow"
