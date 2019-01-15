@@ -2,18 +2,22 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 import { getTheme, isDefined, px, spacer } from './utils/helpers';
-import { baseStyles, headingPropTypes } from './utils/system';
+import { baseStyles } from './utils/system';
 
 import Box, { basePropTypes } from './Box';
 
 const Heading = styled(Box)(props => {
-  const { fontFamily, fontSize, fontWeight, lineHeight, gutterBottom, mb, mt } = props;
+  const { as, fontFamily, fontSize, fontWeight, level, lineHeight, gutterBottom, mb, mt } = props;
   const headingWeight = getTheme(props, 'headingWeight');
-  const headingSize = getTheme(props, 'headingSizes', { key: ['size', 'as'], base: 'h1' });
   const marginTop = gutterBottom ? spacer(3) : 0;
+  let headingSize = getTheme(props, 'headingSizes')[as];
+
+  if (level) {
+    headingSize = getTheme(props, 'headingSizes')[`h${level}`];
+  }
 
   return css`
-    font-size: ${px(fontSize || headingSize)};
+    font-size: ${fontSize || px(headingSize)};
     font-family: ${fontFamily || 'inherit'};
     font-weight: ${fontWeight || headingWeight};
     line-height: ${lineHeight || baseStyles.lineHeight};
@@ -29,11 +33,10 @@ const Heading = styled(Box)(props => {
 Heading.displayName = 'Heading';
 
 Heading.propTypes = {
-  as: headingPropTypes,
+  as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
   children: PropTypes.node.isRequired,
   gutterBottom: PropTypes.bool,
-  /** element size */
-  size: headingPropTypes,
+  level: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
   ...basePropTypes,
 };
 
