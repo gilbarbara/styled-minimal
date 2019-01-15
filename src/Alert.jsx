@@ -9,13 +9,13 @@ import Box, { basePropTypes } from './Box';
 const Alert = styled(Box).attrs({
   role: 'alert',
 })(props => {
-  const { borderRadius: br, fontSize, lineHeight, size, width } = props;
+  const { borderRadius: br, lineHeight, size, width } = props;
   const { borderRadius, maxWidth, padding } = getTheme(props, 'alert');
 
   return css`
     ${baseStyles.variant};
     border-radius: ${px(isDefined(br) ? br : borderRadius)};
-    font-size: ${fontSize || baseStyles.fontSize};
+    font-size: ${baseStyles.fontSize};
     line-height: ${lineHeight || baseStyles.lineHeight};
     max-width: ${px(maxWidth)};
     padding: ${px(padding[size][0])} ${px(padding[size][1])};

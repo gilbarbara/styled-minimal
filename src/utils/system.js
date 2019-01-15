@@ -104,7 +104,12 @@ export const baseStyles = {
       color: ${currentColor};
     `;
   },
-  fontSize: (props: Object) => getTheme(props, 'componentSizes', { key: 'size', base: 'md' }),
+  fontSize: (props: Object): string => {
+    const { fontSize, size } = props;
+    const sizes = getTheme(props, 'componentSizes');
+
+    return fontSize || px(sizes[size]);
+  },
   lineHeight: (props: Object) => getTheme(props, 'lineHeight'),
 };
 

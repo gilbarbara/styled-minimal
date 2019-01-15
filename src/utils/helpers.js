@@ -12,14 +12,6 @@ export const isNumber = (val: number | string): boolean %checks => typeof val ==
 /** Get textual unit value */
 export const px = (val: string | number): string => (isNumber(val) ? `${val}px` : val);
 
-const getValue = (value: any, key?: string): any => {
-  if (key && ['size'].includes(key)) {
-    return px(value);
-  }
-
-  return value;
-};
-
 /**
  *
  * @param {string|number} n
@@ -62,48 +54,23 @@ export const mergeTheme = (props: Object = {}): Object => {
 /**
  * Get the merged theme
  */
-export const getTheme = (props: Object, path?: string, options: Object = {}): any => {
+export const getTheme = (props: Object, path?: string): any => {
   const theme = mergeTheme(props);
-  const { base, key, toggle } = options;
-  const selection = theme[path];
-  let isActive = true;
 
-  if (!path) {
-    return theme;
-  }
-
-  if (typeof toggle !== 'undefined') {
-    isActive = props[toggle] || false;
-  }
-
-  if (!isActive) {
-    return base;
-  }
-
-  if (key) {
-    if (Array.isArray(key)) {
-      const value = key.filter(d => !!props[d]).map(d => props[d])[0] || base;
-
-      return selection[value];
-    }
-
-    return getValue(selection[props[key] || base], key);
-  }
-
-  return getValue(selection);
+  return path ? theme[path] : theme;
 };
 
 /**
  * SC Helper to get parts of the theme.
  *
- * @param {string} key
- * @param {string} [prop]
+ * @param {string} path
+ * @param {string} [key]
  * @returns {function(Object): *}
  */
-export const getStyles = (key: string, prop?: string): Function => (props: Object): any => {
-  const styles = getTheme(props, key);
+export const getStyles = (path: string, key?: string): Function => (props: Object): any => {
+  const styles = getTheme(props, path);
 
-  return prop ? styles[prop] : styles;
+  return key ? styles[key] : styles;
 };
 
 /**

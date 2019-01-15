@@ -14,9 +14,8 @@ import Badge from './Badge';
 import Box, { basePropTypes } from './Box';
 
 const styles = props => {
-  const { animate, borderRadius: br, fontSize, lineHeight: lh, bordered, size } = props;
+  const { animate, borderRadius: br, lineHeight: lh, bordered, size } = props;
   const { borderRadius, lineHeight, loader, padding } = getTheme(props, 'button');
-  const fontSizeProp = getTheme(props, 'componentSizes', { key: 'size' });
 
   return css`
     ${baseStyles.variant};
@@ -26,7 +25,7 @@ const styles = props => {
     cursor: pointer;
     display: inline-flex;
     font-family: inherit;
-    ${fontSizeProp ? `font-size: ${fontSize || fontSizeProp}` : ''};
+    font-size: ${baseStyles.fontSize};
     justify-content: center;
     line-height: ${lh || lineHeight};
     padding: ${px(padding[size][0])} ${px(padding[size][1])};

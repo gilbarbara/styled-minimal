@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 import { getTheme, isDefined, px, responsive, spacer } from './utils/helpers';
-import { textAlignPropTypes } from './utils/system';
 
 import Box, { basePropTypes } from './Box';
 
@@ -65,7 +64,6 @@ Container.propTypes = {
   children: PropTypes.node.isRequired,
   /** use the whole Screen */
   layout: PropTypes.oneOf(['flex', 'fullScreen']),
-  textAlign: textAlignPropTypes,
   /** add padding top/bottom */
   verticalPadding: PropTypes.bool,
   ...basePropTypes,

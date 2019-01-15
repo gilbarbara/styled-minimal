@@ -204,7 +204,6 @@ Object {
       "as": "span",
       "bordered": false,
       "dark": false,
-      "size": "md",
       "variant": "primary",
     },
     "displayName": "Badge",

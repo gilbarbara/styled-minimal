@@ -7,16 +7,15 @@ import { baseStyles, sizesAllPropTypes, variantPropTypes } from './utils/system'
 import Box, { basePropTypes } from './Box';
 
 const Badge = styled(Box)(props => {
-  const { borderRadius: radii, fontSize: fz, fontWeight: fw, lineHeight } = props;
+  const { borderRadius: radii, fontSize: fz, fontWeight: fw, lineHeight, size } = props;
   const { borderRadius, fontSize, fontWeight, padding } = getTheme(props, 'badge');
-  const fontSizeProp = getTheme(props, 'componentSizes', { key: 'size' });
 
   return css`
     ${baseStyles.variant};
     border-radius: ${px(isDefined(radii) ? radii : borderRadius)};
     display: inline-flex;
     font-size: ${fz || fontSize};
-    ${fontSizeProp ? `font-size: ${fz || fontSizeProp}` : ''};
+    ${size ? `font-size: ${baseStyles.fontSize}` : ''};
     font-weight: ${fw || fontWeight};
     line-height: ${lineHeight || 1};
     padding: ${px(padding[0])} ${px(padding[1])};
@@ -40,7 +39,6 @@ Badge.defaultProps = {
   as: 'span',
   dark: false,
   bordered: false,
-  size: 'md',
   variant: 'primary',
 };
 
