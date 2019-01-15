@@ -18,18 +18,18 @@ export const px = (val: string | number): string => (isNumber(val) ? `${val}px` 
  * @param {Array} breakpoints
  * @returns {string}
  */
-const createMediaQuery = (n: string | number, breakpoints: Array<number>): string => {
+const createMediaQuery = (n: string | number, breakpoints: Object): string => {
   const grid = {
-    'xs-only': `@media (min-width: ${breakpoints[0] - 1}px)`,
-    ix: `@media (min-width: ${breakpoints[0]}px)`,
-    'ix-only': `@media (max-width: ${breakpoints[1] - 1}px)`,
-    md: `@media (min-width: ${breakpoints[1]}px)`,
-    'md-only': `@media (max-width: ${breakpoints[2] - 1}px)`,
-    lg: `@media (min-width: ${breakpoints[2]}px)`,
-    'lg-only': `@media (max-width: ${breakpoints[3] - 1}px)`,
-    xl: `@media (min-width: ${breakpoints[3]}px)`,
-    'xl-only': `@media (max-width: ${breakpoints[4] - 1}px)`,
-    xxl: `@media (min-width: ${breakpoints[4]}px)`,
+    'xs-only': `@media (min-width: ${breakpoints.ix - 1}px)`,
+    ix: `@media (min-width: ${breakpoints.ix}px)`,
+    'ix-only': `@media (max-width: ${breakpoints.md - 1}px)`,
+    md: `@media (min-width: ${breakpoints.md}px)`,
+    'md-only': `@media (max-width: ${breakpoints.lg - 1}px)`,
+    lg: `@media (min-width: ${breakpoints.lg}px)`,
+    'lg-only': `@media (max-width: ${breakpoints.xl - 1}px)`,
+    xl: `@media (min-width: ${breakpoints.xl}px)`,
+    'xl-only': `@media (max-width: ${breakpoints.xxl - 1}px)`,
+    xxl: `@media (min-width: ${breakpoints.xxl}px)`,
   };
 
   if (isNumber(n)) {

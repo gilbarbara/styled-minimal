@@ -12,10 +12,10 @@ Sandbox: [https://k958nr9lno.codesandbox.io/](https://k958nr9lno.codesandbox.io/
 ## Setup
 
 ```bash
-npm i styled-minimal styled-components@beta
+npm i styled-minimal styled-components
 ```
 
-**Note:** styled-minimal is intended to be used with styled-components v4. Some features may not work with older versions.
+> **Warning:** styled-minimal is intended to be used with styled-components v4. Some features may not work with older versions.
 
 ```jsx
 import { Box, Button, Container, Flex, Heading } from 'styled-minimal';
@@ -35,9 +35,10 @@ const MyComponent = () => {
 
 ## Theming
 
-Wrap your app in a `ThemeProvider` and pass a [theme](./utils/theme.js) object.
+Wrap your app in a `ThemeProvider` with a [theme](./utils/theme.js) object.
 
-For more information on Component props, read [styled-system](https://github.com/jxnblk/styled-system/blob/master/docs/api.md) API docs.
+All components have style-system css props, like `display`, `fontSize` and much more that are also responsive.
+For more information on these props, read [styled-system](https://github.com/jxnblk/styled-system/blob/master/docs/api.md) API docs.
 
 ```jsx
 import { ThemeProvider } from 'styled-components';
@@ -54,7 +55,14 @@ const theme = {
     },
   },
   space: [0, 4, 8, 12, 16, 24, 32, 64, 128],
-  breakpoints: [400, 560, 768, 1024, 1360, 1920],
+  breakpoints: {
+    xs: 0,
+    ix: 400,
+    md: 768,
+    lg: 1024,
+    xl: 1360,
+    xxl: 1920,
+  },
   fontSizes: [12, 14, 16, 18, 22, 26, 32, 48],
 };
 

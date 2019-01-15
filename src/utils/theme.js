@@ -5,7 +5,14 @@ import rgba from 'polished/lib/color/rgba';
 /**
  * Base
  */
-export const breakpoints = [400, 768, 1024, 1360, 1920];
+export const breakpoints = {
+  xs: 0,
+  ix: 400,
+  md: 768,
+  lg: 1024,
+  xl: 1360,
+  xxl: 1920,
+};
 export const fontSizes = [12, 14, 16, 18, 22, 26, 32, 48];
 export const lineHeight = 1.4;
 export const space = [0, 4, 8, 16, 32, 64, 128];
