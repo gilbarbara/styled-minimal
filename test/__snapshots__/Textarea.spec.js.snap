@@ -53,23 +53,23 @@ exports[`Textarea should render properly 1`] = `
 }
 
 .c0:required:not(:valid) {
-  border-color: #000;
+  border-color: #999;
 }
 
 .c0:required:not(:valid)::-webkit-input-placeholder {
-  color: #000;
+  color: #b3b3b3;
 }
 
 .c0:required:not(:valid):-moz-placeholder {
-  color: #000;
+  color: #b3b3b3;
 }
 
 .c0:required:not(:valid)::-moz-placeholder {
-  color: #000;
+  color: #b3b3b3;
 }
 
 .c0:required:not(:valid):-ms-input-placeholder {
-  color: #000;
+  color: #b3b3b3;
 }
 
 <Textarea

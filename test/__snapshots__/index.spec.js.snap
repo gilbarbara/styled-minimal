@@ -3791,7 +3791,7 @@ Object {
         "md": 8,
         "sm": 6,
       },
-      "requiredColor": "#000",
+      "requiredColor": "#999",
       "validation": Object {
         "invalid": "#f00",
         "valid": "#3ac200",
@@ -3851,7 +3851,7 @@ Object {
         "md": 8,
         "sm": 6,
       },
-      "requiredColor": "#000",
+      "requiredColor": "#999",
       "validation": Object {
         "invalid": "#f00",
         "valid": "#3ac200",
@@ -3946,7 +3946,7 @@ Object {
         "md": 8,
         "sm": 6,
       },
-      "requiredColor": "#000",
+      "requiredColor": "#999",
       "validation": Object {
         "invalid": "#f00",
         "valid": "#3ac200",

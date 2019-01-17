@@ -252,7 +252,7 @@ const baseInput = {
     md: 8,
     lg: 10,
   },
-  requiredColor: '#000',
+  requiredColor: '#999',
   validation: {
     invalid: '#f00',
     valid: '#3ac200',

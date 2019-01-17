@@ -3,6 +3,7 @@
 import PropTypes from 'prop-types';
 import lighten from 'polished/lib/color/lighten';
 import darken from 'polished/lib/color/darken';
+import desaturate from 'polished/lib/color/desaturate';
 import { css } from 'styled-components';
 import { cloneFunc, compose, propTypes, style } from 'styled-system';
 
@@ -194,7 +195,7 @@ export const formPseudo = (props: Object): string => {
 
     &:required:not(:valid) {
       border-color: ${requiredColor};
-      ${placeholder(`color: ${requiredColor};`)};
+      ${placeholder(`color: ${lighten(0.1, desaturate(0.2, requiredColor))};`)};
     }
   `;
 };
