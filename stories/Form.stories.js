@@ -70,7 +70,7 @@ storiesOf('Form', module)
         <Flex flexWrap="wrap">
           <FormGroup width={[1, 1, 1 / 2]}>
             <Label>First Name</Label>
-            <Input type="text" name="firstname" placeholder="First Name" />
+            <Input type="text" name="firstname" placeholder="First Name" required />
           </FormGroup>
           <FormGroup width={[1, 1, 1 / 2]} pl={[0, 0, 2]}>
             <Label>Last Name</Label>
@@ -139,7 +139,7 @@ storiesOf('Form', module)
           <Textarea name="comment" placeholder="Your Comment" />
         </FormGroup>
         <Button type="submit">SEND</Button>{' '}
-        <Button type="reset" outline>
+        <Button type="reset" bordered>
           RESET
         </Button>
       </Form>

@@ -86,6 +86,7 @@ class Switch extends React.PureComponent {
   static propTypes = {
     name: PropTypes.string.isRequired,
     onChange: PropTypes.func,
+    /** sizesAllPropTypes */
     size: sizesAllPropTypes,
     value: PropTypes.bool,
     variant: variantPropTypes,

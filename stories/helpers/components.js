@@ -48,9 +48,7 @@ const StyledExample = styled.div`
 const Example = ({ children, ...props }) => (
   <ThemeProvider
     theme={{
-      breakpoints: [400, 580, 768, 1024, 1280, 1920],
-      fontSizes: [12, 14, 16, 18, 22, 26, 32, 48],
-      space: [0, 4, 8, 12, 16, 24, 32, 64, 128],
+      space: [0, 5, 10, 15, 20, 25, 50, 100],
     }}
   >
     <StyledExample {...props}>{children}</StyledExample>

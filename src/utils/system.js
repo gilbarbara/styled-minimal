@@ -59,10 +59,8 @@ export const inputTextTypes = [
   'text',
 ];
 
-export const buttonPropTypes = PropTypes.oneOf(['button', 'submit', 'reset']);
 export const sizesPropTypes = PropTypes.oneOf(['sm', 'md', 'lg']);
 export const sizesAllPropTypes = PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']);
-export const textAlignPropTypes = PropTypes.oneOf(['left', 'center', 'right', 'justify']);
 export const variantPropTypes = PropTypes.oneOf([
   ...Object.keys(palette),
   ...Object.keys(colorsTheme),

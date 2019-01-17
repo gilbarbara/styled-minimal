@@ -14,22 +14,59 @@ storiesOf('ButtonGroup', module)
       propTablesExclude: [Example, Button],
     },
   })
-  .add('default', () => (
-    <Example skipSpacer>
-      <ButtonGroup
-        size={select('Size', sizesOptions, 'md')}
-        variant={select('Variant', variantOptions, 'primary')}
-      >
-        <Button dark={boolean('Dark', false)} outline>
-          First
-        </Button>
-        <Button>Second</Button>
-        <Button dark={boolean('Dark', false)} outline>
-          Third
-        </Button>
-        <Button dark={boolean('Dark', false)} outline>
-          Forth
-        </Button>
-      </ButtonGroup>
-    </Example>
-  ));
+  .add('default', () => {
+    class BTG extends React.Component {
+      state = { active: 'two' };
+
+      setActive = ({ target }) => {
+        this.setState({ active: target.dataset.name });
+      };
+
+      render() {
+        const { active } = this.state;
+
+        return (
+          <Example skipSpacer>
+            <ButtonGroup
+              size={select('Size', sizesOptions, 'md')}
+              variant={select('Variant', variantOptions, 'primary')}
+            >
+              <Button
+                dark={boolean('Dark', false)}
+                bordered={active !== 'one'}
+                data-name="one"
+                onClick={this.setActive}
+              >
+                First
+              </Button>
+              <Button bordered={active !== 'two'} data-name="two" onClick={this.setActive}>
+                Second
+              </Button>
+              <Button
+                dark={boolean('Dark', false)}
+                bordered={active !== 'three'}
+                data-name="three"
+                onClick={this.setActive}
+              >
+                Third
+              </Button>
+              <Button
+                dark={boolean('Dark', false)}
+                bordered={active !== 'four'}
+                data-name="four"
+                onClick={this.setActive}
+              >
+                Forth
+              </Button>
+            </ButtonGroup>
+          </Example>
+        );
+      }
+    }
+
+    BTG.displayName = 'ButtonGroup';
+
+    BTG.propTypes = ButtonGroup.propTypes;
+
+    return <BTG />;
+  });

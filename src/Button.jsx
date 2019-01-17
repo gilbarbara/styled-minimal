@@ -2,13 +2,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 import { getColor, getStyles, getTheme, isDefined, px } from './utils/helpers';
-import {
-  baseStyles,
-  buttonPropTypes,
-  outlines,
-  sizesAllPropTypes,
-  variantPropTypes,
-} from './utils/system';
+import { baseStyles, outlines, sizesAllPropTypes, variantPropTypes } from './utils/system';
 
 import Badge from './Badge';
 import Box, { basePropTypes } from './Box';
@@ -62,8 +56,10 @@ Button.propTypes = {
   dark: PropTypes.bool,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
+  /** sizesAllPropTypes */
   size: sizesAllPropTypes,
-  type: buttonPropTypes,
+  /** buttonTypes */
+  type: PropTypes.oneOf(['button', 'submit', 'reset']),
   variant: variantPropTypes,
   ...basePropTypes,
   ...outlines.propTypes,

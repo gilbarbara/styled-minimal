@@ -31,15 +31,10 @@ export const StyledButtonGroup = styled(Box)`
 `;
 
 const ButtonGroup = ({ children, size, variant, ...props }) => {
-  const buttonProps = {};
-
-  if (typeof size !== 'undefined') {
-    buttonProps.size = size;
-  }
-
-  if (typeof variant !== 'undefined') {
-    buttonProps.variant = variant;
-  }
+  const buttonProps = {
+    size,
+    variant,
+  };
 
   return (
     <StyledButtonGroup {...props}>

@@ -93,6 +93,7 @@ Input.propTypes = {
   required: PropTypes.bool,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   tabindex: PropTypes.number,
+  /** inputTypes */
   type: PropTypes.oneOf([
     'checkbox',
     'color',
