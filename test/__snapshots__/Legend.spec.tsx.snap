@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Legend should render properly 1`] = `
+.c0 {
+  box-sizing: border-box;
+  color: #2E2E2E;
+  display: block;
+  font-family: inherit;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  white-space: nowrap;
+}
+
+<legend
+  class="c0"
+>
+  Far far away
+</legend>
+`;

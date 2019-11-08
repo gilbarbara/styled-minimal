@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioGroup should render properly 1`] = `
+.c1 {
+  box-sizing: border-box;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #2E2E2E;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: inherit;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  white-space: nowrap;
+}
+
+.c0 {
+  box-sizing: border-box;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.c0 label + label {
+  margin-top: 6px;
+}
+
+.c0 .c8 input,
+.c0 .c8 label,
+.c0 .c8 legend {
+  margin-bottom: 0;
+  margin-right: 8px;
+}
+
+.c0 .c8 small {
+  margin-top: 0;
+}
+
+.c4 {
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+.c7 {
+  font-size: 16px;
+}
+
+.c6 {
+  box-sizing: border-box;
+  border-radius: 50%;
+  background-color: #2E2E2E;
+  border: 1px solid #2E2E2E;
+  color: #fff;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  height: 16px;
+  margin-right: 6px;
+  position: relative;
+  -webkit-transition: background-color 0.2s,border-color 0.2s;
+  transition: background-color 0.2s,border-color 0.2s;
+  width: 16px;
+}
+
+.c6:after {
+  content: '';
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-color: #fff;
+  border-radius: 50%;
+  height: 6px;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  width: 6px;
+}
+
+input:checked ~ .c6:after {
+  display: inline-block;
+}
+
+input:disabled ~ .c6 {
+  opacity: 0.6;
+}
+
+input:not(:checked) ~ .c6 {
+  background-color: #f7f8f9;
+  border-color: #ccc;
+}
+
+input:not(:checked):disabled ~ .c6 {
+  background-color: #ccc;
+}
+
+.c2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.c2:focus .c3:not(:checked) ~ .c5,
+.c2:hover .c3:not(:checked) ~ .c5 {
+  background-color: #ccc;
+}
+
+.c2:focus .c3:not(:disabled):checked ~ .c5,
+.c2:hover .c3:not(:disabled):checked ~ .c5 {
+  background-color: #949494;
+  border-color: #949494;
+}
+
+<div
+  class="c0"
+  role="radiogroup"
+>
+  <label
+    class="c1"
+  >
+    RadioGroup
+  </label>
+  <label
+    class="c2"
+  >
+    <input
+      checked=""
+      class="c3 c4"
+      name="test"
+      type="radio"
+      value="1"
+    />
+    <span
+      aria-checked="true"
+      class="c5 c6"
+      role="radio"
+    />
+    <span
+      class="c7"
+    >
+      Option 1
+    </span>
+  </label>
+  <label
+    class="c2"
+  >
+    <input
+      class="c3 c4"
+      name="test"
+      type="radio"
+      value="2"
+    />
+    <span
+      aria-checked="false"
+      class="c5 c6"
+      role="radio"
+    />
+    <span
+      class="c7"
+    >
+      2
+    </span>
+  </label>
+</div>
+`;

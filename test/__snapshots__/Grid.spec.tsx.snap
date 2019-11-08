@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Grid should render properly 1`] = `
+.c0 {
+  box-sizing: border-box;
+  display: grid;
+  grid-column-gap: 10px;
+  grid-template-columns: 1;
+}
+
+.c1 {
+  box-sizing: border-box;
+}
+
+@media screen and (min-width:400px) {
+  .c0 {
+    grid-column-gap: 20px;
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    Left
+  </div>
+  <div
+    class="c1"
+  >
+    Right
+  </div>
+</div>
+`;

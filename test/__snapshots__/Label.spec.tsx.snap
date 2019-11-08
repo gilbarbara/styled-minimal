@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Label should render properly 1`] = `
+.c0 {
+  box-sizing: border-box;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #2E2E2E;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: inherit;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  white-space: nowrap;
+}
+
+<label
+  class="c0"
+>
+  Far far away
+</label>
+`;

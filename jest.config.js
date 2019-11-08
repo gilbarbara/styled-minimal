@@ -1,6 +1,6 @@
 module.exports = {
   collectCoverage: false,
-  collectCoverageFrom: ['src/**/*.{js,jsx}'],
+  collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}'],
   coverageThreshold: {
     global: {
       branches: 50,
@@ -9,25 +9,19 @@ module.exports = {
       statements: 90,
     },
   },
+  globals: {
+    'ts-jest': {
+      tsConfig: 'test/tsconfig.json',
+      diagnostics: false,
+    },
+  },
   moduleDirectories: ['node_modules', 'src', './'],
-  moduleFileExtensions: ['js', 'jsx', 'json'],
-  moduleNameMapper: {
-    '\\.(css|scss)$': '<rootDir>/test/__mocks__/styleMock.js',
-    '\\.(jpe?g|png|gif|ttf|eot|woff|md)$': '<rootDir>/test/__mocks__/fileMock.js',
-    '\\.svg$': '<rootDir>/test/__mocks__/svgMock.js',
-    '^(expose|bundle)': '<rootDir>/test/__mocks__/moduleMock.js',
-  },
-  setupFiles: ['<rootDir>/test/__setup__/setupFiles.js'],
-  setupTestFrameworkScriptFile: '<rootDir>/test/__setup__/setupTests.js',
-  testEnvironment: 'jest-environment-jsdom',
-  testEnvironmentOptions: {
-    resources: 'usable',
-  },
-  testRegex: '/test/.*?\\.(test|spec)\\.js$',
+  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json'],
+  preset: 'ts-jest',
+  setupFiles: ['<rootDir>/test/__setup__/setupFiles.ts'],
+  setupFilesAfterEnv: ['<rootDir>/test/__setup__/setupTests.ts'],
+  testRegex: '/test/.*?\\.(test|spec)\\.(j|t)sx?$',
   testURL: 'http://localhost:3000',
-  transform: {
-    '.*': 'babel-jest',
-  },
   verbose: false,
   watchPlugins: ['jest-watch-typeahead/filename', 'jest-watch-typeahead/testname'],
 };

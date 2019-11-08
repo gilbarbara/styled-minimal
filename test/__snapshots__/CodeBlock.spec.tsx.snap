@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CodeBlock should render properly 1`] = `
+.c0 {
+  box-sizing: border-box;
+  background-color: #f7f8f9;
+  border: 1px solid #e5e5e5;
+  border-radius: 2px;
+  color: #676767;
+  font-family: Courier,monospace;
+  line-height: 1.4;
+  padding: 8px;
+  white-space: pre;
+}
+
+<pre
+  class="c0"
+>
+  const Root = props =&gt; (
+  &lt;MyComponent {...props}&gt;
+    &lt;Text textAlign="center"&gt;Some Code&lt;/Text&gt;
+  &lt;/MyComponent&gt;
+);
+</pre>
+`;

@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DL should render properly 1`] = `
+.c0 {
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  margin: 0;
+}
+
+.c0 dt {
+  font-weight: 700;
+  padding: 12px;
+}
+
+.c0 dd {
+  margin-left: 12px;
+  padding: 0 12px 12px 0;
+}
+
+.c0 dd + dt {
+  border-top: 1px solid #ccc;
+}
+
+<dl
+  class="c0"
+>
+  <dt>
+    Beast of Bodmin
+  </dt>
+  <dd>
+    Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+  </dd>
+  <dt>
+    Morgawr
+  </dt>
+  <dd>
+    A sea serpent.
+  </dd>
+  <dt>
+    Owlman
+  </dt>
+  <dd>
+    A giant owl-like creature.
+  </dd>
+</dl>
+`;

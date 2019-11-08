@@ -1,0 +1,252 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StyledMinimal should export all components 1`] = `
+Object {
+  "Alert": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "defaultProps": Object {
+      "dark": false,
+      "invert": false,
+      "role": "alert",
+      "variant": "primary",
+    },
+    "render": [Function],
+  },
+  "Badge": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "defaultProps": Object {
+      "dark": false,
+      "dot": false,
+      "invert": false,
+      "variant": "primary",
+    },
+    "render": [Function],
+  },
+  "Box": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Button": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "defaultProps": Object {
+      "block": false,
+      "busy": false,
+      "dark": false,
+      "disabled": false,
+      "invert": false,
+      "size": "md",
+      "type": "button",
+      "variant": "primary",
+    },
+    "render": [Function],
+  },
+  "ButtonGroup": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "defaultProps": Object {
+      "size": "md",
+      "variant": "primary",
+    },
+    "render": [Function],
+  },
+  "Checkbox": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "defaultProps": Object {
+      "dark": false,
+      "inline": false,
+      "invert": false,
+      "size": "md",
+      "variant": "primary",
+    },
+    "render": [Function],
+  },
+  "Code": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "CodeBlock": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Container": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "defaultProps": Object {
+      "fullScreen": false,
+      "ySpacing": false,
+    },
+    "render": [Function],
+  },
+  "DL": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "defaultProps": Object {
+      "frame": true,
+      "inline": false,
+      "size": "md",
+    },
+    "render": [Function],
+  },
+  "Embed": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "defaultProps": Object {
+      "ratio": 0.5625,
+    },
+    "render": [Function],
+  },
+  "Fieldset": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Flex": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Form": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "defaultProps": Object {
+      "frame": false,
+      "method": "get",
+    },
+    "render": [Function],
+  },
+  "FormGroup": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "defaultProps": Object {
+      "frame": false,
+      "inline": false,
+    },
+    "render": [Function],
+  },
+  "Grid": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Group": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "defaultProps": Object {
+      "gap": 2,
+    },
+    "render": [Function],
+  },
+  "Heading": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "defaultProps": Object {
+      "as": "h1",
+      "gutter": false,
+    },
+    "render": [Function],
+  },
+  "Image": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Input": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "defaultProps": Object {
+      "size": "md",
+      "type": "text",
+    },
+    "render": [Function],
+  },
+  "Label": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "defaultProps": Object {
+      "inline": false,
+    },
+    "render": [Function],
+  },
+  "Legend": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Link": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "defaultProps": Object {
+      "variant": "primary",
+    },
+    "render": [Function],
+  },
+  "Loader": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "defaultProps": Object {
+      "opacity": 0.7,
+      "size": 32,
+      "speed": 2,
+      "variant": "primary",
+    },
+    "render": [Function],
+  },
+  "OL": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "defaultProps": Object {
+      "frame": false,
+      "inline": false,
+      "size": "md",
+    },
+    "render": [Function],
+  },
+  "Paragraph": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Radio": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "defaultProps": Object {
+      "dark": false,
+      "inline": false,
+      "invert": false,
+      "size": "md",
+      "variant": "primary",
+    },
+    "render": [Function],
+  },
+  "RadioGroup": [Function],
+  "Select": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "defaultProps": Object {
+      "sizing": "md",
+    },
+    "render": [Function],
+  },
+  "Switch": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Table": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "defaultProps": Object {
+      "clean": false,
+      "dark": false,
+      "frame": false,
+      "head": "normal",
+      "size": "md",
+      "striped": false,
+    },
+    "render": [Function],
+  },
+  "Text": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Textarea": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "defaultProps": Object {
+      "rows": 3,
+      "size": "md",
+    },
+    "render": [Function],
+  },
+  "UL": Object {
+    "$$typeof": Symbol(react.forward_ref),
+    "defaultProps": Object {
+      "frame": true,
+      "inline": false,
+      "size": "md",
+      "styleType": "none",
+    },
+    "render": [Function],
+  },
+  "getTheme": [Function],
+  "px": [Function],
+  "responsive": [Function],
+  "system": [Function],
+}
+`;

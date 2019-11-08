@@ -13,11 +13,10 @@ local.properties
 .tmp
 coverage
 node_modules
-/*.js
-!/*.config.js
-/utils
-/styles
 stats.html
+lib/
+esm/
+.awcache
 
 # OS generated files #
 ######################

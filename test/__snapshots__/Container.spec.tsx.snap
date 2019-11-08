@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container should render properly 1`] = `
+.c0 {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  width: 100%;
+}
+
+.c1 {
+  box-sizing: border-box;
+}
+
+@media screen and (min-width:1024px) {
+  .c0 {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
+  </div>
+</div>
+`;
+
+exports[`Container with \`fullScreen\` 1`] = `
+.c0 {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.c1 {
+  box-sizing: border-box;
+}
+
+@media screen and (min-width:1024px) {
+  .c0 {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
+  </div>
+</div>
+`;
+
+exports[`Container with ySpacing 1`] = `
+.c0 {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  width: 100%;
+  padding-bottom: 16px;
+  padding-top: 16px;
+}
+
+.c1 {
+  box-sizing: border-box;
+}
+
+@media screen and (min-width:1024px) {
+  .c0 {
+    padding-bottom: 32px;
+    padding-top: 32px;
+  }
+}
+
+@media screen and (min-width:1024px) {
+  .c0 {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
+  </div>
+</div>
+`;

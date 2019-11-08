@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormGroup should render properly 1`] = `
+.c2 {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c3 {
+  box-sizing: border-box;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #2E2E2E;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: inherit;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  white-space: nowrap;
+}
+
+.c0 {
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  padding: 8px;
+  text-align: left;
+}
+
+.c0 .c1 input,
+.c0 .c1 label,
+.c0 .c1 legend {
+  margin-bottom: 0;
+  margin-right: 8px;
+}
+
+.c0 .c1 small {
+  margin-top: 0;
+}
+
+.c4 {
+  color: #999;
+  display: block;
+  font-size: 85%;
+  line-height: 1.3;
+  margin-top: 4px;
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1 c2"
+  >
+    <label
+      class="c3"
+    >
+      Hello World
+    </label>
+    Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
+    <small
+      class="c4"
+    >
+      help the World
+    </small>
+  </div>
+</div>
+`;

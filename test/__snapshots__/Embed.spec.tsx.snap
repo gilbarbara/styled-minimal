@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Embed should render properly 1`] = `
+.c0 {
+  box-sizing: border-box;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  width: 100%;
+}
+
+.c0 > iframe {
+  border: 0;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+<div
+  class="c0"
+>
+  <iframe
+    allowfullscreen=""
+    frameborder="0"
+    height="315"
+    src="https://www.youtube.com/embed/GNCd_ERZvZM"
+    title="Them Changes"
+    width="560"
+  />
+</div>
+`;

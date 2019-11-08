@@ -1,0 +1,243 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should render properly 1`] = `
+.c0 {
+  box-sizing: border-box;
+  background-color: #2E2E2E;
+  border: 1px solid #2E2E2E;
+  color: #fff;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 0px;
+  box-shadow: none;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1;
+  padding: 8px 14px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  width: auto;
+}
+
+.c0:disabled {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.c0:focus {
+  outline-color: #2E2E2E;
+}
+
+.c0 .c1 {
+  margin-left: 5px;
+}
+
+<button
+  class="c0"
+  type="button"
+>
+  CLICK ME
+</button>
+`;
+
+exports[`Button should render properly with \`busy\` 1`] = `
+.c0 {
+  box-sizing: border-box;
+  background-color: #2E2E2E;
+  border: 1px solid #2E2E2E;
+  color: #fff;
+  -webkit-animation: kQznpt 0.5s linear infinite;
+  animation: kQznpt 0.5s linear infinite;
+  background-image: repeating-linear-gradient( 45deg, rgba(255,255,255,0.4), rgba(255,255,255,0.4) 20px, transparent 20px, transparent 40px );
+  background-size: 56px 56px;
+  pointer-events: none;
+  -webkit-transition: none !important;
+  transition: none !important;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 0px;
+  box-shadow: none;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1;
+  padding: 8px 14px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  width: auto;
+}
+
+.c0:disabled {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.c0:focus {
+  outline-color: #2E2E2E;
+}
+
+.c0 .c1 {
+  margin-left: 5px;
+}
+
+<button
+  class="c0"
+  type="button"
+>
+  LOADING
+</button>
+`;
+
+exports[`Button should render properly with \`dark\` 1`] = `
+.c0 {
+  box-sizing: border-box;
+  background-color: #3C3F41;
+  border: 1px solid #3C3F41;
+  color: #969696;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 0px;
+  box-shadow: none;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1;
+  padding: 8px 14px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  width: auto;
+}
+
+.c0:disabled {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.c0:focus {
+  outline-color: #2E2E2E;
+}
+
+.c0 .c1 {
+  margin-left: 5px;
+}
+
+<button
+  class="c0"
+  type="button"
+>
+  CLICK ME
+</button>
+`;
+
+exports[`Button should render properly with \`invert\` 1`] = `
+.c0 {
+  box-sizing: border-box;
+  background-color: transparent;
+  border: 1px solid #2E2E2E;
+  color: #2E2E2E;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 0px;
+  box-shadow: none;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1;
+  padding: 8px 14px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  width: auto;
+}
+
+.c0:disabled {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.c0:focus {
+  outline-color: #2E2E2E;
+}
+
+.c0 .c1 {
+  margin-left: 5px;
+}
+
+<button
+  class="c0"
+  type="button"
+>
+  CLICK ME
+</button>
+`;
+
+exports[`Button should render properly with \`variant\` 1`] = `
+.c0 {
+  box-sizing: border-box;
+  background-color: #4CAF50;
+  border: 1px solid #4CAF50;
+  color: #fff;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 0px;
+  box-shadow: none;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1;
+  padding: 8px 14px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  width: auto;
+}
+
+.c0:disabled {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.c0:focus {
+  outline-color: #4CAF50;
+}
+
+.c0 .c1 {
+  margin-left: 5px;
+}
+
+<button
+  class="c0"
+  type="button"
+>
+  CLICK ME
+</button>
+`;

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text should render properly 1`] = `
+.c0 {
+  box-sizing: border-box;
+  color: inherit;
+  line-height: 1.4;
+}
+
+<div>
+  <span
+    class="c0"
+  >
+    Far far away, behind the word mountains, 
+  </span>
+  <span
+    class="c0"
+  >
+    far from the countries Vokalia and Consonantia, there live the blind texts.
+  </span>
+</div>
+`;

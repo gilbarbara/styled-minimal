@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Switch should render properly 1`] = `
+.c0 {
+  box-sizing: border-box;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #2E2E2E;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: inherit;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  white-space: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.c2 {
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.c3 {
+  background-color: #2E2E2E;
+  border-radius: 14px;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.c4 {
+  background-color: #fff;
+  border-radius: 50%;
+  bottom: 3px;
+  left: 50%;
+  opacity: 1;
+  position: absolute;
+  top: 3px;
+  -webkit-transition: left 0.1s ease;
+  transition: left 0.1s ease;
+  width: 20px;
+}
+
+.c1 {
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 26px;
+  margin-right: 8px;
+  opacity: 1;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  width: 47px;
+}
+
+<label
+  class="c0"
+  cursor="pointer"
+>
+  <div
+    aria-checked="true"
+    class="c1"
+    role="switch"
+  >
+    <input
+      class="c2"
+      name="toggle"
+      type="hidden"
+      value="on"
+    />
+    <span
+      class="c3"
+    />
+    <span
+      class="c4"
+    />
+  </div>
+  Toggle
+</label>
+`;
+
+exports[`Switch should render properly with \`Size\` 1`] = `
+.c1 {
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.c2 {
+  background-color: #f44336;
+  border-radius: 16px;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.c3 {
+  background-color: #fff;
+  border-radius: 50%;
+  bottom: 3px;
+  left: 50%;
+  opacity: 1;
+  position: absolute;
+  top: 3px;
+  -webkit-transition: left 0.1s ease;
+  transition: left 0.1s ease;
+  width: 26px;
+}
+
+.c0 {
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 32px;
+  margin-right: 8px;
+  opacity: 1;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  width: 57px;
+}
+
+<div
+  aria-checked="true"
+  class="c0"
+  role="switch"
+>
+  <input
+    class="c1"
+    name="toggle"
+    type="hidden"
+    value="on"
+  />
+  <span
+    class="c2"
+  />
+  <span
+    class="c3"
+  />
+</div>
+`;

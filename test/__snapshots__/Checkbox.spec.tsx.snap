@@ -1,0 +1,183 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox should render properly 1`] = `
+.c2 {
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+.c5 {
+  font-size: 16px;
+}
+
+.c4 {
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: #2E2E2E;
+  border: 1px solid #2E2E2E;
+  color: #fff;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  height: 16px;
+  margin-right: 6px;
+  position: relative;
+  -webkit-transition: background-color 0.2s,border-color 0.2s;
+  transition: background-color 0.2s,border-color 0.2s;
+  width: 16px;
+}
+
+.c4:after {
+  content: '';
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-bottom: 2px solid #fff;
+  border-left: 2px solid #fff;
+  height: 6px;
+  -webkit-transform: rotate(-45deg) translateY(-100%);
+  -ms-transform: rotate(-45deg) translateY(-100%);
+  transform: rotate(-45deg) translateY(-100%);
+  width: 9px;
+}
+
+input:checked ~ .c4:after {
+  display: inline-block;
+}
+
+input:disabled ~ .c4 {
+  opacity: 0.6;
+}
+
+input:not(:checked) ~ .c4 {
+  background-color: #f7f8f9;
+  border-color: #ccc;
+}
+
+input:not(:checked):disabled ~ .c4 {
+  background-color: #ccc;
+}
+
+.c6 {
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid #2E2E2E;
+  color: #2E2E2E;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  height: 16px;
+  margin-right: 6px;
+  position: relative;
+  -webkit-transition: background-color 0.2s,border-color 0.2s;
+  transition: background-color 0.2s,border-color 0.2s;
+  width: 16px;
+}
+
+.c6:after {
+  content: '';
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-bottom: 2px solid #2E2E2E;
+  border-left: 2px solid #2E2E2E;
+  height: 6px;
+  -webkit-transform: rotate(-45deg) translateY(-100%);
+  -ms-transform: rotate(-45deg) translateY(-100%);
+  transform: rotate(-45deg) translateY(-100%);
+  width: 9px;
+}
+
+input:checked ~ .c6:after {
+  display: inline-block;
+}
+
+input:disabled ~ .c6 {
+  opacity: 0.6;
+}
+
+input:not(:checked) ~ .c6 {
+  background-color: #f7f8f9;
+  border-color: #ccc;
+}
+
+input:not(:checked):disabled ~ .c6 {
+  background-color: #ccc;
+}
+
+.c0 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.c0:focus .c1:not(:checked) ~ .c3,
+.c0:hover .c1:not(:checked) ~ .c3 {
+  background-color: #ccc;
+}
+
+.c0:focus .c1:not(:disabled):checked ~ .c3,
+.c0:hover .c1:not(:disabled):checked ~ .c3 {
+  background-color: #949494;
+  border-color: #949494;
+}
+
+<div>
+  <label
+    class="c0"
+  >
+    <input
+      aria-checked="true"
+      checked=""
+      class="c1 c2"
+      role="checkbox"
+      type="checkbox"
+      value="test"
+    />
+    <span
+      class="c3 c4"
+      name="test"
+    />
+    <span
+      class="c5"
+    >
+      Checkbox
+    </span>
+  </label>
+  <label
+    class="c0"
+  >
+    <input
+      class="c1 c2"
+      role="checkbox"
+      type="checkbox"
+      value="test2"
+    />
+    <span
+      class="c3 c6"
+      name="test2"
+    />
+    <span
+      class="c5"
+    >
+      Checkbox 2
+    </span>
+  </label>
+</div>
+`;

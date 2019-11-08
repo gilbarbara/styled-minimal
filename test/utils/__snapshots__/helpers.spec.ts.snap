@@ -1,0 +1,1918 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`helpers getColor should handle missing parameters 1`] = `"#2E2E2E"`;
+
+exports[`helpers getColor should return the fallback 1`] = `"#4B515D"`;
+
+exports[`helpers getColor should return the variant 1`] = `"#2196F3"`;
+
+exports[`helpers getContrastedColor should return properly 1`] = `"#b3b3b3"`;
+
+exports[`helpers getContrastedColor should return properly 2`] = `"#4d4d4d"`;
+
+exports[`helpers getContrastedColor should return properly 3`] = `"#fff"`;
+
+exports[`helpers getDarkColor should handle missing parameters 1`] = `"#969696"`;
+
+exports[`helpers getDarkColor should return properly 1`] = `"#969696"`;
+
+exports[`helpers getDarkColor should return properly 2`] = `"#51adf6"`;
+
+exports[`helpers getDimmerColor should handle missing parameters 1`] = `""`;
+
+exports[`helpers getDimmerColor should return properly 1`] = `"#ccc"`;
+
+exports[`helpers getDimmerColor should return properly 2`] = `"#fff"`;
+
+exports[`helpers getDimmerColor should return properly 3`] = `"#ccc"`;
+
+exports[`helpers getDimmerColor should return properly 4`] = `"#b3b3b3"`;
+
+exports[`helpers getDimmerColor should return properly 5`] = `"#999"`;
+
+exports[`helpers getProps should handle missing parameters 1`] = `
+Object {
+  "theme": Object {
+    "alert": Object {
+      "borderRadius": 3,
+      "maxWidth": 450,
+      "padding": "10px 12px",
+    },
+    "badge": Object {
+      "borderRadius": 10,
+      "fontSize": 12,
+      "fontWeight": 700,
+      "lineHeight": 18,
+      "padding": 5,
+      "size": 20,
+      "sizeDot": 6,
+    },
+    "borderColor": "#ccc",
+    "breakpoints": Array [
+      "360px",
+      "400px",
+      "768px",
+      "1024px",
+      "1360px",
+    ],
+    "button": Object {
+      "borderRadius": Object {
+        "lg": 0,
+        "md": 0,
+        "sm": 0,
+        "xl": 0,
+        "xs": 0,
+      },
+      "disabledOpacity": 0.7,
+      "fontSize": Object {
+        "lg": 18,
+        "md": 16,
+        "sm": 14,
+        "xl": 22,
+        "xs": 12,
+      },
+      "lineHeight": 1,
+      "loader": [Function],
+      "padding": Object {
+        "lg": Array [
+          10,
+          18,
+        ],
+        "md": Array [
+          8,
+          14,
+        ],
+        "sm": Array [
+          6,
+          10,
+        ],
+        "xl": Array [
+          12,
+          20,
+        ],
+        "xs": Array [
+          4,
+          8,
+        ],
+      },
+      "textTransform": "none",
+    },
+    "checkbox": Object {
+      "backgroundColor": "#f7f8f9",
+      "borderColor": "#ccc",
+      "borderRadius": 4,
+      "fontSize": Object {
+        "lg": 20,
+        "md": 16,
+        "sm": 14,
+      },
+      "sizes": Object {
+        "lg": 20,
+        "md": 16,
+        "sm": 14,
+      },
+    },
+    "code": Object {
+      "backgroundColor": "#f7f8f9",
+      "blockColor": "#676767",
+      "blockPadding": 8,
+      "border": "1px solid #e5e5e5",
+      "borderRadius": 2,
+      "color": "#ff4444",
+      "fontFamily": "Courier, monospace",
+      "padding": 2,
+    },
+    "colors": Object {
+      "amber": "#FFC107",
+      "black": "#000",
+      "blue": "#2196F3",
+      "brown": "#795548",
+      "cyan": "#00BCD4",
+      "green": "#4CAF50",
+      "indigo": "#3F51B5",
+      "lime": "#CDDC39",
+      "orange": "#FF9800",
+      "pink": "#E91E63",
+      "purple": "#9C27B0",
+      "red": "#f44336",
+      "teal": "#009688",
+      "white": "#fff",
+      "yellow": "#FFEB3B",
+    },
+    "darkColor": "#3C3F41",
+    "disabledColor": "#ececec",
+    "fieldset": Object {
+      "borderColor": "#ccc",
+      "borderRadius": 4,
+      "color": "#2E2E2E",
+      "marginBottom": 16,
+      "padding": 8,
+    },
+    "fontSizes": Array [
+      10,
+      12,
+      14,
+      16,
+      20,
+      26,
+      32,
+      40,
+      48,
+    ],
+    "form": Object {
+      "borderColor": "#ccc",
+      "borderRadius": 4,
+      "borderWidth": 1,
+      "padding": 10,
+    },
+    "formGroup": Object {
+      "borderColor": "#ccc",
+      "borderRadius": 4,
+      "helpColor": "#999",
+      "helpMarginTop": 4,
+      "inlineMargin": 8,
+      "marginBottom": 16,
+      "padding": 8,
+    },
+    "grays": Object {
+      "gray03": "#f7f7f7",
+      "gray05": "#f4f4f4",
+      "gray10": "#e6e6e6",
+      "gray20": "#ccc",
+      "gray30": "#b3b3b3",
+      "gray40": "#999",
+      "gray50": "#808080",
+      "gray60": "#666",
+      "gray70": "#4d4d4d",
+      "gray80": "#333",
+      "gray90": "#1a1a1a",
+    },
+    "headingSizes": Object {
+      "h1": 48,
+      "h2": 40,
+      "h3": 32,
+      "h4": 26,
+      "h5": 20,
+      "h6": 16,
+    },
+    "headingWeight": 700,
+    "input": Object {
+      "backgroundColor": "#fff",
+      "borderColor": "#ccc",
+      "borderRadius": 2,
+      "borderWidth": 1,
+      "color": "#2E2E2E",
+      "disabledColor": "#ececec",
+      "fontSize": Object {
+        "lg": 20,
+        "md": 16,
+        "sm": 14,
+      },
+      "height": Object {
+        "lg": 40,
+        "md": 34,
+        "sm": 28,
+      },
+      "lineHeight": 1,
+      "padding": Object {
+        "lg": 10,
+        "md": 8,
+        "sm": 6,
+      },
+      "requiredColor": "#999",
+      "validation": Object {
+        "invalid": "#f00",
+        "valid": "#3ac200",
+      },
+    },
+    "label": Object {
+      "color": "#2E2E2E",
+      "inlineFontSize": 14,
+      "marginBottom": 8,
+    },
+    "legend": Object {
+      "color": "#2E2E2E",
+      "marginBottom": 8,
+    },
+    "lineHeight": 1.4,
+    "list": Object {
+      "borderColor": "#ccc",
+      "borderRadius": 3,
+      "color": "#2E2E2E",
+      "padding": Object {
+        "lg": 16,
+        "md": 12,
+        "sm": 8,
+      },
+    },
+    "palette": Object {
+      "danger": "#ff4444",
+      "dark": "#212121",
+      "info": "#33b5e5",
+      "light": "#f4f4f4",
+      "primary": "#2E2E2E",
+      "secondary": "#4B515D",
+      "success": "#00C851",
+      "warning": "#fda509",
+    },
+    "radio": Object {
+      "backgroundColor": "#f7f8f9",
+      "borderColor": "#ccc",
+      "borderRadius": "50%",
+      "fontSize": Object {
+        "lg": 20,
+        "md": 16,
+        "sm": 14,
+      },
+      "sizes": Object {
+        "lg": 20,
+        "md": 16,
+        "sm": 14,
+      },
+    },
+    "select": Object {
+      "backgroundColor": "#fff",
+      "borderColor": "#ccc",
+      "borderRadius": 2,
+      "borderWidth": 1,
+      "color": "#2E2E2E",
+      "disabledColor": "#ececec",
+      "fontSize": Object {
+        "lg": 20,
+        "md": 16,
+        "sm": 14,
+      },
+      "height": Object {
+        "lg": 40,
+        "md": 34,
+        "sm": 28,
+      },
+      "lineHeight": 1,
+      "padding": Object {
+        "lg": 10,
+        "md": 8,
+        "sm": 6,
+      },
+      "requiredColor": "#999",
+      "validation": Object {
+        "invalid": "#f00",
+        "valid": "#3ac200",
+      },
+    },
+    "space": Array [
+      0,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128,
+    ],
+    "switchSizes": Object {
+      "lg": Object {
+        "borderRadius": 16,
+        "height": 32,
+        "space": 3,
+        "width": 57,
+      },
+      "md": Object {
+        "borderRadius": 14,
+        "height": 26,
+        "space": 3,
+        "width": 47,
+      },
+      "sm": Object {
+        "borderRadius": 10,
+        "height": 20,
+        "space": 3,
+        "width": 35,
+      },
+      "xl": Object {
+        "borderRadius": 20,
+        "height": 40,
+        "space": 3,
+        "width": 74,
+      },
+      "xs": Object {
+        "borderRadius": 7,
+        "height": 14,
+        "space": 2,
+        "width": 24,
+      },
+    },
+    "table": Object {
+      "borderColors": Object {
+        "primary": "#ccc",
+        "secondary": "#32383e",
+      },
+      "captionColor": "#ccc",
+      "captionPadding": 6,
+      "colors": Object {
+        "primary": "#fff",
+        "secondary": "#000",
+      },
+      "headColors": Object {
+        "dark": "#000",
+        "light": "#f4f4f4",
+      },
+      "padding": Object {
+        "lg": 18,
+        "md": 12,
+        "sm": 6,
+      },
+      "stripedColors": Object {
+        "primary": "#ededed",
+        "secondary": "#262626",
+      },
+    },
+    "textColor": "#2E2E2E",
+    "textarea": Object {
+      "backgroundColor": "#fff",
+      "borderColor": "#ccc",
+      "borderRadius": 2,
+      "borderWidth": 1,
+      "color": "#2E2E2E",
+      "disabledColor": "#ececec",
+      "fontSize": Object {
+        "lg": 20,
+        "md": 16,
+        "sm": 14,
+      },
+      "height": Object {
+        "lg": 40,
+        "md": 34,
+        "sm": 28,
+      },
+      "lineHeight": 1.4,
+      "padding": Object {
+        "lg": 10,
+        "md": 8,
+        "sm": 6,
+      },
+      "requiredColor": "#999",
+      "validation": Object {
+        "invalid": "#f00",
+        "valid": "#3ac200",
+      },
+    },
+  },
+}
+`;
+
+exports[`helpers getProps should return properly 1`] = `
+Object {
+  "theme": Object {
+    "alert": Object {
+      "borderRadius": 3,
+      "maxWidth": 450,
+      "padding": "10px 12px",
+    },
+    "badge": Object {
+      "borderRadius": 10,
+      "fontSize": 12,
+      "fontWeight": 700,
+      "lineHeight": 18,
+      "padding": 5,
+      "size": 20,
+      "sizeDot": 6,
+    },
+    "borderColor": "#ccc",
+    "breakpoints": Array [
+      "360px",
+      "400px",
+      "768px",
+      "1024px",
+      "1360px",
+    ],
+    "button": Object {
+      "borderRadius": Object {
+        "lg": 0,
+        "md": 0,
+        "sm": 0,
+        "xl": 0,
+        "xs": 0,
+      },
+      "disabledOpacity": 0.7,
+      "fontSize": Object {
+        "lg": 18,
+        "md": 16,
+        "sm": 14,
+        "xl": 22,
+        "xs": 12,
+      },
+      "lineHeight": 1,
+      "loader": [Function],
+      "padding": Object {
+        "lg": Array [
+          10,
+          18,
+        ],
+        "md": Array [
+          8,
+          14,
+        ],
+        "sm": Array [
+          6,
+          10,
+        ],
+        "xl": Array [
+          12,
+          20,
+        ],
+        "xs": Array [
+          4,
+          8,
+        ],
+      },
+      "textTransform": "none",
+    },
+    "checkbox": Object {
+      "backgroundColor": "#f7f8f9",
+      "borderColor": "#ccc",
+      "borderRadius": 4,
+      "fontSize": Object {
+        "lg": 20,
+        "md": 16,
+        "sm": 14,
+      },
+      "sizes": Object {
+        "lg": 20,
+        "md": 16,
+        "sm": 14,
+      },
+    },
+    "code": Object {
+      "backgroundColor": "#f7f8f9",
+      "blockColor": "#676767",
+      "blockPadding": 8,
+      "border": "1px solid #e5e5e5",
+      "borderRadius": 2,
+      "color": "#ff4444",
+      "fontFamily": "Courier, monospace",
+      "padding": 2,
+    },
+    "colors": Object {
+      "amber": "#FFC107",
+      "black": "#000",
+      "blue": "#2196F3",
+      "brown": "#795548",
+      "cyan": "#00BCD4",
+      "green": "#4CAF50",
+      "indigo": "#3F51B5",
+      "lime": "#CDDC39",
+      "orange": "#FF9800",
+      "pink": "#E91E63",
+      "purple": "#9C27B0",
+      "red": "#f44336",
+      "teal": "#009688",
+      "white": "#fff",
+      "yellow": "#FFEB3B",
+    },
+    "darkColor": "#3C3F41",
+    "disabledColor": "#ececec",
+    "fieldset": Object {
+      "borderColor": "#ccc",
+      "borderRadius": 4,
+      "color": "#2E2E2E",
+      "marginBottom": 16,
+      "padding": 8,
+    },
+    "fontSizes": Array [
+      10,
+      12,
+      14,
+      16,
+      20,
+      26,
+      32,
+      40,
+      48,
+    ],
+    "form": Object {
+      "borderColor": "#ccc",
+      "borderRadius": 4,
+      "borderWidth": 1,
+      "padding": 10,
+    },
+    "formGroup": Object {
+      "borderColor": "#ccc",
+      "borderRadius": 4,
+      "helpColor": "#999",
+      "helpMarginTop": 4,
+      "inlineMargin": 8,
+      "marginBottom": 16,
+      "padding": 8,
+    },
+    "grays": Object {
+      "gray03": "#f7f7f7",
+      "gray05": "#f4f4f4",
+      "gray10": "#e6e6e6",
+      "gray20": "#ccc",
+      "gray30": "#b3b3b3",
+      "gray40": "#999",
+      "gray50": "#808080",
+      "gray60": "#666",
+      "gray70": "#4d4d4d",
+      "gray80": "#333",
+      "gray90": "#1a1a1a",
+    },
+    "headingSizes": Object {
+      "h1": 48,
+      "h2": 40,
+      "h3": 32,
+      "h4": 26,
+      "h5": 20,
+      "h6": 16,
+    },
+    "headingWeight": 700,
+    "input": Object {
+      "backgroundColor": "#fff",
+      "borderColor": "#ccc",
+      "borderRadius": 2,
+      "borderWidth": 1,
+      "color": "#2E2E2E",
+      "disabledColor": "#ececec",
+      "fontSize": Object {
+        "lg": 20,
+        "md": 16,
+        "sm": 14,
+      },
+      "height": Object {
+        "lg": 40,
+        "md": 34,
+        "sm": 28,
+      },
+      "lineHeight": 1,
+      "padding": Object {
+        "lg": 10,
+        "md": 8,
+        "sm": 6,
+      },
+      "requiredColor": "#999",
+      "validation": Object {
+        "invalid": "#f00",
+        "valid": "#3ac200",
+      },
+    },
+    "label": Object {
+      "color": "#2E2E2E",
+      "inlineFontSize": 14,
+      "marginBottom": 8,
+    },
+    "legend": Object {
+      "color": "#2E2E2E",
+      "marginBottom": 8,
+    },
+    "lineHeight": 1.4,
+    "list": Object {
+      "borderColor": "#ccc",
+      "borderRadius": 3,
+      "color": "#2E2E2E",
+      "padding": Object {
+        "lg": 16,
+        "md": 12,
+        "sm": 8,
+      },
+    },
+    "palette": Object {
+      "danger": "#ff4444",
+      "dark": "#212121",
+      "info": "#33b5e5",
+      "light": "#f4f4f4",
+      "primary": "#2E2E2E",
+      "secondary": "#4B515D",
+      "success": "#00C851",
+      "warning": "#fda509",
+    },
+    "radio": Object {
+      "backgroundColor": "#f7f8f9",
+      "borderColor": "#ccc",
+      "borderRadius": "50%",
+      "fontSize": Object {
+        "lg": 20,
+        "md": 16,
+        "sm": 14,
+      },
+      "sizes": Object {
+        "lg": 20,
+        "md": 16,
+        "sm": 14,
+      },
+    },
+    "select": Object {
+      "backgroundColor": "#fff",
+      "borderColor": "#ccc",
+      "borderRadius": 2,
+      "borderWidth": 1,
+      "color": "#2E2E2E",
+      "disabledColor": "#ececec",
+      "fontSize": Object {
+        "lg": 20,
+        "md": 16,
+        "sm": 14,
+      },
+      "height": Object {
+        "lg": 40,
+        "md": 34,
+        "sm": 28,
+      },
+      "lineHeight": 1,
+      "padding": Object {
+        "lg": 10,
+        "md": 8,
+        "sm": 6,
+      },
+      "requiredColor": "#999",
+      "validation": Object {
+        "invalid": "#f00",
+        "valid": "#3ac200",
+      },
+    },
+    "space": Array [
+      0,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128,
+    ],
+    "switchSizes": Object {
+      "lg": Object {
+        "borderRadius": 16,
+        "height": 32,
+        "space": 3,
+        "width": 57,
+      },
+      "md": Object {
+        "borderRadius": 14,
+        "height": 26,
+        "space": 3,
+        "width": 47,
+      },
+      "sm": Object {
+        "borderRadius": 10,
+        "height": 20,
+        "space": 3,
+        "width": 35,
+      },
+      "xl": Object {
+        "borderRadius": 20,
+        "height": 40,
+        "space": 3,
+        "width": 74,
+      },
+      "xs": Object {
+        "borderRadius": 7,
+        "height": 14,
+        "space": 2,
+        "width": 24,
+      },
+    },
+    "table": Object {
+      "borderColors": Object {
+        "primary": "#ccc",
+        "secondary": "#32383e",
+      },
+      "captionColor": "#ccc",
+      "captionPadding": 6,
+      "colors": Object {
+        "primary": "#fff",
+        "secondary": "#000",
+      },
+      "headColors": Object {
+        "dark": "#000",
+        "light": "#f4f4f4",
+      },
+      "padding": Object {
+        "lg": 18,
+        "md": 12,
+        "sm": 6,
+      },
+      "stripedColors": Object {
+        "primary": "#ededed",
+        "secondary": "#262626",
+      },
+    },
+    "textColor": "#2E2E2E",
+    "textarea": Object {
+      "backgroundColor": "#fff",
+      "borderColor": "#ccc",
+      "borderRadius": 2,
+      "borderWidth": 1,
+      "color": "#2E2E2E",
+      "disabledColor": "#ececec",
+      "fontSize": Object {
+        "lg": 20,
+        "md": 16,
+        "sm": 14,
+      },
+      "height": Object {
+        "lg": 40,
+        "md": 34,
+        "sm": 28,
+      },
+      "lineHeight": 1.4,
+      "padding": Object {
+        "lg": 10,
+        "md": 8,
+        "sm": 6,
+      },
+      "requiredColor": "#999",
+      "validation": Object {
+        "invalid": "#f00",
+        "valid": "#3ac200",
+      },
+    },
+  },
+}
+`;
+
+exports[`helpers getTextColor should handle missing parameters 1`] = `"#fff"`;
+
+exports[`helpers getTextColor should return properly 1`] = `"#000"`;
+
+exports[`helpers getTextColor should return properly 2`] = `"#fff"`;
+
+exports[`helpers getTheme should handle missing parameters 1`] = `
+Object {
+  "alert": Object {
+    "borderRadius": 3,
+    "maxWidth": 450,
+    "padding": "10px 12px",
+  },
+  "badge": Object {
+    "borderRadius": 10,
+    "fontSize": 12,
+    "fontWeight": 700,
+    "lineHeight": 18,
+    "padding": 5,
+    "size": 20,
+    "sizeDot": 6,
+  },
+  "borderColor": "#ccc",
+  "breakpoints": Array [
+    "360px",
+    "400px",
+    "768px",
+    "1024px",
+    "1360px",
+  ],
+  "button": Object {
+    "borderRadius": Object {
+      "lg": 0,
+      "md": 0,
+      "sm": 0,
+      "xl": 0,
+      "xs": 0,
+    },
+    "disabledOpacity": 0.7,
+    "fontSize": Object {
+      "lg": 18,
+      "md": 16,
+      "sm": 14,
+      "xl": 22,
+      "xs": 12,
+    },
+    "lineHeight": 1,
+    "loader": [Function],
+    "padding": Object {
+      "lg": Array [
+        10,
+        18,
+      ],
+      "md": Array [
+        8,
+        14,
+      ],
+      "sm": Array [
+        6,
+        10,
+      ],
+      "xl": Array [
+        12,
+        20,
+      ],
+      "xs": Array [
+        4,
+        8,
+      ],
+    },
+    "textTransform": "none",
+  },
+  "checkbox": Object {
+    "backgroundColor": "#f7f8f9",
+    "borderColor": "#ccc",
+    "borderRadius": 4,
+    "fontSize": Object {
+      "lg": 20,
+      "md": 16,
+      "sm": 14,
+    },
+    "sizes": Object {
+      "lg": 20,
+      "md": 16,
+      "sm": 14,
+    },
+  },
+  "code": Object {
+    "backgroundColor": "#f7f8f9",
+    "blockColor": "#676767",
+    "blockPadding": 8,
+    "border": "1px solid #e5e5e5",
+    "borderRadius": 2,
+    "color": "#ff4444",
+    "fontFamily": "Courier, monospace",
+    "padding": 2,
+  },
+  "colors": Object {
+    "amber": "#FFC107",
+    "black": "#000",
+    "blue": "#2196F3",
+    "brown": "#795548",
+    "cyan": "#00BCD4",
+    "green": "#4CAF50",
+    "indigo": "#3F51B5",
+    "lime": "#CDDC39",
+    "orange": "#FF9800",
+    "pink": "#E91E63",
+    "purple": "#9C27B0",
+    "red": "#f44336",
+    "teal": "#009688",
+    "white": "#fff",
+    "yellow": "#FFEB3B",
+  },
+  "darkColor": "#3C3F41",
+  "disabledColor": "#ececec",
+  "fieldset": Object {
+    "borderColor": "#ccc",
+    "borderRadius": 4,
+    "color": "#2E2E2E",
+    "marginBottom": 16,
+    "padding": 8,
+  },
+  "fontSizes": Array [
+    10,
+    12,
+    14,
+    16,
+    20,
+    26,
+    32,
+    40,
+    48,
+  ],
+  "form": Object {
+    "borderColor": "#ccc",
+    "borderRadius": 4,
+    "borderWidth": 1,
+    "padding": 10,
+  },
+  "formGroup": Object {
+    "borderColor": "#ccc",
+    "borderRadius": 4,
+    "helpColor": "#999",
+    "helpMarginTop": 4,
+    "inlineMargin": 8,
+    "marginBottom": 16,
+    "padding": 8,
+  },
+  "grays": Object {
+    "gray03": "#f7f7f7",
+    "gray05": "#f4f4f4",
+    "gray10": "#e6e6e6",
+    "gray20": "#ccc",
+    "gray30": "#b3b3b3",
+    "gray40": "#999",
+    "gray50": "#808080",
+    "gray60": "#666",
+    "gray70": "#4d4d4d",
+    "gray80": "#333",
+    "gray90": "#1a1a1a",
+  },
+  "headingSizes": Object {
+    "h1": 48,
+    "h2": 40,
+    "h3": 32,
+    "h4": 26,
+    "h5": 20,
+    "h6": 16,
+  },
+  "headingWeight": 700,
+  "input": Object {
+    "backgroundColor": "#fff",
+    "borderColor": "#ccc",
+    "borderRadius": 2,
+    "borderWidth": 1,
+    "color": "#2E2E2E",
+    "disabledColor": "#ececec",
+    "fontSize": Object {
+      "lg": 20,
+      "md": 16,
+      "sm": 14,
+    },
+    "height": Object {
+      "lg": 40,
+      "md": 34,
+      "sm": 28,
+    },
+    "lineHeight": 1,
+    "padding": Object {
+      "lg": 10,
+      "md": 8,
+      "sm": 6,
+    },
+    "requiredColor": "#999",
+    "validation": Object {
+      "invalid": "#f00",
+      "valid": "#3ac200",
+    },
+  },
+  "label": Object {
+    "color": "#2E2E2E",
+    "inlineFontSize": 14,
+    "marginBottom": 8,
+  },
+  "legend": Object {
+    "color": "#2E2E2E",
+    "marginBottom": 8,
+  },
+  "lineHeight": 1.4,
+  "list": Object {
+    "borderColor": "#ccc",
+    "borderRadius": 3,
+    "color": "#2E2E2E",
+    "padding": Object {
+      "lg": 16,
+      "md": 12,
+      "sm": 8,
+    },
+  },
+  "palette": Object {
+    "danger": "#ff4444",
+    "dark": "#212121",
+    "info": "#33b5e5",
+    "light": "#f4f4f4",
+    "primary": "#2E2E2E",
+    "secondary": "#4B515D",
+    "success": "#00C851",
+    "warning": "#fda509",
+  },
+  "radio": Object {
+    "backgroundColor": "#f7f8f9",
+    "borderColor": "#ccc",
+    "borderRadius": "50%",
+    "fontSize": Object {
+      "lg": 20,
+      "md": 16,
+      "sm": 14,
+    },
+    "sizes": Object {
+      "lg": 20,
+      "md": 16,
+      "sm": 14,
+    },
+  },
+  "select": Object {
+    "backgroundColor": "#fff",
+    "borderColor": "#ccc",
+    "borderRadius": 2,
+    "borderWidth": 1,
+    "color": "#2E2E2E",
+    "disabledColor": "#ececec",
+    "fontSize": Object {
+      "lg": 20,
+      "md": 16,
+      "sm": 14,
+    },
+    "height": Object {
+      "lg": 40,
+      "md": 34,
+      "sm": 28,
+    },
+    "lineHeight": 1,
+    "padding": Object {
+      "lg": 10,
+      "md": 8,
+      "sm": 6,
+    },
+    "requiredColor": "#999",
+    "validation": Object {
+      "invalid": "#f00",
+      "valid": "#3ac200",
+    },
+  },
+  "space": Array [
+    0,
+    4,
+    8,
+    16,
+    32,
+    64,
+    128,
+  ],
+  "switchSizes": Object {
+    "lg": Object {
+      "borderRadius": 16,
+      "height": 32,
+      "space": 3,
+      "width": 57,
+    },
+    "md": Object {
+      "borderRadius": 14,
+      "height": 26,
+      "space": 3,
+      "width": 47,
+    },
+    "sm": Object {
+      "borderRadius": 10,
+      "height": 20,
+      "space": 3,
+      "width": 35,
+    },
+    "xl": Object {
+      "borderRadius": 20,
+      "height": 40,
+      "space": 3,
+      "width": 74,
+    },
+    "xs": Object {
+      "borderRadius": 7,
+      "height": 14,
+      "space": 2,
+      "width": 24,
+    },
+  },
+  "table": Object {
+    "borderColors": Object {
+      "primary": "#ccc",
+      "secondary": "#32383e",
+    },
+    "captionColor": "#ccc",
+    "captionPadding": 6,
+    "colors": Object {
+      "primary": "#fff",
+      "secondary": "#000",
+    },
+    "headColors": Object {
+      "dark": "#000",
+      "light": "#f4f4f4",
+    },
+    "padding": Object {
+      "lg": 18,
+      "md": 12,
+      "sm": 6,
+    },
+    "stripedColors": Object {
+      "primary": "#ededed",
+      "secondary": "#262626",
+    },
+  },
+  "textColor": "#2E2E2E",
+  "textarea": Object {
+    "backgroundColor": "#fff",
+    "borderColor": "#ccc",
+    "borderRadius": 2,
+    "borderWidth": 1,
+    "color": "#2E2E2E",
+    "disabledColor": "#ececec",
+    "fontSize": Object {
+      "lg": 20,
+      "md": 16,
+      "sm": 14,
+    },
+    "height": Object {
+      "lg": 40,
+      "md": 34,
+      "sm": 28,
+    },
+    "lineHeight": 1.4,
+    "padding": Object {
+      "lg": 10,
+      "md": 8,
+      "sm": 6,
+    },
+    "requiredColor": "#999",
+    "validation": Object {
+      "invalid": "#f00",
+      "valid": "#3ac200",
+    },
+  },
+}
+`;
+
+exports[`helpers getTheme should return properly 1`] = `
+Object {
+  "alert": Object {
+    "borderRadius": 3,
+    "maxWidth": 450,
+    "padding": "10px 12px",
+  },
+  "badge": Object {
+    "borderRadius": 10,
+    "fontSize": 12,
+    "fontWeight": 700,
+    "lineHeight": 18,
+    "padding": 5,
+    "size": 20,
+    "sizeDot": 6,
+  },
+  "borderColor": "#ccc",
+  "breakpoints": Array [
+    "360px",
+    "400px",
+    "768px",
+    "1024px",
+    "1360px",
+  ],
+  "button": Object {
+    "borderRadius": Object {
+      "lg": 0,
+      "md": 0,
+      "sm": 0,
+      "xl": 0,
+      "xs": 0,
+    },
+    "disabledOpacity": 0.7,
+    "fontSize": Object {
+      "lg": 18,
+      "md": 16,
+      "sm": 14,
+      "xl": 22,
+      "xs": 12,
+    },
+    "lineHeight": 1,
+    "loader": [Function],
+    "padding": Object {
+      "lg": Array [
+        10,
+        18,
+      ],
+      "md": Array [
+        8,
+        14,
+      ],
+      "sm": Array [
+        6,
+        10,
+      ],
+      "xl": Array [
+        12,
+        20,
+      ],
+      "xs": Array [
+        4,
+        8,
+      ],
+    },
+    "textTransform": "none",
+  },
+  "checkbox": Object {
+    "backgroundColor": "#f7f8f9",
+    "borderColor": "#ccc",
+    "borderRadius": 4,
+    "fontSize": Object {
+      "lg": 20,
+      "md": 16,
+      "sm": 14,
+    },
+    "sizes": Object {
+      "lg": 20,
+      "md": 16,
+      "sm": 14,
+    },
+  },
+  "code": Object {
+    "backgroundColor": "#f7f8f9",
+    "blockColor": "#676767",
+    "blockPadding": 8,
+    "border": "1px solid #e5e5e5",
+    "borderRadius": 2,
+    "color": "#ff4444",
+    "fontFamily": "Courier, monospace",
+    "padding": 2,
+  },
+  "colors": Object {
+    "amber": "#FFC107",
+    "black": "#000",
+    "blue": "#2196F3",
+    "brown": "#795548",
+    "cyan": "#00BCD4",
+    "green": "#4CAF50",
+    "indigo": "#3F51B5",
+    "lime": "#CDDC39",
+    "orange": "#FF9800",
+    "pink": "#E91E63",
+    "purple": "#9C27B0",
+    "red": "#f44336",
+    "teal": "#009688",
+    "white": "#fff",
+    "yellow": "#FFEB3B",
+  },
+  "darkColor": "#3C3F41",
+  "disabledColor": "#ececec",
+  "fieldset": Object {
+    "borderColor": "#ccc",
+    "borderRadius": 4,
+    "color": "#2E2E2E",
+    "marginBottom": 16,
+    "padding": 8,
+  },
+  "fontSizes": Array [
+    10,
+    12,
+    14,
+    16,
+    20,
+    26,
+    32,
+    40,
+    48,
+  ],
+  "form": Object {
+    "borderColor": "#ccc",
+    "borderRadius": 4,
+    "borderWidth": 1,
+    "padding": 10,
+  },
+  "formGroup": Object {
+    "borderColor": "#ccc",
+    "borderRadius": 4,
+    "helpColor": "#999",
+    "helpMarginTop": 4,
+    "inlineMargin": 8,
+    "marginBottom": 16,
+    "padding": 8,
+  },
+  "grays": Object {
+    "gray03": "#f7f7f7",
+    "gray05": "#f4f4f4",
+    "gray10": "#e6e6e6",
+    "gray20": "#ccc",
+    "gray30": "#b3b3b3",
+    "gray40": "#999",
+    "gray50": "#808080",
+    "gray60": "#666",
+    "gray70": "#4d4d4d",
+    "gray80": "#333",
+    "gray90": "#1a1a1a",
+  },
+  "headingSizes": Object {
+    "h1": 48,
+    "h2": 40,
+    "h3": 32,
+    "h4": 26,
+    "h5": 20,
+    "h6": 16,
+  },
+  "headingWeight": 700,
+  "input": Object {
+    "backgroundColor": "#fff",
+    "borderColor": "#ccc",
+    "borderRadius": 2,
+    "borderWidth": 1,
+    "color": "#2E2E2E",
+    "disabledColor": "#ececec",
+    "fontSize": Object {
+      "lg": 20,
+      "md": 16,
+      "sm": 14,
+    },
+    "height": Object {
+      "lg": 40,
+      "md": 34,
+      "sm": 28,
+    },
+    "lineHeight": 1,
+    "padding": Object {
+      "lg": 10,
+      "md": 8,
+      "sm": 6,
+    },
+    "requiredColor": "#999",
+    "validation": Object {
+      "invalid": "#f00",
+      "valid": "#3ac200",
+    },
+  },
+  "label": Object {
+    "color": "#2E2E2E",
+    "inlineFontSize": 14,
+    "marginBottom": 8,
+  },
+  "legend": Object {
+    "color": "#2E2E2E",
+    "marginBottom": 8,
+  },
+  "lineHeight": 1.4,
+  "list": Object {
+    "borderColor": "#ccc",
+    "borderRadius": 3,
+    "color": "#2E2E2E",
+    "padding": Object {
+      "lg": 16,
+      "md": 12,
+      "sm": 8,
+    },
+  },
+  "palette": Object {
+    "danger": "#ff4444",
+    "dark": "#212121",
+    "info": "#33b5e5",
+    "light": "#f4f4f4",
+    "primary": "#2E2E2E",
+    "secondary": "#4B515D",
+    "success": "#00C851",
+    "warning": "#fda509",
+  },
+  "radio": Object {
+    "backgroundColor": "#f7f8f9",
+    "borderColor": "#ccc",
+    "borderRadius": "50%",
+    "fontSize": Object {
+      "lg": 20,
+      "md": 16,
+      "sm": 14,
+    },
+    "sizes": Object {
+      "lg": 20,
+      "md": 16,
+      "sm": 14,
+    },
+  },
+  "select": Object {
+    "backgroundColor": "#fff",
+    "borderColor": "#ccc",
+    "borderRadius": 2,
+    "borderWidth": 1,
+    "color": "#2E2E2E",
+    "disabledColor": "#ececec",
+    "fontSize": Object {
+      "lg": 20,
+      "md": 16,
+      "sm": 14,
+    },
+    "height": Object {
+      "lg": 40,
+      "md": 34,
+      "sm": 28,
+    },
+    "lineHeight": 1,
+    "padding": Object {
+      "lg": 10,
+      "md": 8,
+      "sm": 6,
+    },
+    "requiredColor": "#999",
+    "validation": Object {
+      "invalid": "#f00",
+      "valid": "#3ac200",
+    },
+  },
+  "space": Array [
+    0,
+    4,
+    8,
+    16,
+    32,
+    64,
+    128,
+  ],
+  "switchSizes": Object {
+    "lg": Object {
+      "borderRadius": 16,
+      "height": 32,
+      "space": 3,
+      "width": 57,
+    },
+    "md": Object {
+      "borderRadius": 14,
+      "height": 26,
+      "space": 3,
+      "width": 47,
+    },
+    "sm": Object {
+      "borderRadius": 10,
+      "height": 20,
+      "space": 3,
+      "width": 35,
+    },
+    "xl": Object {
+      "borderRadius": 20,
+      "height": 40,
+      "space": 3,
+      "width": 74,
+    },
+    "xs": Object {
+      "borderRadius": 7,
+      "height": 14,
+      "space": 2,
+      "width": 24,
+    },
+  },
+  "table": Object {
+    "borderColors": Object {
+      "primary": "#ccc",
+      "secondary": "#32383e",
+    },
+    "captionColor": "#ccc",
+    "captionPadding": 6,
+    "colors": Object {
+      "primary": "#fff",
+      "secondary": "#000",
+    },
+    "headColors": Object {
+      "dark": "#000",
+      "light": "#f4f4f4",
+    },
+    "padding": Object {
+      "lg": 18,
+      "md": 12,
+      "sm": 6,
+    },
+    "stripedColors": Object {
+      "primary": "#ededed",
+      "secondary": "#262626",
+    },
+  },
+  "textColor": "#2E2E2E",
+  "textarea": Object {
+    "backgroundColor": "#fff",
+    "borderColor": "#ccc",
+    "borderRadius": 2,
+    "borderWidth": 1,
+    "color": "#2E2E2E",
+    "disabledColor": "#ececec",
+    "fontSize": Object {
+      "lg": 20,
+      "md": 16,
+      "sm": 14,
+    },
+    "height": Object {
+      "lg": 40,
+      "md": 34,
+      "sm": 28,
+    },
+    "lineHeight": 1.4,
+    "padding": Object {
+      "lg": 10,
+      "md": 8,
+      "sm": 6,
+    },
+    "requiredColor": "#999",
+    "validation": Object {
+      "invalid": "#f00",
+      "valid": "#3ac200",
+    },
+  },
+}
+`;
+
+exports[`helpers getTheme should return properly 2`] = `
+Array [
+  "360px",
+  "400px",
+  "768px",
+  "1024px",
+  "1360px",
+]
+`;
+
+exports[`helpers getYiq should handle missing parameters 1`] = `0`;
+
+exports[`helpers getYiq should return properly 1`] = `255`;
+
+exports[`helpers getYiq should return properly 2`] = `83.997`;
+
+exports[`helpers getYiq should return properly 3`] = `153`;
+
+exports[`helpers getYiq should return properly 4`] = `51`;
+
+exports[`helpers getYiq should return properly 5`] = `0`;
+
+exports[`helpers mergeTheme should should return properly 1`] = `
+Object {
+  "alert": Object {
+    "borderRadius": 3,
+    "maxWidth": 450,
+    "padding": "10px 12px",
+  },
+  "badge": Object {
+    "borderRadius": 10,
+    "fontSize": 12,
+    "fontWeight": 700,
+    "lineHeight": 18,
+    "padding": 5,
+    "size": 20,
+    "sizeDot": 6,
+  },
+  "borderColor": "#ccc",
+  "breakpoints": Array [
+    "360px",
+    "400px",
+    "768px",
+    "1024px",
+    "1360px",
+  ],
+  "button": Object {
+    "borderRadius": Object {
+      "lg": 0,
+      "md": 0,
+      "sm": 0,
+      "xl": 0,
+      "xs": 0,
+    },
+    "disabledOpacity": 0.7,
+    "fontSize": Object {
+      "lg": 18,
+      "md": 16,
+      "sm": 14,
+      "xl": 22,
+      "xs": 12,
+    },
+    "lineHeight": 1,
+    "loader": [Function],
+    "padding": Object {
+      "lg": Array [
+        10,
+        18,
+      ],
+      "md": Array [
+        8,
+        14,
+      ],
+      "sm": Array [
+        6,
+        10,
+      ],
+      "xl": Array [
+        12,
+        20,
+      ],
+      "xs": Array [
+        4,
+        8,
+      ],
+    },
+    "textTransform": "none",
+  },
+  "checkbox": Object {
+    "backgroundColor": "#f7f8f9",
+    "borderColor": "#ccc",
+    "borderRadius": 4,
+    "fontSize": Object {
+      "lg": 20,
+      "md": 16,
+      "sm": 14,
+    },
+    "sizes": Object {
+      "lg": 20,
+      "md": 16,
+      "sm": 14,
+    },
+  },
+  "code": Object {
+    "backgroundColor": "#f7f8f9",
+    "blockColor": "#676767",
+    "blockPadding": 8,
+    "border": "1px solid #e5e5e5",
+    "borderRadius": 2,
+    "color": "#ff4444",
+    "fontFamily": "Courier, monospace",
+    "padding": 2,
+  },
+  "colors": Object {
+    "amber": "#FFC107",
+    "black": "#000",
+    "blue": "#2196F3",
+    "brown": "#795548",
+    "cyan": "#00BCD4",
+    "green": "#4CAF50",
+    "indigo": "#3F51B5",
+    "lime": "#CDDC39",
+    "orange": "#FF9800",
+    "pink": "#E91E63",
+    "purple": "#9C27B0",
+    "red": "#f44336",
+    "teal": "#009688",
+    "white": "#fff",
+    "yellow": "#FFEB3B",
+  },
+  "darkColor": "#3C3F41",
+  "disabledColor": "#ececec",
+  "fieldset": Object {
+    "borderColor": "#ccc",
+    "borderRadius": 4,
+    "color": "#2E2E2E",
+    "marginBottom": 16,
+    "padding": 8,
+  },
+  "fontSizes": Array [
+    10,
+    12,
+    14,
+    16,
+    20,
+    26,
+    32,
+    40,
+    48,
+  ],
+  "form": Object {
+    "borderColor": "#ccc",
+    "borderRadius": 4,
+    "borderWidth": 1,
+    "padding": 10,
+  },
+  "formGroup": Object {
+    "borderColor": "#ccc",
+    "borderRadius": 4,
+    "helpColor": "#999",
+    "helpMarginTop": 4,
+    "inlineMargin": 8,
+    "marginBottom": 16,
+    "padding": 8,
+  },
+  "grays": Object {
+    "gray03": "#f7f7f7",
+    "gray05": "#f4f4f4",
+    "gray10": "#e6e6e6",
+    "gray20": "#ccc",
+    "gray30": "#b3b3b3",
+    "gray40": "#999",
+    "gray50": "#808080",
+    "gray60": "#666",
+    "gray70": "#4d4d4d",
+    "gray80": "#333",
+    "gray90": "#1a1a1a",
+  },
+  "headingSizes": Object {
+    "h1": 48,
+    "h2": 40,
+    "h3": 32,
+    "h4": 26,
+    "h5": 20,
+    "h6": 16,
+  },
+  "headingWeight": 700,
+  "input": Object {
+    "backgroundColor": "#fff",
+    "borderColor": "#ccc",
+    "borderRadius": 2,
+    "borderWidth": 1,
+    "color": "#2E2E2E",
+    "disabledColor": "#ececec",
+    "fontSize": Object {
+      "lg": 20,
+      "md": 16,
+      "sm": 14,
+    },
+    "height": Object {
+      "lg": 40,
+      "md": 34,
+      "sm": 28,
+    },
+    "lineHeight": 1,
+    "padding": Object {
+      "lg": 10,
+      "md": 8,
+      "sm": 6,
+    },
+    "requiredColor": "#999",
+    "validation": Object {
+      "invalid": "#f00",
+      "valid": "#3ac200",
+    },
+  },
+  "label": Object {
+    "color": "#2E2E2E",
+    "inlineFontSize": 14,
+    "marginBottom": 8,
+  },
+  "legend": Object {
+    "color": "#2E2E2E",
+    "marginBottom": 8,
+  },
+  "lineHeight": 2,
+  "list": Object {
+    "borderColor": "#ccc",
+    "borderRadius": 3,
+    "color": "#2E2E2E",
+    "padding": Object {
+      "lg": 16,
+      "md": 12,
+      "sm": 8,
+    },
+  },
+  "palette": Object {
+    "danger": "#ff4444",
+    "dark": "#212121",
+    "info": "#33b5e5",
+    "light": "#f4f4f4",
+    "primary": "#2E2E2E",
+    "secondary": "#4B515D",
+    "success": "#00C851",
+    "warning": "#fda509",
+  },
+  "radio": Object {
+    "backgroundColor": "#f7f8f9",
+    "borderColor": "#ccc",
+    "borderRadius": "50%",
+    "fontSize": Object {
+      "lg": 20,
+      "md": 16,
+      "sm": 14,
+    },
+    "sizes": Object {
+      "lg": 20,
+      "md": 16,
+      "sm": 14,
+    },
+  },
+  "select": Object {
+    "backgroundColor": "#fff",
+    "borderColor": "#ccc",
+    "borderRadius": 2,
+    "borderWidth": 1,
+    "color": "#2E2E2E",
+    "disabledColor": "#ececec",
+    "fontSize": Object {
+      "lg": 20,
+      "md": 16,
+      "sm": 14,
+    },
+    "height": Object {
+      "lg": 40,
+      "md": 34,
+      "sm": 28,
+    },
+    "lineHeight": 1,
+    "padding": Object {
+      "lg": 10,
+      "md": 8,
+      "sm": 6,
+    },
+    "requiredColor": "#999",
+    "validation": Object {
+      "invalid": "#f00",
+      "valid": "#3ac200",
+    },
+  },
+  "space": Array [
+    0,
+    4,
+    8,
+    16,
+    32,
+    64,
+    128,
+  ],
+  "switchSizes": Object {
+    "lg": Object {
+      "borderRadius": 16,
+      "height": 32,
+      "space": 3,
+      "width": 57,
+    },
+    "md": Object {
+      "borderRadius": 14,
+      "height": 26,
+      "space": 3,
+      "width": 47,
+    },
+    "sm": Object {
+      "borderRadius": 10,
+      "height": 20,
+      "space": 3,
+      "width": 35,
+    },
+    "xl": Object {
+      "borderRadius": 20,
+      "height": 40,
+      "space": 3,
+      "width": 74,
+    },
+    "xs": Object {
+      "borderRadius": 7,
+      "height": 14,
+      "space": 2,
+      "width": 24,
+    },
+  },
+  "table": Object {
+    "borderColors": Object {
+      "primary": "#ccc",
+      "secondary": "#32383e",
+    },
+    "captionColor": "#ccc",
+    "captionPadding": 6,
+    "colors": Object {
+      "primary": "#fff",
+      "secondary": "#000",
+    },
+    "headColors": Object {
+      "dark": "#000",
+      "light": "#f4f4f4",
+    },
+    "padding": Object {
+      "lg": 18,
+      "md": 12,
+      "sm": 6,
+    },
+    "stripedColors": Object {
+      "primary": "#ededed",
+      "secondary": "#262626",
+    },
+  },
+  "textColor": "#2E2E2E",
+  "textarea": Object {
+    "backgroundColor": "#fff",
+    "borderColor": "#ccc",
+    "borderRadius": 2,
+    "borderWidth": 1,
+    "color": "#2E2E2E",
+    "disabledColor": "#ececec",
+    "fontSize": Object {
+      "lg": 20,
+      "md": 16,
+      "sm": 14,
+    },
+    "height": Object {
+      "lg": 40,
+      "md": 34,
+      "sm": 28,
+    },
+    "lineHeight": 1.4,
+    "padding": Object {
+      "lg": 10,
+      "md": 8,
+      "sm": 6,
+    },
+    "requiredColor": "#999",
+    "validation": Object {
+      "invalid": "#f00",
+      "valid": "#3ac200",
+    },
+  },
+}
+`;
+
+exports[`helpers responsive should return properly 1`] = `
+Object {
+  "@media screen and (min-width: 100rem)": Object {
+    "color": "f04",
+  },
+  "@media screen and (min-width: 768px)": Object {
+    "color": "fff",
+  },
+  "@media screen and (min-width: 900px)": Object {
+    "backgroundColor": "black",
+    "color": "f04",
+  },
+  "color": "ccc",
+}
+`;
+
+exports[`helpers spacer should should return properly 1`] = `"4px"`;
+
+exports[`helpers spacer should should return properly 2`] = `"20px"`;

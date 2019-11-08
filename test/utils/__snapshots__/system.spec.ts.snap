@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`colorStyles should return the proper color 1`] = `
+Array [
+  "
+    color: ",
+  "#fff",
+  ";
+  ",
+]
+`;
+
+exports[`colorStyles should return the proper color 2`] = `
+Array [
+  "
+    color: ",
+  "#000",
+  ";
+  ",
+]
+`;
+
+exports[`colorStyles should return the proper color 3`] = `
+Array [
+  "
+    color: ",
+  "#fff",
+  ";
+  ",
+]
+`;
+
+exports[`sx should handle the css prop 1`] = `
+Object {
+  "&:hover": Object {
+    "color": "#333",
+  },
+  "@media screen and (min-width: 360px)": Object {
+    "color": "#999",
+  },
+  "backgroundColor": "#000",
+  "color": "#f04",
+}
+`;
+
+exports[`sx should handle the responsive prop 1`] = `
+Object {
+  "@media screen and (min-width: 768px)": Object {
+    "color": "#999",
+  },
+  "color": "#ccc",
+}
+`;
+
+exports[`system should handle props 1`] = `
+Object {
+  "@media screen and (min-width: 360px)": Object {
+    "fontSize": 22,
+  },
+  "@media screen and (min-width: 400px)": Object {
+    "color": "#000",
+  },
+  "color": "#333",
+  "fontSize": 20,
+  "fontWeight": "#f04",
+}
+`;
+
+exports[`variantStyles should return the proper styles 1`] = `
+Array [
+  "
+    background-color: ",
+  "#4B515D",
+  ";
+    border: ",
+  "1px solid #4B515D",
+  ";
+    color: ",
+  "#fff",
+  ";
+  ",
+]
+`;
+
+exports[`variantStyles should return the proper styles 2`] = `
+Array [
+  "
+    background-color: ",
+  "#FFEB3B",
+  ";
+    border: ",
+  "1px solid #FFEB3B",
+  ";
+    color: ",
+  "#000",
+  ";
+  ",
+]
+`;
+
+exports[`variantStyles should return the proper styles 3`] = `
+Array [
+  "
+    background-color: ",
+  "#2E2E2E",
+  ";
+    border: ",
+  "1px solid #2E2E2E",
+  ";
+    color: ",
+  "#fff",
+  ";
+  ",
+]
+`;

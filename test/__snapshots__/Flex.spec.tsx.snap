@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Flex should render properly 1`] = `
+.c0 {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c1 {
+  box-sizing: border-box;
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    Left
+  </div>
+  <div
+    class="c1"
+  >
+    Right
+  </div>
+</div>
+`;

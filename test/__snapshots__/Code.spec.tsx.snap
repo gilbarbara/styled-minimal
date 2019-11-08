@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Code should render properly 1`] = `
+.c0 {
+  box-sizing: border-box;
+  background-color: #f7f8f9;
+  border: 1px solid #e5e5e5;
+  border-radius: 2px;
+  color: #ff4444;
+  font-family: Courier,monospace;
+  line-height: 1;
+  padding: 2px;
+}
+
+<code
+  class="c0"
+>
+  &lt;div&gt;Hello&lt;/div&gt;
+</code>
+`;

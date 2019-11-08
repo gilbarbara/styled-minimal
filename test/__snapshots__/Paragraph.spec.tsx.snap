@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Paragraph should render properly 1`] = `
+.c1 {
+  box-sizing: border-box;
+  line-height: 1.4;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.c1 + .c0 {
+  margin-top: 8px;
+}
+
+<div>
+  <p
+    class="c0 c1"
+  >
+    Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+  </p>
+  <p
+    class="c0 c1"
+  >
+    Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
+  </p>
+</div>
+`;

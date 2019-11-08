@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OL should render properly 1`] = `
+.c0 {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  margin: 0;
+}
+
+.c0 > li {
+  line-height: 1.2;
+  padding: 12px;
+}
+
+<ol
+  class="c0"
+>
+  <li>
+    Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+  </li>
+  <li>
+    Morbi leo risus
+  </li>
+  <li>
+    Porta ac consectetur ac
+  </li>
+  <li>
+    Vestibulum at eros
+  </li>
+</ol>
+`;

@@ -1,0 +1,354 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input should render properly 1`] = `
+.c0 {
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  color: #2E2E2E;
+  display: block;
+  font-family: inherit;
+  font-size: 16px;
+  height: 34px;
+  line-height: 1;
+  padding: 8px;
+  width: 100%;
+}
+
+.c0[type='file'] {
+  font-size: 15px;
+  padding: 7px;
+}
+
+.c0::-webkit-input-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c0::-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-ms-input-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-moz-read-only {
+  background-color: #fafafa;
+  color: #7a7a7a;
+}
+
+.c0:read-only {
+  background-color: #fafafa;
+  color: #7a7a7a;
+}
+
+.c0::-webkit-input-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c0::-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-ms-input-placeholder {
+  color: #aeaeae;
+}
+
+.c0:disabled {
+  background-color: #ececec;
+  color: #7a7a7a;
+  border-color: #ececec;
+}
+
+.c0::-webkit-input-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c0::-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-ms-input-placeholder {
+  color: #aeaeae;
+}
+
+.c0:focus {
+  outline-color: #fff;
+  outline-offset: 1px;
+}
+
+.c0:required:not(:valid) {
+  border-color: #999;
+}
+
+.c0:required:not(:valid)::-webkit-input-placeholder {
+  color: #b3b3b3;
+}
+
+.c0:required:not(:valid):-moz-placeholder {
+  color: #b3b3b3;
+}
+
+.c0:required:not(:valid)::-moz-placeholder {
+  color: #b3b3b3;
+}
+
+.c0:required:not(:valid):-ms-input-placeholder {
+  color: #b3b3b3;
+}
+
+<input
+  class="c0"
+  name="test"
+  type="text"
+  value="test"
+/>
+`;
+
+exports[`Input should render properly with validation 1`] = `
+.c0 {
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #3ac200;
+  border-radius: 2px;
+  color: #2E2E2E;
+  display: block;
+  font-family: inherit;
+  font-size: 16px;
+  height: 34px;
+  line-height: 1;
+  padding: 8px;
+  width: 100%;
+}
+
+.c0[type='file'] {
+  font-size: 15px;
+  padding: 7px;
+}
+
+.c0::-webkit-input-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c0::-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-ms-input-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-moz-read-only {
+  background-color: #fafafa;
+  color: #7a7a7a;
+}
+
+.c0:read-only {
+  background-color: #fafafa;
+  color: #7a7a7a;
+}
+
+.c0::-webkit-input-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c0::-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-ms-input-placeholder {
+  color: #aeaeae;
+}
+
+.c0:disabled {
+  background-color: #ececec;
+  color: #7a7a7a;
+  border-color: #ececec;
+}
+
+.c0::-webkit-input-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c0::-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-ms-input-placeholder {
+  color: #aeaeae;
+}
+
+.c0:focus {
+  outline-color: #fff;
+  outline-offset: 1px;
+}
+
+.c0:required:not(:valid) {
+  border-color: #999;
+}
+
+.c0:required:not(:valid)::-webkit-input-placeholder {
+  color: #b3b3b3;
+}
+
+.c0:required:not(:valid):-moz-placeholder {
+  color: #b3b3b3;
+}
+
+.c0:required:not(:valid)::-moz-placeholder {
+  color: #b3b3b3;
+}
+
+.c0:required:not(:valid):-ms-input-placeholder {
+  color: #b3b3b3;
+}
+
+.c1 {
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #f00;
+  border-radius: 2px;
+  color: #2E2E2E;
+  display: block;
+  font-family: inherit;
+  font-size: 16px;
+  height: 34px;
+  line-height: 1;
+  padding: 8px;
+  width: 100%;
+}
+
+.c1[type='file'] {
+  font-size: 15px;
+  padding: 7px;
+}
+
+.c1::-webkit-input-placeholder {
+  color: #aeaeae;
+}
+
+.c1:-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c1::-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c1:-ms-input-placeholder {
+  color: #aeaeae;
+}
+
+.c1:-moz-read-only {
+  background-color: #fafafa;
+  color: #7a7a7a;
+}
+
+.c1:read-only {
+  background-color: #fafafa;
+  color: #7a7a7a;
+}
+
+.c1::-webkit-input-placeholder {
+  color: #aeaeae;
+}
+
+.c1:-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c1::-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c1:-ms-input-placeholder {
+  color: #aeaeae;
+}
+
+.c1:disabled {
+  background-color: #ececec;
+  color: #7a7a7a;
+  border-color: #ececec;
+}
+
+.c1::-webkit-input-placeholder {
+  color: #aeaeae;
+}
+
+.c1:-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c1::-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c1:-ms-input-placeholder {
+  color: #aeaeae;
+}
+
+.c1:focus {
+  outline-color: #fff;
+  outline-offset: 1px;
+}
+
+.c1:required:not(:valid) {
+  border-color: #999;
+}
+
+.c1:required:not(:valid)::-webkit-input-placeholder {
+  color: #b3b3b3;
+}
+
+.c1:required:not(:valid):-moz-placeholder {
+  color: #b3b3b3;
+}
+
+.c1:required:not(:valid)::-moz-placeholder {
+  color: #b3b3b3;
+}
+
+.c1:required:not(:valid):-ms-input-placeholder {
+  color: #b3b3b3;
+}
+
+<div>
+  <input
+    class="c0"
+    name="test"
+    type="text"
+    value="test"
+  />
+  <input
+    class="c1"
+    name="test2"
+    type="text"
+    value="test"
+  />
+</div>
+`;

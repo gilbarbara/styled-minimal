@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image should render properly 1`] = `
+.c0 {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+<img
+  alt="Moon"
+  class="c0"
+  src="https://assets.imgix.net/unsplash/moon.jpg"
+/>
+`;

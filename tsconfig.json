@@ -1,0 +1,10 @@
+{
+  "extends": "@gilbarbara/tsconfig",
+  "compilerOptions": {
+    "outDir": "./lib",
+    "rootDirs": ["src", "stories"],
+    "target": "es5",
+    "types": ["react", "node", "jest"]
+  },
+  "include": ["src/**/*"]
+}

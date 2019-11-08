@@ -1,0 +1,432 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select should render properly 1`] = `
+.c0 {
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  color: #2E2E2E;
+  display: block;
+  height: 34px;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1;
+  padding: 8px;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.c0 > option {
+  background-color: #fff;
+  color: #2E2E2E;
+  font-size: 16px;
+  line-height: 1;
+  padding: 8px;
+}
+
+.c0[multiple] {
+  background-color: #fff;
+}
+
+.c0[multiple] option:checked {
+  background: #ccc linear-gradient(0deg,#ccc 0%,#ccc 100%);
+  font-weight: bold;
+}
+
+.c0::-webkit-input-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c0::-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-ms-input-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-moz-read-only {
+  background-color: #fafafa;
+  color: #7a7a7a;
+}
+
+.c0:read-only {
+  background-color: #fafafa;
+  color: #7a7a7a;
+}
+
+.c0::-webkit-input-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c0::-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-ms-input-placeholder {
+  color: #aeaeae;
+}
+
+.c0:disabled {
+  background-color: #ececec;
+  color: #7a7a7a;
+  border-color: #ececec;
+}
+
+.c0::-webkit-input-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c0::-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-ms-input-placeholder {
+  color: #aeaeae;
+}
+
+.c0:focus {
+  outline-color: #fff;
+  outline-offset: 1px;
+}
+
+.c0:required:not(:valid) {
+  border-color: #999;
+}
+
+.c0:required:not(:valid)::-webkit-input-placeholder {
+  color: #b3b3b3;
+}
+
+.c0:required:not(:valid):-moz-placeholder {
+  color: #b3b3b3;
+}
+
+.c0:required:not(:valid)::-moz-placeholder {
+  color: #b3b3b3;
+}
+
+.c0:required:not(:valid):-ms-input-placeholder {
+  color: #b3b3b3;
+}
+
+<select
+  class="c0"
+>
+  <option
+    value="male"
+  >
+    Male
+  </option>
+  <option
+    value="female"
+  >
+    Female
+  </option>
+  <option
+    value="other"
+  >
+    Other
+  </option>
+</select>
+`;
+
+exports[`Select should render properly with validation 1`] = `
+.c0 {
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #3ac200;
+  border-radius: 2px;
+  color: #2E2E2E;
+  display: block;
+  height: 34px;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1;
+  padding: 8px;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.c0 > option {
+  background-color: #fff;
+  color: #2E2E2E;
+  font-size: 16px;
+  line-height: 1;
+  padding: 8px;
+}
+
+.c0[multiple] {
+  background-color: #fff;
+}
+
+.c0[multiple] option:checked {
+  background: #3ac200 linear-gradient(0deg,#3ac200 0%,#3ac200 100%);
+  font-weight: bold;
+}
+
+.c0::-webkit-input-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c0::-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-ms-input-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-moz-read-only {
+  background-color: #fafafa;
+  color: #7a7a7a;
+}
+
+.c0:read-only {
+  background-color: #fafafa;
+  color: #7a7a7a;
+}
+
+.c0::-webkit-input-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c0::-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-ms-input-placeholder {
+  color: #aeaeae;
+}
+
+.c0:disabled {
+  background-color: #ececec;
+  color: #7a7a7a;
+  border-color: #ececec;
+}
+
+.c0::-webkit-input-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c0::-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c0:-ms-input-placeholder {
+  color: #aeaeae;
+}
+
+.c0:focus {
+  outline-color: #fff;
+  outline-offset: 1px;
+}
+
+.c0:required:not(:valid) {
+  border-color: #999;
+}
+
+.c0:required:not(:valid)::-webkit-input-placeholder {
+  color: #b3b3b3;
+}
+
+.c0:required:not(:valid):-moz-placeholder {
+  color: #b3b3b3;
+}
+
+.c0:required:not(:valid)::-moz-placeholder {
+  color: #b3b3b3;
+}
+
+.c0:required:not(:valid):-ms-input-placeholder {
+  color: #b3b3b3;
+}
+
+.c1 {
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #f00;
+  border-radius: 2px;
+  color: #2E2E2E;
+  display: block;
+  height: 34px;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1;
+  padding: 8px;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.c1 > option {
+  background-color: #fff;
+  color: #2E2E2E;
+  font-size: 16px;
+  line-height: 1;
+  padding: 8px;
+}
+
+.c1[multiple] {
+  background-color: #fff;
+}
+
+.c1[multiple] option:checked {
+  background: #f00 linear-gradient(0deg,#f00 0%,#f00 100%);
+  font-weight: bold;
+}
+
+.c1::-webkit-input-placeholder {
+  color: #aeaeae;
+}
+
+.c1:-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c1::-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c1:-ms-input-placeholder {
+  color: #aeaeae;
+}
+
+.c1:-moz-read-only {
+  background-color: #fafafa;
+  color: #7a7a7a;
+}
+
+.c1:read-only {
+  background-color: #fafafa;
+  color: #7a7a7a;
+}
+
+.c1::-webkit-input-placeholder {
+  color: #aeaeae;
+}
+
+.c1:-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c1::-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c1:-ms-input-placeholder {
+  color: #aeaeae;
+}
+
+.c1:disabled {
+  background-color: #ececec;
+  color: #7a7a7a;
+  border-color: #ececec;
+}
+
+.c1::-webkit-input-placeholder {
+  color: #aeaeae;
+}
+
+.c1:-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c1::-moz-placeholder {
+  color: #aeaeae;
+}
+
+.c1:-ms-input-placeholder {
+  color: #aeaeae;
+}
+
+.c1:focus {
+  outline-color: #fff;
+  outline-offset: 1px;
+}
+
+.c1:required:not(:valid) {
+  border-color: #999;
+}
+
+.c1:required:not(:valid)::-webkit-input-placeholder {
+  color: #b3b3b3;
+}
+
+.c1:required:not(:valid):-moz-placeholder {
+  color: #b3b3b3;
+}
+
+.c1:required:not(:valid)::-moz-placeholder {
+  color: #b3b3b3;
+}
+
+.c1:required:not(:valid):-ms-input-placeholder {
+  color: #b3b3b3;
+}
+
+<div>
+  <select
+    class="c0"
+  >
+    <option
+      value="male"
+    >
+      Male
+    </option>
+    <option
+      value="female"
+    >
+      Female
+    </option>
+    <option
+      value="other"
+    >
+      Other
+    </option>
+  </select>
+  <select
+    class="c1"
+  >
+    <option
+      value="male"
+    >
+      Male
+    </option>
+    <option
+      value="female"
+    >
+      Female
+    </option>
+    <option
+      value="other"
+    >
+      Other
+    </option>
+  </select>
+</div>
+`;
