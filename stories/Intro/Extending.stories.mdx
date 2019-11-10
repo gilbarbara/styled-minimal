@@ -1,0 +1,120 @@
+<Meta title="Intro|Extending" />
+
+import { Group, Heading, Image } from '../../src';
+import { Avatar, Card, Panel } from '../__fixtures__/components';
+
+# Extending
+
+You can use any component as the base to build your own. By extending them, you can
+have a component library with a consistent API based on the design rules in your theme.
+
+### With style props
+
+```jsx
+export const Card = ({ description }: any) => (
+  <Box
+    bg="#f7f7f7"
+    border="1px solid #ccc"
+    borderRadius="8px"
+    maxWidth={290}
+    p={{
+      _: 8,
+      md: 16,
+    }}
+    textAlign="center"
+  >
+    <Text>{description}</Text>
+  </Box>
+);
+
+
+```
+
+<Card
+  description="User interfaces that enable people to interact
+smoothly with data, ask better questions, and make better decisions."
+/>
+
+### With the `css` prop
+
+If you need more control, you can use the `css` prop.<br />
+It uses [@styled-system/css](https://github.com/styled-system/styled-system/tree/master/packages/css) for
+parsing and accepts all properties, nested selectors and pseudo states.
+
+```jsx
+export const Avatar = ({ image, name, ...rest }: any) => (
+  <Box
+    css={{
+      alignItems: 'center',
+      bg: '#000',
+      borderRadius: '50%',
+      color: '#fff',
+      display: 'inline-flex',
+      fontSize: 24,
+      fontWeight: 700,
+      height: 64,
+      justifyContent: 'center',
+      overflow: 'hidden',
+      transition: 'transform 0.2s',
+      width: 64,
+      '> img': {
+        borderRadius: '50%',
+      },
+      '&:hover': {
+        transform: 'scale(1.1)',
+      },
+    }}
+    {...rest}
+  >
+    {image ? <Image src={image} alt={name} /> : <Text>{name}</Text>}
+  </Box>
+);
+
+<Avatar bg="red" name="LR" />
+
+<Avatar image="https://picsum.photos/id/237/200" name="LR" />
+```
+<Group gap={20} mb={5}>
+<Avatar bg="red" name="LR" />
+<br />
+<br />
+
+<Avatar image="https://picsum.photos/id/237/200" name="LR" />
+<br />
+</Group>
+
+## Responsive
+
+All style props can have responsive values but if you need to update multiple properties at once
+you can use the `responsive` prop. It accepts a responsive object with breakpoints.
+
+```jsx
+export const Panel = ({ title, description }: any) => (
+  <Box
+    bg="#f7f7f7"
+    borderColor="#999"
+    borderStyle="solid"
+    borderWidth={1}
+    borderRadius="8px"
+    p={16}
+    responsive={{
+      md: {
+        borderColor: '#f04',
+        borderWidth: 2,
+        padding: 32,
+      },
+    }}
+  >
+    <Heading as="h4" gutter>
+      {title}
+    </Heading>
+    <Text>{description}</Text>
+  </Box>
+);
+```
+
+<Panel
+  title="App Information"
+  description="User interfaces that enable people to interact
+smoothly with data, ask better questions, and make better decisions."
+/>

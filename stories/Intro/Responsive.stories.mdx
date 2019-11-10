@@ -1,0 +1,58 @@
+<Meta title="Intro|Responsive styles" />
+
+import { Box } from '../../src';
+
+# Responsive styles
+
+styled-minimal offers a convenient shorthand syntax for adding responsive styles with a
+mobile-first approach. While this syntax can seem odd at first, it can become a powerful way to
+manage responsive typography and layouts.
+
+```jsx
+// responsive width
+<Box
+  width={{
+    _: 1, // The base value
+    md: 1 / 2, // 50% on medium screen sizes and up
+    xl: 1 / 4, // 25% on extra large screen sizes and up
+  }}
+/>
+
+// responsive font size (using the theme's fontSizes scale)
+<Box
+  fontSize={{
+    _: 3,
+    md: 4,
+    lg: 26, /* numbers that don't exist in the scale will be converted to px */
+    xl: '5rem'
+  }}
+/>
+
+
+// responsive padding (using the theme's space scale)
+<Box
+  padding={{
+    _: 3,
+    md: 4,
+  }}
+/>
+
+```
+
+With arrays
+
+```jsx
+<Box
+  width={[
+    1,    // 100% below the smallest breakpoint
+    1/2,  // 50% from the next breakpoint and up (xs)
+    null, // use the previous value (sm)
+    1/4   // 25% from the next breakpoint and up (md)
+  ]}
+/>
+
+// responsive margin (using the theme's space scale)
+<Box m={[ 1, 2, 3, 4 ]} />
+```
+
+You can read more about it [here](https://styled-system.com/responsive-styles/#what-it-does)

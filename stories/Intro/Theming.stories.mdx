@@ -1,0 +1,107 @@
+<Meta title="Intro|Theming" />
+
+import { Box, Grid, Paragraph } from '../../src';
+import { colors, grays, palette } from '../../src/utils/theme';
+
+# Theming
+
+Import styled-components's [ThemeProvider](https://www.styled-components.com/docs/advanced#theming) in the root of your application and pass the theme.
+
+```javascript
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
+
+const theme = {
+  palette: {
+    primary: '#ff0044',
+    secondary: '#ff80a1',
+  },
+};
+
+const App = props => {
+  return <ThemeProvider theme={theme}>{/* Your code here */}</ThemeProvider>;
+};
+
+export default App;
+```
+
+> You don't need to set all props in your theme. It will be deep merged with the default theme
+(except arrays).
+
+## Theme props
+
+| Property      | Value                                                                                                                                                                                                                                                                                                                                  |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| breakpoints   | [360 (xs), 400 (sm), 768 (md), 1024 (lg), 1360 (xl)]                                                                                                                                                                                                                                                                                   |
+| fontSizes     | [10, 12, 14, 16, 20, 26, 32, 40, 48]                                                                                                                                                                                                                                                                                                   |
+| headingSizes  | {<br />h1: 48,<br /> h2: 40,<br /> h3: 32,<br /> h4: 26,<br /> h5: 20,<br /> h6: 16<br />}                                                                                                                                                                                                                                             |
+| headingWeight | 700                                                                                                                                                                                                                                                                                                                                    |
+| lineHeight    | 1.4                                                                                                                                                                                                                                                                                                                                    |
+| space         | [0, 4, 8, 16, 32, 64, 128]                                                                                                                                                                                                                                                                                                             |
+| darkColor     | #3C3F41                                                                                                                                                                                                                                                                                                                                |
+| textColor     | #2E2E2E                                                                                                                                                                                                                                                                                                                                |
+| borderColor   | #CCC                                                                                                                                                                                                                                                                                                                                   |
+| colors        | {<br/> white: #fff, <br/> red: #f44336, <br/> pink: #E91E63, <br/> purple: #9C27B0, <br/> indigo: #3F51B5, <br/> blue: #2196F3, <br/> cyan: #00BCD4, <br/> teal: #009688, <br/> green: #4CAF50, <br/> lime: #CDDC39, <br/> yellow: #FFEB3B, <br/> amber: #FFC107, <br/> orange: #FF9800, <br/> brown: #795548, <br/> black: #000<br/>} |
+| grays         | {<br/> gray05: #f4f4f4, <br/> gray10: #e6e6e6, <br/> gray20: #ccc, <br/> gray30: #b3b3b3, <br/> gray40: #999, <br/> gray50: #808080, <br/> gray60: #666, <br/> gray70: #4d4d4d, <br/> gray80: #333, <br/> gray90: #1a1a1a<br/>}                                                                                                        |
+| palette       | {<br/> primary: #2E2E2E, <br/> secondary: #4B515D, <br/> success: #00C851, <br/> warning: #fda509, <br/> danger: #ff4444, <br/> info: #33b5e5, <br/> light: #f4f4f4, <br/> dark: #212121<br/>}                                                                                                                                         |  |
+
+For the complete list of properties, consult the [theme](https://github.com/gilbarbara/styled-minimal/blob/master/src/utils/theme.ts) source file
+
+## Variants
+
+The `variant` prop that some components support is a combination of the `palette`, `colors` and
+`grays`
+
+### Palette
+
+<Grid gridTemplateColumns="repeat(3, 1fr)" gridGap={15}>
+  {Object.keys(palette).map(d => {
+    const color = palette[d];
+    return (
+      <React.Fragment key={d}>
+        <Box border="1px solid #ccc" p={10}>
+          <Box bg={color} mb={2} width="100%" height={60} />
+          <Paragraph>
+            {d} - {color}
+          </Paragraph>
+        </Box>
+      </React.Fragment>
+    );
+  })}
+</Grid>
+
+### Colors
+
+<Grid gridTemplateColumns="repeat(3, 1fr)" gridGap={15}>
+  {Object.keys(colors).map(d => {
+    const color = colors[d];
+    return (
+      <React.Fragment key={d}>
+        <Box border="1px solid #ccc" p={10}>
+          <Box bg={color} mb={2} width="100%" height={60} />
+          <Paragraph>
+            {d} - {color}
+          </Paragraph>
+        </Box>
+      </React.Fragment>
+    );
+  })}
+</Grid>
+
+### Grays
+
+<Grid gridTemplateColumns="repeat(3, 1fr)" gridGap={15}>
+  {Object.keys(grays).map(d => {
+    const color = grays[d];
+    return (
+      <React.Fragment key={d}>
+        <Box border="1px solid #ccc" p={10}>
+          <Box bg={color} mb={2} width="100%" height={60} />
+          <Paragraph>
+            {d} - {color}
+          </Paragraph>
+        </Box>
+      </React.Fragment>
+    );
+  })}
+</Grid>

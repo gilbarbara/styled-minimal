@@ -1,0 +1,56 @@
+import { Box, Heading, Link, Paragraph, Table } from '../../src';
+import { styleProps } from '../__fixtures__/helpers';
+import { PropsTable } from '../__fixtures__/components';
+
+<Meta title="Intro|Props" />
+
+# Props
+
+All styled-minimal components accept the props below:
+
+## Base Props
+
+Change the element type and base styles
+
+<Table>
+    <thead>
+      <tr>
+        <th style={{ width: 200 }}>Prop</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>as</td>
+        <td>Use a different HTML element and keep the styling</td>
+      </tr>
+      <tr>
+        <td>css
+        </td>
+        <td>
+          Style object parsed with{' '}
+          <Link href="https://github.com/styled-system/styled-system/tree/master/packages/css">@styled-system/css</Link>
+        </td>
+      </tr>
+      <tr>
+        <td>responsive</td>
+        <td>Responsive object with theme-aware Styled System shortcuts</td>
+      </tr>
+    </tbody>
+  </Table>
+
+## Style Props
+
+Uses the [styled-system's](https://styled-system.com/) custom props with responsive, theme-aware
+shortcuts.
+
+<div>
+{styleProps.map(d => (
+  <Box key={d.name} mb={4}>
+    <Heading as="h5" gutter>{d.name}</Heading>
+    <PropsTable items={d.items} />
+  </Box>
+))}
+</div>
+
+For more information, check the styled-system's reference [table](https://styled-system.com/table)

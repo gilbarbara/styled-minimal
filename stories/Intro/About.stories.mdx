@@ -1,0 +1,41 @@
+<Meta title="Intro|About" />
+
+import { Button, Group, Heading, Paragraph } from '../../src';
+import { Avatar, Panel, Header, HeaderWithBox, ResponsiveHeader } from '../__fixtures__/components';
+
+# styled-minimal ui framework
+
+A React UI toolkit with [styled-components](https://www.styled-components.com) and
+[styled-system](https://styled-system.com/).
+
+## Quick start
+
+```bash
+npm i styled-minimal styled-components
+```
+
+## Import
+
+```jsx
+import { Button, Group } from 'styled-minimal';
+
+const FormActions = () => (
+  <Group>
+    <Button>Send</Button>
+    <Button variant="gray40" invert>
+      Cancel
+    </Button>
+  </Group>
+);
+```
+
+The resulting element:
+
+<Group>
+  <Button mr={1}>Send</Button>
+  <Button variant="gray40" invert>
+    Cancel
+  </Button>
+</Group>
+
+[**Try it out on CodeSandbox** ▸](https://codesandbox.io/s/k958nr9lno)

@@ -1,0 +1,81 @@
+<Meta title="Intro|Utilities" />
+
+import { Header, HeaderWithBox, ResponsiveHeader } from '../__fixtures__/components';
+
+# Utilities
+
+A few helpers to build your own components.
+
+### system
+
+Lets you write style objects with responsive, theme-aware Styled System shortcuts that you can
+use to create your own components.
+
+You can read more about @styled-system/css [here](https://styled-system.com/css)
+
+```jsx
+import styled from 'styled-components';
+import { system } from 'styled-minimal';
+
+export const Header = styled.header(
+  system({
+    bg: '#f04',
+    color: '#fff',
+    p: 10,
+  }),
+);
+```
+
+<Header>The custom Header</Header>
+
+You can achieve the same result by using a Box using `as`
+
+```jsx
+const HeaderWithBox = (props: any) => (
+  <Box as="header" bg="#f04" color="#fff" p={10} {...props} />
+);
+```
+
+<HeaderWithBox>The custom Header using Box</HeaderWithBox>
+
+### responsive
+
+Lets you set multiple css properties for a breakpoint.
+The breakpoint object will be processed by the `system` utility so you use its syntax.
+
+```jsx
+import styled from 'styled-components';
+import { system, responsive } from 'styled-minimal';
+
+export const ResponsiveHeader = styled.header(
+  system({
+    bg: '#f04',
+    color: '#fff',
+    p: 15,
+  }),
+  responsive({
+    md: {
+      bg: '#0f4',
+      color: '#000',
+      p: 30,
+    },
+  }),
+);
+```
+
+<ResponsiveHeader>The responsive Header</ResponsiveHeader>
+
+### getTheme
+
+If you are using a custom theme, pass it as the first parameter to get the correct theme.
+
+ ```jsx
+import { getTheme } from 'styled-minimal';
+
+// getTheme();
+{
+  breakpoints: ['360px', '400px', '768px', '1024px', '1360px'],
+  fontSizes = [10, 12, 14, 16, 20, 26, 32, 40, 48],
+  ...
+}
+ ```
