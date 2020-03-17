@@ -10,13 +10,14 @@ local.properties
 
 # Modules and Caches
 ###########################
+.awcache
 .tmp
+.now
 coverage
+esm/
+lib/
 node_modules
 stats.html
-lib/
-esm/
-.awcache
 
 # OS generated files #
 ######################
